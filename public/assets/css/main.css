@@ -1,0 +1,156 @@
+@import "fonts/FontAwesome/font-awesome.css";
+@import "fonts/MaterialIcons/material-icons.css";
+@import "color.css";
+@font-face {
+	font-family: 'GothamPro';
+	src: url('fonts/GothamPro/GothamPro.eot?') format('eot'),
+	     url('fonts/GothamPro/GothamPro.otf')  format('opentype'),
+	     url('fonts/GothamPro/GothamPro.woff') format('woff'),
+	     url('fonts/GothamPro/GothamPro.ttf')  format('truetype'),
+	     url('fonts/GothamPro/GothamPro.svg#GothamPro') format('svg');
+}
+@font-face {
+	font-family: 'GothamPro-Medium';
+	src: url('fonts/GothamPro-Medium/GothamPro-Medium.eot?') format('eot'),
+	     url('fonts/GothamPro-Medium/GothamPro-Medium.otf')  format('opentype'),
+	     url('fonts/GothamPro-Medium/GothamPro-Medium.woff') format('woff'),
+	     url('fonts/GothamPro-Medium/GothamPro-Medium.ttf')  format('truetype'),
+	     url('fonts/GothamPro-Medium/GothamPro-Medium.svg#GothamPro-Bold') format('svg');
+}
+body {
+    font-family: 'GothamPro' !important;
+	font-size: 14px;
+    background: #eee;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'GothamPro-Medium' !important;
+}
+.uk-navbar-item,
+.uk-navbar-nav>li>a,
+.uk-navbar-toggle {
+    height: 50px;
+    color: #fff;
+    font-family: 'GothamPro' !important;
+}
+.uk-navbar-item > .material-icons,
+.uk-navbar-nav>li>a> .material-icons,
+.uk-navbar-toggle > .material-icons {
+    margin-top: -2px;
+    margin-right: .25rem;
+}
+.uk-dropdown {
+    padding: 1rem !important;
+}
+.uk-card-small .uk-card-header {
+	border-bottom: none;
+	padding-bottom: 0;
+	padding-top: 15px;
+}
+.uk-card-small .uk-card-body {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.uk-card-title {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+.uk-card-footer {
+	padding-left: 12px !important;
+}
+.sm-nav-main {
+    background: #EC1C23 !important;
+}
+.sm-nav-sub {
+    background: #000 !important;
+}
+.sm-logo {
+    height: 30px;
+    background: #fff;
+    padding: 10px;
+    display: inline-block;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    margin-right: 1rem;
+}
+.sm-logo-round {
+    background: #fff;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    overflow: hidden;
+}
+.sm-logo-round:after{
+    content: "";
+    display: block;
+    background: #EC1C23;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+.sm-title-page {
+    color: #fff;
+    font-family: 'GothamPro-Medium' !important;
+    line-height: 100%;
+    margin: 0;
+    padding: 4px 0 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+.sm-footer {
+    color: #535455;
+    background: #ccc;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: .75rem;
+}
+.sm-main {
+    min-height: calc(100vh - 150px - 4rem);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.sm-nav-notif {
+    display: block;
+    height: 30px !important;
+    width: 30px !important;
+    position: relative;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    padding: 0;
+    margin: 10px 20px 10px 10px;
+    text-align: center;
+}
+li:hover .sm-nav-notif {
+    border: 1px solid #666;
+}
+.sm-nav-notif .uk-badge {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    font-size: .6rem;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+    background: #000;
+    padding: 2px 0 0;
+}
+.sm-card-action {
+	width: 150px;
+	padding: 0 !important;
+	margin-left: 0 !important;
+}
+.sm-chartcover {
+	width: 100%;
+	min-height: 100px;
+	background: #f7f7f7;
+	margin-bottom: 10px !important;
+}

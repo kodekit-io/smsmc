@@ -1,0 +1,30 @@
+{
+    "brandEquity": [
+        {
+            "unquser": 100,
+            "netBrandReputation": 200,
+            "netsen": 300,
+            "keywordName": "Key Satu",
+            "color": "#E48701",
+            "buzz": 400,
+            "brandFavourableTalkability": 500,
+            "sim": 600,
+            "keywordID": "1",
+            "emss": 700,
+            "earnedMediaShare": 800
+        },
+        {
+            "unquser": 800,
+            "netBrandReputation": 700,
+            "netsen": 600,
+            "keywordName": "Key Dua",
+            "color": "#FF6600",
+            "buzz": 500,
+            "brandFavourableTalkability": 400,
+            "sim": 300,
+            "keywordID": "2",
+            "emss": 200,
+            "earnedMediaShare": 100
+        }
+    ]
+}
