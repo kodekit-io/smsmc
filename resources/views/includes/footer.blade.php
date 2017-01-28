@@ -8,9 +8,8 @@
         </script>
     @show
 
-    <script src="{!! asset('assets/js/jquery.js') !!}"></script>
+    <script src="{!! asset('assets/js/jquery.min.js') !!}"></script>
     <script src="{!! asset('assets/js/uikit.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/retina.min.js') !!}"></script>
     <script src="{!! asset('assets/js/main.js') !!}"></script>
     @section('page-level-scripts')
     @show

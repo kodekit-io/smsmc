@@ -20,17 +20,10 @@
         return;
     }
     echarts.registerTheme('default', {
-        "color": [
-            "#516b91",
-            "#59c4e6",
-            "#edafda",
-            "#93b7e3",
-            "#a5e7f0",
-            "#cbb0e3"
-        ],
+        
         "backgroundColor": "rgba(0,0,0,0)",
         "textStyle": {
-            "fontFamily": "'Source Sans Pro', sans-serif",
+            "fontFamily": "'GothamPro', sans-serif",
         },
         "title": {
             "textStyle": {
