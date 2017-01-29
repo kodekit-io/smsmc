@@ -123,25 +123,24 @@ h1,h2,h3,h4,h5,h6 {
     font-size: .75rem;
 }
 .sm-main {
-    min-height: calc(100vh - 150px - 4rem);
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    min-height: calc(100vh - 150px - 60px);
+    padding: 30px;
 }
 .sm-nav-notif {
-    display: block;
     height: 30px !important;
+    line-height: 30px !important;
     width: 30px !important;
     position: relative;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
     border: 1px solid #fff;
-    padding: 0;
+    padding: 0 !important;
     margin: 10px 20px 10px 10px;
     text-align: center;
 }
 li:hover .sm-nav-notif {
-    border: 1px solid #666;
+    border-color: #666;
 }
 .sm-nav-notif .uk-badge {
     position: absolute;

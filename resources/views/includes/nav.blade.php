@@ -10,7 +10,7 @@
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
                 <li>
-                    <a href="#"><i class="material-icons md-18">work</i> Project</a>
+                    <a href="{!! url('/') !!}"><i class="material-icons md-18">work</i> Project</a>
                     <div uk-dropdown="offset: 0" class="uk-overflow-auto uk-height-medium uk-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav" id="projectList">
                             <?php //if (admin) { ?>
@@ -21,7 +21,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#"><i class="material-icons md-18">donut_large</i> Social Media</a>
+                    <a href="{!! url('/') !!}/socmed-fb"><i class="material-icons md-18">donut_large</i> Social Media</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <?php //if (admin) { ?>
@@ -35,6 +35,7 @@
                         </ul>
                     </div>
                 </li>
+                <?php //if (usercanpost) { ?>
                 <li>
                     <a href="#"><i class="material-icons md-18">mode_comment</i> Engagement</a>
                     <div uk-dropdown="offset: 0">
@@ -49,6 +50,8 @@
                         </ul>
                     </div>
                 </li>
+                <?php //} ?>
+                <?php //if (admin) { ?>
                 <li>
                     <a href="#"><i class="material-icons md-18">assignment</i> Report</a>
                     <div uk-dropdown="offset: 0">
@@ -58,19 +61,24 @@
                         </ul>
                     </div>
                 </li>
+                <?php //} ?>
                 <li>
                     <a href="#"><i class="material-icons md-18">account_circle</i> UserName</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <li><a href="#">My Account</a></li>
                             <li class="uk-nav-divider"></li>
+                            <?php //if (admin) { ?>
+                            <li><a href="#">Manage Account</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <?php //} ?>
                             <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
                 </li>
                 <li>
                     <a href="" class="sm-nav-notif">
-                        <span uk-icon="icon: bell"></span>
+                        <span class="fa fa-bell"></span>
                         <span class="uk-badge uk-badge-notification">10</span>
                     </a>
                 </li>

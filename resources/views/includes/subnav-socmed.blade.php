@@ -3,16 +3,16 @@
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="Social Media" uk-tooltip="pos: bottom">Social Media</h2>
         <ul class="uk-navbar-nav">
             <li>
-                <a href="{!! url('/') !!}/socmed-fb"><i class="uk-icon" uk-icon="icon: facebook; ratio: 0.85"></i>Facebook</a>
+                <a href="{!! url('/') !!}/socmed-fb"><i class="fa fa-facebook"></i>Facebook</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: twitter; ratio: 0.85"></i>Twitter</a>
+                <a href="#"><i class="fa fa-twitter"></i>Twitter</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: youtube; ratio: 0.85"></i>Youtube</a>
+                <a href="#"><i class="fa fa-youtube-play"></i>Youtube</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: instagram; ratio: 0.85"></i>Instagram</a>
+                <a href="#"><i class="fa fa-instagram"></i>Instagram</a>
             </li>
         </ul>
     </div>

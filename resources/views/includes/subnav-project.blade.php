@@ -3,28 +3,28 @@
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="Project Name" uk-tooltip="pos: bottom">Project Name</h2>
         <ul class="uk-navbar-nav">
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: thumbnails; ratio: 1"></i>All Media</a>
+                <a href="#"><i class="fa fa-th-large"></i>All Media</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: facebook; ratio: 0.85"></i>Facebook</a>
+                <a href="#"><i class="fa fa-facebook"></i>Facebook</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: twitter; ratio: 0.85"></i>Twitter</a>
+                <a href="#"><i class="fa fa-twitter"></i>Twitter</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: world; ratio: 0.85"></i>Online News</a>
+                <a href="#"><i class="fa fa-globe"></i>Online News</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: copy; ratio: 0.85"></i>Blog</a>
+                <a href="#"><i class="fa fa-rss"></i>Blog</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: comments; ratio: 0.85"></i>Forum</a>
+                <a href="#"><i class="fa fa-comments"></i>Forum</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: youtube; ratio: 0.85"></i>Video</a>
+                <a href="#"><i class="fa fa-youtube-play"></i>Video</a>
             </li>
             <li>
-                <a href="#"><i class="uk-icon" uk-icon="icon: instagram; ratio: 0.85"></i>Instagram</a>
+                <a href="#"><i class="fa fa-instagram"></i>Instagram</a>
             </li>
         </ul>
     </div>
