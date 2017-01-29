@@ -1,4 +1,10 @@
-projectList('projectList');
+$(document).ready(function() {
+    $('[data-toggle="datepicker"]').datepicker({
+        format: 'dd-mm-yyyy'
+    });
+
+    projectList('projectList');
+});
 
 function projectList(div) {
     $.ajax({
@@ -18,7 +24,7 @@ function projectList(div) {
                     pname = data[i].pname;
                     length = data.length;
 
-                    var project = '<li><a href="./project-all?pid='+pid+'">'+pname+'</a></li>';
+                    var project = '<li><a href="'+baseUrl+'/project-all?pid='+pid+'">'+pname+'</a></li>';
                     $('#'+div).append(project);
 
                 }

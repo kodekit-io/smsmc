@@ -44,7 +44,7 @@ function projectGrid(div) {
                                         <a uk-toggle="target: #delete_'+pid+'" class="uk-icon-button red white-text" uk-icon="icon: trash" title="Delete Project" uk-tooltip></a> \
                                     </div> \
                                 </div> \
-                                <a href="./project-all?pid='+pid+'" class="uk-button uk-button-text uk-float-right red-text">View Project</a> \
+                                <a href="'+baseUrl+'/project-all?pid='+pid+'" class="uk-button uk-button-text uk-float-right red-text">View Project</a> \
                             </div> \
                         </div> \
                     </div> \
@@ -108,7 +108,7 @@ function chartCover(pid) {
 
                     $colors[i] = $color;
                     $series[i] = {
-                        name: $keywordName + ' Brand Equity',
+                        name: $keywordName,
                         data: [[$netsen, $earnedMediaShare, $unquser]], //[x,y,z,....]
                         type: 'scatter',
                         symbolSize: function (data) {

@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+
+Route::get('/', 'FrontendController@dashboard');
+Route::get('/project-all', 'FrontendController@projectAll');
+Route::get('/socmed-fb', 'FrontendController@socmedFB');

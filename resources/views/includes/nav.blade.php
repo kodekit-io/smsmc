@@ -5,7 +5,7 @@
                 <img src="{!! asset('assets/img/logo.png') !!}" alt="Sinarmas" data-rjs="2">
                 <div class="sm-logo-round"></div>
             </a>
-            <h1 class="sm-title-page">Dashboard</h1>
+            <h1 class="sm-title-page">{!! $pageTitle !!}</h1>
         </div>
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
@@ -28,10 +28,10 @@
                             <li><a href="#">Manage Accounts</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Youtube</a></li>
-                            <li><a href="#">Instagram</a></li>
+                            <li><a href="{!! url('/') !!}/socmed-fb">Facebook</a></li>
+                            <li><a href="{!! url('/') !!}">Twitter</a></li>
+                            <li><a href="{!! url('/') !!}">Youtube</a></li>
+                            <li><a href="{!! url('/') !!}">Instagram</a></li>
                         </ul>
                     </div>
                 </li>
