@@ -78,14 +78,14 @@ function projectGrid(div) {
 }
 function chartCover(pid) {
     $.ajax({
-        url: 'json/brand-equity.json',
+        url: 'json/401-brandEquity.json',
         //dataType: 'jsonp',
         success: function(result){
             var brandEquity = result.brandEquity;
             //console.log(data);
 
             if (brandEquity.length === 0) {
-                $('#'+div).html("<div class='uk-text-center'>No Data</div>");
+                $('#chartCover_'+pid).html("<div class='uk-text-center'>No Data</div>");
             } else {
                 var $colors = [], $series=[], $xval = [], $yval = [];
                 for (var i = 0; i < brandEquity.length; i++) {
@@ -180,7 +180,7 @@ function chartCover(pid) {
                         formatter: function (obj) {
                             var value = obj.value;
                             return '<h6 class="white-text uk-margin-remove">' + obj.seriesName + '</h6>'
-                                + '<ul class="uk-list white-text uk-margin-remove" style="font-size:12px;">'
+                                + '<ul class="uk-list white-text uk-margin-remove" style="font-size:11px;">'
                                 + '<li class="uk-margin-remove">Net Sentiment:' + value[0] + '</li>'
                                 + '<li class="uk-margin-remove">Earned Media Share:' + value[1] + '</li>'
                                 + '<li class="uk-margin-remove">Unique User:' + value[2] + '</li>'
@@ -223,6 +223,11 @@ function chartCover(pid) {
                     theChart.hideLoading();
                     theChart.setOption(option);
                 },1800);
+                $(window).on('resize', function(){
+                    if(theChart != null && theChart != undefined){
+                        theChart.resize();
+                    }
+                });
             }
         }
     });

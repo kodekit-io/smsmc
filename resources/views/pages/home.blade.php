@@ -5,7 +5,7 @@
 @section('content')
 
     <section class="sm-main uk-container uk-container-expand">
-        <div id="projectGrid" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-grid" uk-grid></div>
+        <div id="projectGrid" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-4@xl" uk-grid></div>
     </section>
 
 @endsection

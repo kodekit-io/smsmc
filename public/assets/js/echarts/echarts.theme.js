@@ -20,7 +20,7 @@
         return;
     }
     echarts.registerTheme('default', {
-        
+
         "backgroundColor": "rgba(0,0,0,0)",
         "textStyle": {
             "fontFamily": "'GothamPro', sans-serif",

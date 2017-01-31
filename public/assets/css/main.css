@@ -14,6 +14,9 @@ body {
 h1,h2,h3,h4,h5,h6 {
     font-family: 'GothamPro-Medium' !important;
 }
+a.fa {
+    text-decoration: none;
+}
 .sm-text-bold {
 	font-family: 'GothamPro-Bold' !important;
 }
@@ -41,11 +44,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 .uk-card-small .uk-card-body {
 	padding-top: 10px;
-	padding-bottom: 10px;
+}
+.uk-card-small .uk-card-body + .uk-card-footer {
+	margin-top: -10px;
 }
 .uk-card-title {
 	font-size: 1rem;
 	text-transform: uppercase;
+    margin-bottom: 0px;
 }
 .uk-card-footer {
 	padding-left: 12px !important;
@@ -160,8 +166,11 @@ li:hover .sm-nav-notif {
 }
 .sm-chartcover {
 	min-height: 100px;
-	background: #f7f7f7;
 	margin-bottom: 10px !important;
+}
+.sm-chart {
+    width: 100%;
+    min-height: 250px;
 }
 .sm-list {
 	margin: 0px;
@@ -179,4 +188,21 @@ li:hover .sm-nav-notif {
 }
 .sm-totop {
     margin: 7px;
+}
+
+.sm-card-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    padding-left: 0px !important;
+}
+.sm-card-fullscreen .sm-chart {
+    height: calc(100vh - 67px);
 }

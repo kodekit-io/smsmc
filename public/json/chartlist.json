@@ -1,0 +1,164 @@
+{
+    "chartList": [
+        {
+            "chartId": "101",
+            "chartName": "Post Trend"
+        },
+        {
+            "chartId": "102",
+            "chartName": "Buzz Trend"
+        },
+        {
+            "chartId": "103",
+            "chartName": "Comment Trend"
+        },
+        {
+            "chartId": "104",
+            "chartName": "Interaction Trend"
+        },
+        {
+            "chartId": "105",
+            "chartName": "Potential Reach Trend"
+        },
+        {
+            "chartId": "106",
+            "chartName": "Reach Trend"
+        },
+        {
+            "chartId": "107",
+            "chartName": "Like Trend"
+        },
+        {
+            "chartId": "108",
+            "chartName": "Love Trend"
+        },
+        {
+            "chartId": "109",
+            "chartName": "Dislilke Trend"
+        },
+        {
+            "chartId": "110",
+            "chartName": "Fans Trend"
+        },
+        {
+            "chartId": "111",
+            "chartName": "User Trend"
+        },
+        {
+            "chartId": "112",
+            "chartName": "View Trend"
+        },
+        {
+            "chartId": "113",
+            "chartName": "Sentiment Trend"
+        },
+        {
+            "chartId": "201",
+            "chartName": "Post"
+        },
+        {
+            "chartId": "202",
+            "chartName": "Buzz"
+        },
+        {
+            "chartId": "203",
+            "chartName": "Comment"
+        },
+        {
+            "chartId": "204",
+            "chartName": "Interaction"
+        },
+        {
+            "chartId": "205",
+            "chartName": "Potential Reach"
+        },
+        {
+            "chartId": "206",
+            "chartName": "Reach"
+        },
+        {
+            "chartId": "207",
+            "chartName": "Like"
+        },
+        {
+            "chartId": "208",
+            "chartName": "Love"
+        },
+        {
+            "chartId": "209",
+            "chartName": "Rating"
+        },
+        {
+            "chartId": "210",
+            "chartName": "Share"
+        },
+        {
+            "chartId": "211",
+            "chartName": "Unique User"
+        },
+        {
+            "chartId": "212",
+            "chartName": "View"
+        },
+        {
+            "chartId": "213",
+            "chartName": "View Count"
+        },
+        {
+            "chartId": "214",
+            "chartName": "Viral Reach"
+        },
+        {
+            "chartId": "301",
+            "chartName": "Comment"
+        },
+        {
+            "chartId": "302",
+            "chartName": "Comment Interaction"
+        },
+        {
+            "chartId": "303",
+            "chartName": "Interaction Rate"
+        },
+        {
+            "chartId": "304",
+            "chartName": "Rating"
+        },
+        {
+            "chartId": "305",
+            "chartName": "Sentiment"
+        },
+        {
+            "chartId": "306",
+            "chartName": "Share of Media"
+        },
+        {
+            "chartId": "307",
+            "chartName": "View Count"
+        },
+        {
+            "chartId": "308",
+            "chartName": "Topic Distributions"
+        },
+        {
+            "chartId": "401",
+            "chartName": "Brand Equity"
+        },
+        {
+            "chartId": "402",
+            "chartName": "Ontology"
+        },
+        {
+            "chartId": "403",
+            "chartName": "Wordclouds"
+        },
+        {
+            "chartId": "404",
+            "chartName": "Influencer"
+        },
+        {
+            "chartId": "405",
+            "chartName": "Conversation"
+        }
+    ]
+}
