@@ -1,63 +1,57 @@
-function chart113(id) {
+function trendSample(div,domId,judul) {
     $.ajax({
-        url: 'json/113-sentiment.json',
+        url: 'json/trend-sample.json',
         //dataType: 'jsonp',
         success: function(result){
             var chartId = result.chartId;
             var chartName = result.chartName;
-            var sentiment = result.sentiment;
+            var data = result.data;
 
-
-
-            var card = '<div class="sm-chart-container uk-animation-fade"> \
-                <div class="uk-card uk-card-hover uk-card-default uk-card-small"> \
-                    <div class="uk-card-header uk-clearfix"> \
-                        <h5 class="uk-card-title uk-float-left">'+chartName+'</h5> \
-                        <ul class="uk-float-right uk-subnav uk-margin-remove"> \
-                            <li><a class="grey-text fa fa-info-circle" title="Short text information about '+chartName+'" uk-tooltip></a></li> \
-                            <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li> \
-                            <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li> \
-                        </ul> \
-                    </div> \
-                    <div class="uk-card-body"> \
-                        <div id="'+chartId+'" class="sm-chart"></div> \
-                    </div> \
-                </div> \
-            </div>';
-            $('#'+id).append(card);
-
-            if (sentiment.length === 0) {
+            if (data.length === 0) {
                 $('#'+chartId).html("<div class='center'>No Data</div>");
             } else {
-                var $series=[], $legend=[], $color=[], $key=[];
-                for (var i = 0; i < sentiment.length; i++) {
-                    $legend[i] = sentiment[i].name;
-                    $color[i] = sentiment[i].color;
-                    $data = sentiment[i].data;
-                    for (var n = 0; n < $data.length; n++) {
-                        $key[n] = $data[n][0];
-                    }
+                var series=[], names=[], colors=[];
+                for (var i = 0; i < data.length; i++) {
+                    name = data[i].name;
+                    names[i] = data[i].name;
+                    colors[i] = data[i].color;
+                    xaxis = data[i].xaxis;
+                    yaxis = data[i].yaxis;
 
-                    $series[i] = {
-                        name: sentiment[i].name,
-                        type:'bar',
-                        stack: 'sentiment',
-                        barMaxWidth: 50,
-                        itemStyle : { normal: {label : {show: false, position: 'insideRight'}}},
-                        data: $data
+                    //console.log(yaxis);
+
+                    series[i] = {
+                        type: 'line',
+                        name: name,
+                        data: yaxis
                     }
                 }
-
-                var data = {
-                    name: $legend,
-                    color: $color,
-                    cat: $key,
-                    //series: $series
+                var dataseries = {
+                    color: colors,
+                    category: xaxis,
+                    legend: names,
+                    series: series
                 }
 
+                var card = '<div id="'+domId+'" class="sm-chart-container uk-animation-fade"> \
+                    <div class="uk-card uk-card-hover uk-card-default uk-card-small"> \
+                        <div class="uk-card-header uk-clearfix"> \
+                            <h5 class="uk-card-title uk-float-left">'+judul+'</h5> \
+                            <ul class="uk-float-right uk-subnav uk-margin-remove"> \
+                                <li><a class="grey-text fa fa-info-circle" title="Short text information about '+judul+'" uk-tooltip></a></li> \
+                                <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li> \
+                                <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li> \
+                            </ul> \
+                        </div> \
+                        <div class="uk-card-body"> \
+                            <div id="'+domId+'Chart" class="sm-chart"></div> \
+                        </div> \
+                    </div> \
+                </div>';
+                $('#'+div).append(card);
 
                 //CHART
-                var dom = document.getElementById(chartId);
+                var dom = document.getElementById(domId+'Chart');
                 var theme = 'default';
                 var theChart = echarts.init(dom,theme);
                 var loadingTicket;
@@ -76,9 +70,9 @@ function chart113(id) {
                             type : 'shadow'
                         }
                     },
-                    color: data.color,
+                    color: dataseries.color,
                     legend: {
-                        data: data.name,
+                        data: dataseries.legend,
                         x: 'left',
                         y: 'bottom',
                     },
@@ -98,8 +92,8 @@ function chart113(id) {
                             //dataView : {show: false, readOnly: false},
                             magicType: {
                                 show: true,
-                                type: ['stack', 'tiled'],
-                                title: {stack: 'Stack', tiled: 'Bar'},
+                                type: ['line', 'bar'],
+                                title: {stack: 'Line', tiled: 'Bar'},
                             },
                             restore: {show: true, title: 'Reload'},
                             saveAsImage: {show: true, title: 'Save'}
@@ -109,7 +103,7 @@ function chart113(id) {
                     xAxis : [
                         {
                             type : 'category',
-                            data : data.cat,
+                            data : dataseries.category,
                             axisLabel: {
                                 textStyle: {
                                     fontSize: 10
@@ -131,7 +125,7 @@ function chart113(id) {
                             },
                         }
                     ],
-                    series : $series
+                    series : dataseries.series
                 };
 
                 clearTimeout(loadingTicket);
@@ -148,4 +142,5 @@ function chart113(id) {
             }
         }
     });
+
 }

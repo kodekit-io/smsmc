@@ -24,4 +24,31 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Facebook';
         return view('pages.socmed-fb', $data);
     }
+
+    public function projectAdd()
+    {
+        $data['pageTitle'] = 'Create Project';
+        return view('pages.project-add', $data);
+    }
+
+    public function account()
+    {
+        $data['pageTitle'] = 'My Account';
+        return view('pages.account', $data);
+    }
+    public function admin()
+    {
+        $data['pageTitle'] = 'Manage Account';
+        return view('pages.admin', $data);
+    }
+    public function adminAdd()
+    {
+        $data['pageTitle'] = 'Add Account';
+        return view('pages.admin-add', $data);
+    }
+    public function adminEdit()
+    {
+        $data['pageTitle'] = 'Manage Account';
+        return view('pages.admin-edit', $data);
+    }
 }

@@ -8,11 +8,15 @@ function chart401(id) {
             var brandEquity = result.brandEquity;
             //console.log(data);
 
-            var card = '<div class="sm-chart-container uk-animation-fade uk-width-1-1@s uk-width-1-2@m uk-width-1-4@xl"> \
+            var card = '<div class="sm-chart-container uk-animation-fade"> \
                 <div class="uk-card uk-card-hover uk-card-default uk-card-small"> \
                     <div class="uk-card-header uk-clearfix"> \
                         <h5 class="uk-card-title uk-float-left">'+chartName+'</h5> \
-                        <a class="btn-fullscreen uk-float-right grey-text fa fa-expand" title="Full Screen" uk-tooltip></a> \
+                        <ul class="uk-float-right uk-subnav uk-margin-remove"> \
+                            <li><a class="grey-text fa fa-info-circle" title="Short text information about '+chartName+'" uk-tooltip></a></li> \
+                            <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li> \
+                            <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li> \
+                        </ul> \
                     </div> \
                     <div class="uk-card-body"> \
                         <div id="'+chartId+'" class="sm-chart"></div> \
@@ -199,14 +203,7 @@ function chart401(id) {
                         theChart.resize();
                     }
                 });
-                $('.btn-fullscreen').on('click', function(e) {
-                    $(this).closest('.sm-chart-container').toggleClass('sm-card-fullscreen').toggleClass('uk-animation-fade').toggleClass('uk-animation-scale-up');
-                    $(this).toggleClass('fa-expand').toggleClass('fa-compress');
-                    if(theChart != null && theChart != undefined){
-                        theChart.resize();
-                    }
-                    e.preventDefault();
-                });
+
             }
         }
     });

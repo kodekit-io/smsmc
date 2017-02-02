@@ -1,0 +1,67 @@
+{
+    "data": [
+		{
+			"id": 1001,
+            "username": "jon.snow",
+			"name": "Jon Snow",
+            "email": "jon.snow@winterfell.co",
+            "password": "123456",
+            "group": "No Group",
+            "type": "Admin"
+		},
+        {
+			"id": 1002,
+            "username": "manager.po",
+			"name": "Manager PO",
+            "email": "mpo@email.com",
+            "password": "123456",
+            "group": "Group PO",
+            "type": "Manager PO"
+		},
+        {
+			"id": 1003,
+            "username": "manager.group",
+			"name": "Manager BP",
+            "email": "mbp@email.com",
+            "password": "123456",
+            "group": "Group BP",
+            "type": "Manager BP"
+		},
+        {
+			"id": 1004,
+            "username": "user.content.po",
+			"name": "User Content PO",
+            "email": "ucp@email.com",
+            "password": "123456",
+            "group": "Group PO",
+            "type": "User Content PO"
+		},
+        {
+			"id": 1005,
+            "username": "user.monitor.po",
+			"name": "User Monitor PO",
+            "email": "ump@email.com",
+            "password": "123456",
+            "group": "Group PO",
+            "type": "User Monitor PO"
+		},
+        {
+			"id": 1006,
+            "username": "user.content.bp",
+			"name": "User Content BP",
+            "email": "ucb@email.com",
+            "password": "123456",
+            "group": "Group BP",
+            "type": "User Content BP"
+		},
+        {
+			"id": 1007,
+            "username": "user.monitor.BP",
+			"name": "User Monitor BP",
+            "email": "umb@email.com",
+            "password": "123456",
+            "group": "Group BP",
+            "type": "User Monitor BP"
+		}
+	]
+}

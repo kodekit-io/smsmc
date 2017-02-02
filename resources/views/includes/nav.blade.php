@@ -14,7 +14,7 @@
                     <div uk-dropdown="offset: 0" class="uk-overflow-auto uk-height-medium uk-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav" id="projectList">
                             <?php //if (admin) { ?>
-                            <li><a href="#">Add New Project</a></li>
+                            <li><a href="{!! url('/') !!}/project-add">Add New Project</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
                         </ul>
@@ -29,9 +29,9 @@
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
                             <li><a href="{!! url('/') !!}/socmed-fb">Facebook</a></li>
-                            <li><a href="{!! url('/') !!}">Twitter</a></li>
-                            <li><a href="{!! url('/') !!}">Youtube</a></li>
-                            <li><a href="{!! url('/') !!}">Instagram</a></li>
+                            <li><a href="{!! url('/') !!}/socmed-tw">Twitter</a></li>
+                            <li><a href="{!! url('/') !!}/socmed-yt">Youtube</a></li>
+                            <li><a href="{!! url('/') !!}/socmed-ig">Instagram</a></li>
                         </ul>
                     </div>
                 </li>
@@ -63,13 +63,13 @@
                 </li>
                 <?php //} ?>
                 <li>
-                    <a href="#"><i class="material-icons md-18">account_circle</i> UserName</a>
+                    <a href="{!! url('/') !!}/account"><i class="material-icons md-18">account_circle</i> username</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li><a href="#">My Account</a></li>
+                            <li><a href="{!! url('/') !!}/account">My Account</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //if (admin) { ?>
-                            <li><a href="#">Manage Account</a></li>
+                            <li><a href="{!! url('/') !!}/admin">Manage Account</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
                             <li><a href="#">Logout</a></li>

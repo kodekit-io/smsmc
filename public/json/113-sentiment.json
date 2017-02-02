@@ -3,28 +3,28 @@
     "chartName": "Sentiment",
     "sentiment": [{
         "data": [
-            ["Indomilk", 6511],
-            ["Frisian Flag", 4511],
-            ["Milo", 10311],
-            ["Dancow", 7834]
+            ["Brand 1", 6511],
+            ["Brand 2", 4511],
+            ["Brand 3", 10311],
+            ["Brand 4", 7834]
         ],
         "name": "Positive",
         "color": "#009688"
     }, {
         "data": [
-            ["Indomilk", 570],
-            ["Frisian Flag", 128],
-            ["Milo", 234],
-            ["Dancow", 581]
+            ["Brand 1", 570],
+            ["Brand 2", 128],
+            ["Brand 3", 234],
+            ["Brand 4", 581]
         ],
         "name": "Neutral",
         "color": "#b0bec5"
     }, {
         "data": [
-            ["Indomilk", 1140],
-            ["Frisian Flag", 2145],
-            ["Milo", 1445],
-            ["Dancow", 1257]
+            ["Brand 1", 1140],
+            ["Brand 2", 2145],
+            ["Brand 3", 1445],
+            ["Brand 4", 1257]
         ],
         "name": "Negative",
         "color": "#f44336"

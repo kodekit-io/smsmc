@@ -1,4 +1,6 @@
 @extends('layouts.default')
+@section('page-level-styles')
+@endsection
 @section('page-level-nav')
     @include('includes.subnav-home')
 @endsection
