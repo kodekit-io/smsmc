@@ -19,9 +19,8 @@
             <div id="08"></div>
             <div id="09"></div>
             <div id="10"></div>
-            <div id="11"></div>
-            <div id="12"></div>
-            <div id="13" class="uk-width-1-1"></div>
+            <div id="11" class="uk-width-1-1"></div>
+            <div id="12" class="uk-width-1-1"></div>
         </div>
     </section>
 
@@ -43,9 +42,8 @@
         barSample('09','commnetInteraction','Comment Interaction');
         barSample('10','topicBar','Topic Distributions');
 
-        ontologySample('11','ontology','Ontology');
-        wordCloudSample('12','wordCloud','Word Cloud');
-        convoSample('13','convo','Conversation');
+        wordCloudSample('11','wordCloud','Word Cloud');
+        convoSample('12','convo','Conversation');
     });
 
     </script>

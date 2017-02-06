@@ -6,25 +6,25 @@
                 <a href="{!! url('/') !!}/project-all"><i class="fa fa-th-large"></i>All Media</a>
             </li>
             <li>
-                <a href="{!! url('/') !!}/project-fb"><i class="fa fa-facebook"></i>Facebook</a>
+                <a href="{!! url('/') !!}/"><i class="fa fa-facebook"></i>Facebook</a>
             </li>
             <li>
-                <a href="{!! url('/') !!}/project-tw"><i class="fa fa-twitter"></i>Twitter</a>
+                <a href="{!! url('/') !!}/"><i class="fa fa-twitter"></i>Twitter</a>
             </li>
             <li>
-                <a href="{!! url('/') !!}/project-news"><i class="fa fa-globe"></i>Online News</a>
+                <a href="{!! url('/') !!}/"><i class="fa fa-globe"></i>Online News</a>
             </li>
             <li>
-                <a href="{!! url('/') !!}/project-blog"><i class="fa fa-rss"></i>Blog</a>
+                <a href="{!! url('/') !!}/"><i class="fa fa-rss"></i>Blog</a>
             </li>
             <li>
-                <a href="{!! url('/') !!}/project-forum"><i class="fa fa-comments"></i>Forum</a>
+                <a href="{!! url('/') !!}/"><i class="fa fa-comments"></i>Forum</a>
             </li>
             <li>
-                <a href="{!! url('/') !!}/project-yt"><i class="fa fa-youtube-play"></i>Video</a>
+                <a href="{!! url('/') !!}/"><i class="fa fa-youtube-play"></i>Video</a>
             </li>
             <li>
-                <a href="{!! url('/') !!}/project-ig"><i class="fa fa-instagram"></i>Instagram</a>
+                <a href="{!! url('/') !!}/"><i class="fa fa-instagram"></i>Instagram</a>
             </li>
         </ul>
     </div>

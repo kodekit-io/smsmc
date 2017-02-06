@@ -29,9 +29,9 @@
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
                             <li><a href="{!! url('/') !!}/socmed-fb"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
-                            <li><a href="{!! url('/') !!}/socmed-tw"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
-                            <li><a href="{!! url('/') !!}/socmed-yt"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
-                            <li><a href="{!! url('/') !!}/socmed-ig"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
+                            <li><a href="{!! url('/') !!}/"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+                            <li><a href="{!! url('/') !!}/"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
+                            <li><a href="{!! url('/') !!}/"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
                         </ul>
                     </div>
                 </li>
