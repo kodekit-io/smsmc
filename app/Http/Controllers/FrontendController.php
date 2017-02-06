@@ -38,7 +38,7 @@ class FrontEndController extends Controller
     }
     public function admin()
     {
-        $data['pageTitle'] = 'Manage Account';
+        $data['pageTitle'] = 'Manage Accounts';
         return view('pages.admin', $data);
     }
     public function adminAdd()
@@ -48,7 +48,18 @@ class FrontEndController extends Controller
     }
     public function adminEdit()
     {
-        $data['pageTitle'] = 'Manage Account';
+        $data['pageTitle'] = 'Edit Account';
         return view('pages.admin-edit', $data);
+    }
+    public function adminGroup()
+    {
+        $data['pageTitle'] = 'Manage Groups';
+        return view('pages.admin-group', $data);
+    }
+
+    public function pageHelp()
+    {
+        $data['pageTitle'] = 'Glossary';
+        return view('pages.page-help', $data);
     }
 }

@@ -6,8 +6,8 @@
 			"name": "Jon Snow",
             "email": "jon.snow@winterfell.co",
             "password": "123456",
-            "group": "No Group",
-            "type": "Admin"
+            "bp": "PO",
+            "group": "No Group", "type": "Admin"
 		},
         {
 			"id": 1002,
@@ -15,8 +15,8 @@
 			"name": "Manager PO",
             "email": "mpo@email.com",
             "password": "123456",
-            "group": "Group PO",
-            "type": "Manager PO"
+            "bp": "PO",
+            "group": "Group A", "type": "Manager PO"
 		},
         {
 			"id": 1003,
@@ -24,8 +24,8 @@
 			"name": "Manager BP",
             "email": "mbp@email.com",
             "password": "123456",
-            "group": "Group BP",
-            "type": "Manager BP"
+            "bp": "BP",
+            "group": "Group A", "type": "Manager BP"
 		},
         {
 			"id": 1004,
@@ -33,8 +33,8 @@
 			"name": "User Content PO",
             "email": "ucp@email.com",
             "password": "123456",
-            "group": "Group PO",
-            "type": "User Content PO"
+            "bp": "PO",
+            "group": "Group B", "type": "User Content PO"
 		},
         {
 			"id": 1005,
@@ -42,8 +42,8 @@
 			"name": "User Monitor PO",
             "email": "ump@email.com",
             "password": "123456",
-            "group": "Group PO",
-            "type": "User Monitor PO"
+            "bp": "PO",
+            "group": "Group C", "type": "User Monitor PO"
 		},
         {
 			"id": 1006,
@@ -51,8 +51,8 @@
 			"name": "User Content BP",
             "email": "ucb@email.com",
             "password": "123456",
-            "group": "Group BP",
-            "type": "User Content BP"
+            "bp": "BP",
+            "group": "Group B", "type": "User Content BP"
 		},
         {
 			"id": 1007,
@@ -60,8 +60,8 @@
 			"name": "User Monitor BP",
             "email": "umb@email.com",
             "password": "123456",
-            "group": "Group BP",
-            "type": "User Monitor BP"
+            "bp": "BP",
+            "group": "Group C", "type": "User Monitor BP"
 		}
 	]
 }

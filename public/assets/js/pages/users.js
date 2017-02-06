@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#users").DataTable({
-        "searching": false,
-        "info": false,
+        //"searching": false,
+        //"info": false,
         "ajax": {
             "url" : "json/users.json",
             "data" : "data",
@@ -33,6 +33,13 @@ $(document).ready(function() {
                 "data": null,
                 "render": function ( data ) {
                     return data["email"];
+                }
+            },
+            {
+                "title": "BP",
+                "data": null,
+                "render": function ( data ) {
+                    return data["bp"];
                 }
             },
             {

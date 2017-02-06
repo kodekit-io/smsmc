@@ -142,7 +142,7 @@ a.fa {
 .sm-main.sm-nosubnav {
     min-height: calc(100vh - 160px);
 }
-.sm-nav-notif {
+.sm-nav-round {
     height: 30px !important;
     line-height: 30px !important;
     width: 30px !important;
@@ -152,13 +152,13 @@ a.fa {
     border-radius: 15px;
     border: 1px solid #fff;
     padding: 0 !important;
-    margin: 10px 20px 10px 10px;
+    margin: 10px 5px;
     text-align: center;
 }
-li:hover .sm-nav-notif {
+li:hover .sm-nav-round {
     border-color: #666;
 }
-.sm-nav-notif .uk-badge {
+.sm-nav-round .uk-badge {
     position: absolute;
     right: -5px;
     top: -5px;
@@ -180,7 +180,7 @@ li:hover .sm-nav-notif {
 }
 .sm-chart {
     width: 100%;
-    min-height: 250px;
+    min-height: 290px;
 }
 .sm-list {
 	margin: 0px;

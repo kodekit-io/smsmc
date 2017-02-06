@@ -32,3 +32,5 @@ Route::get('/account', 'FrontendController@account');
 Route::get('/admin', 'FrontendController@admin');
 Route::get('/admin-add', 'FrontendController@adminAdd');
 Route::get('/admin-edit', 'FrontendController@adminEdit');
+
+Route::get('/page-help', 'FrontendController@pageHelp');

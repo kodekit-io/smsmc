@@ -54,6 +54,10 @@ div.dataTables_wrapper select, div.dataTables_wrapper .uk-select {
     display: inline-block;
     line-height: 1.5rem !important;
     width: auto;
-    padding-top: 4px !important;
-    padding-bottom: 0 !important;
+}
+div.dataTables_wrapper .uk-inline.l, div.dataTables_wrapper .uk-inline.B {
+    padding-top: 3px;
+}
+div.dataTables_wrapper .uk-inline.B {
+    margin-left: 1rem;
 }

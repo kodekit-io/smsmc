@@ -3,10 +3,11 @@
     <link rel="stylesheet" href="{!! asset('assets/css/dataTables.smsmc.css') !!}" />
 @endsection
 @section('page-level-nav')
+    @include('includes.subnav-admin')
 @endsection
 @section('content')
 
-    <section class="sm-main sm-nosubnav uk-container uk-container-expand">
+    <section class="sm-main uk-container uk-container-expand">
         <div class="uk-animation-fade uk-card no-header uk-card-hover uk-card-default uk-card-small">
             <div class="uk-card-header uk-clearfix">
                 <h5 class="uk-card-title uk-float-left">Manage Accounts</h5>

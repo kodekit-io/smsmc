@@ -45,6 +45,13 @@ function convoSample(div,domId,judul) {
             "url": "json/convo-sample.json",
             //"data" : data
         },
+        buttons: {
+            buttons: [
+                //{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+                { extend: 'excelHtml5', className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left' },
+                { extend: 'csvHtml5', className: 'uk-button uk-button-small teal white-text uk-margin-small-left' }
+            ]
+        },
         columns: [
             { "data": null,"orderable": false,"width": "2.5%" },
             {
@@ -60,14 +67,14 @@ function convoSample(div,domId,judul) {
                 }
             },
             {
-                "data": null, "orderable": false, "title": "Channel", "width": "5%", "class": "uk-text-center",
+                "data": null, "title": "Channel", "width": "5%", "class": "uk-text-center",
                 "render": function ( data ) {
                     var channel = data["Media Type"];
                     var icon = "";
-                    var ifb = "<span class='uk-icon-button blue darken-4 white-text'><i class='fa fa-facebook'></i></span>";
-                    var itw = "<span class='uk-icon-button blue accent-1 white-text'><i class='fa fa-twitter'></i></span>";
-                    var iyt = "<span class='uk-icon-button red white-text'><i class='fa fa-youtube'></i></span>";
-                    var iig = "<span class='uk-icon-button pink darken-4 white-text'><i class='fa fa-instagram'></i></span>";
+                    var ifb = "<span class='uk-icon-button blue darken-4 white-text'><i class='fa fa-facebook'></i> <span class='uk-hidden'>facebook</span></span>";
+                    var itw = "<span class='uk-icon-button blue accent-1 white-text'><i class='fa fa-twitter'></i> <span class='uk-hidden'>twitter</span></span>";
+                    var iyt = "<span class='uk-icon-button red white-text'><i class='fa fa-youtube'></i> <span class='uk-hidden'>youtube</span></span>";
+                    var iig = "<span class='uk-icon-button pink darken-4 white-text'><i class='fa fa-instagram'></i> <span class='uk-hidden'>instagram</span></span>";
                     switch (channel) {
                         case 'facebook':
                             icon = ifb;
