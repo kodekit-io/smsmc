@@ -18,7 +18,7 @@
 @section('page-level-scripts')
     <script>
     $(document).ready(function() {
-        chart401('01');
+        ticketList('01');
     });
 
     </script>
@@ -33,5 +33,7 @@
     <script src="{!! asset('assets/js/datatables/extensions/buttons.html5.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/extensions/pdfmake.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script>
+
+    <script src="{!! asset('assets/js/pages/ticket-list.js') !!}"></script>
 
 @endsection
