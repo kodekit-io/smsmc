@@ -20,7 +20,7 @@ function convoSample(div,domId,judul) {
                                     <div class="uk-margin"> \
                                         <select class="uk-select"> \
                                             <option>Send to All</option> \
-                                            <option>User 1</option><option>User 2</option><option>User 3</option> \
+                                            <option>Group 1</option><option>Group 2</option><option>Group 3</option> \
                                         </select> \
                                     </div> \
                                     <div class="uk-margin"> \

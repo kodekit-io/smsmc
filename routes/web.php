@@ -11,8 +11,10 @@
 |
 */
 
+Route::get('/', 'FrontendController@login');
+Route::get('/home', 'FrontendController@dashboard');
 
-Route::get('/', 'FrontendController@dashboard');
+Route::get('/project-add', 'FrontendController@projectAdd');
 Route::get('/project-all', 'FrontendController@projectAll');
 Route::get('/project-fb', 'FrontendController@projectFB');
 Route::get('/project-tw', 'FrontendController@projectTW');
@@ -21,12 +23,20 @@ Route::get('/project-ig', 'FrontendController@projectIG');
 Route::get('/project-news', 'FrontendController@projectNews');
 Route::get('/project-blog', 'FrontendController@projectBlog');
 Route::get('/project-forum', 'FrontendController@projectForum');
+
+Route::get('/socmed-accounts', 'FrontendController@socmedAccounts');
 Route::get('/socmed-fb', 'FrontendController@socmedFB');
 Route::get('/socmed-tw', 'FrontendController@socmedTW');
 Route::get('/socmed-yt', 'FrontendController@socmedYT');
 Route::get('/socmed-ig', 'FrontendController@socmedIG');
 
-Route::get('/project-add', 'FrontendController@projectAdd');
+Route::get('/engagement-accounts', 'FrontendController@engagementAccounts');
+Route::get('/engagement-ticket', 'FrontendController@engagementTicket');
+Route::get('/engagement-calendar', 'FrontendController@engagementCalendar');
+Route::get('/engagement-timeline', 'FrontendController@engagementTimeline');
+
+Route::get('/report-view', 'FrontendController@reportView');
+Route::get('/report-add', 'FrontendController@reportAdd');
 
 Route::get('/account', 'FrontendController@account');
 Route::get('/admin', 'FrontendController@admin');

@@ -2,6 +2,7 @@ table.dataTable {
     clear: both;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+    width: 100% !important;
 }
 
 table.dataTable td, table.dataTable th, table.dataTable * {
@@ -12,12 +13,13 @@ table.dataTable td, table.dataTable th, table.dataTable * {
 table.dataTable th {
     padding-top: 10px !important;
     padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     height: 1rem;
     line-height: 1rem;
 }
 table.dataTable td {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px;
 }
 table.dataTable tr:last-child {
     border-bottom: 1px solid #ddd;

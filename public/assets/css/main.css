@@ -3,33 +3,49 @@
 @import "fonts/GothamPro/styles.css";
 @import "fonts/GothamPro-Medium/styles.css";
 @import "fonts/GothamPro-Bold/styles.css";
+@import "fonts/GothamPro-Light/styles.css";
 @import "datepicker.min.css";
 @import "color.css";
-
 body {
     font-family: 'GothamPro';
-	font-size: 14px;
+    font-size: 14px;
     background: #eee;
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1, h2, h3, h4, h5, h6 {
     font-family: 'GothamPro-Medium' !important;
 }
+
 a.fa {
     text-decoration: none;
 }
-.sm-text-bold {
-	font-family: 'GothamPro-Bold' !important;
+
+::-moz-selection {
+    background: #F44336;
+    color: #fff;
+    text-shadow: none
 }
-.uk-navbar-item,
-.uk-navbar-nav>li>a,
-.uk-navbar-toggle {
+
+::selection {
+    background: #F44336;
+    color: #fff;
+    text-shadow: none
+}
+
+.sm-text-bold {
+    font-family: 'GothamPro-Bold' !important;
+}
+.sm-text-lite {
+    font-family: 'GothamPro-Light' !important;
+}
+
+.uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
     height: 50px;
     color: #fff;
     font-family: 'GothamPro';
 }
-.uk-navbar-item > i,
-.uk-navbar-nav>li>a> i,
-.uk-navbar-toggle > i {
+
+.uk-navbar-item>i, .uk-navbar-nav>li>a>i, .uk-navbar-toggle>i {
     margin-top: -2px;
     margin-right: 8px;
 }
@@ -37,44 +53,55 @@ a.fa {
 .uk-dropdown {
     padding: 1rem !important;
 }
+
 .uk-card-small .uk-card-header {
-	border-bottom: none;
-	padding-bottom: 0;
-	padding-top: 15px;
+    border-bottom: none;
+    padding-bottom: 0;
+    padding-top: 15px;
 }
+
 .uk-card-small .uk-card-body {
-	padding-top: 10px;
+    padding-top: 10px;
 }
-.uk-card-small .uk-card-body + .uk-card-footer {
-	margin-top: -10px;
+
+.uk-card-small .uk-card-body+.uk-card-footer {
+    margin-top: -10px;
 }
+
 .uk-card.no-header .uk-card-body {
-	padding-top: 20px;
+    padding-top: 20px;
 }
-.uk-card.no-header .uk-card-body + .uk-card-footer {
-	margin-top: 0px;
+
+.uk-card.no-header .uk-card-body+.uk-card-footer {
+    margin-top: 0px;
 }
 
 .uk-card-title {
-	font-size: 1rem;
-	text-transform: uppercase;
+    font-size: 1rem;
+    text-transform: uppercase;
     margin-bottom: 0px;
 }
+
 .uk-card-footer {
-	padding-left: 12px !important;
+    padding-left: 12px !important;
 }
+
 .uk-button-small {
     padding: 2px 15px 0;
 }
+
 .sm-nav-main {
     background: #EC1C23 !important;
 }
+
 .sm-nav-sub {
     background: #000 !important;
 }
+
 .sm-nav-sub .uk-navbar-nav>li>a {
     padding: 0 10px;
 }
+
 .sm-logo {
     height: 30px;
     background: #fff;
@@ -86,6 +113,7 @@ a.fa {
     position: relative;
     margin-right: 1rem;
 }
+
 .sm-logo-round {
     background: #fff;
     height: 10px;
@@ -95,7 +123,8 @@ a.fa {
     right: -10px;
     overflow: hidden;
 }
-.sm-logo-round:after{
+
+.sm-logo-round:after {
     content: "";
     display: block;
     background: #EC1C23;
@@ -106,6 +135,7 @@ a.fa {
     height: 20px;
     border-radius: 10px;
 }
+
 .sm-title-page {
     color: #fff;
     font-family: 'GothamPro-Medium';
@@ -115,18 +145,20 @@ a.fa {
     text-transform: uppercase;
     font-size: 1rem;
 }
+
 .sm-title-sub {
-	display: inline-block;
-	line-height: 50px;
-	width: 160px;
-	white-space: nowrap;
-	overflow:hidden !important;
-	text-overflow: ellipsis;
-	text-align: left;
-	-ms-flex-pack: left;
-	-webkit-justify-content: left;
-	justify-content: left;
+    display: inline-block;
+    line-height: 50px;
+    width: 160px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    text-align: left;
+    -ms-flex-pack: left;
+    -webkit-justify-content: left;
+    justify-content: left;
 }
+
 .sm-footer {
     color: #535455;
     background: #ccc;
@@ -135,13 +167,16 @@ a.fa {
     line-height: 50px;
     font-size: .75rem;
 }
+
 .sm-main {
     min-height: calc(100vh - 150px - 60px);
     padding: 30px;
 }
+
 .sm-main.sm-nosubnav {
     min-height: calc(100vh - 160px);
 }
+
 .sm-nav-round {
     height: 30px !important;
     line-height: 30px !important;
@@ -155,9 +190,11 @@ a.fa {
     margin: 10px 5px;
     text-align: center;
 }
+
 li:hover .sm-nav-round {
     border-color: #666;
 }
+
 .sm-nav-round .uk-badge {
     position: absolute;
     right: -5px;
@@ -169,33 +206,40 @@ li:hover .sm-nav-round {
     background: #000;
     padding: 2px 0 0;
 }
+
 .sm-card-action {
-	width: 150px;
-	padding: 0 !important;
-	margin-left: 0 !important;
+    width: 150px;
+    padding: 0 !important;
+    margin-left: 0 !important;
 }
+
 .sm-chartcover {
-	min-height: 100px;
-	margin-bottom: 10px !important;
+    min-height: 100px;
+    margin-bottom: 10px !important;
 }
+
 .sm-chart {
     width: 100%;
     min-height: 290px;
 }
+
 .sm-list {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
     display: inline-block;
 }
+
 .sm-list li {
-	display: inline;
-	margin: 0 10px 0 0;
-	padding: 0px;
+    display: inline;
+    margin: 0 10px 0 0;
+    padding: 0px;
 }
+
 .sm-list li:last-child {
-	margin-right: 0;
+    margin-right: 0;
 }
+
 .sm-totop {
     margin: 7px;
     margin-right: 50px;
@@ -215,22 +259,26 @@ li:hover .sm-nav-round {
     padding: 0 !important;
     margin: 0 !important
 }
+
 .fullscreen .sm-chart {
     height: calc(100vh - 67px);
     width: calc(100vw - 40px);
 }
+
 a.btn-unhide {
     position: fixed;
     right: .5rem;
     bottom: 50px;
     text-decoration: none;
 }
+
 a.btn-screenshot {
     position: fixed;
     right: .5rem;
     bottom: 7px;
     text-decoration: none;
 }
+
 .sm-badge {
     padding-top: 2px;
     padding-left: 10px;

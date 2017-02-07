@@ -101,7 +101,7 @@
                         </ul>
                     </div>
                     <div class="uk-card-footer uk-clearfix">
-                        <a class="uk-button red white-text uk-float-right">Save Project</a>
+                        <button class="uk-button red white-text uk-float-right">Save Project</button>
                     </div>
                 </div>
             </div>

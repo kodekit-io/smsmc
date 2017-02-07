@@ -38,16 +38,28 @@ function fullscreen(obj) {
     $(obj).toggleClass('fa-expand').toggleClass('fa-compress');
     $(obj).closest('.sm-chart-container').toggleClass('fullscreen');
     $(window).trigger('resize');
-};
+}
 function hideThis(obj) {
     //alert($(obj).attr('class'));
     $(obj).closest('.sm-chart-container').parent().toggleClass('uk-hidden');
     $('.btn-unhide').removeClass('uk-hidden');
     $(window).trigger('resize');
-};
+}
 function unhideAll(obj) {
     //alert($(obj).attr('class'));
     $('.sm-chart-container').parent().removeClass('uk-hidden');
     $(obj).addClass('uk-hidden');
     $(window).trigger('resize');
-};
+}
+function screenshot() {
+    $('section.sm-main').html2canvas({
+        letterRendering: true,
+        background: '#eeeeee',
+        onrendered: function (canvas) {
+            var a = document.createElement('a');
+            a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+            a.download = 'sinarmas.jpg';
+            a.click();
+        }
+    });
+}

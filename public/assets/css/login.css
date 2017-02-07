@@ -1,0 +1,13 @@
+.sm-login {
+    min-height: calc(100vh - 50px);
+}
+.sm-login>div {
+    margin-top: -25px;
+}
+.sm-title-login {
+    font-size: 1.5rem;
+    margin: 40px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
