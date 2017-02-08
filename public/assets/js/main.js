@@ -51,15 +51,24 @@ function unhideAll(obj) {
     $(obj).addClass('uk-hidden');
     $(window).trigger('resize');
 }
-function screenshot() {
+
+//Screenshot
+function savePage() {
     $('section.sm-main').html2canvas({
-        letterRendering: true,
+        //letterRendering: true,
+        allowTaint: true,
         background: '#eeeeee',
         onrendered: function (canvas) {
-            var a = document.createElement('a');
-            a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-            a.download = 'sinarmas.jpg';
-            a.click();
+            var url = canvas.toDataURL();
+            //var url = Canvas2Image.saveAsPNG(canvas);
+            $("<a>", {
+                href: url,
+                download: "sinarmas.png"
+            })
+            .on("click", function() {
+                $(this).remove();
+            })
+            .appendTo("body")[0].click();
         }
     });
 }
