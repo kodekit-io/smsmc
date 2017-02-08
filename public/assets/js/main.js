@@ -56,7 +56,7 @@ function unhideAll(obj) {
 function savePage() {
     $('section.sm-main').html2canvas({
         //letterRendering: true,
-        allowTaint: true,
+        //allowTaint: true,
         background: '#eeeeee',
         onrendered: function (canvas) {
             var url = canvas.toDataURL();
