@@ -23,7 +23,7 @@ function reportView(div) {
                     var offset = now.getTimezoneOffset() / 60;
                     var newdate = new Date(date);
                     var timezoneDif = offset * 60 + newdate.getTimezoneOffset();
-                    var localtime = new Date(newdate.getTime() + timezoneDif * 60 * 1000);
+                    var localtime = newdate;
                     return localtime;
                 }
             },
@@ -37,7 +37,7 @@ function reportView(div) {
                     var offset = now.getTimezoneOffset() / 60;
                     var newdate = new Date(date);
                     var timezoneDif = offset * 60 + newdate.getTimezoneOffset();
-                    var localtime = new Date(newdate.getTime() + timezoneDif * 60 * 1000);
+                    var localtime = newdate;
                     return localtime;
                 }
             },
@@ -49,7 +49,7 @@ function reportView(div) {
                     var offset = now.getTimezoneOffset() / 60;
                     var newdate = new Date(date);
                     var timezoneDif = offset * 60 + newdate.getTimezoneOffset();
-                    var localtime = new Date(newdate.getTime() + timezoneDif * 60 * 1000);
+                    var localtime = newdate;
                     return localtime;
                 }
             },

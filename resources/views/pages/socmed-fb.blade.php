@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('page-level-styles')
-    <link rel="stylesheet" href="{!! asset('assets/css/dataTables.smsmc.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
 @endsection
 @section('page-level-nav')
     @include('includes.subnav-socmed')

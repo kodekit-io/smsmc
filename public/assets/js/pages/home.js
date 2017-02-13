@@ -1,7 +1,3 @@
-$(document).ready(function() {
-    projectGrid('projectGrid');
-});
-
 function projectGrid(div) {
     $.ajax({
         url: 'json/project-list.json',

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('page-level-styles')
-    <link rel="stylesheet" href="{!! asset('assets/css/dataTables.smsmc.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
 @endsection
 @section('page-level-nav')
 @endsection
@@ -20,12 +20,8 @@
 @section('page-level-scripts')
     <script>
     $(document).ready(function() {
-        reportView('01');
     });
     </script>
-    <script src="{!! asset('assets/js/echarts/echarts.js') !!}"></script>
-    <script src="{!! asset('assets/js/echarts/echarts.theme.js') !!}"></script>
-    <script src="{!! asset('assets/js/echarts/extension/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
 

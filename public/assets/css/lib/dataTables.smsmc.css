@@ -17,6 +17,7 @@ table.dataTable th {
     padding-right: 10px;
     height: 1rem;
     line-height: 1rem;
+    border-top: 1px solid #ddd;
 }
 table.dataTable td {
     padding: 10px;

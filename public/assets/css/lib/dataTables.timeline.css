@@ -1,0 +1,100 @@
+table.dataTable {
+    clear: both;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+}
+
+table.dataTable td, table.dataTable th, table.dataTable * {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    font-size: 12px;
+}
+table.dataTable thead {
+    display: none !important;
+}
+table.dataTable td {
+    padding: 5px 0;
+}
+table.dataTable tr:first-child {
+    border-top: 1px solid #ddd;
+}
+
+div.dataTables_wrapper .uk-grid+.uk-grid {
+    margin-top: 0;
+}
+div.dataTables_wrapper .uk-grid:first-child {
+    margin-top: 0;
+}
+.sm-timeline-foot {
+    margin-top: 11px;
+    font-size: 12px;
+    margin-bottom: -10px;
+}
+.sm-timeline-wrap {
+    height: calc(100vh - 303px);
+    overflow-y: scroll;
+}
+.sm-timeline-img {
+    width: 95%;
+    height: 0;
+    padding-top: 95%;
+    margin-bottom: 5px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.fullscreen .sm-timeline-img {
+    width: 50%;
+    padding-top: 50%;
+}
+.sm-timeline-vid {
+    width: 95%;
+    height: 120px;
+    margin-bottom: 5px;
+}
+.fullscreen .sm-timeline-vid {
+    width: 50%;
+    height: 300px;
+}
+.fullscreen .sm-timeline-wrap {
+    height: calc(100vh - 103px);
+}
+.dataTables_paginate {
+    float: right;
+    padding-top: 3px;
+}
+.dataTables_paginate span a {
+    display: none;
+}
+.dataTables_paginate .paginate_button {
+    text-align: center;
+    color: #111;
+    padding: 2px;
+    text-decoration: none;
+}
+.dataTables_paginate .paginate_button.disabled {
+    color: #ccc;
+    cursor: default;
+}
+.dataTables_paginate span a.paginate_button.current {
+    color: #F44336;
+    display: inline-block;
+    cursor: default;
+}
+.dataTables_paginate span a.paginate_button.current:before {
+    content: "Page "
+}
+
+.video-js .vjs-big-play-button {
+    line-height: 50px !important;
+    height: 50px !important;
+    width: 50px !important;
+    top: 30px !important;
+    left: 50% !important;
+    margin-left: -25px !important;
+    border: none !important;
+}
+.fullscreen .video-js .vjs-big-play-button {
+    top: 125px !important;
+}

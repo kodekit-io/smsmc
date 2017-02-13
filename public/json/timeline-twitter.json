@@ -1,0 +1,56 @@
+{
+    "name": "Twitter",
+    "desc": "Short desc about Twitter timeline",
+    "data": [
+        {
+            "userName": "AC Milan",
+            "userImg": "//pbs.twimg.com/profile_images/704034142758051840/Be6BgE8c_bigger.jpg",
+            "userUrl": "//twitter.com/acmilan",
+            "postText": "Celebrating the birthday boy and match winner: Mario #Pasalic! Si brinda al festeggiato e match winner: Mario Pasalic! #weareacmilan",
+            "postImg": "",
+            "postVid": "",
+            "postDate": "2017-02-08T13:58:00Z",
+            "postUrl": "//twitter.com/acmilan/status/829479462504976385"
+        },
+        {
+            "userName": "PERSIB",
+            "userImg": "//pbs.twimg.com/profile_images/620872148173766656/Cu88oWlx_bigger.jpg",
+            "userUrl": "//twitter.com/persib",
+            "postText": "Djadjang Tutup Pintu Tawaran Pemain Asing",
+            "postImg": "",
+            "postVid": "",
+            "postDate": "2017-02-09T18:52:00Z",
+            "postUrl": "//twitter.com/persib/status/829885820030955520"
+        },
+        {
+            "userName": "AFC Ajax",
+            "userImg": "//pbs.twimg.com/profile_images/717265669176352768/2mdBqIsU_bigger.jpg",
+            "userUrl": "//twitter.com/AFCAjax",
+            "postText": "Vandaag is de geboortedag van #Ajax-icoon Rinus Michels (1928). De Generaal overleed in maart 2005.",
+            "postImg": "//pbs.twimg.com/media/C4NGl-wXAAAeOoZ.jpg",
+            "postVid": "",
+            "postDate": "2017-02-08T10:55:00Z",
+            "postUrl": "//twitter.com/AFCAjax/status/829584377654939648"
+        },
+        {
+            "userName": "AC Milan",
+            "userImg": "//pbs.twimg.com/profile_images/704034142758051840/Be6BgE8c_bigger.jpg",
+            "userUrl": "//twitter.com/acmilan",
+            "postText": "#ACMilan XI: Donnarumma; Abate, Paletta, Romagnoli, Vangioni; Kucka, Locatelli, Pasalic; Suso, Bacca, Deulofeu #BolognaMilan",
+            "postImg": "",
+            "postVid": "",
+            "postDate": "2017-02-08T10:09:00Z",
+            "postUrl": "//twitter.com/acmilan/status/829401681540554752"
+        },
+        {
+            "userName": "AFC Ajax",
+            "userImg": "//pbs.twimg.com/profile_images/717265669176352768/2mdBqIsU_bigger.jpg",
+            "userUrl": "//twitter.com/AFCAjax",
+            "postText": "Hoog bezoek in Amsterdam: Niemand minder dan Pavel Nedved is aanwezig op deze Europese avond! 🇨🇿 #ajajuv #UYL",
+            "postImg": "//pbs.twimg.com/media/C4EwzvlWcAAn489.jpg",
+            "postVid": "",
+            "postDate": "2017-02-07T08:03:00Z",
+            "postUrl": "//twitter.com/AFCAjax/status/828997512207937538"
+        }
+    ]
+}

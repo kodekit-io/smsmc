@@ -62,34 +62,39 @@ function convoSample(div,domId,judul) {
                     var offset = now.getTimezoneOffset() / 60;
                     var newdate = new Date(date);
                     var timezoneDif = offset * 60 + newdate.getTimezoneOffset();
-                    var localtime = new Date(newdate.getTime() + timezoneDif * 60 * 1000);
+                    var localtime = newdate;
                     return localtime;
                 }
             },
             {
-                "data": null, "title": "Channel", "width": "5%", "class": "uk-text-center",
-                "render": function ( data ) {
-                    var channel = data["Media Type"];
+                "data": "Media Type", "title": "Channel", "width": "5%", "class": "uk-text-center",
+                "render": function ( cellData ) {
+                    var channel = cellData;
                     var icon = "";
-                    var ifb = "<span class='uk-icon-button blue darken-4 white-text'><i class='fa fa-facebook'></i> <span class='uk-hidden'>facebook</span></span>";
-                    var itw = "<span class='uk-icon-button blue accent-1 white-text'><i class='fa fa-twitter'></i> <span class='uk-hidden'>twitter</span></span>";
-                    var iyt = "<span class='uk-icon-button red white-text'><i class='fa fa-youtube'></i> <span class='uk-hidden'>youtube</span></span>";
-                    var iig = "<span class='uk-icon-button pink darken-4 white-text'><i class='fa fa-instagram'></i> <span class='uk-hidden'>instagram</span></span>";
                     switch (channel) {
-                        case 'facebook':
-                            icon = ifb;
-                            break;
-                        case 'twitter':
-                            icon = itw;
-                            break;
-                        case 'youtube':
-                            icon = iyt;
-                            break;
-                        case 'instagram':
-                            icon = iig;
-                            break;
-                    }
-                    return icon;
+            			case 'facebook':
+            				icon = 'facebook';
+            				break;
+            			case 'twitter':
+            				icon = 'twitter';
+            				break;
+            			case 'youtube':
+            				icon = 'youtube';
+            				break;
+            			case 'instagram':
+            				icon = 'instagram';
+            				break;
+            			case 'news':
+            				icon = 'globe';
+            				break;
+            			case 'blog':
+            				icon = 'rss';
+            				break;
+            			case 'forum':
+            				icon = 'comments';
+            				break;
+            		}
+                    return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
                 }
             },
             { "data": "Author", "title": "Author", "width": "15%" },
@@ -136,7 +141,7 @@ function convoSample(div,domId,judul) {
                     var btn = "";
                     switch (status) {
                         case 'Mark This':
-                            btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Need a response" class="orange white-text uk-badge sm-badge">Mark This</a>'
+                            btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Need a response" class="orange white-text uk-label sm-label">Mark This</a>'
                         break;
                         case 'Closed':
                             btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>Closed</span>'

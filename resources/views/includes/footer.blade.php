@@ -12,12 +12,12 @@
         </script>
     @show
 
-    <script src="{!! asset('assets/js/jquery.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/uikit.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/datepicker.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/html2canvas.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/jquery.plugin.html2canvas.js') !!}"></script>
-    <script src="{!! asset('assets/js/numeral.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/jquery.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/uikit.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/html2canvas.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/jquery.plugin.html2canvas.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/numeral.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/jquery.datetimepicker.js') !!}"></script>
     <script src="{!! asset('assets/js/main.js') !!}"></script>
 
     @section('page-level-scripts')

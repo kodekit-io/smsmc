@@ -21,65 +21,69 @@ function ticketList(div) {
             ]
         },
         columns: [
-            { "data": null, "width": "2.5%" },
+            { "data": "ticketId", "title": "ID", "width": "5%", },
             {
-                "data": null,"title": "Ticket Date","width": "10%",
-                "render": function ( data ) {
-                    var date = data["ticketDate"];
-                    var now = new Date();
-                    var offset = now.getTimezoneOffset() / 60;
-                    var newdate = new Date(date);
-                    var timezoneDif = offset * 60 + newdate.getTimezoneOffset();
-                    var localtime = new Date(newdate.getTime() + timezoneDif * 60 * 1000);
+                "data": "ticketDate","title": "Ticket Date", "width": "9%",
+                "render": function ( cellData ) {
+                    var localtime = moment.parseZone(cellData).local().format('llll');
                     return localtime;
                 }
             },
-            { "data": "ticketFrom", "title": "From", "width": "10%" },
-            { "data": "ticketTo", "title": "To", "width": "10%" },
+            { "data": "ticketFrom", "title": "From", "width": "7.5%" },
+            { "data": "ticketTo", "title": "To", "width": "7.5%" },
             { "data": "ticketMessage", "title": "Message", "width": "12.5%" },
             {
-                "data": null, "title": "Post", "width": "20%",
-                "render": function ( data ) {
-                    var date = data["postDate"];
-                    var now = new Date();
-                    var offset = now.getTimezoneOffset() / 60;
-                    var newdate = new Date(date);
-                    var timezoneDif = offset * 60 + newdate.getTimezoneOffset();
-                    var localtime = new Date(newdate.getTime() + timezoneDif * 60 * 1000);
-                    var postAuthor = data["postAuthor"];
-                    var postDetails = data["postDetails"];
-                    var postLink = data["postLink"];
-                    var post = '<span class="black-text">'+postAuthor+'</span> wrote on <em class="grey-text">'+localtime+'</em> :<br>'+postDetails+'<br><a href="'+postLink+'" class="uk-button uk-button-text red-text" title="Post Details" target="_blank" uk-tooltip>Post Details <i class="fa fa-arrow-right"></i></a>'
-                    return post;
-                }
-            },
-            {
-                "data": "postChannel", "title": "Channel", "width": "7.5%", "class": "uk-text-center",
+                "data": "postChannel", "title": "Channel", "class": "uk-text-center",  "width": "5%",
                 "render": function ( cellData ) {
                     var channel = cellData;
                     var icon = "";
-                    var ifb = "<span class='uk-icon-button blue darken-4 white-text'><i class='fa fa-facebook'></i> <span class='uk-hidden'>facebook</span></span>";
-                    var itw = "<span class='uk-icon-button blue accent-1 white-text'><i class='fa fa-twitter'></i> <span class='uk-hidden'>twitter</span></span>";
-                    var iyt = "<span class='uk-icon-button red white-text'><i class='fa fa-youtube'></i> <span class='uk-hidden'>youtube</span></span>";
-                    var iig = "<span class='uk-icon-button pink darken-4 white-text'><i class='fa fa-instagram'></i> <span class='uk-hidden'>instagram</span></span>";
                     switch (channel) {
-                        case 'facebook':
-                            icon = ifb;
-                            break;
-                        case 'twitter':
-                            icon = itw;
-                            break;
-                        case 'youtube':
-                            icon = iyt;
-                            break;
-                        case 'instagram':
-                            icon = iig;
-                            break;
-                    }
-                    return icon;
+            			case 'facebook':
+            				icon = 'facebook';
+            				break;
+            			case 'twitter':
+            				icon = 'twitter';
+            				break;
+            			case 'youtube':
+            				icon = 'youtube';
+            				break;
+            			case 'instagram':
+            				icon = 'instagram';
+            				break;
+            			case 'news':
+            				icon = 'globe';
+            				break;
+            			case 'blog':
+            				icon = 'rss';
+            				break;
+            			case 'forum':
+            				icon = 'comments';
+            				break;
+            		}
+                    return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
                 }
             },
-            { "data": "postSentiment", "title": "Sentiment", "width": "7.5%" },
+            {
+                "data": null, "title": "Post", "width": "25%",
+                "render": function ( data ) {
+                    var date = data["postDate"];
+                    var localtime = moment.parseZone(date).local().format('llll');
+                    var postAuthor = data["postAuthor"];
+                    var postDetails = data["postDetails"];
+                    var postLink = data["postLink"];
+                    var postSentiment = data["postSentiment"];
+                    var post = '<span class="black-text">'+postAuthor+'</span> wrote:<br>'+postDetails+'<br><em class="grey-text">'+localtime+'</em><br><span class="">'+postSentiment+'</span> | <a href="'+postLink+'" class="uk-button uk-button-text red-text" title="Post Details" target="_blank" uk-tooltip>Post Details <i class="fa fa-angle-right"></i></a>'
+                    return post;
+                }
+            },
+            //{ "data": "postSentiment", "title": "Sentiment" },
+            {
+                "data": "ticketUpdate","title": "Updates","width": "9%",
+                "render": function ( cellData ) {
+                    var localtime = moment.parseZone(cellData).local().format('llll');
+                    return localtime;
+                }
+            },
             {
                 "data": "ticketStatus", "title": "Status", "width": "7.5%",
                 "render": function ( cellData ) {
@@ -98,24 +102,28 @@ function ticketList(div) {
                 }
             },
             {
-                "data": "ticketStatus", "orderable": false, "width": "12.5%", "class": "uk-text-right",
-                "render": function ( cellData ) {
+                "data": null, "orderable": false, "class": "uk-text-center", "width": "12%",
+                "render": function ( data ) {
+                    var ticketId = data["ticketId"];
+                    var ticketStatus = data["ticketStatus"];
                     var btn = "";
-                    if (cellData === "Open") {
-                        btn = '<a href="#" class="uk-button uk-button-small red white-text" title="Respond Now" uk-tooltip><i class="fa fa-wa fa-reply"></i> Respond</a>'
+                    if (ticketStatus === "Open") {
+                        btn = '<a href="'+baseUrl+'/engagement-ticket-details?ticketId='+ticketId+'" class="uk-button uk-button-small uk-button-secondary red white-text" title="Ticket Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>'
                     } else {
-                        btn = '<a href="#" class="uk-button uk-button-small uk-button-default" title="Re-open Ticket" uk-tooltip><i class="fa fa-wa fa-envelope-open-o"></i> Re-open</a>'
+                        btn = '<a href="#" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>'
                     }
                     return btn;
                 }
             },
         ],
-        order: [[ 1, "desc" ]]
+        order: [[ 8, "desc" ]]
     });
+    /*
     theTable.on( 'order.dt search.dt', function () {
         theTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
             cell.innerHTML = i+1;
         } );
     } ).draw();
+    */
     theTable.columns.adjust().draw();
 }

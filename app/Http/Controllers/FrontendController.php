@@ -53,6 +53,11 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Ticket';
         return view('pages.engagement-ticket', $data);
     }
+    public function engagementTicketDetails()
+    {
+        $data['pageTitle'] = 'Ticket';
+        return view('pages.engagement-ticket-details', $data);
+    }
     public function engagementCalendar()
     {
         $data['pageTitle'] = 'Scheduled Calendar';

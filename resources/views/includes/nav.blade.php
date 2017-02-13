@@ -57,13 +57,13 @@
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <li><a href="{!! url('/') !!}/report-view"><i class="fa fa-download fa-fw"></i> View Report</a></li>
-                            <li><a href="{!! url('/') !!}/report-add"><i class="fa fa-tasks fa-fw"></i> Add New Report</a></li>
+                            <li><a href="{!! url('/') !!}/report-add"><i class="fa fa-pencil fa-fw"></i> Add New Report</a></li>
                         </ul>
                     </div>
                 </li>
                 <?php //} ?>
                 <li>
-                    <a href="{!! url('/') !!}/account"><i class="material-icons md-18">account_circle</i> username</a>
+                    <a href="{!! url('/') !!}/account"><i class="material-icons md-18">account_circle</i> Profile</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <li><a href="{!! url('/') !!}/account"><i class="fa fa-user fa-fw"></i> My Account</a></li>

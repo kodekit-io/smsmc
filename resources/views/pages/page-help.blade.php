@@ -45,7 +45,4 @@
 @endsection
 
 @section('page-level-scripts')
-    <script src="{!! asset('assets/js/echarts/echarts.js') !!}"></script>
-    <script src="{!! asset('assets/js/echarts/echarts.theme.js') !!}"></script>
-    <script src="{!! asset('assets/js/pages/home.js') !!}"></script>
 @endsection
