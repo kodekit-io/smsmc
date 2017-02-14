@@ -76,7 +76,7 @@ class FrontEndController extends Controller
     }
     public function reportAdd()
     {
-        $data['pageTitle'] = 'Add Report';
+        $data['pageTitle'] = 'Create Report';
         return view('pages.report-add', $data);
     }
 

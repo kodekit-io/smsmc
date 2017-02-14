@@ -110,7 +110,10 @@
             </div>
         </div>
     </section>
-
+    <div class="uk-alert-danger sm-alert" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+    </div>
 @endsection
 
 @section('page-level-scripts')

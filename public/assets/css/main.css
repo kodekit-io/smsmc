@@ -293,3 +293,10 @@ a.btn-screenshot {
     padding-left: 10px;
     padding-right: 10px;
 }
+.sm-alert {
+    top: 0 !important;
+    position: fixed;
+    z-index: 9999;
+    width: calc(100% - 44px);
+    margin-top: 0 !important;
+}
