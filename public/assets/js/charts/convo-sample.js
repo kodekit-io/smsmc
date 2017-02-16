@@ -19,8 +19,14 @@ function convoSample(div,domId,judul) {
                                 <fieldset class="uk-fieldset"> \
                                     <div class="uk-margin"> \
                                         <select class="uk-select"> \
-                                            <option>Send to All</option> \
-                                            <option>Group 1</option><option>Group 2</option><option>Group 3</option> \
+                                            <option>Send to</option> \
+                                            <option>Pulp & Paper</option><option>Agribusiness & Food</option><option>President Office</option> \
+                                        </select> \
+                                    </div> \
+                                    <div class="uk-margin"> \
+                                        <select class="uk-select"> \
+                                            <option>Type</option> \
+                                            <option>Respon</option><option>Monitor</option><option>Content - Pulp & Paper</option> \
                                         </select> \
                                     </div> \
                                     <div class="uk-margin"> \
@@ -135,19 +141,28 @@ function convoSample(div,domId,judul) {
                 }
             },
             {
-                "data": "Status", "orderable": true, "width": "12.5%", "class": "uk-text-center",
+                "data": "Status", "title": "Status", "orderable": true, "width": "12.5%", "class": "uk-text-center",
                 "render": function ( cellData ) {
                     var status = cellData;
-                    var btn = "";
+                    var btn = '';
+                    /*
+                    if (status == 'New') {
+                        btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+status+'</span><span class="hover">Open Ticket</span></a>';
+                        return btn;
+                    } else {
+                        btn = 'ga baru';
+                        return btn;
+                    }
+                    */
                     switch (status) {
-                        case 'Mark This':
-                            btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Need a response" class="orange white-text uk-label sm-label">Mark This</a>'
+                        case 'New':
+                            btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+status+'</span><span class="hover">Open Ticket</span></a>';
                         break;
                         case 'Closed':
-                            btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>Closed</span>'
+                            btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>'+status+'</span>';
                         break;
                         case 'Open':
-                            btn = '<span class="uk-badge sm-badge red white-text" title="Waiting for a response" uk-tooltip>Open</span>'
+                            btn = '<span class="uk-badge sm-badge red white-text" title="Waiting for a response" uk-tooltip>'+status+'</span>';
                         break;
                     }
 

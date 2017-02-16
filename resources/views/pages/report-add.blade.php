@@ -51,14 +51,7 @@
                                 </select>
                             </div>
                             <div class="uk-form-controls">
-                                <select class="uk-select" id="psm" disabled>
-                                    <option>All</option>
-                                    <option>Project 1</option>
-                                    <option>Project 2</option>
-                                </select>
-                            </div>
-                            <div class="uk-form-controls">
-                                <select class="uk-select" id="keyAcc" disabled>
+                                <select class="uk-select" id="keyAcc">
                                     <option>All</option>
                                     <option>Project 1</option>
                                     <option>Project 2</option>

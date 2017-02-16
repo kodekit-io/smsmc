@@ -30,6 +30,14 @@
                 <div class="uk-width-1-1">
                     <ul uk-grid class="uk-grid-small">
                         <li class="uk-width-auto@m">
+                            <ul class="sm-list" style="margin-top:5px">
+                                <li class="sm-text-bold">Sentiment:</li>
+                                <li><label><input class="uk-checkbox" type="checkbox"> Positive</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox"> Neutral</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox"> Negative</label></li>
+                            </ul>
+                        </li>
+                        <li class="uk-width-auto@m">
                             <div class="uk-inline sm-text-bold">Date Range:</div>
                             <div class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: calendar"></span>

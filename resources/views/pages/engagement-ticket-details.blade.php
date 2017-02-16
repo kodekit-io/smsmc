@@ -31,7 +31,11 @@
                             </tr>
                             <tr>
                                 <td>To</td>
-                                <td>Group A</td>
+                                <td>Pulp & Paper</td>
+                            </tr>
+                            <tr>
+                                <td>Type</td>
+                                <td>Content - Pulp & Paper</td>
                             </tr>
                         </table>
                     </div>
@@ -110,10 +114,10 @@
             </div>
         </div>
     </section>
-    <div class="uk-alert-danger sm-alert" uk-alert>
+    {{--<div class="uk-alert-danger sm-alert" uk-alert>
         <a class="uk-alert-close" uk-close></a>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-    </div>
+    </div>--}}
 @endsection
 
 @section('page-level-scripts')
@@ -121,7 +125,7 @@
     $(document).ready(function() {
         var dt = new Date();
         $('#schedule').datetimepicker({
-            'format': 'd-m-y h:i',
+            'format': 'd-m-y H:i',
             'minDate': 0,
             'minDateTime': dt,
             'closeOnDateSelect' : true,

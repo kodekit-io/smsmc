@@ -300,3 +300,19 @@ a.btn-screenshot {
     width: calc(100% - 44px);
     margin-top: 0 !important;
 }
+.sm-btn-openticket .hover {
+    display: none;
+}
+.sm-btn-openticket:hover .hover {
+    display: inline-block;
+}
+.sm-btn-openticket .nothover {
+    display: inline-block;
+}
+.sm-btn-openticket:hover .nothover {
+    display: none;
+}
+.sm-btn-openticket:hover {
+    background-color: #ff9800 !important;
+    color: #fff !important;
+}

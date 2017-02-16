@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('[data-toggle="datepicker"]').datetimepicker({
-        format: 'd-m-y h:i'
+        format: 'd-m-y H:i'
     });
     projectList('projectList');
 });
