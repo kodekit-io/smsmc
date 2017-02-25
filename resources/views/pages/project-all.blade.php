@@ -26,6 +26,7 @@
             <div id="15"></div>
             <div id="16"></div>
             <div id="17" class="uk-width-1-1"></div>
+            <div id="18" class="uk-width-1-1"></div>
         </div>
     </section>
 
@@ -33,26 +34,37 @@
 
 @section('page-level-scripts')
     <script>
-    $(document).ready(function() {
-        chart401('01');
-        chart113('02');
-        trendSample('03','postTrend','Post Trend');
-        trendSample('04','buzzTrend','Buzz Trend');
-        trendSample('05','reachTrend','Reach Trend');
-        trendSample('06','interactionTrend','Interaction Trend');
-        trendSample('07','sentimentTrend','Sentiment Trend');
-        pieSample('08','postPie','Post');
-        pieSample('09','buzzPie','Buzz');
-        pieSample('10','interactionPie','Interaction');
-        pieSample('11','uniqueUserPie','Unique User');
-        barSample('12','interactionBar','Interaction Rate');
-        barSample('13','shareMediaBar','Share of Media');
-        barSample('14','topicBar','Topic Distributions');
-        ontologySample('15','ontology','Ontology');
-        wordCloudSample('16','wordCloud','Word Cloud');
-        convoSample('17','convo','Conversation');
-    });
+        var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
+        $(document).ready(function() {
+            chartBubble('01',baseUrl+'/json/charts/401-brand-equity.json');
+            chartTrend('02',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrend('03',baseUrl+'/json/charts/101-trend-post.json');
+            chartBarStack('07',baseUrl+'/json/charts/305-bar-sentiment.json');
+            chartPie('08',baseUrl+'/json/charts/201-pie-post.json');
+            chartBar('12',baseUrl+'/json/charts/303-bar-interaction-rate.json');
+            chartBarStack('13',baseUrl+'/json/charts/306-bar-media-share.json');
+            chartBarStack('14',baseUrl+'/json/charts/308-bar-topic-distribution.json');
+            chartOntology('15',baseUrl+'/json/charts/402-ontology.json');
+            wordcloud('16',baseUrl+'/json/charts/403-wordcloud.json');
+            tableInfluencers('17',influencers);
+            tableConvoAll('18',baseUrl+'/json/charts/405-table-convo.json');
+            /*
+            trendSample('03','postTrend','Post Trend');
+            trendSample('04','buzzTrend','Buzz Trend');
+            trendSample('05','reachTrend','Reach Trend');
+            trendSample('06','interactionTrend','Interaction Trend');
+            trendSample('07','sentimentTrend','Sentiment Trend');
+            pieSample('08','postPie','Post');
+            pieSample('09','buzzPie','Buzz');
+            pieSample('10','interactionPie','Interaction');
+            pieSample('11','uniqueUserPie','Unique User');
+            barSample('12','interactionBar','Interaction Rate');
+            barSample('13','shareMediaBar','Share of Media');
+            barSample('14','topicBar','Topic Distributions');
+            */
 
+
+        });
     </script>
     <script src="{!! asset('assets/js/echarts/echarts.js') !!}"></script>
     <script src="{!! asset('assets/js/echarts/echarts.theme.js') !!}"></script>
@@ -64,13 +76,24 @@
     <script src="{!! asset('assets/js/datatables/extensions/buttons.html5.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/extensions/pdfmake.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/jqcloud.js') !!}"></script>
 
-    <script src="{!! asset('assets/js/charts/401-brandEquity.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/113-sentiment.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/chartBubble.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/chartBar.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/chartTrend.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/chartPie.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/chartOntology.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/tableConvoAll.js') !!}"></script>
+    <?php /*
+    <script src="{!! asset('assets/js/charts/305-sentiment.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/trend-sample.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/pie-sample.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/bar-sample.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/ontology-sample.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/wordcloud-sample.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convo-sample.js') !!}"></script>
+    */ ?>
 @endsection

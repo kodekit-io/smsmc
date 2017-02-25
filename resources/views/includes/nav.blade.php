@@ -1,4 +1,4 @@
-<header uk-sticky>
+<header id="header" uk-sticky>
     <nav class="uk-navbar-container sm-nav-main" uk-navbar>
         <div class="uk-navbar-left">
             <a href="{!! url('/') !!}/home" class="sm-logo" title="Sinarmas Social Media Center" uk-tooltip="pos: bottom-left">
@@ -8,7 +8,7 @@
             <h1 class="sm-title-page">{!! $pageTitle !!}</h1>
         </div>
         <div class="uk-navbar-right">
-            <ul class="uk-navbar-nav">
+            <ul class="uk-navbar-nav uk-visible@m">
                 <li>
                     <a href="{!! url('/') !!}/home"><i class="material-icons md-18">work</i> Project</a>
                     <div uk-dropdown="offset: 0" class="uk-overflow-auto uk-height-medium uk-dropdown">

@@ -1,0 +1,31 @@
+{
+    "chartId": "20s",
+    "chartName": "Buzz",
+    "chartInfo": "Buzz comparison",
+    "chartData": [
+        {
+            "id": "1",
+            "key": "Brand 1",
+            "color": "#E01F54",
+            "value": 50
+        },
+        {
+            "id": "2",
+            "key": "Brand 2",
+            "color": "#001852",
+            "value": 30
+        },
+        {
+            "id": "3",
+            "key": "Brand 3",
+            "color": "#ffe0b2",
+            "value": 20
+        },
+        {
+            "id": "4",
+            "key": "Brand 4",
+            "color": "#b8d2c7",
+            "value": 40
+        }
+    ]
+}

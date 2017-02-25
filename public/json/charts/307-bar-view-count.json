@@ -1,0 +1,27 @@
+{
+    "chartId": "307",
+    "chartName": "View Count",
+    "chartInfo": "View Count comparison",
+    "chartData": [
+        {
+            "key": "Brand 1",
+            "value": 0.5,
+            "color": "#E01F54"
+        },
+        {
+            "key": "Brand 2",
+            "value": 1.5,
+            "color": "#001852"
+        },
+        {
+            "key": "Brand 3",
+            "value": 0.75,
+            "color": "#ffe0b2"
+        },
+        {
+            "key": "Brand 4",
+            "value": 1.25,
+            "color": "#b8d2c7"
+        }
+    ]
+}

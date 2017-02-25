@@ -1,0 +1,161 @@
+{
+    "chartId": "306",
+    "chartName": "Media Share",
+    "chartInfo": "",
+    "chartData": [
+        {
+            "name": "Facebook",
+            "color": "#3b5998",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 6511
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 4511
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 10311
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 7834
+                }
+            ]
+        },
+        {
+            "name": "Twitter",
+            "color": "#1da1f2",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 5570
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 6128
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 7234
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 8581
+                }
+            ]
+        },
+        {
+            "name": "Youtube",
+            "color": "#cd201f",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 1140
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 2145
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 1445
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 1257
+                }
+            ]
+        },
+        {
+            "name": "Instagram",
+            "color": "#c13584",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 1140
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 2145
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 1445
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 1257
+                }
+            ]
+        },
+        {
+            "name": "News",
+            "color": "#009688",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 640
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 745
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 845
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 957
+                }
+            ]
+        },
+        {
+            "name": "Forum",
+            "color": "#4caf50",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 114
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 214
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 144
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 125
+                }
+            ]
+        },
+        {
+            "name": "Blog",
+            "color": "#f57d00",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 110
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 215
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 145
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 127
+                }
+            ]
+        }
+    ]
+}

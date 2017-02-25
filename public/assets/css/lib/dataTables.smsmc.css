@@ -64,3 +64,6 @@ div.dataTables_wrapper .uk-inline.l, div.dataTables_wrapper .uk-inline.B {
 div.dataTables_wrapper .uk-inline.B {
     margin-left: 1rem;
 }
+div.dataTables_wrapper .uk-pagination {
+    margin-bottom: 0;
+}

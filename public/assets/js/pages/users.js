@@ -3,7 +3,7 @@ $(document).ready(function() {
         //"searching": false,
         //"info": false,
         "ajax": {
-            "url" : "json/users.json",
+            "url" : "json/users-list.json",
             "data" : "data",
         },
         "columns": [

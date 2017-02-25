@@ -1,0 +1,228 @@
+{
+    "chartId": "402",
+    "chartName": "Ontology",
+    "chartInfo": "Ontology Chart",
+    "type": "force",
+    "categories": [
+        {
+            "name": "Brand 1"
+        },
+        {
+            "name": "Brand 2"
+        },
+        {
+            "name": "Brand 3"
+        }
+    ],
+    "nodes": [
+        {
+            "name": "user 1",
+            "value": 100,
+            "category": 0,
+            "node": 0
+        },
+        {
+            "name": "user 2",
+            "value": 200,
+            "category": 0,
+            "node": 1
+        },
+        {
+            "name": "user 3",
+            "value": 300,
+            "category": 0,
+            "node": 2
+        },
+        {
+            "name": "user 4",
+            "value": 100,
+            "category": 0,
+            "node": 3
+        },
+        {
+            "name": "user 5",
+            "value": 200,
+            "category": 0,
+            "node": 4
+        },
+        {
+            "name": "user 6",
+            "value": 300,
+            "category": 0,
+            "node": 5
+        },
+        {
+            "name": "user A",
+            "value": 100,
+            "category": 1,
+            "node": 6
+        },
+        {
+            "name": "user B",
+            "value": 200,
+            "category": 1,
+            "node": 7
+        },
+        {
+            "name": "user C",
+            "value": 300,
+            "category": 1,
+            "node": 8
+        },
+        {
+            "name": "user D",
+            "value": 100,
+            "category": 1,
+            "node": 9
+        },
+        {
+            "name": "user E",
+            "value": 200,
+            "category": 1,
+            "node": 10
+        },
+        {
+            "name": "user F",
+            "value": 300,
+            "category": 1,
+            "node": 11
+        },
+        {
+            "name": "user AA",
+            "value": 100,
+            "category": 2,
+            "node": 12
+        },
+        {
+            "name": "user BB",
+            "value": 200,
+            "category": 2,
+            "node": 13
+        },
+        {
+            "name": "user CC",
+            "value": 300,
+            "category": 2,
+            "node": 14
+        },
+        {
+            "name": "user DD",
+            "value": 100,
+            "category": 2,
+            "node": 15
+        },
+        {
+            "name": "user EE",
+            "value": 200,
+            "category": 2,
+            "node": 16
+        },
+        {
+            "name": "user FF",
+            "value": 300,
+            "category": 2,
+            "node": 17
+        },
+        {
+            "name": "user 7",
+            "value": 100,
+            "category": 0,
+            "node": 18
+        },
+        {
+            "name": "user 8",
+            "value": 200,
+            "category": 0,
+            "node": 19
+        },
+        {
+            "name": "user 9",
+            "value": 300,
+            "category": 0,
+            "node": 20
+        }
+    ],
+    "links": [
+        {
+            "source": 0,
+            "target": 1
+        },
+        {
+            "source": 0,
+            "target": 2
+        },
+        {
+            "source": 0,
+            "target": 3
+        },
+        {
+            "source": 0,
+            "target": 4
+        },
+        {
+            "source": 0,
+            "target": 5
+        },
+        {
+            "source": 6,
+            "target": 7
+        },
+        {
+            "source": 6,
+            "target": 8
+        },
+        {
+            "source": 6,
+            "target": 9
+        },
+        {
+            "source": 6,
+            "target": 10
+        },
+        {
+            "source": 6,
+            "target": 11
+        },
+        {
+            "source": 12,
+            "target": 13
+        },
+        {
+            "source": 12,
+            "target": 14
+        },
+        {
+            "source": 12,
+            "target": 15
+        },
+        {
+            "source": 12,
+            "target": 16
+        },
+        {
+            "source": 12,
+            "target": 17
+        },
+        {
+            "source": 0,
+            "target": 18
+        },
+        {
+            "source": 0,
+            "target": 19
+        },
+        {
+            "source": 0,
+            "target": 20
+        }
+        ,
+        {
+            "source": 0,
+            "target": 12
+        },
+        {
+            "source": 0,
+            "target": 6
+        }
+    ]
+}

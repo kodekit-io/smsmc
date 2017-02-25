@@ -1,0 +1,73 @@
+{
+    "chartId": "305",
+    "chartName": "Sentiment",
+    "chartInfo": "A view of or attitude toward a situation or event; an opinion",
+    "chartData": [
+        {
+            "name": "Positive",
+            "color": "#009688",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 6511
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 4511
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 10311
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 7834
+                }
+            ]
+        },
+        {
+            "name": "Neutral",
+            "color": "#8a9499",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 570
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 128
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 234
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 581
+                }
+            ]
+        },
+        {
+            "name": "Negative",
+            "color": "#f44336",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 1140
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 2145
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 1445
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 1257
+                }
+            ]
+        }
+    ]
+}

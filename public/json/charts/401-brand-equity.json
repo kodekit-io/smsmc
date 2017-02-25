@@ -1,0 +1,59 @@
+{
+    "chartId": "401",
+    "chartName": "Brand Equity",
+    "chartInfo": "Brand equity is the added value endowed on products and services",
+    "chartData": [
+        {
+            "unquser": 100,
+            "netBrandReputation": 200,
+            "netsen": -300,
+            "keywordName": "Brand 1",
+            "color": "#11b9b9",
+            "buzz": 400,
+            "brandFavourableTalkability": 500,
+            "sim": 600,
+            "keywordID": "1",
+            "emss": 700,
+            "earnedMediaShare": 800
+        },
+        {
+            "unquser": 800,
+            "netBrandReputation": 700,
+            "netsen": 600,
+            "keywordName": "Brand 2",
+            "color": "#df3636",
+            "buzz": 500,
+            "brandFavourableTalkability": 400,
+            "sim": 300,
+            "keywordID": "2",
+            "emss": 200,
+            "earnedMediaShare": -100
+        },
+        {
+            "unquser": 234,
+            "netBrandReputation": 7856,
+            "netsen": 134,
+            "keywordName": "Brand 3",
+            "color": "#4b6fb5",
+            "buzz": 536,
+            "brandFavourableTalkability": 134,
+            "sim": 342,
+            "keywordID": "3",
+            "emss": 7465,
+            "earnedMediaShare": 3425
+        },
+        {
+            "unquser": 1334,
+            "netBrandReputation": 4856,
+            "netsen": 534,
+            "keywordName": "Brand 4",
+            "color": "#e6ee9c",
+            "buzz": 636,
+            "brandFavourableTalkability": 734,
+            "sim": 842,
+            "keywordID": "3",
+            "emss": 465,
+            "earnedMediaShare": 5425
+        }
+    ]
+}

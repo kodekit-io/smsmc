@@ -13,11 +13,6 @@
 @endsection
 
 @section('page-level-scripts')
-    <script>
-        $(document).ready(function() {
-            projectGrid('projectGrid');
-        });
-    </script>
     <script src="{!! asset('assets/js/echarts/echarts.js') !!}"></script>
     <script src="{!! asset('assets/js/echarts/echarts.theme.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/home.js') !!}"></script>

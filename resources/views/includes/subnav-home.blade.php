@@ -2,7 +2,7 @@
     <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
             <li>
-                <a href="#">Project Group <i uk-icon="icon: chevron-down" class="uk-margin-small-left"></i></a>
+                <a href="#"><span class="uk-visible@m">Project </span>Group <i uk-icon="icon: chevron-down" class="uk-margin-small-left"></i></a>
                 <div uk-dropdown="offset: 0">
                     <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
                         <li><label><input class="uk-checkbox" type="checkbox"> All Group</label></li>

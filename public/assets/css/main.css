@@ -32,14 +32,9 @@ a.fa {
     color: #fff;
     text-shadow: none
 }
-
-.sm-text-bold {
-    font-family: 'GothamPro-Bold' !important;
+.uk-text-small {
+    font-size: .75rem !important;
 }
-.sm-text-lite {
-    font-family: 'GothamPro-Light' !important;
-}
-
 .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
     height: 50px;
     color: #fff;
@@ -77,6 +72,13 @@ a.fa {
     margin-top: 0px;
 }
 
+.sm-text-bold {
+    font-family: 'GothamPro-Bold' !important;
+}
+.sm-text-lite {
+    font-family: 'GothamPro-Light' !important;
+}
+
 .uk-card-title {
     font-size: 1rem;
     text-transform: uppercase;
@@ -101,10 +103,12 @@ a.fa {
 }
 .sm-nav-main {
     background: #EC1C23 !important;
+    height: 50px;
 }
 
 .sm-nav-sub {
     background: #000 !important;
+    height: 50px;
 }
 
 .sm-nav-sub .uk-navbar-nav>li>a {
@@ -315,4 +319,7 @@ a.btn-screenshot {
 .sm-btn-openticket:hover {
     background-color: #ff9800 !important;
     color: #fff !important;
+}
+.sm-btn-openticket:hover:before {
+    content: "Open Ticket";
 }

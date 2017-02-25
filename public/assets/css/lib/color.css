@@ -1,3 +1,46 @@
+.color-youtube {
+    background-color: #cd201f !important;
+}
+.color-text-youtube {
+    color: #cd201f !important;
+}
+.color-facebook {
+    background-color: #3b5998 !important;
+}
+.color-text-facebook {
+    color: #3b5998 !important;
+}
+.color-twitter {
+    background-color: #1da1f2 !important;
+}
+.color-text-twitter {
+    color: #1da1f2 !important;
+}
+.color-instagram {
+    background-color: #c13584 !important;
+}
+.color-text-instagram {
+    color: #c13584 !important;
+}
+.color-news {
+    background-color: #009688 !important;
+}
+.color-text-news {
+    color: #009688 !important;
+}
+.color-forum {
+    background-color: #4caf50 !important;
+}
+.color-text-forum {
+    color: #4caf50 !important;
+}
+.color-blog {
+    background-color: #f57d00 !important;
+}
+.color-text-blog {
+    color: #f57d00 !important;
+}
+
 .red {
     background-color: #F44336 !important;
 }
@@ -46,11 +89,11 @@
     color: #EF5350 !important;
 }
 
-.red.darken-1, .color-youtube {
+.red.darken-1 {
     background-color: #E53935 !important;
 }
 
-.red-text.text-darken-1, .color-text-youtube {
+.red-text.text-darken-1 {
     color: #E53935 !important;
 }
 
@@ -182,11 +225,11 @@
     color: #ad1457 !important;
 }
 
-.pink.darken-4, .color-instagram {
+.pink.darken-4 {
     background-color: #880e4f !important;
 }
 
-.pink-text.text-darken-4, .color-text-instagram {
+.pink-text.text-darken-4 {
     color: #880e4f !important;
 }
 
@@ -670,11 +713,11 @@
     color: #2962FF !important;
 }
 
-.light-blue, .color-twitter {
+.light-blue {
     background-color: #03a9f4 !important;
 }
 
-.light-blue-text, .color-text-twitter {
+.light-blue-text {
     color: #03a9f4 !important;
 }
 
@@ -742,11 +785,11 @@
     color: #0277bd !important;
 }
 
-.light-blue.darken-4, .color-facebook {
+.light-blue.darken-4 {
     background-color: #01579b !important;
 }
 
-.light-blue-text.text-darken-4, .color-text-facebook {
+.light-blue-text.text-darken-4 {
     color: #01579b !important;
 }
 
@@ -830,11 +873,11 @@
     color: #26c6da !important;
 }
 
-.cyan.darken-1, .color-forum {
+.cyan.darken-1 {
     background-color: #00acc1 !important;
 }
 
-.cyan-text.text-darken-1, .color-text-forum {
+.cyan-text.text-darken-1 {
     color: #00acc1 !important;
 }
 
@@ -854,11 +897,11 @@
     color: #00838f !important;
 }
 
-.cyan.darken-4, .color-news {
+.cyan.darken-4 {
     background-color: #006064 !important;
 }
 
-.cyan-text.text-darken-4, .color-text-news {
+.cyan-text.text-darken-4 {
     color: #006064 !important;
 }
 
@@ -1526,11 +1569,11 @@
     color: #ff8f00 !important;
 }
 
-.amber.darken-4, .color-blog  {
+.amber.darken-4  {
     background-color: #ff6f00 !important;
 }
 
-.amber-text.text-darken-4, .color-text-blog {
+.amber-text.text-darken-4 {
     color: #ff6f00 !important;
 }
 

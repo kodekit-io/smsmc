@@ -1,0 +1,607 @@
+{
+    "chartId": "403",
+    "chartName": "Wordscloud",
+    "chartInfo": "It's a bird! It's a plane! No, it's a cloud... of words.",
+    "chartData": [
+        {
+            "name": "halobca",
+            "value": 5833,
+            "color": "#053095",
+            "link": "text=halobca"
+        },
+        {
+            "name": "bank",
+            "value": 2508,
+            "color": "#999999",
+            "link": "text=bank"
+        },
+        {
+            "name": "mandiri",
+            "value": 1734,
+            "color": "#0e2850",
+            "link": "text=mandiri"
+        },
+        {
+            "name": "kartu",
+            "value": 1122,
+            "color": "#999999",
+            "link": "text=kartu"
+        },
+        {
+            "name": "mention",
+            "value": 931,
+            "color": "#999999",
+            "link": "text=mention"
+        },
+        {
+            "name": "ingin",
+            "value": 868,
+            "color": "#999999",
+            "link": "text=ingin"
+        },
+        {
+            "name": "untuk",
+            "value": 815,
+            "color": "#999999",
+            "link": "text=untuk"
+        },
+        {
+            "name": "transaksi",
+            "value": 730,
+            "color": "#999999",
+            "link": "text=transaksi"
+        },
+        {
+            "name": "lain",
+            "value": 725,
+            "color": "#999999",
+            "link": "text=lain"
+        },
+        {
+            "name": "terima",
+            "value": 692,
+            "color": "#999999",
+            "link": "text=terima"
+        },
+        {
+            "name": "bankbri",
+            "value": 678,
+            "color": "#1c246c",
+            "link": "text=bankbri"
+        },
+        {
+            "name": "kasih",
+            "value": 674,
+            "color": "#999999",
+            "link": "text=kasih"
+        },
+        {
+            "name": "mandiricare",
+            "value": 660,
+            "color": "#0e2850",
+            "link": "text=mandiricare"
+        },
+        {
+            "name": "saya",
+            "value": 618,
+            "color": "#999999",
+            "link": "text=saya"
+        },
+        {
+            "name": "ditanyakan",
+            "value": 579,
+            "color": "#999999",
+            "link": "text=ditanyakan"
+        },
+        {
+            "name": "melalui",
+            "value": 568,
+            "color": "#999999",
+            "link": "text=melalui"
+        },
+        {
+            "name": "bankmandiri",
+            "value": 564,
+            "color": "#0e2850",
+            "link": "text=bankmandiri"
+        },
+        {
+            "name": "infokan",
+            "value": 542,
+            "color": "#999999",
+            "link": "text=infokan"
+        },
+        {
+            "name": "akan",
+            "value": 534,
+            "color": "#999999",
+            "link": "text=akan"
+        },
+        {
+            "name": "1500888",
+            "value": 512,
+            "color": "#999999",
+            "link": "text=1500888"
+        },
+        {
+            "name": "cepy",
+            "value": 493,
+            "color": "#999999",
+            "link": "text=cepy"
+        },
+        {
+            "name": "kontakbri",
+            "value": 468,
+            "color": "#1c246c",
+            "link": "text=kontakbri"
+        },
+        {
+            "name": "sarankan",
+            "value": 462,
+            "color": "#999999",
+            "link": "text=sarankan"
+        },
+        {
+            "name": "maaf",
+            "value": 460,
+            "color": "#999999",
+            "link": "text=maaf"
+        },
+        {
+            "name": "dengan",
+            "value": 454,
+            "color": "#999999",
+            "link": "text=dengan"
+        },
+        {
+            "name": "info",
+            "value": 454,
+            "color": "#999999",
+            "link": "text=info"
+        },
+        {
+            "name": "data",
+            "value": 434,
+            "color": "#999999",
+            "link": "text=data"
+        },
+        {
+            "name": "kesediaan",
+            "value": 429,
+            "color": "#999999",
+            "link": "text=kesediaan"
+        },
+        {
+            "name": "selamat",
+            "value": 407,
+            "color": "#999999",
+            "link": "text=selamat"
+        },
+        {
+            "name": "dapat",
+            "value": 406,
+            "color": "#999999",
+            "link": "text=dapat"
+        },
+        {
+            "name": "diva",
+            "value": 402,
+            "color": "#999999",
+            "link": "text=diva"
+        },
+        {
+            "name": "tara",
+            "value": 399,
+            "color": "#999999",
+            "link": "text=tara"
+        },
+        {
+            "name": "mohon",
+            "value": 396,
+            "color": "#999999",
+            "link": "text=mohon"
+        },
+        {
+            "name": "layanan",
+            "value": 395,
+            "color": "#999999",
+            "link": "text=layanan"
+        },
+        {
+            "name": "tidak",
+            "value": 375,
+            "color": "#999999",
+            "link": "text=tidak"
+        },
+        {
+            "name": "proses",
+            "value": 369,
+            "color": "#999999",
+            "link": "text=proses"
+        },
+        {
+            "name": "adalah",
+            "value": 363,
+            "color": "#999999",
+            "link": "text=adalah"
+        },
+        {
+            "name": "sudah",
+            "value": 353,
+            "color": "#999999",
+            "link": "text=sudah"
+        },
+        {
+            "name": "rekening",
+            "value": 352,
+            "color": "#999999",
+            "link": "text=rekening"
+        },
+        {
+            "name": "sita",
+            "value": 348,
+            "color": "#999999",
+            "link": "text=sita"
+        },
+        {
+            "name": "yoga",
+            "value": 346,
+            "color": "#999999",
+            "link": "text=yoga"
+        },
+        {
+            "name": "anda",
+            "value": 342,
+            "color": "#999999",
+            "link": "text=anda"
+        },
+        {
+            "name": "pulsa",
+            "value": 341,
+            "color": "#999999",
+            "link": "text=pulsa"
+        },
+        {
+            "name": "menunggu",
+            "value": 338,
+            "color": "#999999",
+            "link": "text=menunggu"
+        },
+        {
+            "name": "olid",
+            "value": 337,
+            "color": "#999999",
+            "link": "text=olid"
+        },
+        {
+            "name": "banking",
+            "value": 320,
+            "color": "#999999",
+            "link": "text=banking"
+        },
+        {
+            "name": "informasi",
+            "value": 314,
+            "color": "#999999",
+            "link": "text=informasi"
+        },
+        {
+            "name": "informasikan",
+            "value": 314,
+            "color": "#999999",
+            "link": "text=informasikan"
+        },
+        {
+            "name": "halo",
+            "value": 310,
+            "color": "#999999",
+            "link": "text=halo"
+        },
+        {
+            "name": "biaya",
+            "value": 299,
+            "color": "#999999",
+            "link": "text=biaya"
+        },
+        {
+            "name": "agus",
+            "value": 298,
+            "color": "#999999",
+            "link": "text=agus"
+        },
+        {
+            "name": "segera",
+            "value": 296,
+            "color": "#999999",
+            "link": "text=segera"
+        },
+        {
+            "name": "media",
+            "value": 292,
+            "color": "#999999",
+            "link": "text=media"
+        },
+        {
+            "name": "transfer",
+            "value": 285,
+            "color": "#999999",
+            "link": "text=transfer"
+        },
+        {
+            "name": "merespon",
+            "value": 277,
+            "color": "#999999",
+            "link": "text=merespon"
+        },
+        {
+            "name": "kredit",
+            "value": 275,
+            "color": "#999999",
+            "link": "text=kredit"
+        },
+        {
+            "name": "atas",
+            "value": 272,
+            "color": "#999999",
+            "link": "text=atas"
+        },
+        {
+            "name": "buku",
+            "value": 272,
+            "color": "#999999",
+            "link": "text=buku"
+        },
+        {
+            "name": "kantor",
+            "value": 271,
+            "color": "#999999",
+            "link": "text=kantor"
+        },
+        {
+            "name": "hari",
+            "value": 265,
+            "color": "#999999",
+            "link": "text=hari"
+        },
+        {
+            "name": "digunakan",
+            "value": 262,
+            "color": "#999999",
+            "link": "text=digunakan"
+        },
+        {
+            "name": "lakukan",
+            "value": 262,
+            "color": "#999999",
+            "link": "text=lakukan"
+        },
+        {
+            "name": "pembayaran",
+            "value": 262,
+            "color": "#999999",
+            "link": "text=pembayaran"
+        },
+        {
+            "name": "saldo",
+            "value": 262,
+            "color": "#999999",
+            "link": "text=saldo"
+        },
+        {
+            "name": "cabang",
+            "value": 259,
+            "color": "#999999",
+            "link": "text=cabang"
+        },
+        {
+            "name": "promo",
+            "value": 255,
+            "color": "#999999",
+            "link": "text=promo"
+        },
+        {
+            "name": "berlaku",
+            "value": 253,
+            "color": "#999999",
+            "link": "text=berlaku"
+        },
+        {
+            "name": "terdekat",
+            "value": 251,
+            "color": "#999999",
+            "link": "text=terdekat"
+        },
+        {
+            "name": "baik",
+            "value": 245,
+            "color": "#999999",
+            "link": "text=baik"
+        },
+        {
+            "name": "melakukan",
+            "value": 241,
+            "color": "#999999",
+            "link": "text=melakukan"
+        },
+        {
+            "name": "tabungan",
+            "value": 240,
+            "color": "#999999",
+            "link": "text=tabungan"
+        },
+        {
+            "name": "membawa",
+            "value": 236,
+            "color": "#999999",
+            "link": "text=membawa"
+        },
+        {
+            "name": "silahkan",
+            "value": 235,
+            "color": "#999999",
+            "link": "text=silahkan"
+        },
+        {
+            "name": "dilakukan",
+            "value": 233,
+            "color": "#999999",
+            "link": "text=dilakukan"
+        },
+        {
+            "name": "karena",
+            "value": 229,
+            "color": "#999999",
+            "link": "text=karena"
+        },
+        {
+            "name": "nomor",
+            "value": 229,
+            "color": "#999999",
+            "link": "text=nomor"
+        },
+        {
+            "name": "dana",
+            "value": 228,
+            "color": "#999999",
+            "link": "text=dana"
+        },
+        {
+            "name": "mobile",
+            "value": 227,
+            "color": "#999999",
+            "link": "text=mobile"
+        },
+        {
+            "name": "menggunakan",
+            "value": 226,
+            "color": "#999999",
+            "link": "text=menggunakan"
+        },
+        {
+            "name": "promosi",
+            "value": 225,
+            "color": "#999999",
+            "link": "text=promosi"
+        },
+        {
+            "name": "baru",
+            "value": 222,
+            "color": "#999999",
+            "link": "text=baru"
+        },
+        {
+            "name": "menu",
+            "value": 220,
+            "color": "#999999",
+            "link": "text=menu"
+        },
+        {
+            "name": "bahwa",
+            "value": 218,
+            "color": "#999999",
+            "link": "text=bahwa"
+        },
+        {
+            "name": "akses",
+            "value": 216,
+            "color": "#999999",
+            "link": "text=akses"
+        },
+        {
+            "name": "kendala",
+            "value": 215,
+            "color": "#999999",
+            "link": "text=kendala"
+        },
+        {
+            "name": "tahapan",
+            "value": 215,
+            "color": "#999999",
+            "link": "text=tahapan"
+        },
+        {
+            "name": "produk",
+            "value": 208,
+            "color": "#999999",
+            "link": "text=produk"
+        },
+        {
+            "name": "terkait",
+            "value": 207,
+            "color": "#999999",
+            "link": "text=terkait"
+        },
+        {
+            "name": "setiap",
+            "value": 204,
+            "color": "#999999",
+            "link": "text=setiap"
+        },
+        {
+            "name": "ikuti",
+            "value": 203,
+            "color": "#999999",
+            "link": "text=ikuti"
+        },
+        {
+            "name": "internet",
+            "value": 203,
+            "color": "#999999",
+            "link": "text=internet"
+        },
+        {
+            "name": "pada",
+            "value": 201,
+            "color": "#999999",
+            "link": "text=pada"
+        },
+        {
+            "name": "pengecekan",
+            "value": 197,
+            "color": "#999999",
+            "link": "text=pengecekan"
+        },
+        {
+            "name": "klik",
+            "value": 195,
+            "color": "#999999",
+            "link": "text=klik"
+        },
+        {
+            "name": "novi",
+            "value": 193,
+            "color": "#999999",
+            "link": "text=novi"
+        },
+        {
+            "name": "pollingbri",
+            "value": 190,
+            "color": "#1c246c",
+            "link": "text=pollingbri"
+        },
+        {
+            "name": "link",
+            "value": 189,
+            "color": "#999999",
+            "link": "text=link"
+        },
+        {
+            "name": "mesin",
+            "value": 187,
+            "color": "#999999",
+            "link": "text=mesin"
+        },
+        {
+            "name": "telah",
+            "value": 187,
+            "color": "#999999",
+            "link": "text=telah"
+        },
+        {
+            "name": "kirimkan",
+            "value": 186,
+            "color": "#999999",
+            "link": "text=kirimkan"
+        }
+    ]
+}

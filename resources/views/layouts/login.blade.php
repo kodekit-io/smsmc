@@ -5,8 +5,6 @@
     Copyright &copy; <?php echo date('Y'); ?> <a class="grey-text text-darken-1" href="http://www.sinarmas.com" target="_blank" title="Sinarmas">Sinarmas</a> | Powered by <a class="grey-text text-darken-1" href="http://www.mediawave.biz" target="_blank" title="MediaWave">MediaWave</a>
 </footer>
 
-<script src="{!! asset('assets/js/lib/jquery.min.js') !!}"></script>
-<script src="{!! asset('assets/js/lib/uikit.min.js') !!}"></script>
 @section('page-level-scripts')
 @show
 

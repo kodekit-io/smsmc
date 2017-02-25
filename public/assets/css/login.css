@@ -11,3 +11,14 @@
     top: 0;
     z-index: 1;
 }
+span.error {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    font-size: .7rem;
+    color: #F44336;
+}
+.uk-input.error:focus {
+    border-color: #F44336;
+}

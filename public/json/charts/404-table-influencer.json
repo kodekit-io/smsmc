@@ -1,0 +1,433 @@
+{
+    "chartId": "404",
+    "chartName": "Influencer",
+    "chartInfo": "Facebook top influencers",
+    "chartData": {
+        "status": {
+            "groupName": "Top Status",
+            "scoreTotal": 0,
+            "data": {
+                "share": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_718132225010917",
+                        "name": "Ridha Rizuki Novanda",
+                        "value": 9,
+                        "score": 9
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_716084691882337",
+                        "name": "Syafik Kifays",
+                        "value": 8,
+                        "score": 8
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_716194281871378",
+                        "name": "Aprilia Bunda Azzam",
+                        "value": 2,
+                        "score": 2
+                    }
+                ],
+                "comment": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_718132225010917",
+                        "name": "Ridha Rizuki Novanda",
+                        "value": 8,
+                        "score": 8
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_716084691882337",
+                        "name": "Syafik Kifays",
+                        "value": 6,
+                        "score": 6
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_716194281871378",
+                        "name": "Aprilia Bunda Azzam",
+                        "value": 1,
+                        "score": 1
+                    }
+                ],
+                "like": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_718132225010917",
+                        "name": "Ridha Rizuki Novanda",
+                        "value": 1,
+                        "score": 1
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_716084691882337",
+                        "name": "Syafik Kifays",
+                        "value": 1,
+                        "score": 1
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_716194281871378",
+                        "name": "Aprilia Bunda Azzam",
+                        "value": 0,
+                        "score": 0
+                    }
+                ]
+            }
+        },
+        "link": {
+            "groupName": "Top Link",
+            "scoreTotal": 0,
+            "data": {
+                "share": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721528348004638",
+                        "name": "Jon Snow",
+                        "value": 9,
+                        "score": 9
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883488369124",
+                        "name": "Jon Snow",
+                        "value": 5,
+                        "score": 5
+                    }
+                ],
+                "comment": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721528348004638",
+                        "name": "Jon Snow",
+                        "value": 5,
+                        "score": 5
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883488369124",
+                        "name": "Jon Snow",
+                        "value": 8,
+                        "score": 8
+                    }
+                ],
+                "like": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721528348004638",
+                        "name": "Jon Snow",
+                        "value": 22,
+                        "score": 22
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883488369124",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    }
+                ]
+            }
+        },
+        "photo": {
+            "groupName": "Top Photo",
+            "scoreTotal": 0,
+            "data": {
+                "share": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_730225237134949",
+                        "name": "Jon Snow",
+                        "value": 4,
+                        "score": 4
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_729060377251435",
+                        "name": "Jon Snow",
+                        "value": 2,
+                        "score": 2
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_729059940584812",
+                        "name": "Jon Snow",
+                        "value": 10,
+                        "score": 10
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727873000703506",
+                        "name": "Jon Snow",
+                        "value": 5,
+                        "score": 5
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727832454040894",
+                        "name": "Jon Snow",
+                        "value": 4,
+                        "score": 4
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727827074041432",
+                        "name": "Jon Snow",
+                        "value": 4,
+                        "score": 4
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_725605417596931",
+                        "name": "Jon Snow",
+                        "value": 8,
+                        "score": 8
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_726072167550256",
+                        "name": "Jon Snow",
+                        "value": 2,
+                        "score": 2
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723235084500631",
+                        "name": "Jon Snow",
+                        "value": 9,
+                        "score": 9
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723899814434158",
+                        "name": "Jon Snow",
+                        "value": 1,
+                        "score": 1
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723234634500676",
+                        "name": "Jon Snow",
+                        "value": 6,
+                        "score": 6
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721537991337007",
+                        "name": "Jon Snow",
+                        "value": 2,
+                        "score": 2
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_720815108075962",
+                        "name": "Jon Snow",
+                        "value": 7,
+                        "score": 7
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883858369087",
+                        "name": "Jon Snow",
+                        "value": 1,
+                        "score": 1
+                    }
+                ],
+                "comment": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_730225237134949",
+                        "name": "Jon Snow",
+                        "value": 6,
+                        "score": 6
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_729060377251435",
+                        "name": "Jon Snow",
+                        "value": 7,
+                        "score": 7
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_729059940584812",
+                        "name": "Jon Snow",
+                        "value": 6,
+                        "score": 6
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727873000703506",
+                        "name": "Jon Snow",
+                        "value": 6,
+                        "score": 6
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727832454040894",
+                        "name": "Jon Snow",
+                        "value": 8,
+                        "score": 8
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727827074041432",
+                        "name": "Jon Snow",
+                        "value": 6,
+                        "score": 6
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_725605417596931",
+                        "name": "Jon Snow",
+                        "value": 2,
+                        "score": 2
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_726072167550256",
+                        "name": "Jon Snow",
+                        "value": 3,
+                        "score": 3
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723235084500631",
+                        "name": "Jon Snow",
+                        "value": 2,
+                        "score": 2
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723899814434158",
+                        "name": "Jon Snow",
+                        "value": 6,
+                        "score": 6
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723234634500676",
+                        "name": "Jon Snow",
+                        "value": 2,
+                        "score": 2
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721537991337007",
+                        "name": "Jon Snow",
+                        "value": 1,
+                        "score": 1
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_720815108075962",
+                        "name": "Jon Snow",
+                        "value": 3,
+                        "score": 3
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883858369087",
+                        "name": "Jon Snow",
+                        "value": 2,
+                        "score": 2
+                    }
+                ],
+                "like": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_730225237134949",
+                        "name": "Jon Snow",
+                        "value": 18,
+                        "score": 18
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_729060377251435",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_729059940584812",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727873000703506",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727832454040894",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_727827074041432",
+                        "name": "Jon Snow",
+                        "value": 20,
+                        "score": 20
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_725605417596931",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_726072167550256",
+                        "name": "Jon Snow",
+                        "value": 0,
+                        "score": 0
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723235084500631",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723899814434158",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_723234634500676",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721537991337007",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_720815108075962",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883858369087",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    }
+                ]
+            }
+        },
+        "video": {
+            "groupName": "Top Video",
+            "scoreTotal": 0,
+            "data": {
+                "share": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721528348004638",
+                        "name": "Jon Snow",
+                        "value": 9,
+                        "score": 9
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883488369124",
+                        "name": "Jon Snow",
+                        "value": 5,
+                        "score": 5
+                    }
+                ],
+                "comment": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721528348004638",
+                        "name": "Jon Snow",
+                        "value": 5,
+                        "score": 5
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883488369124",
+                        "name": "Jon Snow",
+                        "value": 8,
+                        "score": 8
+                    }
+                ],
+                "like": [
+                    {
+                        "link": "https://www.facebook.com/175000212657457_721528348004638",
+                        "name": "Jon Snow",
+                        "value": 22,
+                        "score": 22
+                    },
+                    {
+                        "link": "https://www.facebook.com/175000212657457_717883488369124",
+                        "name": "Jon Snow",
+                        "value": 25,
+                        "score": 25
+                    }
+                ]
+            }
+        }
+    }
+}

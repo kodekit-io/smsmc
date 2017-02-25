@@ -1,0 +1,91 @@
+{
+    "chartId": "308",
+    "chartName": "Topic Distributions",
+    "chartInfo": "Distributions of topics",
+    "chartData": [
+        {
+            "name": "Topic 1",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 6511
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 4511
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 10311
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 7834
+                }
+            ]
+        },
+        {
+            "name": "Topic 2",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 5570
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 6128
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 7234
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 8581
+                }
+            ]
+        },
+        {
+            "name": "Topic 3",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 1140
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 2145
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 1445
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 1257
+                }
+            ]
+        },
+        {
+            "name": "Topic 4",
+            "data": [
+                {
+                    "key": "Brand 1",
+                    "value": 3140
+                },
+                {
+                    "key": "Brand 2",
+                    "value": 4145
+                },
+                {
+                    "key": "Brand 3",
+                    "value": 2445
+                },
+                {
+                    "key": "Brand 4",
+                    "value": 3257
+                }
+            ]
+        }
+    ]
+}
