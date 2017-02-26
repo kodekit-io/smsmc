@@ -5,9 +5,9 @@
                 <a href="#"><span class="uk-visible@m">Project </span>Group <i uk-icon="icon: chevron-down" class="uk-margin-small-left"></i></a>
                 <div uk-dropdown="offset: 0">
                     <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
-                        <li><label><input class="uk-checkbox" type="checkbox"> All Group</label></li>
-                        <li><label><input class="uk-checkbox" type="checkbox"> Group PO</label></li>
-                        <li><label><input class="uk-checkbox" type="checkbox"> Group APP</label></li>
+                        <li><label><input class="uk-checkbox" type="checkbox" id="select-group" checked> All Group</label></li>
+                        <li><label><input class="uk-checkbox" type="checkbox" checked> Group PO</label></li>
+                        <li><label><input class="uk-checkbox" type="checkbox" checked> Group APP</label></li>
                     </ul>
                 </div>
             </li>

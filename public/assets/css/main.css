@@ -32,9 +32,11 @@ a.fa {
     color: #fff;
     text-shadow: none
 }
+
 .uk-text-small {
     font-size: .75rem !important;
 }
+
 .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
     height: 50px;
     color: #fff;
@@ -72,9 +74,14 @@ a.fa {
     margin-top: 0px;
 }
 
+.uk-form-controls {
+    position: relative;
+}
+
 .sm-text-bold {
     font-family: 'GothamPro-Bold' !important;
 }
+
 .sm-text-lite {
     font-family: 'GothamPro-Light' !important;
 }
@@ -92,15 +99,18 @@ a.fa {
 .uk-button-small {
     padding: 2px 15px 0;
 }
+
 .sm-label {
     margin-top: -2px;
     padding-top: 2px;
     line-height: 1.5rem;
 }
+
 .sm-label:hover {
     opacity: 0.7;
     text-decoration: none;
 }
+
 .sm-nav-main {
     background: #EC1C23 !important;
     height: 50px;
@@ -297,6 +307,7 @@ a.btn-screenshot {
     padding-left: 10px;
     padding-right: 10px;
 }
+
 .sm-alert {
     top: 0 !important;
     position: fixed;
@@ -304,22 +315,118 @@ a.btn-screenshot {
     width: calc(100% - 44px);
     margin-top: 0 !important;
 }
+
 .sm-btn-openticket .hover {
     display: none;
 }
+
 .sm-btn-openticket:hover .hover {
     display: inline-block;
 }
+
 .sm-btn-openticket .nothover {
     display: inline-block;
 }
+
 .sm-btn-openticket:hover .nothover {
     display: none;
 }
+
 .sm-btn-openticket:hover {
     background-color: #ff9800 !important;
     color: #fff !important;
 }
+
 .sm-btn-openticket:hover:before {
     content: "Open Ticket";
+}
+
+.sm-list-item {
+    margin: 10px 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0;
+    list-style: none;
+    counter-reset: cntr;
+}
+
+.sm-list-item>li {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.sm-list-item>li:first-child {
+    padding-top: 10px;
+}
+
+.sm-list-item>li:last-child {
+    padding-bottom: 10px;
+}
+
+.sm-list-item>li:before {
+    content: counter(cntr);
+    counter-increment: cntr;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 22px;
+    border-radius: 50%;
+    color: #fff;
+    background: #999;
+    text-align: center;
+    font-size: .75rem;
+}
+
+.sm-del-row {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+}
+
+.sm-icon-nav .uk-icon-button {
+    text-align: center;
+    line-height: 40px;
+    font-size: .75rem;
+    text-decoration: none;
+}
+
+.sm-icon-nav>* {
+    padding-left: 5px;
+}
+
+.sm-form-prefix {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 42px;
+    display: inline-block;
+    text-align: left;
+    padding: 0;
+    font-size: .75rem;
+}
+
+.sm-form-prefix+*+.uk-input {
+    padding-left: 50px !important;
+}
+
+label.error {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    font-size: .7rem;
+    color: #F44336;
+}
+
+.uk-input.error:focus {
+    border-color: #F44336;
 }

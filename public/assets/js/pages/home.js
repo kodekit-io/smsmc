@@ -1,6 +1,6 @@
 (function ($, window, document) {
     $(function () {
-        projectGrid('projectGrid','json/project-list.json');
+        projectGrid('projectGrid',baseUrl+'/json/project-list-all.json');
     });
 
     function projectGrid(domId,url) {
@@ -21,7 +21,12 @@
                 var data = result.projectList;
 
                 if (data.length === 0) {
-                    $('#'+domId).html('<div class="uk-position-center">No Data!</div>');
+                    $('#'+domId).append(
+                        '<div class="uk-position-center uk-text-center uk-card uk-card-default uk-card-body uk-width-auto@m">'
+                        + '<a href="'+baseUrl+'/project-add" class="red-text"><i class="fa fa-plus fa-3x"></i><br>Create Your First Project</a>'
+                        +'</div>'
+                    );
+
                 } else {
                     for (var i = 0; i < data.length; i++) {
                         pid = data[i].pid;
@@ -88,14 +93,14 @@
                 }
             },
             error: function (request, status, error) {
-                $('#'+domId).append('<div class="uk-position-center">FOUT!</div>');
+                $('#'+domId).append('<div class="uk-position-center uk-text-center">FOUT!</div>');
             }
         });
     }
 
     function chartCover(pid) {
         $.ajax({
-            url: 'json/401-brandEquity.json',
+            url: 'json/charts/401-brand-equity.json',
             beforeSend : function(xhr) {
             },
             complete : function(xhr, status) {
@@ -104,7 +109,7 @@
                 var chartData = result.chartData;
 
                 if (chartData.length === 0) {
-                    $('#chartCover'+pid).html('<div class="uk-position-center">No Data!</div>');
+                    $('#chartCover'+pid).html('<div class="uk-position-center uk-text-center">No Data!</div>');
                 } else {
                     var $colors = [], $series=[], $xval = [], $yval = [];
                     for (var i = 0; i < chartData.length; i++) {
@@ -239,7 +244,7 @@
                 }
             },
             error: function (request, status, error) {
-                $('#chartCover'+pid).append('<div class="uk-position-center">FOUT!</div>');
+                $('#chartCover'+pid).append('<div class="uk-position-center uk-text-center">FOUT!</div>');
             }
         });
     }

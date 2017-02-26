@@ -16,13 +16,6 @@
 @endsection
 
 @section('page-level-scripts')
-    <script>
-    $(document).ready(function() {
-        ticketList('01');
-    });
-
-    </script>
-
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/extensions/dataTables.buttons.min.js') !!}"></script>
@@ -34,4 +27,10 @@
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/ticket-list.js') !!}"></script>
 
+    <script>
+    $(document).ready(function() {
+        ticketList('01');
+    });
+
+    </script>
 @endsection

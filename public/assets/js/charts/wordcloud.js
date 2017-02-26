@@ -30,7 +30,7 @@ function wordcloud(domId,url,name) {
             $('#'+domId).append(card);
 
             if (chartData.length === 0) {
-                $('#'+chartId).html('<div class="uk-position-center">No Data!</div>');
+                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
             } else {
                 var series=[], words=[];
                 for (var i = 0; i < chartData.length; i++) {
@@ -48,7 +48,7 @@ function wordcloud(domId,url,name) {
                         text: chartData[i].name,
                         weight: chartData[i].value,
                         html: {
-                            class: 'sm-text-bold uk-button uk-button-text uk-text-lowercase',
+                            class: 'uk-button uk-button-text uk-text-lowercase',
                             title: 'click to search this word'
                         },
                         color: chartData[i].color

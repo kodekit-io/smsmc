@@ -30,7 +30,7 @@ function chartBar(domId,url,name) {
             $('#'+domId).append(card);
 
             if (chartData.length === 0) {
-                $('#'+chartId).html('<div class="uk-position-center">No Data!</div>');
+                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
             } else {
                 var data=[],key=[],colors=[];
                 for (var i = 0; i < chartData.length; i++) {
@@ -199,7 +199,7 @@ function chartBarStack(domId,url,name) {
             $('#'+domId).append(card);
 
             if (chartData.length === 0) {
-                $('#'+chartId).html('<div class="uk-position-center">No Data!</div>');
+                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
             } else {
                 var series=[], legend=[], colors=[], key=[];
                 for (var i = 0; i < chartData.length; i++) {

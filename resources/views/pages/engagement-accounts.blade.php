@@ -10,7 +10,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title">Facebook Login</h5>
+                        <h5 class="uk-card-title color-text-facebook"><i class="fa fa-facebook fa-fw"></i> Facebook Login</h5>
                     </div>
                     <div class="uk-card-body">
                         <form class="uk-form-stacked">
@@ -26,7 +26,7 @@
                                     <input class="uk-input" id="ig-pwd" type="password">
                                 </div>
                             </div>
-                            <button class="uk-button blue darken-4 white-text">LOGIN</button>
+                            <button class="uk-button color-facebook white-text">LOGIN</button>
                         </form>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title">Twitter Login</h5>
+                        <h5 class="uk-card-title color-text-twitter"><i class="fa fa-twitter fa-fw"></i> Twitter Login</h5>
                     </div>
                     <div class="uk-card-body">
                         <form class="uk-form-stacked">
@@ -50,7 +50,7 @@
                                     <input class="uk-input" id="tw-pwd" type="password">
                                 </div>
                             </div>
-                            <button class="uk-button blue accent-1 white-text">LOGIN</button>
+                            <button class="uk-button color-twitter white-text">LOGIN</button>
                         </form>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title">Youtube Login</h5>
+                        <h5 class="uk-card-title color-text-youtube"><i class="fa fa-youtube fa-fw"></i> Youtube Login</h5>
                     </div>
                     <div class="uk-card-body">
                         <form class="uk-form-stacked">
@@ -74,7 +74,7 @@
                                     <input class="uk-input" id="yt-pwd" type="password">
                                 </div>
                             </div>
-                            <button class="uk-button red white-text">LOGIN</button>
+                            <button class="uk-button color-youtube white-text">LOGIN</button>
                         </form>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title">Instagram Login</h5>
+                        <h5 class="uk-card-title color-text-instagram"><i class="fa fa-instagram fa-fw"></i> Instagram Login</h5>
                     </div>
                     <div class="uk-card-body">
                         <form class="uk-form-stacked">
@@ -98,7 +98,7 @@
                                     <input class="uk-input" id="ig-pwd" type="password">
                                 </div>
                             </div>
-                            <button class="uk-button pink darken-4 white-text">LOGIN</button>
+                            <button class="uk-button color-instagram white-text">LOGIN</button>
                         </form>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
         $('[data-toggle="datepicker"]').datetimepicker({
             format: 'd-m-y H:i'
         });
-        projectList('projectList','json/project-list.json');
+        projectList('projectList','json/project-list-all.json');
     });
     function projectList(dom,url) {
         var x = 0;
@@ -23,7 +23,7 @@
                 var data = result.projectList;
 
                 if (data.length === 0) {
-                    $('#'+dom).html('<div class="uk-position-center">No Data!</div>');
+                    $('#'+dom).append('<div class="uk-position-center uk-text-center">No Data!</div>');
                 } else {
                     for (var i = 0; i < data.length; i++) {
                         pid = data[i].pid;
@@ -39,7 +39,7 @@
                 }
             },
             error: function (request, status, error) {
-                $('#'+dom).append('<div class="uk-position-center">FOUT!</div>');
+                $('#'+dom).append('<div class="uk-position-center uk-text-center">FOUT!</div>');
             }
         });
     }

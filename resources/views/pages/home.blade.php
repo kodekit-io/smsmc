@@ -16,4 +16,12 @@
     <script src="{!! asset('assets/js/echarts/echarts.js') !!}"></script>
     <script src="{!! asset('assets/js/echarts/echarts.theme.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/home.js') !!}"></script>
+    <script>
+        //var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
+        $(document).ready(function() {
+            $('#select-group').checkAll(
+                { container: $('ul'), showIndeterminate: true }
+            );
+        });
+    </script>
 @endsection

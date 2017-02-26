@@ -11,7 +11,7 @@
             <ul class="uk-navbar-nav uk-visible@m">
                 <li>
                     <a href="{!! url('/') !!}/home"><i class="material-icons md-18">work</i> Project</a>
-                    <div uk-dropdown="offset: 0" class="uk-overflow-auto uk-height-medium uk-dropdown">
+                    <div uk-dropdown="offset: 0" class="uk-overflow-auto uk-height-medium uk-max-height-medium uk-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav" id="projectList">
                             <?php //if (admin) { ?>
                             <li><a href="{!! url('/') !!}/project-add"><i class="fa fa-plus fa-fw"></i> Add New Project</a></li>
@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="sm-nav-round uk-margin-right" title="Notifications" uk-tooltip>
+                    <a href="" class="sm-nav-round uk-margin-right" title="Notifications" uk-tooltip="pos:bottom-right">
                         <span class="fa fa-bell"></span>
                         <span class="uk-badge uk-badge-notification">10</span>
                     </a>

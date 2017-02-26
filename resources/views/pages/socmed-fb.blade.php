@@ -27,37 +27,17 @@
 @endsection
 
 @section('page-level-scripts')
-    <script>
-    $(document).ready(function() {
-        chart113('01');
-        trendSample('02','sentimentTrend','Sentiment Trend');
-        trendSample('03','postTrend','Post Trend');
-        trendSample('04','fansTrend','Fans Trend');
-
-        pieSample('05','postPie','Post');
-        pieSample('06','commentPie','Comment');
-        pieSample('07','likePie','Like');
-        pieSample('08','sharePie','Share');
-
-        barSample('09','commnetInteraction','Comment Interaction');
-        barSample('10','topicBar','Topic Distributions');
-
-        wordCloudSample('11','wordCloud','Word Cloud');
-        convoSample('12','convo','Conversation');
-    });
-
-    </script>
     <script src="{!! asset('assets/js/echarts/echarts.js') !!}"></script>
     <script src="{!! asset('assets/js/echarts/echarts.theme.js') !!}"></script>
     <script src="{!! asset('assets/js/echarts/extension/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
+    <script>
+    $(document).ready(function() {
+        $('.select-all-account').checkAll(
+            { container: $('#select-account'), showIndeterminate: true }
+        );
+    });
 
-    <script src="{!! asset('assets/js/charts/113-sentiment.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/trend-sample.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/pie-sample.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/bar-sample.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/ontology-sample.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/wordcloud-sample.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convo-sample.js') !!}"></script>
+    </script>
 @endsection

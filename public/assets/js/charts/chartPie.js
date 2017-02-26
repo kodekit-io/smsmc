@@ -30,7 +30,7 @@ function chartPie(domId,url,name) {
             $('#'+domId).append(card);
 
             if (chartData.length === 0) {
-                $('#'+chartId).html('<div class="uk-position-center">No Data!</div>');
+                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
             } else {
                 var serie=[], key=[], color=[], value=[];
                 for (var i = 0; i < chartData.length; i++) {

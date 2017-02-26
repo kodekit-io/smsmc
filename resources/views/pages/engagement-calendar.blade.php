@@ -16,13 +16,12 @@
 @endsection
 
 @section('page-level-scripts')
+    <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/fullcalendar.js') !!}"></script>
+    <script src="{!! asset('assets/js/pages/calendar.js') !!}"></script>
     <script>
     $(document).ready(function() {
         calendar('01');
     });
-
     </script>
-    <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/lib/fullcalendar.js') !!}"></script>
-    <script src="{!! asset('assets/js/pages/calendar.js') !!}"></script>
 @endsection

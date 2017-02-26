@@ -34,31 +34,31 @@
         <div uk-dropdown="mode: click; offset: 0;" class="uk-width-1-1 dropdown-stack">
             <div class="uk-grid-divider uk-grid-small" uk-grid>
                 <div class="uk-width-1-1">
-                    <div class="uk-grid-divider uk-grid-small" uk-grid>
+                    <div class="uk-grid-divider uk-grid-small uk-flex uk-flex-middle">
                         <div class="uk-width-1-2">
-                            <div class="uk-grid-small" uk-grid>
+                            <div uk-grid class="uk-grid-small uk-flex uk-flex-middle">
                                 <div class="uk-width-auto@m sm-text-bold">Keyword:</div>
                                 <div class="uk-width-expand@m">
-                                    <ul class="sm-list">
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Select All</label></li>
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Keyword</label></li>
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Keyword</label></li>
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Keyword</label></li>
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Keyword</label></li>
+                                    <ul class="sm-list" id="select-keyword">
+                                        <li><label><input class="uk-checkbox select-all-keyword" type="checkbox" checked> Select All</label></li>
+                                        <li><label><input class="uk-checkbox" type="checkbox" checked> Keyword</label></li>
+                                        <li><label><input class="uk-checkbox" type="checkbox" checked> Keyword</label></li>
+                                        <li><label><input class="uk-checkbox" type="checkbox" checked> Keyword</label></li>
+                                        <li><label><input class="uk-checkbox" type="checkbox" checked> Keyword</label></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="uk-width-1-2">
-                            <div class="uk-grid-small" uk-grid>
+                            <div uk-grid class="uk-grid-small uk-flex uk-flex-middle">
                                 <div class="uk-width-auto@m sm-text-bold">Topics:</div>
                                 <div class="uk-width-expand@m">
-                                    <ul class="sm-list">
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Select All</label></li>
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Topic</label></li>
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Topic</label></li>
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Topic</label></li>
-                                        <li><label><input class="uk-checkbox" type="checkbox"> Topic</label></li>
+                                    <ul class="sm-list" id="select-topic">
+                                        <li><label><input class="uk-checkbox select-all-topic" type="checkbox" checked> Select All</label></li>
+                                        <li><label><input class="uk-checkbox" type="checkbox" checked> Topic</label></li>
+                                        <li><label><input class="uk-checkbox" type="checkbox" checked> Topic</label></li>
+                                        <li><label><input class="uk-checkbox" type="checkbox" checked> Topic</label></li>
+                                        <li><label><input class="uk-checkbox" type="checkbox" checked> Topic</label></li>
                                     </ul>
                                 </div>
                             </div>
@@ -66,13 +66,13 @@
                     </div>
                 </div>
                 <div class="uk-width-1-1">
-                    <ul uk-grid class="uk-grid-divider uk-grid-small">
+                    <ul uk-grid class="uk-grid-small uk-flex uk-flex-middle">
                         <li class="uk-width-auto@m">
-                            <ul class="sm-list" style="margin-top:5px">
+                            <ul class="sm-list">
                                 <li class="sm-text-bold">Sentiment:</li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Positive</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Neutral</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Negative</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Positive</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Neutral</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Negative</label></li>
                             </ul>
                         </li>
                         <li class="uk-width-auto@m">
@@ -86,15 +86,15 @@
                                 <input type="text" class="uk-input uk-form-small uk-width-small" name="endDate" aria-describedby="option-endDate" placeholder="" data-toggle="datepicker">
                             </div>
                         </li>
-                        <li class="uk-width-auto@m">
+                        <li class="uk-width-expand@m">
                             <div class="uk-inline sm-text-bold">Search:</div>
                             <form class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: search"></span>
                                 <input class="uk-input uk-form-small uk-width-small" type="text" placeholder="Filter">
                             </form>
                         </li>
-                        <li class="uk-width-expand@m">
-                            <button class="uk-button uk-button-small white-text red darken-1 sm-text-bold uk-float-right" name="filter" value="1" type="submit">UPDATE</button>
+                        <li class="uk-width-auto@m">
+                            <button class="uk-button uk-button-small white-text red darken-1 sm-text-bold" name="filter" type="submit">UPDATE</button>
                         </li>
                     </ul>
 
