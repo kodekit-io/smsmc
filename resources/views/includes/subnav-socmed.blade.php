@@ -2,18 +2,10 @@
     <div class="uk-navbar-left">
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="Social Media" uk-tooltip="pos: bottom">Social Media</h2>
         <ul class="uk-navbar-nav">
-            <li>
-                <a href="{!! url('/') !!}/socmed-fb"><i class="fa fa-facebook"></i>Facebook</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-twitter"></i>Twitter</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-youtube-play"></i>Youtube</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-instagram"></i>Instagram</a>
-            </li>
+            <li><a href="{!! url('/socmed-fb') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
+            <li><a href="{!! url('/socmed-tw') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+            <li><a href="{!! url('/socmed-yt') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
+            <li><a href="{!! url('/socmed-ig') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
         </ul>
     </div>
     <div class="uk-navbar-right">

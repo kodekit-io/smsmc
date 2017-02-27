@@ -1,7 +1,7 @@
 {
     "chartId": "404",
     "chartName": "Influencer",
-    "chartInfo": "Facebook top influencers",
+    "chartInfo": "Top influencers",
     "chartData": {
         "status": {
             "groupName": "Top Status",
@@ -428,6 +428,282 @@
                     }
                 ]
             }
+        },
+        "top10ByNumber": {
+            "groupName": "Top 10 By Number (Post)",
+            "data": [
+                {
+                    "link": "https://twitter.com/SDNMangunJaya1",
+                    "name": "SDNMangunJaya1",
+                    "value": 11,
+                    "score": 11
+                },
+                {
+                    "link": "https://twitter.com/AndriiNoise",
+                    "name": "AndriiNoise",
+                    "value": 7,
+                    "score": 7
+                },
+                {
+                    "link": "https://twitter.com/k_ryouta_bot",
+                    "name": "k_ryouta_bot",
+                    "value": 4,
+                    "score": 4
+                },
+                {
+                    "link": "https://twitter.com/ensomie",
+                    "name": "ensomie",
+                    "value": 2,
+                    "score": 2
+                },
+                {
+                    "link": "https://twitter.com/rennyrr24",
+                    "name": "rennyrr24",
+                    "value": 2,
+                    "score": 2
+                },
+                {
+                    "link": "https://twitter.com/1pekDotCom",
+                    "name": "1pekDotCom",
+                    "value": 1,
+                    "score": 1
+                },
+                {
+                    "link": "https://twitter.com/Abah_Futuh123",
+                    "name": "Abah_Futuh123",
+                    "value": 1,
+                    "score": 1
+                },
+                {
+                    "link": "https://twitter.com/AfifMohamnad",
+                    "name": "AfifMohamnad",
+                    "value": 1,
+                    "score": 1
+                },
+                {
+                    "link": "https://twitter.com/AndiDarmawan80",
+                    "name": "AndiDarmawan80",
+                    "value": 1,
+                    "score": 1
+                },
+                {
+                    "link": "https://twitter.com/AnifahDian",
+                    "name": "AnifahDian",
+                    "value": 1,
+                    "score": 1
+                }
+            ]
+        },
+        "top10ByImpact": {
+            "groupName": "Top 10 By Impact (Follower * Post)",
+            "data": [
+                {
+                    "link": "https://www.twitter.com/3182304968/status/835040809837867008",
+                    "name": "militanvespa",
+                    "value": 196113,
+                    "score": 196113
+                },
+                {
+                    "link": "https://www.twitter.com/378603282/status/834767036425252864",
+                    "name": "AndiDarmawan80",
+                    "value": 196107,
+                    "score": 196107
+                },
+                {
+                    "link": "https://www.twitter.com/720532061061255168/status/834376329038589953",
+                    "name": "apyz_jaybo",
+                    "value": 112645,
+                    "score": 112645
+                },
+                {
+                    "link": "https://www.twitter.com/97233751/status/834753927723692032",
+                    "name": "Elisabeth_ndo",
+                    "value": 49688,
+                    "score": 49688
+                },
+                {
+                    "link": "https://www.twitter.com/155446746/status/834754368238792704",
+                    "name": "taenglovesme",
+                    "value": 49688,
+                    "score": 49688
+                },
+                {
+                    "link": "https://www.twitter.com/2154476760/status/834403686793121792",
+                    "name": "AfifMohamnad",
+                    "value": 49687,
+                    "score": 49687
+                },
+                {
+                    "link": "https://www.twitter.com/86474402/status/834351512612659200",
+                    "name": "just_fau",
+                    "value": 49687,
+                    "score": 49687
+                },
+                {
+                    "link": "https://www.twitter.com/57929103/status/834351520686616577",
+                    "name": "arifgumantia",
+                    "value": 49687,
+                    "score": 49687
+                },
+                {
+                    "link": "https://www.twitter.com/189158234/status/834376831625146368",
+                    "name": "ronievillie",
+                    "value": 49687,
+                    "score": 49687
+                },
+                {
+                    "link": "https://www.twitter.com/3260049061/status/834391541972082688",
+                    "name": "pasbjm",
+                    "value": 49687,
+                    "score": 49687
+                }
+            ]
+        },
+        "top10ByReach": {
+            "groupName": "Top 10 By Reach (Follower)",
+            "data": [
+                {
+                    "link": "https://www.twitter.com/101156777/status/834763969722060802",
+                    "name": "IndraJPiliang",
+                    "value": 244142,
+                    "score": 244142
+                },
+                {
+                    "link": "https://www.twitter.com/2359042038/status/834977577836011520",
+                    "name": "infobankbjb",
+                    "value": 48728,
+                    "score": 48728
+                },
+                {
+                    "link": "https://www.twitter.com/626205745/status/834618038766936065",
+                    "name": "ambongperfumes",
+                    "value": 35187,
+                    "score": 35187
+                },
+                {
+                    "link": "https://www.twitter.com/429855853/status/834802223796219905",
+                    "name": "Creamovebali",
+                    "value": 22024,
+                    "score": 22024
+                },
+                {
+                    "link": "https://www.twitter.com/270165521/status/834580793703870464",
+                    "name": "grasindo_id",
+                    "value": 20960,
+                    "score": 20960
+                },
+                {
+                    "link": "https://www.twitter.com/2662815223/status/835503952615604224",
+                    "name": "Gemacan70",
+                    "value": 13500,
+                    "score": 13500
+                },
+                {
+                    "link": "https://www.twitter.com/145967663/status/834653814674198529",
+                    "name": "arvanpra",
+                    "value": 11525,
+                    "score": 11525
+                },
+                {
+                    "link": "https://www.twitter.com/30766806/status/835081710949687297",
+                    "name": "Reiza_Patters",
+                    "value": 10366,
+                    "score": 10366
+                },
+                {
+                    "link": "https://www.twitter.com/2842342168/status/834568179368214530",
+                    "name": "Setorein",
+                    "value": 9566,
+                    "score": 9566
+                },
+                {
+                    "link": "https://www.twitter.com/71173287/status/834351242008633344",
+                    "name": "arfibambani",
+                    "value": 6958,
+                    "score": 6958
+                }
+            ]
+        },
+        "top10LikeStatus": {
+            "groupName": "Top 10",
+            "scoreTotal": 0,
+            "data": [
+                {
+                    "link": "http://rimanews.com/internasional/asia/read/20170227/318215/Siti-Aisyah-berpesta-jelang-terbunuhnya-Kim-Jong-nam",
+                    "name": "rimanews.com",
+                    "value": 100,
+                    "score": 100,
+                    "popularity": 0
+                },
+                {
+                    "link": "http://lifestyle.bisnis.com/read/20170224/254/631402/mengenal-liz-keogh-palmer-perancang-kostum-berbakat-australia",
+                    "name": "lifestyle.bisnis.com",
+                    "value": 167,
+                    "score": 167,
+                    "popularity": 0
+                },
+                {
+                    "link": "https://www.brilio.net/duh/dianggap-ajari-masturbasi-pada-anak-buku-ini-tuai-hujatan-170221u.html",
+                    "name": "www.brilio.net",
+                    "value": 0,
+                    "score": 0,
+                    "popularity": 0
+                }
+            ]
+        },
+        "video_rating": {
+            "groupName": "Top 10 Rating",
+            "scoreTotal": 0,
+            "data": [
+                {
+                    "link": "http://rimanews.com/internasional/asia/read/20170227/318215/Siti-Aisyah-berpesta-jelang-terbunuhnya-Kim-Jong-nam",
+                    "name": "rimanews.com",
+                    "value": 100,
+                    "score": 100,
+                    "popularity": 0
+                },
+                {
+                    "link": "http://lifestyle.bisnis.com/read/20170224/254/631402/mengenal-liz-keogh-palmer-perancang-kostum-berbakat-australia",
+                    "name": "lifestyle.bisnis.com",
+                    "value": 167,
+                    "score": 167,
+                    "popularity": 0
+                },
+                {
+                    "link": "https://www.brilio.net/duh/dianggap-ajari-masturbasi-pada-anak-buku-ini-tuai-hujatan-170221u.html",
+                    "name": "www.brilio.net",
+                    "value": 0,
+                    "score": 0,
+                    "popularity": 0
+                }
+            ]
+        },
+        "video_like": {
+            "groupName": "Top 10 Like",
+            "scoreTotal": 0,
+            "data": [
+                {
+                    "link": "http://rimanews.com/internasional/asia/read/20170227/318215/Siti-Aisyah-berpesta-jelang-terbunuhnya-Kim-Jong-nam",
+                    "name": "rimanews.com",
+                    "value": 100,
+                    "score": 100,
+                    "popularity": 0
+                },
+                {
+                    "link": "http://lifestyle.bisnis.com/read/20170224/254/631402/mengenal-liz-keogh-palmer-perancang-kostum-berbakat-australia",
+                    "name": "lifestyle.bisnis.com",
+                    "value": 167,
+                    "score": 167,
+                    "popularity": 0
+                },
+                {
+                    "link": "https://www.brilio.net/duh/dianggap-ajari-masturbasi-pada-anak-buku-ini-tuai-hujatan-170221u.html",
+                    "name": "www.brilio.net",
+                    "value": 0,
+                    "score": 0,
+                    "popularity": 0
+                }
+            ]
         }
     }
 }

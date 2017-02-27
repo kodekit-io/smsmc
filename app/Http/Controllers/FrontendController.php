@@ -31,6 +31,41 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'All Media';
         return view('pages.project-all', $data);
     }
+    public function projectFB()
+    {
+        $data['pageTitle'] = 'Facebook';
+        return view('pages.project-fb', $data);
+    }
+    public function projectTW()
+    {
+        $data['pageTitle'] = 'Twitter';
+        return view('pages.project-tw', $data);
+    }
+    public function projectYT()
+    {
+        $data['pageTitle'] = 'Video';
+        return view('pages.project-yt', $data);
+    }
+    public function projectIG()
+    {
+        $data['pageTitle'] = 'Instagram';
+        return view('pages.project-ig', $data);
+    }
+    public function projectNews()
+    {
+        $data['pageTitle'] = 'Online News';
+        return view('pages.project-news', $data);
+    }
+    public function projectBlog()
+    {
+        $data['pageTitle'] = 'Blog';
+        return view('pages.project-blog', $data);
+    }
+    public function projectForum()
+    {
+        $data['pageTitle'] = 'Forum';
+        return view('pages.project-forum', $data);
+    }
 
     public function socmedAccounts()
     {
@@ -42,6 +77,22 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Facebook';
         return view('pages.socmed-fb', $data);
     }
+    public function socmedTW()
+    {
+        $data['pageTitle'] = 'Twitter';
+        return view('pages.socmed-tw', $data);
+    }
+    public function socmedYT()
+    {
+        $data['pageTitle'] = 'Youtube';
+        return view('pages.socmed-yt', $data);
+    }
+    public function socmedIG()
+    {
+        $data['pageTitle'] = 'Instagram';
+        return view('pages.socmed-ig', $data);
+    }
+
 
     public function engagementAccounts()
     {

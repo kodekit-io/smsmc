@@ -14,15 +14,15 @@
                     <div class="uk-grid-small" uk-grid>
                         <div class="uk-width-auto@m sm-text-bold">Channel:</div>
                         <div class="uk-width-expand@m">
-                            <ul class="sm-list">
-                                <li><label><input class="uk-checkbox" type="checkbox"> Select All</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Facebook</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Twitter</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Youtube</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Instagram</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Online News</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Forum</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox"> Blog</label></li>
+                            <ul class="sm-list" id="select-channel">
+                                <li><label><input class="uk-checkbox select-all-channel" type="checkbox" checked> Select All</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Facebook</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Twitter</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Youtube</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Instagram</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Online News</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Forum</label></li>
+                                <li><label><input class="uk-checkbox" type="checkbox" checked> Blog</label></li>
                             </ul>
                         </div>
                     </div>

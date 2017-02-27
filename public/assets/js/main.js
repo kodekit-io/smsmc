@@ -3,6 +3,18 @@
         $('[data-toggle="datepicker"]').datetimepicker({
             format: 'd-m-y H:i'
         });
+        $('.select-all-keyword').checkAll(
+            { container: $('#select-keyword'), showIndeterminate: true }
+        );
+        $('.select-all-topic').checkAll(
+            { container: $('#select-topic'), showIndeterminate: true }
+        );
+        $('.select-all-account').checkAll(
+            { container: $('#select-account'), showIndeterminate: true }
+        );
+        $('.select-all-channel').checkAll(
+            { container: $('#select-channel'), showIndeterminate: true }
+        );
         projectList('projectList','json/project-list-all.json');
     });
     function projectList(dom,url) {

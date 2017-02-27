@@ -17,6 +17,14 @@ function tableInfluencers(domId, influencers, name) {
             } else {
                 var chartTitle = chartName;
             }
+			var $item = [];
+			if (influencers.length > 0) {
+                for(var i = 0; i < influencers.length; i++) {
+					$item[i] = '<div>'
+						+ '<table id="'+influencers[i]+'" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>'
+					+ '</div>';
+                }
+            }
 			var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
                 + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
                     + '<div class="uk-card-header uk-clearfix">'
@@ -28,19 +36,8 @@ function tableInfluencers(domId, influencers, name) {
                         + '</ul>'
                     + '</div>'
                     + '<div class="uk-card-body">'
-						+ '<div class="uk-child-width-1-4@m uk-grid-small" uk-grid>'
-		                    + '<div>'
-		                        + '<table id="topStatusFB" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>'
-		                    + '</div>'
-		                    + '<div>'
-		                        + '<table id="topPhotoFB" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>'
-		                    + '</div>'
-		                    + '<div>'
-		                        + '<table id="topLinkFB" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>'
-		                    + '</div>'
-		                    + '<div>'
-		                        + '<table id="topVideoFB" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>'
-		                    + '</div>'
+						+ '<div class="uk-child-width-1-'+influencers.length+'@m uk-grid-small" uk-grid>'
+							+ $item.join('')
 		                + '</div>'
                     + '</div>'
                 + '</div>'
@@ -60,6 +57,8 @@ function tableInfluencers(domId, influencers, name) {
 
 function top10LikeStatus(id,result) {
 	$data = result.chartData.top10LikeStatus.data;
+	$groupName = result.chartData.top10LikeStatus.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -100,6 +99,8 @@ function top10LikeStatus(id,result) {
 
 function top10ByReachTW(id,result) {
 	$data = result.chartData.top10ByReach.data;
+	$groupName = result.chartData.top10ByReach.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -140,6 +141,8 @@ function top10ByReachTW(id,result) {
 
 function top10ByNumberTW(id,result) {
 	$data = result.chartData.top10ByNumber.data;
+	$groupName = result.chartData.top10ByNumber.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -180,6 +183,8 @@ function top10ByNumberTW(id,result) {
 
 function top10ByImpactTW(id,result) {
 	$data = result.chartData.top10ByImpact.data;
+	$groupName = result.chartData.top10ByImpact.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -220,6 +225,8 @@ function top10ByImpactTW(id,result) {
 
 function top10News(id,result) {
 	$data = result.chartData.top10LikeStatus.data;
+	$groupName = result.chartData.top10LikeStatus.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -257,6 +264,8 @@ function top10News(id,result) {
 
 function top10Blog(id,result) {
 	$data = result.chartData.top10LikeStatus.data;
+	$groupName = result.chartData.top10LikeStatus.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -294,6 +303,8 @@ function top10Blog(id,result) {
 
 function topLikeVid(id,result) {
 	$data = result.chartData.video_like.data;
+	$groupName = result.chartData.video_like.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 
 	// console.log($data);
 	if ($data.length === 0) {
@@ -305,15 +316,15 @@ function topLikeVid(id,result) {
 			$score= $data[i].score;
 			$value= $data[i].value;
 			$link= $data[i].link;
-			$author= $data[i].author;
-			$content[i] = [ $author, $name, $value, $link ];
+			//$author= $data[i].author;
+			$content[i] = [ $name, $value, $link ];
 		}
 		//console.log( $content );
 		$('#' + id).DataTable( {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Author" },
-				{ title: "Title" },
+				//{ title: "Title" },
 				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				{
 					data: null,
@@ -323,14 +334,15 @@ function topLikeVid(id,result) {
 					}
 				},
 			],
-			order: [[ 2, "desc" ]]
+			order: [[ 0, "desc" ]]
 		});
 		$('#' + id + '_wrapper .bottom-row').hide();
 	}
 }
 function topRateVid(id,result) {
 	$data = result.chartData.video_rating.data;
-
+	$groupName = result.chartData.video_rating.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -341,15 +353,15 @@ function topRateVid(id,result) {
 			$score= $data[i].score;
 			$value= $data[i].value;
 			$link= $data[i].link;
-			$author= $data[i].author;
-			$content[i] = [ $author, $name, $value, $link ];
+			//$author= $data[i].author;
+			$content[i] = [ $name, $value, $link ];
 		}
 		//console.log( $content );
 		$('#' + id).DataTable( {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Author" },
-				{ title: "Title" },
+				//{ title: "Title" },
 				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				{
 					data: null,
@@ -359,7 +371,7 @@ function topRateVid(id,result) {
 					}
 				},
 			],
-			order: [[ 2, "desc" ]]
+			order: [[ 0, "desc" ]]
 		});
 		$('#' + id + '_wrapper .bottom-row').hide();
 	}
@@ -367,6 +379,8 @@ function topRateVid(id,result) {
 
 function top10Forum(id,result) {
 	$data = result.chartData.top10LikeStatus.data;
+	$groupName = result.chartData.top10LikeStatus.groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -404,7 +418,8 @@ function top10Forum(id,result) {
 
 function topCommentIG(id,result) {
 	$data = result.chartData['top Comment'].data;
-
+	$groupName = result.chartData['top Comment'].groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
 	} else {
@@ -437,7 +452,8 @@ function topCommentIG(id,result) {
 }
 function topLoveIG(id,result) {
 	$data = result.chartData['top Love'].data;
-
+	$groupName = result.chartData['top Love'].groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
 	} else {
@@ -470,7 +486,8 @@ function topLoveIG(id,result) {
 }
 function topViewIG(id,result) {
 	$data = result.chartData['top View'].data;
-
+	$groupName = result.chartData['top View'].groupName;
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
 	} else {

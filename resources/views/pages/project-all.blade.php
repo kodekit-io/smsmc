@@ -57,13 +57,6 @@
     <script>
         //var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
         $(document).ready(function() {
-            $('.select-all-keyword').checkAll(
-                { container: $('#select-keyword'), showIndeterminate: true }
-            );
-            $('.select-all-topic').checkAll(
-                { container: $('#select-topic'), showIndeterminate: true }
-            );
-
             chartBubble('01',baseUrl+'/json/charts/401-brand-equity.json');
             chartBarStack('02',baseUrl+'/json/charts/305-bar-sentiment.json');
             chartTrend('03',baseUrl+'/json/charts/113-trend-sentiment.json');

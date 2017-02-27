@@ -1,4 +1,4 @@
-function tableConvoAll(domId,url,name) {
+function tableConvo(domId,url,name) {
     $.ajax({
         url: url,
         success: function(result){
@@ -95,40 +95,40 @@ function tableConvoAll(domId,url,name) {
                             return localtime;
                         }
                     },
-                    {
-                        "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
-                        "render": function ( cellData ) {
-                            var channel = cellData;
-                            var icon = "";
-                            switch (channel) {
-                    			case 'facebook':
-                    				icon = 'facebook';
-                    				break;
-                    			case 'twitter':
-                    				icon = 'twitter';
-                    				break;
-                    			case 'youtube':
-                    				icon = 'youtube';
-                    				break;
-                    			case 'instagram':
-                    				icon = 'instagram';
-                    				break;
-                    			case 'news':
-                    				icon = 'globe';
-                    				break;
-                    			case 'blog':
-                    				icon = 'rss';
-                    				break;
-                    			case 'forum':
-                    				icon = 'comments';
-                    				break;
-                    		}
-                            return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
-                        }
-                    },
+                    // {
+                    //     "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
+                    //     "render": function ( cellData ) {
+                    //         var channel = cellData;
+                    //         var icon = "";
+                    //         switch (channel) {
+                    // 			case 'facebook':
+                    // 				icon = 'facebook';
+                    // 				break;
+                    // 			case 'twitter':
+                    // 				icon = 'twitter';
+                    // 				break;
+                    // 			case 'youtube':
+                    // 				icon = 'youtube';
+                    // 				break;
+                    // 			case 'instagram':
+                    // 				icon = 'instagram';
+                    // 				break;
+                    // 			case 'news':
+                    // 				icon = 'globe';
+                    // 				break;
+                    // 			case 'blog':
+                    // 				icon = 'rss';
+                    // 				break;
+                    // 			case 'forum':
+                    // 				icon = 'comments';
+                    // 				break;
+                    // 		}
+                    //         return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
+                    //     }
+                    // },
                     { "data": "author", "title": "Author", "width": "15%" },
                     {
-                        "data": null, "title": "Post", "width": "40%",
+                        "data": null, "title": "Post", "width": "45%",
                         "render": function ( data ) {
                             var post = data["post"];
                             var postrim = post.substring(0,100) + "...";
@@ -183,7 +183,7 @@ function tableConvoAll(domId,url,name) {
                 initComplete: function () {
                     this.api().columns().every( function () {
                         var column = this;
-                        if(column[0][0] == 5) {
+                        if(column[0][0] == 4) {
                             var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
                                 .appendTo( $(column.header()).empty() )
                                 .on( 'change', function () {
@@ -199,7 +199,7 @@ function tableConvoAll(domId,url,name) {
                                 select.append( '<option value="'+d+'">'+d+'</option>' )
                             });
                         }
-                        if(column[0][0] == 6) {
+                        if(column[0][0] == 5) {
                             var select = $('<select class="uk-select select-sentiment"><option value="">All Status</option></select>')
                                 .appendTo( $(column.header()).empty() )
                                 .on( 'change', function () {
