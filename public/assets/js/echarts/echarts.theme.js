@@ -282,7 +282,7 @@
                 }
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "type": "dotted",
                     "color": [
@@ -320,7 +320,7 @@
                 }
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "type": "dotted",
                     "color": [
@@ -358,7 +358,7 @@
                 }
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "type": "dotted",
                     "color": [
@@ -396,7 +396,7 @@
                 }
             },
             "splitLine": {
-                "show": true,
+                "show": false,
                 "lineStyle": {
                     "type": "dotted",
                     "color": [
