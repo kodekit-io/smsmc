@@ -437,3 +437,35 @@ label.error {
 .sm-media {
     display: none;
 }
+.sm-drop-notif .uk-card {
+    margin-right: -10px;
+    margin-top: 20px;
+    position: relative;
+}
+.sm-drop-notif .uk-card:before {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #F44336 transparent;
+    display: block;
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 15px;
+}
+.sm-drop-notif .uk-card-header,
+.sm-drop-notif .uk-card-footer {
+    padding: 10px 20px 9px !important;
+}
+.sm-drop-notif .uk-card-body {
+    max-height: 50vh;
+    overflow: auto;
+}
+.sm-drop-notif .uk-card-body+.uk-card-footer {
+    margin-top: 0;
+}
+.sm-drop-notif .uk-card-body a {
+    color: #333;
+    display: inline-block;
+}

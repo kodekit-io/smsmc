@@ -77,15 +77,44 @@
                     </div>
                 </li>
                 <li>
-                    <a href="{!! url('/') !!}/page-help" class="sm-nav-round" title="Help" uk-tooltip>
+                    <a href="{!! url('/') !!}/page-help" class="sm-nav-round" title="Help" uk-tooltip="pos:left">
                         <span class="fa fa-life-ring"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="sm-nav-round uk-margin-right" title="Notifications" uk-tooltip="pos:bottom-right">
+                    <a class="sm-nav-round uk-margin-right" title="Notifications" uk-tooltip="pos:left">
                         <span class="fa fa-bell"></span>
                         <span class="uk-badge uk-badge-notification">10</span>
                     </a>
+                    <div uk-drop="offset: 0" class="sm-drop-notif">
+                        <div class="uk-card uk-card-small uk-card-default">
+                            <div class="uk-card-header red white-text uk-clearfix uk-text-bold">
+                                <div class="uk-inline">Notifications</div>
+                                <div class="uk-float-right ">10 New</div>
+                            </div>
+                            <div class="uk-card-body">
+                                <ul class="uk-list uk-text-small">
+                                    <li class="uk-grid-small" uk-grid>
+                                        <div class="uk-width-auto@s">
+                                            <span class="fa fa-lg fa-exclamation-circle red-text"></span>
+                                        </div>
+                                        <div class="uk-width-expand@s">
+                                            <span class="uk-article-meta">
+                                                Sun, Jan 1, 2017 8:23 AM
+                                            </span><br>
+                                            <a href="">
+                                                You have just received a new ticket!
+                                                <span class="fa fa-fw fa-arrow-right" title="See details" uk-tooltip></span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="uk-card-footer uk-text-center">
+                                <a href="" class="sm-text-bold grey-text" title="All Notifications" uk-tooltip>See All</a>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>

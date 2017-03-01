@@ -1,5 +1,7 @@
 (function ($, window, document) {
     $(function () {
+        setTimeout(function() { $(".sm-alert a.uk-alert-close").click(); }, 10000);
+        
         $('[data-toggle="datepicker"]').datetimepicker({
             format: 'd-m-y H:i'
         });
@@ -15,6 +17,7 @@
         $('.select-all-channel').checkAll(
             { container: $('#select-channel'), showIndeterminate: true }
         );
+
         projectList('projectList','json/project-list-all.json');
     });
     function projectList(dom,url) {
