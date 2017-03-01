@@ -430,3 +430,10 @@ label.error {
 .uk-input.error:focus {
     border-color: #F44336;
 }
+
+#report_add .uk-card-body {
+    min-height: calc(100vh - 160px - 37px - 65px - 20px);
+}
+.sm-media {
+    display: none;
+}

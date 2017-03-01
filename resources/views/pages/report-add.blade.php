@@ -25,7 +25,7 @@
                             <div class="uk-margin">
                                 <label class="uk-form-label" for="objective">Report Descriptions</label>
                                 <div class="uk-form-controls">
-                                    <textarea class="uk-textarea" rows="5" placeholder="Some text..."></textarea>
+                                    <textarea class="uk-textarea" rows="4" placeholder="Some text..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -45,102 +45,78 @@
                             </div>
                             <div class="uk-margin">
                                 <label class="uk-form-label" for="report">Report Type</label>
-                                <div class="uk-form-controls">
-                                    <select class="uk-select" id="report">
-                                        <option value="project">Project Report</option>
-                                        <option value="socmed">Social Media Report</option>
-                                    </select>
-                                </div>
-                                <div class="uk-form-controls">
-                                    <select class="uk-select" id="project">
-                                        <option>Choose</option>
-                                        <option value="pid1" class="project">Project 1</option>
-                                        <option value="pid2" class="project">Project 2</option>
-                                        <option value="pid3" class="project">Project 3</option>
-                                        <option value="facebook" class="socmed">Facebook</option>
-                                        <option value="twitter" class="socmed">Twitter</option>
-                                        <option value="youtube" class="socmed">Youtube</option>
-                                        <option value="instagram" class="socmed">Instagram</option>
-                                    </select>
-                                </div>
-                                <div class="uk-form-controls">
-                                    <select class="uk-select" id="key">
-                                        <option value="all1" class="pid1">All Keyword</option>
-                                        <option value="key1" class="pid1">Keyword 1</option>
-                                        <option value="key2" class="pid1">Keyword 2</option>
-                                        <option value="key3" class="pid1">Keyword 3</option>
-                                        <option value="all2" class="pid2">All Keyword</option>
-                                        <option value="keyA" class="pid2">Keyword A</option>
-                                        <option value="keyB" class="pid2">Keyword B</option>
-                                        <option value="keyC" class="pid2">Keyword C</option>
-                                        <option value="fb1" class="facebook">Facebook 1</option>
-                                        <option value="fb2" class="facebook">Facebook 2</option>
-                                        <option value="fb3" class="facebook">Facebook 3</option>
-                                        <option value="tw1" class="twitter">Twitter 1</option>
-                                        <option value="tw2" class="twitter">Twitter 2</option>
-                                        <option value="tw3" class="twitter">Twitter 3</option>
-                                    </select>
+                                <div class="uk-child-width-1-2@m uk-grid-small" uk-grid>
+                                    <div>
+                                        <select class="uk-select" id="type-selector">
+                                            <option value="">Choose Type</option>
+                                            <option value="project">Project Report</option>
+                                            <option value="socmed">Social Media Report</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <select class="uk-select" id="project-selector">
+                                            <option value="pid1" class="project">Project 1</option>
+                                            <option value="pid2" class="project">Project 2</option>
+                                            <option value="pid3" class="project">Project 3</option>
+                                            <option value="0" class="socmed">Choose Social Media</option>
+                                            <option value="socmed-facebook" class="socmed">Facebook</option>
+                                            <option value="socmed-twitter" class="socmed">Twitter</option>
+                                            <option value="socmed-youtube" class="socmed">Youtube</option>
+                                            <option value="socmed-instagram" class="socmed">Instagram</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <select class="uk-select" id="key-acc-selector">
+                                            <option value="all1" class="pid1">All Keyword</option>
+                                            <option value="key1" class="pid1">Keyword 1</option>
+                                            <option value="key2" class="pid1">Keyword 2</option>
+                                            <option value="key3" class="pid1">Keyword 3</option>
+                                            <option value="all2" class="pid2">All Keyword</option>
+                                            <option value="keyA" class="pid2">Keyword A</option>
+                                            <option value="keyB" class="pid2">Keyword B</option>
+                                            <option value="keyC" class="pid2">Keyword C</option>
+                                            <option value="fb1" class="socmed-facebook">Facebook Account 1</option>
+                                            <option value="fb2" class="socmed-facebook">Facebook Account 2</option>
+                                            <option value="fb3" class="socmed-facebook">Facebook Account 3</option>
+                                            <option value="tw1" class="socmed-twitter">Twitter Account 1</option>
+                                            <option value="tw2" class="socmed-twitter">Twitter Account 2</option>
+                                            <option value="tw3" class="socmed-twitter">Twitter Account 3</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <select class="uk-select" id="media-selector">
+                                            <option value="project-summary" class="project">Summary Page</option>
+                                            <option value="project-facebook" class="project">Facebook</option>
+                                            <option value="project-twitter" class="project">Twitter</option>
+                                            <option value="project-news" class="project">Online News</option>
+                                            <option value="project-forum" class="project">Forum</option>
+                                            <option value="project-blog" class="project">Blog</option>
+                                            <option value="project-video" class="project">Video</option>
+                                            <option value="project-instagram" class="project">Instagram</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <h5 class="uk-card-title">Choose Chart</h5>
-                    <div class="uk-child-width-1-4 uk-grid-small uk-margin-top" uk-grid>
-                        <li>
-                            <label for="checkedAll">
-                            <input class="uk-checkbox" type="checkbox" name="checkedAll" id="checkedAll" class="filled-in" />
-                            Select All</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id1" value="1" class="filled-in checkSingle" />
-                            <label for="id1">Brand Equity</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id2" value="2" class="filled-in checkSingle" />
-                            <label for="id2">Share of Voice</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id3" value="3" class="filled-in checkSingle" />
-                            <label for="id3">Volume Trending</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id4" value="4" class="filled-in checkSingle" />
-                            <label for="id4">Media Distribution</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id5" value="5" class="filled-in checkSingle" />
-                            <label for="id5">Sentiment Media Distribution</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id6" value="6" class="filled-in checkSingle" />
-                            <label for="id6">Topic Distribution</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id12" value="12" class="filled-in checkSingle" />
-                            <label for="id12">Sentiment Brand Distribution</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id8"  value="8" class="filled-in checkSingle" />
-                            <label for="id8">Cloud</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="id9" value="9" class="filled-in checkSingle" />
-                            <label for="id9">Media Per Brand Distribution</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="idF" value="F" class="filled-in checkSingle" />
-                            <label for="idF">Media Details</label>
-                        </li>
-                        <li>
-                            <input class="uk-checkbox" type="checkbox" name="widgets[]" id="idE"  value="E" class="filled-in checkSingle" />
-                            <label for="idE">Influencer</label>
-                        </li>
-                    </ul>
+                    <div id="project-summary" class="sm-media uk-margin"></div>
+                    <div id="project-facebook" class="sm-media uk-margin"></div>
+                    <div id="project-twitter" class="sm-media uk-margin"></div>
+                    <div id="project-news" class="sm-media uk-margin"></div>
+                    <div id="project-forum" class="sm-media uk-margin"></div>
+                    <div id="project-blog" class="sm-media uk-margin"></div>
+                    <div id="project-video" class="sm-media uk-margin"></div>
+                    <div id="project-instagram" class="sm-media uk-margin"></div>
+
+                    <div id="socmed-facebook" class="sm-media uk-margin"></div>
+                    <div id="socmed-twitter" class="sm-media uk-margin"></div>
+                    <div id="socmed-youtube" class="sm-media uk-margin"></div>
+                    <div id="socmed-instagram" class="sm-media uk-margin"></div>
                 </div>
-            </div>
-            <div class="uk-card-footer uk-clearfix">
-                <button class="uk-button red white-text uk-float-right" type="submit">Save</button>
+                <div class="uk-card-footer uk-clearfix">
+                    <button class="uk-button red white-text uk-float-right" type="submit">Save</button>
+                </div>
             </div>
         </form>
     </section>
@@ -151,10 +127,5 @@
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.chained.js') !!}"></script>
-    <script>
-    $(document).ready(function() {
-        $("#project").chained("#report");
-        $("#key").chained("#project");
-    });
-    </script>
+    <script src="{!! asset('assets/js/pages/report-add.js') !!}"></script>
 @endsection
