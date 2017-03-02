@@ -159,7 +159,7 @@ function tableConvo(domId,url,name) {
                         }
                     },
                     {
-                        "data": "status", "title": "Status", "orderable": true, "width": "12.5%", "class": "uk-text-center",
+                        "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
                         "render": function ( cellData, rowData ) {
                             //var status = cellData;
                             var btn = '';

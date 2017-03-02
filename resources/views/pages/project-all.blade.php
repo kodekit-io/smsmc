@@ -59,7 +59,7 @@
         $(document).ready(function() {
             chartBubble('01',baseUrl+'/json/charts/401-brand-equity.json');
             chartBarStack('02',baseUrl+'/json/charts/305-bar-sentiment.json');
-            chartTrend('03',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrendCombo('03',baseUrl+'/json/charts/113-trend-sentiment.json');
             chartTrend('04',baseUrl+'/json/charts/101-trend-post.json');
             chartTrend('05',baseUrl+'/json/charts/102-trend-buzz.json');
             chartTrend('06',baseUrl+'/json/charts/106-trend-reach.json');

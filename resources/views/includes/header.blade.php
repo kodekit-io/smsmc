@@ -7,7 +7,7 @@
 
         <title>@if(isset($pageTitle)) {!! $pageTitle !!} -  @endif Sinarmas Social Media Center</title>
 
-        <link href="{!! asset('assets/img/icon.png') !!}" rel="shortcut icon">
+        {{-- <link href="{!! asset('assets/img/icon.png') !!}" rel="shortcut icon"> --}}
 
         <link rel="stylesheet" href="{!! asset('assets/css/lib/uikit.min.css') !!}" />
         <link rel="stylesheet" href="{!! asset('assets/css/main.css') !!}" />

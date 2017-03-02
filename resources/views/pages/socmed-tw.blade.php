@@ -58,7 +58,7 @@
     <script>
         var influencers = ["top10ByReachTW", "top10ByNumberTW", "top10ByImpactTW"];
         $(document).ready(function() {
-            chartTrend('01',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
             chartTrend('02',baseUrl+'/json/charts/102-trend-buzz.json');
             chartTrend('03',baseUrl+'/json/charts/111-trend-user.json');
             chartTrend('04',baseUrl+'/json/charts/106-trend-reach.json');

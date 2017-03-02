@@ -52,7 +52,7 @@
     <script>
         var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
         $(document).ready(function() {
-            chartTrend('01',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
             chartTrend('02',baseUrl+'/json/charts/101-trend-post.json');
 
             chartPie('03',baseUrl+'/json/charts/201-pie-post.json');

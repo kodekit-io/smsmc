@@ -52,7 +52,7 @@
     <script>
         var influencers = ["top10Blog"];
         $(document).ready(function() {
-            chartTrend('01',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
             chartTrend('02',baseUrl+'/json/charts/101-trend-post.json');
             chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
 
