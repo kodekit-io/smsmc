@@ -475,3 +475,6 @@ label.error {
     top: 40px;
     left: 20px;
 }
+.sm-key-switch>li>a {
+    font-size: .75rem !important;
+}

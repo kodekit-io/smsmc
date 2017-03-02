@@ -174,7 +174,7 @@ function chartTrendCombo(domId,url,title) {
             var $item = [], $nav=[];
 			if (chartData.length > 0) {
                 for(var x = 0; x < chartData.length; x++) {
-					$nav[x] = '<li><a class="sm-text-bold uk-text-capitalize">'+result.chartData[x].name+'<a></li>';
+					$nav[x] = '<li><a class="sm-text-bold uk-text-capitalize">'+result.chartData[x].name+'</a></li>';
                     $item[x] = '<li id="chart'+[x]+'" class="sm-chart"></li>';
                 }
             }
