@@ -26,6 +26,12 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Create Project';
         return view('pages.project-add', $data);
     }
+    public function projectEdit()
+    {
+        $data['pageTitle'] = 'Edit Project';
+        return view('pages.project-edit', $data);
+    }
+
     public function projectAll()
     {
         $data['pageTitle'] = 'All Media';
