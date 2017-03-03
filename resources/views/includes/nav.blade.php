@@ -72,7 +72,7 @@
                             <li><a href="{!! url('/') !!}/admin" title="Only show to Admin" uk-tooltip><i class="fa fa-cogs fa-fw"></i> Setting</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
-                            <li><a href="{!! url('/') !!}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                            <li><a href="{!! url('/logout') !!}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                         </ul>
                     </div>
                 </li>

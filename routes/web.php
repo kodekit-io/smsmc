@@ -11,8 +11,21 @@
 |
 */
 
-Route::get('/', 'FrontendController@login');
-Route::get('/home', 'FrontendController@dashboard');
+Route::get('/', function () {
+    return redirect('/home');
+});
+
+Route::get('/login', 'ApiAuthController@getLogin');
+Route::post('/login', 'ApiAuthController@postLogin');
+Route::post('/logout', 'ApiAuthController@logout');
+Route::get('/logout', 'ApiAuthController@logout');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'DashboardController@dashboard');
+    Route::get('get-project-list', 'DashboardController@getProjectList');
+    Route::get('get-brand-equity/{projectId}', 'DashboardController@getBrandEquity');
+});
+
 
 Route::get('/project-add', 'FrontendController@projectAdd');
 Route::get('/project-edit', 'FrontendController@projectEdit');

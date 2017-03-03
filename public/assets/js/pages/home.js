@@ -1,9 +1,10 @@
 (function ($, window, document) {
     $(function () {
-        projectGrid('projectGrid',baseUrl+'/json/project-list-all.json');
+        //projectGrid('projectGrid', baseUrl + '/json/project-list-all.json');
+        projectGrid('projectGrid', baseUrl + '/get-project-list');
     });
 
-    function projectGrid(domId,url) {
+    function projectGrid(domId, url) {
         var x = 0;
         $.ajax({
             url: url,
@@ -18,9 +19,10 @@
                 }
             },
             success : function(result) {
+                result = jQuery.parseJSON(result);
                 var data = result.projectList;
 
-                if (data.length === 0) {
+                if (data.length === 0 || data == undefined) {
                     $('#'+domId).append(
                         '<div class="uk-position-center uk-text-center uk-card uk-card-default uk-card-body uk-width-auto@m">'
                         + '<a href="'+baseUrl+'/project-add" class="red-text"><i class="fa fa-plus fa-3x"></i><br>Create Your First Project</a>'
@@ -100,7 +102,8 @@
 
     function chartCover(pid) {
         $.ajax({
-            url: 'json/charts/401-brand-equity.json',
+            // url: 'json/charts/401-brand-equity.json',
+            url: baseUrl + '/get-brand-equity/' + pid,
             beforeSend : function(xhr) {
             },
             complete : function(xhr, status) {

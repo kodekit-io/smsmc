@@ -14,7 +14,11 @@
                 <div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title uk-margin-bottom">SINARMAS LOGIN</h3>
-                        <form action="{!! url('/') !!}/home" id="login">
+                        @foreach($errors->all() as $error)
+                            {!! $error !!}
+                        @endforeach
+                        <form action="{!! url('login') !!}" method="post" id="login">
+                            {!! csrf_field() !!}
                             <div class="uk-margin">
                                 <div class="uk-inline uk-width-1-1">
                                     <span class="uk-form-icon" uk-icon="icon: user"></span>
