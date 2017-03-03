@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\Project;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -9,18 +10,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class FrontEndController extends Controller
 {
-    public function login()
-    {
-        $data['pageTitle'] = 'Login';
-        return view('pages.login', $data);
-    }
-
-    public function dashboard()
-    {
-        $data['pageTitle'] = 'Dashboard';
-        return view('pages.home', $data);
-    }
-
     public function projectAdd()
     {
         $data['pageTitle'] = 'Create Project';

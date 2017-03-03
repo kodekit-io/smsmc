@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'smsmc' => [
+        'key' => env('SMSMC_KEY'),
+        'api_base_url' => env('SMSMC_API_BASE_URL'),
+        'suffix' => env('SMSMC_SUFFIX'),
+    ]
+
 ];
