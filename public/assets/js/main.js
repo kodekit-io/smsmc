@@ -1,7 +1,7 @@
 (function ($, window, document) {
     $(function () {
         setTimeout(function() { $(".sm-alert a.uk-alert-close").click(); }, 10000);
-        
+
         $('[data-toggle="datepicker"]').datetimepicker({
             format: 'd-m-y H:i'
         });
@@ -18,7 +18,7 @@
             { container: $('#select-channel'), showIndeterminate: true }
         );
 
-        projectList('projectList','json/project-list-all.json');
+        projectList('projectList', baseUrl + '/test/api');
     });
     function projectList(dom,url) {
         var x = 0;
@@ -35,6 +35,7 @@
                 }
             },
             success : function(result) {
+                result = jQuery.parseJSON(result);
                 var data = result.projectList;
 
                 if (data.length === 0) {

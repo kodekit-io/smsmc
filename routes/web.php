@@ -60,3 +60,5 @@ Route::get('/admin-add', 'FrontendController@adminAdd');
 Route::get('/admin-edit', 'FrontendController@adminEdit');
 
 Route::get('/page-help', 'FrontendController@pageHelp');
+
+Route::get('test/api', 'TestController@api');
