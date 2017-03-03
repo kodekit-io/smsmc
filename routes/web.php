@@ -15,6 +15,8 @@ Route::get('/', 'FrontendController@login');
 Route::get('/home', 'FrontendController@dashboard');
 
 Route::get('/project-add', 'FrontendController@projectAdd');
+Route::get('/project-edit', 'FrontendController@projectEdit');
+
 Route::get('/project-all', 'FrontendController@projectAll');
 Route::get('/project-fb', 'FrontendController@projectFB');
 Route::get('/project-tw', 'FrontendController@projectTW');

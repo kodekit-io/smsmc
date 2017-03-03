@@ -57,10 +57,22 @@
         chartreport('project-video',projectVideo);
         chartreport('project-instagram',projectInstagram);
 
-        chartreport('socmed-facebook',projectFacebook);
-        chartreport('socmed-twitter',projectTwitter);
-        chartreport('socmed-youtube',projectVideo);
-        chartreport('socmed-instagram',projectInstagram);
+        var socmedFacebook = [
+            '113','101','110','201','203','207','210','305','303','403','404','405'
+        ];
+        var socmedTwitter = [
+            '113','102','111','106','202','204','214','205','305','303','308','403','404','405'
+        ];
+        var socmedVideo = [
+            '101','112','103','212','203','209','308','403','404','405'
+        ];
+        var socmedInstagram = [
+            '113','101','103','108','105','201','208','203','212','305','303','308','403','404','405'
+        ];
+        chartreport('socmed-facebook',socmedFacebook);
+        chartreport('socmed-twitter',socmedTwitter);
+        chartreport('socmed-youtube',socmedVideo);
+        chartreport('socmed-instagram',socmedInstagram);
     });
     function chartreport(domId,reportlist) {
         var page = '<h5 class="uk-card-title uk-margin-bottom">'+domId.split('-').join(' ')+' chart</h5>'
