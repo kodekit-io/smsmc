@@ -140,21 +140,12 @@ function tableConvoAll(domId,url,name) {
                         "createdCell": function (td, cellData, rowData, row, col) {
                             switch (cellData) {
                                 case 'positive':
-                                case 'Positif':
-                                case 'positif':
-                                case 'Positive':
                                     $(td).addClass('green-text');
                                     break;
                                 case 'neutral':
-                                case 'Netral':
-                                case 'netral':
-                                case 'Neutral':
                                     $(td).addClass('grey-text');
                                     break;
                                 case 'negative':
-                                case 'Negatif':
-                                case 'negatif':
-                                case 'Negative':
                                     $(td).addClass('red-text');
                                     break;
                             }
@@ -263,21 +254,12 @@ function tableConvoAll(domId,url,name) {
                 var $tempData = $this.val();
                 switch ($tempData) {
                     case 'positive':
-                    case 'Positif':
-                    case 'positif':
-                    case 'Positive':
                         $this.parent("td").addClass('green-text').removeClass('red-text').removeClass('grey-text');
                         break;
                     case 'neutral':
-                    case 'Netral':
-                    case 'netral':
-                    case 'Neutral':
                         $this.parent("td").addClass('grey-text').removeClass('red-text').removeClass('green-text');
                         break;
                     case 'negative':
-                    case 'Negatif':
-                    case 'negatif':
-                    case 'Negative':
                         $this.parent("td").addClass('red-text').removeClass('green-text').removeClass('grey-text');
                         break;
                 }
