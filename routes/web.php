@@ -61,4 +61,6 @@ Route::get('/admin-edit', 'FrontendController@adminEdit');
 
 Route::get('/page-help', 'FrontendController@pageHelp');
 
+Route::get('/notifications', 'FrontendController@notif');
+
 Route::get('test/api', 'TestController@api');
