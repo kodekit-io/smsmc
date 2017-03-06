@@ -21,12 +21,6 @@ class FrontEndController extends Controller
         return view('pages.project-edit', $data);
     }
 
-
-    public function projectFB()
-    {
-        $data['pageTitle'] = 'Facebook';
-        return view('pages.project-fb', $data);
-    }
     public function projectTW()
     {
         $data['pageTitle'] = 'Twitter';

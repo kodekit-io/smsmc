@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('get-brand-equity/{projectId}', 'DashboardController@getBrandEquity');
 
     Route::any('/project/all/{projectId}', 'ProjectController@allMedia');
+    Route::any('/project/facebook/{projectId}', 'ProjectController@facebook');
+    Route::any('/project/twitter/{projectId}', 'ProjectController@twitter');
 
     // Charts
     Route::post('charts/brand-equity', 'ChartController@brandEquity');
@@ -41,11 +43,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/pie-buzz', 'ChartController@pieBuzz');
     Route::post('charts/pie-interaction', 'ChartController@pieInteraction');
     Route::post('charts/pie-unique-user', 'ChartController@pieUniqueUser');
+    Route::post('charts/pie-comment', 'ChartController@pieComment');
+    Route::post('charts/pie-like', 'ChartController@pieLike');
+    Route::post('charts/pie-share', 'ChartController@pieShare');
 
     Route::post('charts/bar-interaction-rate', 'ChartController@barInteractionRate');
     Route::post('charts/bar-media-share', 'ChartController@barMediaShare');
 
     Route::post('charts/wordcloud', 'ChartController@wordcloud');
+    Route::post('charts/convo', 'ChartController@convo');
 });
 
 

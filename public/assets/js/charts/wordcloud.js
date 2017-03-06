@@ -5,7 +5,6 @@ function wordcloud(domId, url, chartApiData, name) {
         data: chartApiData,
         success: function(result){
             var result = jQuery.parseJSON(result);
-            console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;

@@ -30,4 +30,12 @@ class ProjectController extends Controller
 
         return view('pages.project-all', $data);
     }
+
+    public function facebook(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'Facebook';
+
+        return view('pages.project-fb', $data);
+    }
 }

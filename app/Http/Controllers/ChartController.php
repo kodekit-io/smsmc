@@ -88,6 +88,24 @@ class ChartController extends Controller
         return $this->parseChartResult($data);
     }
 
+    public function pieComment(Request $request)
+    {
+        $data = $this->projectWithMedia('comment', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function pieLike(Request $request)
+    {
+        $data = $this->plainProject('1/like', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function pieShare(Request $request)
+    {
+        $data = $this->plainProject('1/share', $request);
+        return $this->parseChartResult($data);
+    }
+
     public function barInteractionRate(Request $request)
     {
         $data = $this->projectWithMedia('interaction', $request);
@@ -103,6 +121,12 @@ class ChartController extends Controller
     public function wordcloud(Request $request)
     {
         $data = $this->projectWithMedia('wordcloud', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function convo(Request $request)
+    {
+        $data = $this->projectWithMedia('convo', $request);
         return $this->parseChartResult($data);
     }
 

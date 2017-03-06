@@ -1,8 +1,10 @@
-function tableConvo(domId,url,name) {
+function tableConvo(domId, url, chartApiData, name) {
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         success: function(result){
-            //console.log(result);
+            var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;

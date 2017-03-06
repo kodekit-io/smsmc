@@ -122,7 +122,8 @@
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
 
             //tableInfluencers('17',influencers);
-            tableConvoAll('17',baseUrl+'/json/charts/405-table-convo.json');
+            // tableConvoAll('17',baseUrl+'/json/charts/405-table-convo.json');
+            tableConvoAll('17', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection
