@@ -1,7 +1,10 @@
-function chartBar(domId,url,name) {
+function chartBar(domId, url, chartApiData, name) {
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         success: function(result){
+            var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -166,11 +169,15 @@ function chartBar(domId,url,name) {
         }
     });
 }
-function chartBarStack(domId,url,name) {
+
+function chartBarStack(domId, url, chartApiData, name) {
     var stack = true;
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         success: function(result){
+            var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;

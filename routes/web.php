@@ -24,13 +24,34 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'DashboardController@dashboard');
     Route::get('get-project-list', 'DashboardController@getProjectList');
     Route::get('get-brand-equity/{projectId}', 'DashboardController@getBrandEquity');
+
+    Route::any('/project/all/{projectId}', 'ProjectController@allMedia');
+
+    // Charts
+    Route::post('charts/brand-equity', 'ChartController@brandEquity');
+    Route::post('charts/bar-sentiment', 'ChartController@barSentiment');
+    Route::post('charts/trend-sentiment', 'ChartController@trendSentiment');
+
+    Route::post('charts/trend-post', 'ChartController@trendPost');
+    Route::post('charts/trend-buzz', 'ChartController@trendBuzz');
+    Route::post('charts/trend-reach', 'ChartController@trendReach');
+    Route::post('charts/trend-interaction', 'ChartController@trendInteraction');
+
+    Route::post('charts/pie-post', 'ChartController@piePost');
+    Route::post('charts/pie-buzz', 'ChartController@pieBuzz');
+    Route::post('charts/pie-interaction', 'ChartController@pieInteraction');
+    Route::post('charts/pie-unique-user', 'ChartController@pieUniqueUser');
+
+    Route::post('charts/bar-interaction-rate', 'ChartController@barInteractionRate');
+    Route::post('charts/bar-media-share', 'ChartController@barMediaShare');
+
+    Route::post('charts/wordcloud', 'ChartController@wordcloud');
 });
 
 
 Route::get('/project-add', 'FrontendController@projectAdd');
 Route::get('/project-edit', 'FrontendController@projectEdit');
 
-Route::get('/project-all', 'FrontendController@projectAll');
 Route::get('/project-fb', 'FrontendController@projectFB');
 Route::get('/project-tw', 'FrontendController@projectTW');
 Route::get('/project-yt', 'FrontendController@projectYT');
@@ -61,4 +82,6 @@ Route::get('/admin-edit', 'FrontendController@adminEdit');
 
 Route::get('/page-help', 'FrontendController@pageHelp');
 
-Route::get('test/api', 'TestController@api');
+
+
+Route::get('/test/brand-equity', 'TestController@testBrandEquity');

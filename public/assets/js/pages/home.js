@@ -21,6 +21,7 @@
             success : function(result) {
                 result = jQuery.parseJSON(result);
                 var data = result.projectList;
+                console.log(data);
 
                 if (data.length === 0 || data == undefined) {
                     $('#'+domId).append(

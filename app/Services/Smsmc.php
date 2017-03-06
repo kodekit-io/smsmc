@@ -37,10 +37,10 @@ class Smsmc
             'password' => $password
         ];
 
-        return $this->post('auth/login', $params, false);
+        return $this->post('auth/login', $params, false, true, false);
     }
 
-    public function post($url, $params = [], $withToken = true, $withSuffix = true, $cached = true)
+    public function post($url, $params = [], $withToken = true, $withSuffix = true, $cached = false)
     {
         $apiUrl = $this->baseApiUrl . $url;
 
@@ -48,16 +48,16 @@ class Smsmc
             $apiUrl .=  '/' . $this->suffix;
         }
 
-        // days * hours * minutes
-        $minutes = 5 * 24 * 60;
-        $flatUrl = str_replace('/', '_', $apiUrl);
-        $flatUrl = str_replace('-', '_', $flatUrl);
-
         if ($withToken) {
             $params['auth_token'] = session('api_auth_token');
         }
 
         if ($cached) {
+            // days * hours * minutes
+            $minutes = 5 * 24 * 60;
+            $flatUrl = str_replace('/', '_', $apiUrl);
+            $flatUrl = str_replace('-', '_', $flatUrl);
+
             $parsedResponse = Cache::remember($flatUrl, $minutes, function () use ($apiUrl, $params) {
                 try {
                     $response = $this->client->post($apiUrl, [
@@ -80,6 +80,8 @@ class Smsmc
                 $parsedResponse = $this->proceedException($e, $apiUrl);
             }
         }
+
+        Log::warning($apiUrl . '===> ' . \GuzzleHttp\json_encode($params) . '===> ' . \GuzzleHttp\json_encode($parsedResponse));
 
         return $parsedResponse;
 

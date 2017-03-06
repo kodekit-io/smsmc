@@ -21,11 +21,7 @@ class FrontEndController extends Controller
         return view('pages.project-edit', $data);
     }
 
-    public function projectAll()
-    {
-        $data['pageTitle'] = 'All Media';
-        return view('pages.project-all', $data);
-    }
+
     public function projectFB()
     {
         $data['pageTitle'] = 'Facebook';

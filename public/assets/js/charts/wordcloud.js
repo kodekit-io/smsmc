@@ -1,7 +1,11 @@
-function wordcloud(domId,url,name) {
+function wordcloud(domId, url, chartApiData, name) {
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         success: function(result){
+            var result = jQuery.parseJSON(result);
+            console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -35,7 +39,7 @@ function wordcloud(domId,url,name) {
                 var series=[], words=[];
                 for (var i = 0; i < chartData.length; i++) {
                     series[i] = {
-                        name: chartData[i].name,
+                        name: chartData[i].key,
                         value: chartData[i].value,
                         link: chartData[i].link,
                         textStyle: {
@@ -45,7 +49,7 @@ function wordcloud(domId,url,name) {
                         }
                     }
                     words[i] = {
-                        text: chartData[i].name,
+                        text: chartData[i].key,
                         weight: chartData[i].value,
                         html: {
                             class: 'uk-button uk-button-text uk-text-lowercase',

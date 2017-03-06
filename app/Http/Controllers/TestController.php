@@ -21,10 +21,23 @@ class TestController extends Controller
         $this->smsmc = $smsmc;
     }
 
-    public function api()
+    public function testGetProjectList()
     {
         $result = $this->smsmc->post('project/list');
-        //var_dump($result);
+
         return \GuzzleHttp\json_encode($result->result);
+    }
+
+    public function testBrandEquity()
+    {
+        $params = [
+            'pid' => '2131142012017',
+            'StartDate' => '2016-11-13T00:00:00Z',
+            'EndDate' => '2016-11-15T00:00:00Z',
+            'sentiment' => '1,0,-1',
+        ];
+        $result = $this->smsmc->post('project/brandequity', $params);
+
+        return \GuzzleHttp\json_encode($result);
     }
 }
