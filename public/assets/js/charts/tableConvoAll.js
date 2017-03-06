@@ -61,7 +61,6 @@ function tableConvoAll(domId, url, chartApiData, name) {
                     + '</div>'
                 + '</div>'
             + '</div>';
-
             var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
                 + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
                     + '<div class="uk-card-header uk-clearfix">'
@@ -140,35 +139,28 @@ function tableConvoAll(domId, url, chartApiData, name) {
                         }
                     },
                     {
-                        "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "uk-text-center",
+                        "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "sentiment uk-text-center",
                         "createdCell": function (td, cellData, rowData, row, col) {
                             switch (cellData) {
                                 case 'positive':
-                                case 'Positif':
-                                case 'positif':
-                                    $(td).css('color', 'green');
+                                    $(td).addClass('green-text');
                                     break;
                                 case 'neutral':
-                                case 'Netral':
-                                case 'netral':
-                                    $(td).css('color', 'grey');
+                                    $(td).addClass('grey-text');
                                     break;
                                 case 'negative':
-                                case 'Negatif':
-                                case 'negatif':
-                                    $(td).css('color', 'red');
+                                    $(td).addClass('red-text');
                                     break;
                             }
                         }
                     },
                     {
                         "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
-                        "render": function ( cellData, rowData ) {
-                            //var status = cellData;
+                        "render": function ( cellData, display, row ) {
                             var btn = '';
                             switch (cellData) {
                                 case 'New':
-                                    btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+cellData+'</span></a>';
+                                    btn = '<a href="#openTicket" uk-toggle uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+cellData+'</span></a>';
                                 break;
                                 case 'Closed':
                                     btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
@@ -177,7 +169,7 @@ function tableConvoAll(domId, url, chartApiData, name) {
                                     btn = '<span class="uk-badge sm-badge red white-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
                                 break;
                             }
-
+                            //console.log(row);
                             return btn;
                         }
                     }
@@ -227,6 +219,58 @@ function tableConvoAll(domId, url, chartApiData, name) {
                 } );
             } ).draw();
             theTable.columns.adjust().draw();
+
+            // Edit Sentiment
+            var sentiment = [
+                "positive",
+                "neutral",
+                "negative"
+            ];
+            $('#'+chartId+'Table').on('click', '.sentiment', function() {
+                var row = this.parentElement;
+                if (!$('#'+chartId+'Table').hasClass("editing")) {
+                    $('#'+chartId+'Table').addClass("editing");
+                    var data = theTable.row(row).data();
+                    var $row = $(row);
+                    var idx = $row.find("td:nth-child(1)").text();
+                    var thisSentiment = $row.find("td:nth-child(6)");
+                    var thisSentimentText = thisSentiment.text();
+                    thisSentiment.empty().append($("<select></select>", {
+                        "id": "sentiment_" + idx,
+                        "class": "changeSentiment"
+                    }).append(function() {
+                        var options = [];
+                        $.each(sentiment, function(k, v) {
+                            options.push($("<option></option>", {
+                                "text": v,
+                                "value": v
+                            }))
+                        })
+                        return options;
+                    }));
+                    $("#sentiment_" + idx).val(thisSentimentText)
+                }
+            });
+
+            $('#'+chartId+'Table tbody').on("change", ".changeSentiment", function() {
+            	var $this = $(this);
+                var $tempData = $this.val();
+                switch ($tempData) {
+                    case 'positive':
+                        $this.parent("td").addClass('green-text').removeClass('red-text').removeClass('grey-text');
+                        break;
+                    case 'neutral':
+                        $this.parent("td").addClass('grey-text').removeClass('red-text').removeClass('green-text');
+                        break;
+                    case 'negative':
+                        $this.parent("td").addClass('red-text').removeClass('green-text').removeClass('grey-text');
+                        break;
+                }
+                $this.parent("td").empty().text($this.val());
+                $('#'+chartId+'Table').removeClass("editing");
+                // todo : Post $tempData to API
+            });
+
         }
     });
 }

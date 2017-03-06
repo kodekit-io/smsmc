@@ -106,7 +106,7 @@
             chartPie('10', baseUrl + '/charts/pie-interaction', $chartData);
 
             // chartPie('11',baseUrl+'/json/charts/211-pie-unique-user.json');
-            //chartPie('11', baseUrl + '/charts/pie-unique-user', $chartData);
+            chartPie('11', baseUrl + '/charts/pie-unique-user', $chartData);
 
             // chartBar('12', baseUrl + '/json/charts/303-bar-interaction-rate.json');
             chartBar('12', baseUrl + '/charts/bar-interaction-rate', $chartData);

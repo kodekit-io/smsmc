@@ -469,6 +469,30 @@ label.error {
     color: #333;
     display: inline-block;
 }
+#notifications {
+    border-bottom: 1px solid #e5e5e5;
+}
+#notifications thead,
+#notifications thead tr,
+#notifications thead tr th {
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+#notifications td {
+    padding: 10px !important;
+}
+#notifications td * {
+    margin-top: 0 !important;
+    font-size: 14px !important;
+}
+#notifications td.unread {
+    background-color: rgba(255, 0, 0, 0.025);
+}
+.sm-table {
+    width: 100% !important;
+}
 .sm-key-switch {
     position: absolute;
     z-index: 1;

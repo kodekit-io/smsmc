@@ -60,7 +60,7 @@ function chartTrend(domId, url, chartApiData, title) {
                 var data = {
                     legend: key,
                     colors: color,
-                    xaxis: dates,
+                    xaxis: date,
                     series: serie
                 }
 
@@ -167,6 +167,7 @@ function chartTrendCombo(domId, url, chartApiData, title) {
         data: chartApiData,
         success: function(result){
             var result = jQuery.parseJSON(result);
+            console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -214,17 +215,20 @@ function chartTrendCombo(domId, url, chartApiData, title) {
                     name = chartData[x].name;
                     data[x] = chartData[x].data;
                     id = [x];
-                    itemCombo(id,url);
+                    itemCombo(id,url,chartApiData);
                 }
             }
 
         }
     });
 }
-function itemCombo(id, url) {
+function itemCombo(id, url, chartApiData) {
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         success: function(result){
+            var result = jQuery.parseJSON(result);
             var chartData = result.chartData[id].data;
             if (chartData.length === 0) {
                 //$('#chart'+id).html('<div class="uk-position-center uk-text-center">No Data!</div>');
@@ -255,7 +259,7 @@ function itemCombo(id, url) {
                 var data = {
                     legend: key,
                     colors: color,
-                    xaxis: dates,
+                    xaxis: date,
                     series: serie
                 }
                 //$('#chart'+id).append('hehe'+id);
