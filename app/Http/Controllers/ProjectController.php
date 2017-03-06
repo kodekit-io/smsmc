@@ -38,4 +38,12 @@ class ProjectController extends Controller
 
         return view('pages.project-fb', $data);
     }
+
+    public function twitter(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'Twitter';
+
+        return view('pages.project-tw', $data);
+    }
 }

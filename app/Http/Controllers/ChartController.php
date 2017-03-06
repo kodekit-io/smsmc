@@ -64,6 +64,12 @@ class ChartController extends Controller
         return $this->parseChartResult($data);
     }
 
+    public function trendUser(Request $request)
+    {
+        $data = $this->plainProject('1/usertrend', $request);
+        return $this->parseChartResult($data);
+    }
+
     public function piePost(Request $request)
     {
         $data = $this->projectWithMedia('post', $request);
@@ -103,6 +109,18 @@ class ChartController extends Controller
     public function pieShare(Request $request)
     {
         $data = $this->plainProject('1/share', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function pieViralReach(Request $request)
+    {
+        $data = $this->plainProject('1/viralreach', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function piePotentialReach(Request $request)
+    {
+        $data = $this->projectWithMedia('potentialreach', $request);
         return $this->parseChartResult($data);
     }
 

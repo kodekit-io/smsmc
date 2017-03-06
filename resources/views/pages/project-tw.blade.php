@@ -53,25 +53,67 @@
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
 
     <script>
-        var influencers = ["top10ByReachTW", "top10ByNumberTW", "top10ByImpactTW"];
         $(document).ready(function() {
-            chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
-            chartTrend('02',baseUrl+'/json/charts/102-trend-buzz.json');
-            chartTrend('03',baseUrl+'/json/charts/111-trend-user.json');
-            chartTrend('04',baseUrl+'/json/charts/106-trend-reach.json');
+            var influencers = ["top10ByReachTW", "top10ByNumberTW", "top10ByImpactTW"];
+            var $projectId = '{!! $projectId !!}';
+            var $startDate = '{!! $startDate !!}';
+            var $endDate = '{!! $endDate !!}';
+            var $keywords = '{!! $submittedKeywords !!}';
+            var $topics = '{!! $submittedTopics !!}';
+            var $sentiments = '{!! $submittedSentiments !!}';
+            var $text = '{!! $searchText !!}';
 
-            chartPie('05',baseUrl+'/json/charts/202-pie-buzz.json');
-            chartPie('06',baseUrl+'/json/charts/204-pie-interaction.json');
-            chartPie('07',baseUrl+'/json/charts/214-pie-viral-reach.json');
-            chartPie('08',baseUrl+'/json/charts/205-pie-potential-reach.json');
+            var $chartData = {
+                "_token": token,
+                "projectId": $projectId,
+                "startDate": $startDate,
+                "endDate": $endDate,
+                "keywords": $keywords,
+                "topics": $topics,
+                "sentiments": $sentiments,
+                "text": $text,
+                "idMedia": 2
+            };
 
-            chartBarStack('09',baseUrl+'/json/charts/305-bar-sentiment.json');
-            chartBar('10',baseUrl+'/json/charts/303-bar-interaction-rate.json');
+            // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+
+            // chartTrend('02',baseUrl+'/json/charts/102-trend-buzz.json');
+            chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
+
+            // chartTrend('03',baseUrl+'/json/charts/111-trend-user.json');
+            chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
+
+            // chartTrend('04',baseUrl+'/json/charts/106-trend-reach.json');
+            chartTrend('04', baseUrl + '/charts/trend-reach', $chartData);
+
+            // chartPie('05',baseUrl+'/json/charts/202-pie-buzz.json');
+            chartPie('05', baseUrl + '/charts/pie-buzz', $chartData);
+
+            // chartPie('06',baseUrl+'/json/charts/204-pie-interaction.json');
+            chartPie('06', baseUrl + '/charts/pie-interaction', $chartData);
+
+            // chartPie('07',baseUrl+'/json/charts/214-pie-viral-reach.json');
+            chartPie('07', baseUrl + '/charts/pie-viral-reach', $chartData);
+
+            // chartPie('08',baseUrl+'/json/charts/205-pie-potential-reach.json');
+            chartPie('08', baseUrl + '/charts/pie-potential-reach', $chartData);
+
+            // chartBarStack('09',baseUrl+'/json/charts/305-bar-sentiment.json');
+            chartBarStack('09', baseUrl + '/charts/bar-sentiment', $chartData);
+
+            // chartBar('10',baseUrl+'/json/charts/303-bar-interaction-rate.json');
+            chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
+
             chartBarStack('11',baseUrl+'/json/charts/308-bar-topic-distribution.json');
 
-            wordcloud('12',baseUrl+'/json/charts/403-wordcloud.json');
+            // wordcloud('12',baseUrl+'/json/charts/403-wordcloud.json');
+            wordcloud('10', baseUrl + '/charts/wordcloud', $chartData);
+
             chartOntology('13',baseUrl+'/json/charts/402-ontology.json');
+
             tableInfluencers('14',influencers);
+
             tableConvo('15',baseUrl+'/json/charts/405-table-convo.json');
         });
     </script>
