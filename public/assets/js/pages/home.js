@@ -21,7 +21,7 @@
             success : function(result) {
                 result = jQuery.parseJSON(result);
                 var data = result.projectList;
-                console.log(data);
+                //console.log(data);
 
                 if (data.length === 0 || data == undefined) {
                     $('#'+domId).append(
@@ -86,7 +86,7 @@
                                             + modalDelete
                                         + '</div>'
                                     + '</div>'
-                                    + '<a href="'+baseUrl+'/project-all?pid='+pid+'" class="uk-button uk-button-text uk-float-right red-text">View Project</a>'
+                                    + '<a href="'+baseUrl+'/project/all/'+pid+'" class="uk-button uk-button-text uk-float-right red-text">View Project</a>'
                                 + '</div>'
                             + '</div>'
                         + '</div>'
@@ -102,19 +102,26 @@
     }
 
     function chartCover(pid) {
+        var x=0;
         $.ajax({
             // url: 'json/charts/401-brand-equity.json',
             url: baseUrl + '/get-brand-equity/' + pid,
             beforeSend : function(xhr) {
+                $('#chartCover'+pid).append('<div class="uk-position-center" uk-spinner></div>');
+                x++;
             },
             complete : function(xhr, status) {
+                x--;
+                if (x <= 0) {
+                    $('[uk-spinner]').remove();
+                }
             },
             success : function(result) {
+                //console.log(result);
+                var result = jQuery.parseJSON(result);
                 var chartData = result.chartData;
 
-                if (chartData.length === 0) {
-                    $('#chartCover'+pid).html('<div class="uk-position-center uk-text-center">No Data!</div>');
-                } else {
+                if (chartData.length > 0) {
                     var $colors = [], $series=[], $xval = [], $yval = [];
                     for (var i = 0; i < chartData.length; i++) {
                         $length = chartData.length;
@@ -173,9 +180,19 @@
                         text : '',
                     });
 
+                    if(data.colors[0] !== '' && data.colors.length > 0){
+                        dataColor = data.colors;
+                    } else {
+                        dataColor = [
+                            '#5ab1ef','#ffb980','#07a2a4','#9a7fd1','#588dd5',
+                            '#f5994e','#c05050','#7eb00a','#6f5553','#c14089',
+                            '#59678c','#c9ab00','#dc69aa','#2ec7c9','#b6a2de',
+                        ];
+                    }
+
                     var option = {
                         backgroundColor: '#f7f7f7',
-                        color: data.colors,
+                        color: dataColor,
                         title: {
                             show: false
                         },

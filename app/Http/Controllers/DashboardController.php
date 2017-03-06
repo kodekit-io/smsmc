@@ -6,6 +6,7 @@ use App\Service\Project;
 use App\Service\Smsmc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -43,16 +44,16 @@ class DashboardController extends Controller
 
     public function getBrandEquity($projectId)
     {
+        $endDate = Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z');
+        $startDate = Carbon::parse('-2 weeks', 'Asia/Jakarta')->format('Y-m-d\TH:i:s\Z');
+
         $params = [
-            'pid' => $projectId
+            'pid' => $projectId,
+            'StartDate' => $startDate,
+            'EndDate' => $endDate,
+            'sentiment' => '1,0,-1',
         ];
-
-        $brandEquity = $this->smsmc->post('project/brandequity', $params);
-
-        if ($brandEquity->status == 200) {
-            return $brandEquity->result;
-        }
-
-        return [];
+        $result = $this->smsmc->post('project/brandequity', $params);
+        return \GuzzleHttp\json_encode($result->result);
     }
 }
