@@ -1,7 +1,10 @@
-function chartBubble(domId,url,name) {
+function chartBubble(domId, url, chartApiData, name) {
     $.ajax({
+        method: "POST",
         url: url,
-        success: function(result){
+        data: chartApiData,
+        success: function(result) {
+            var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;

@@ -1,7 +1,10 @@
-function chartPie(domId,url,name) {
+function chartPie(domId, url, chartApiData, name) {
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         success: function(result){
+            var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;

@@ -9,6 +9,7 @@
     @section('page-level-js-variables')
         <script type="text/javascript">
             var baseUrl = '{!! url('/') !!}';
+            var token = '{!! csrf_token() !!}';
         </script>
     @show
 

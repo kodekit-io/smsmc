@@ -27,9 +27,22 @@ class Project
         ];
 
         $projectList = $this->smsmc->post('project/list', $params);
-
         if ($projectList->status == 200) {
             return $projectList->result;
+        }
+
+        return [];
+    }
+
+    public function projectDetail($projectId)
+    {
+        $params = [
+            'pid' => $projectId
+        ];
+
+        $projectDetail = $this->smsmc->post('project/get', $params, true, true, false);
+        if ($projectDetail->status == 200) {
+            return $projectDetail->result;
         }
 
         return [];

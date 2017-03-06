@@ -20,7 +20,8 @@
 
         projectList('projectList', baseUrl + '/get-project-list');
     });
-    function projectList(dom,url) {
+
+    function projectList(dom, url) {
         var x = 0;
         $.ajax({
             url: url,
@@ -48,7 +49,7 @@
                         pname = data[i].pname;
                         length = data.length;
 
-                        var project = '<li><a href="'+baseUrl+'/project-all?pid='+pid+'">'+pname+'</a></li>';
+                        var project = '<li><a href="' + baseUrl + '/project/all/'+pid+'">'+pname+'</a></li>';
                         $('#'+dom).append(project);
 
                     }

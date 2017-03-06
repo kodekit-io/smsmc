@@ -1,7 +1,10 @@
-function chartTrend(domId,url,title) {
+function chartTrend(domId, url, chartApiData, title) {
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         success: function(result){
+            var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -157,10 +160,13 @@ function chartTrend(domId,url,title) {
     });
 }
 
-function chartTrendCombo(domId,url,title) {
+function chartTrendCombo(domId, url, chartApiData, title) {
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         success: function(result){
+            var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -215,7 +221,7 @@ function chartTrendCombo(domId,url,title) {
         }
     });
 }
-function itemCombo(id,url) {
+function itemCombo(id, url) {
     $.ajax({
         url: url,
         success: function(result){
