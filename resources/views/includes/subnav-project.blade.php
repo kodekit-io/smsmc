@@ -1,6 +1,6 @@
 <nav class="uk-navbar-container sm-nav-sub" uk-navbar>
     <div class="uk-navbar-left">
-        <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="Project Name" uk-tooltip="pos: bottom">{!! $projectDetail->project->pname !!}</h2>
+        <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="{!! $projectDetail->project->pname !!}" uk-tooltip="pos: bottom">{!! $projectDetail->project->pname !!}</h2>
         <ul class="uk-navbar-nav">
             <li>
                 <a href="{!! url('/project-all') !!}"><i class="fa fa-th-large"></i>All Media</a>

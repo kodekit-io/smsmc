@@ -84,13 +84,13 @@ class ChartController extends Controller
 
     public function pieUniqueUser(Request $request)
     {
-        $data = $this->plainProject('uniqueuser', $request);
+        $data = $this->projectWithoutMedia('uniqueuser', $request);
         return $this->parseChartResult($data);
     }
 
     public function barInteractionRate(Request $request)
     {
-        $data = $this->projectWithMedia('interaction', $request);
+        $data = $this->projectWithMedia('interactionrate', $request);
         return $this->parseChartResult($data);
     }
 
@@ -116,6 +116,19 @@ class ChartController extends Controller
         if ($idMedia != '') {
             $apiUrl .= '/' . $idMedia;
         }
+        $apiUrl .= '/' . $url;
+
+        return $this->chartApi($apiUrl, $chartParameter);
+    }
+
+    private function projectWithoutMedia($url, $request)
+    {
+        $chartParameter = new ChartParameter($request);
+        // $idMedia = $request->input('idMedia');
+        $apiUrl = 'project/1';
+        // if ($idMedia != '') {
+        //     $apiUrl .= '/' . $idMedia;
+        // }
         $apiUrl .= '/' . $url;
 
         return $this->chartApi($apiUrl, $chartParameter);
