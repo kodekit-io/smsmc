@@ -18,7 +18,7 @@
             { container: $('#select-channel'), showIndeterminate: true }
         );
 
-        projectList('projectList', baseUrl + '/test/api');
+        projectList('projectList', baseUrl + '/get-project-list');
     });
     function projectList(dom,url) {
         var x = 0;
