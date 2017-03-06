@@ -3,28 +3,28 @@
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="{!! $projectDetail->project->pname !!}" uk-tooltip="pos: bottom">{!! $projectDetail->project->pname !!}</h2>
         <ul class="uk-navbar-nav">
             <li>
-                <a href="{!! url('/project-all') !!}"><i class="fa fa-th-large"></i>All Media</a>
+                <a href="{!! url('/project/all/' . $projectId) !!}"><i class="fa fa-th-large"></i>All Media</a>
             </li>
             <li>
-                <a href="{!! url('/project-fb') !!}"><i class="fa fa-facebook"></i>Facebook</a>
+                <a href="{!! url('/project/facebook/' . $projectId) !!}"><i class="fa fa-facebook"></i>Facebook</a>
             </li>
             <li>
-                <a href="{!! url('/project-tw') !!}"><i class="fa fa-twitter"></i>Twitter</a>
+                <a href="{!! url('/project/twitter/' . $projectId) !!}"><i class="fa fa-twitter"></i>Twitter</a>
             </li>
             <li>
-                <a href="{!! url('/project-news') !!}"><i class="fa fa-globe"></i>Online News</a>
+                <a href="{!! url('/project/news/' . $projectId) !!}"><i class="fa fa-globe"></i>Online News</a>
             </li>
             <li>
-                <a href="{!! url('/project-blog') !!}"><i class="fa fa-rss"></i>Blog</a>
+                <a href="{!! url('/project/blog/' . $projectId) !!}"><i class="fa fa-rss"></i>Blog</a>
             </li>
             <li>
-                <a href="{!! url('/project-forum') !!}"><i class="fa fa-comments"></i>Forum</a>
+                <a href="{!! url('/project/forum/' . $projectId) !!}"><i class="fa fa-comments"></i>Forum</a>
             </li>
             <li>
-                <a href="{!! url('/project-yt') !!}"><i class="fa fa-youtube-play"></i>Video</a>
+                <a href="{!! url('/project/youtube/' . $projectId) !!}"><i class="fa fa-youtube-play"></i>Video</a>
             </li>
             <li>
-                <a href="{!! url('/project-ig') !!}"><i class="fa fa-instagram"></i>Instagram</a>
+                <a href="{!! url('/project/instagram/' . $projectId) !!}"><i class="fa fa-instagram"></i>Instagram</a>
             </li>
         </ul>
     </div>

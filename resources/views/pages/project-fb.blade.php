@@ -50,24 +50,63 @@
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
     <script>
-        var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
         $(document).ready(function() {
-            chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
-            chartTrend('02',baseUrl+'/json/charts/101-trend-post.json');
+            var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
+            var $projectId = '{!! $projectId !!}';
+            var $startDate = '{!! $startDate !!}';
+            var $endDate = '{!! $endDate !!}';
+            var $keywords = '{!! $submittedKeywords !!}';
+            var $topics = '{!! $submittedTopics !!}';
+            var $sentiments = '{!! $submittedSentiments !!}';
+            var $text = '{!! $searchText !!}';
 
-            chartPie('03',baseUrl+'/json/charts/201-pie-post.json');
-            chartPie('04',baseUrl+'/json/charts/203-pie-comment.json');
-            chartPie('05',baseUrl+'/json/charts/207-pie-like.json');
-            chartPie('06',baseUrl+'/json/charts/210-pie-share.json');
+            var $chartData = {
+                "_token": token,
+                "projectId": $projectId,
+                "startDate": $startDate,
+                "endDate": $endDate,
+                "keywords": $keywords,
+                "topics": $topics,
+                "sentiments": $sentiments,
+                "text": $text,
+                "idMedia": 1
+            };
 
-            chartBarStack('07',baseUrl+'/json/charts/305-bar-sentiment.json');
-            chartBar('08',baseUrl+'/json/charts/303-bar-interaction-rate.json');
+            // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+
+            // chartTrend('02',baseUrl+'/json/charts/101-trend-post.json');
+            chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
+
+            // chartPie('03',baseUrl+'/json/charts/201-pie-post.json');
+            chartPie('03', baseUrl + '/charts/pie-post', $chartData);
+
+            // chartPie('04',baseUrl+'/json/charts/203-pie-comment.json');
+            chartPie('04', baseUrl + '/charts/pie-comment', $chartData);
+
+            // chartPie('05',baseUrl+'/json/charts/207-pie-like.json');
+            chartPie('05', baseUrl + '/charts/pie-like', $chartData);
+
+            // chartPie('06',baseUrl+'/json/charts/210-pie-share.json');
+            chartPie('06', baseUrl + '/charts/pie-share', $chartData);
+
+            // chartBarStack('07',baseUrl+'/json/charts/305-bar-sentiment.json');
+            chartBarStack('07', baseUrl + '/charts/bar-sentiment', $chartData);
+
+            // chartBar('08',baseUrl+'/json/charts/303-bar-interaction-rate.json');
+            chartBar('08', baseUrl + '/charts/bar-interaction-rate', $chartData);
+
             chartBarStack('09',baseUrl+'/json/charts/308-bar-topic-distribution.json');
 
             chartOntology('11',baseUrl+'/json/charts/402-ontology.json');
-            wordcloud('10',baseUrl+'/json/charts/403-wordcloud.json');
+
+            // wordcloud('10',baseUrl+'/json/charts/403-wordcloud.json');
+            wordcloud('10', baseUrl + '/charts/wordcloud', $chartData);
+
             tableInfluencers('12',influencers);
-            tableConvo('13',baseUrl+'/json/charts/405-table-convo.json');
+
+            // tableConvo('13',baseUrl+'/json/charts/405-table-convo.json');
+            tableConvo('13', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection
