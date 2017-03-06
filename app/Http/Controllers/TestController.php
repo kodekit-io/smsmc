@@ -21,13 +21,6 @@ class TestController extends Controller
         $this->smsmc = $smsmc;
     }
 
-    public function testGetProjectList()
-    {
-        $result = $this->smsmc->post('project/list');
-
-        return \GuzzleHttp\json_encode($result->result);
-    }
-
     public function testBrandEquity()
     {
         $params = [

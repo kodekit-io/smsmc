@@ -1,0 +1,44 @@
+{
+    "data": [
+        {
+            "notifId": 76324,
+            "notifDate": "2017-03-01T01:23:45Z",
+            "notifType": "ticket",
+            "notifFrom": "Jon Snow",
+            "notifTo": "Group A",
+            "notifStatus": "Read",
+            "notifMessage": "Please don't be too harsh on this one",
+            "notifLink": "123"
+        },
+        {
+            "notifId": 34253,
+            "notifDate": "2017-03-02T01:23:45Z",
+            "notifType": "ticket",
+            "notifFrom": "Daenerys Targaryen",
+            "notifTo": "Group B",
+            "notifStatus": "Unread",
+            "notifMessage": "",
+            "notifLink": "234"
+        },
+        {
+            "notifId": 87234,
+            "notifDate": "2017-03-04T23:35:00Z",
+            "notifType": "ticket",
+            "notifFrom": "Robert Baratheon",
+            "notifTo": "Group C",
+            "notifStatus": "Unread",
+            "notifMessage": "Give her support",
+            "notifLink": "345"
+        },
+        {
+            "notifId": 57294,
+            "notifDate": "2017-03-05T00:35:00Z",
+            "notifType": "ticket",
+            "notifFrom": "Sansa Stark",
+            "notifTo": "Group C",
+            "notifStatus": "Unread",
+            "notifMessage": "",
+            "notifLink": "567"
+        }
+    ]
+}
