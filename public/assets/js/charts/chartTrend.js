@@ -1,8 +1,29 @@
 function chartTrend(domId, url, chartApiData, title) {
+    var xxx=0;
     $.ajax({
         method: "POST",
         url: url,
         data: chartApiData,
+        beforeSend : function(xhr) {
+            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
+                + '<div class="uk-card uk-card-small">'
+                    + '<div class="uk-card-header uk-clearfix">'
+                        + '<h5 class="uk-card-title uk-float-left"></h5>'
+                    + '</div>'
+                    + '<div class="uk-card-body">'
+                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
+                    + '</div>'
+                + '</div>'
+            + '</div>';
+            $('#'+domId).append(cardloader);
+            xxx++;
+        },
+        complete : function(xhr, status) {
+            xxx--;
+            if (xxx <= 0) {
+                $('.cardloader').remove();
+            }
+        },
         success: function(result){
             var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
@@ -75,10 +96,14 @@ function chartTrend(domId, url, chartApiData, title) {
                     text : '',
                 });
 
-                if(data.colors[0] !== undefined){
+                if(data.colors[0] !== '' && data.colors.length > 0){
                     dataColor = data.colors;
                 } else {
-                    dataColor = '';
+                    dataColor = [
+                        '#5ab1ef','#ffb980','#07a2a4','#9a7fd1','#588dd5',
+                        '#f5994e','#c05050','#7eb00a','#6f5553','#c14089',
+                        '#59678c','#c9ab00','#dc69aa','#2ec7c9','#b6a2de',
+                    ];
                 }
                 var option = {
                     tooltip: {
@@ -161,13 +186,34 @@ function chartTrend(domId, url, chartApiData, title) {
 }
 
 function chartTrendCombo(domId, url, chartApiData, title) {
+    var xxx=0;
     $.ajax({
         method: "POST",
         url: url,
         data: chartApiData,
+        beforeSend : function(xhr) {
+            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
+                + '<div class="uk-card uk-card-small">'
+                    + '<div class="uk-card-header uk-clearfix">'
+                        + '<h5 class="uk-card-title uk-float-left"></h5>'
+                    + '</div>'
+                    + '<div class="uk-card-body">'
+                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
+                    + '</div>'
+                + '</div>'
+            + '</div>';
+            $('#'+domId).append(cardloader);
+            xxx++;
+        },
+        complete : function(xhr, status) {
+            xxx--;
+            if (xxx <= 0) {
+                $('.cardloader').remove();
+            }
+        },
         success: function(result){
             var result = jQuery.parseJSON(result);
-            console.log(result);
+            //console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -274,10 +320,14 @@ function itemCombo(id, url, chartApiData) {
                     text : '',
                 });
 
-                if(data.colors[0] !== undefined){
+                if(data.colors[0] !== '' && data.colors.length > 0){
                     dataColor = data.colors;
                 } else {
-                    dataColor = '';
+                    dataColor = [
+                        '#5ab1ef','#ffb980','#07a2a4','#9a7fd1','#588dd5',
+                        '#f5994e','#c05050','#7eb00a','#6f5553','#c14089',
+                        '#59678c','#c9ab00','#dc69aa','#2ec7c9','#b6a2de',
+                    ];
                 }
                 var option = {
                     tooltip: {

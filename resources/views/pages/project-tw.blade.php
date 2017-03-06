@@ -108,7 +108,7 @@
             chartBarStack('11',baseUrl+'/json/charts/308-bar-topic-distribution.json');
 
             // wordcloud('12',baseUrl+'/json/charts/403-wordcloud.json');
-            wordcloud('10', baseUrl + '/charts/wordcloud', $chartData);
+            wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
 
             chartOntology('13',baseUrl+'/json/charts/402-ontology.json');
 

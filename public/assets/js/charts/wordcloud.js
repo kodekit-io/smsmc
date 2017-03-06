@@ -1,8 +1,29 @@
 function wordcloud(domId, url, chartApiData, name) {
+    var xxx=0;
     $.ajax({
         method: "POST",
         url: url,
         data: chartApiData,
+        beforeSend : function(xhr) {
+            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
+                + '<div class="uk-card uk-card-small">'
+                    + '<div class="uk-card-header uk-clearfix">'
+                        + '<h5 class="uk-card-title uk-float-left"></h5>'
+                    + '</div>'
+                    + '<div class="uk-card-body">'
+                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
+                    + '</div>'
+                + '</div>'
+            + '</div>';
+            $('#'+domId).append(cardloader);
+            xxx++;
+        },
+        complete : function(xhr, status) {
+            xxx--;
+            if (xxx <= 0) {
+                $('.cardloader').remove();
+            }
+        },
         success: function(result){
             var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
