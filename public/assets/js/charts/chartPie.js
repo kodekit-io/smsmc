@@ -76,7 +76,7 @@ function chartPie(domId, url, chartApiData, name) {
                 });
 
                 if(color[0] !== '' && color.length > 0){
-                    dataColor = data.colors;
+                    dataColor = chartData.colors;
                 } else {
                     dataColor = [
                         '#5ab1ef','#ffb980','#07a2a4','#9a7fd1','#588dd5',
