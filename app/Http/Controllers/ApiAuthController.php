@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service\Smsmc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ApiAuthController extends Controller
 {
@@ -21,8 +22,10 @@ class ApiAuthController extends Controller
         $this->smsmc = $smsmc;
     }
 
-    public function getLogin()
+    public function getLogin(Request $request
+    )
     {
+        Log::warning('Check on login ==> ' . \GuzzleHttp\json_encode(Auth::check()));
         $data['pageTitle'] = 'Login';
         return view('pages.login', $data);
     }
@@ -61,11 +64,18 @@ class ApiAuthController extends Controller
 
     public function logout(Request $request)
     {
-        $request->session()->forget(['userAttributes']);
-        $request->session()->flush();
-        Auth::logout();
+        $this->guard()->logout();
 
-        return redirect('/home');
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect('/login');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard();
     }
 
     protected function saveApiAuthToken($token)
