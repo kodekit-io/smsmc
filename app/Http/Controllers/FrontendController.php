@@ -21,27 +21,6 @@ class FrontEndController extends Controller
         return view('pages.project-edit', $data);
     }
 
-    public function projectYT()
-    {
-        $data['pageTitle'] = 'Video';
-        return view('pages.project-yt', $data);
-    }
-    public function projectIG()
-    {
-        $data['pageTitle'] = 'Instagram';
-        return view('pages.project-ig', $data);
-    }
-    public function projectBlog()
-    {
-        $data['pageTitle'] = 'Blog';
-        return view('pages.project-blog', $data);
-    }
-    public function projectForum()
-    {
-        $data['pageTitle'] = 'Forum';
-        return view('pages.project-forum', $data);
-    }
-
     public function socmedAccounts()
     {
         $data['pageTitle'] = 'Social Media Accounts';
