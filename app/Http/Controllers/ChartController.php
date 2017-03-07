@@ -114,7 +114,7 @@ class ChartController extends Controller
 
     public function pieUniqueUser(Request $request)
     {
-        $data = $this->projectWithoutMedia('uniqueuser', $request);
+        $data = $this->withoutMedia('uniqueuser', $request);
         return $this->parseChartResult($data);
     }
 
