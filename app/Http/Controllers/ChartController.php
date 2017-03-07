@@ -24,73 +24,91 @@ class ChartController extends Controller
 
     public function brandEquity(Request $request)
     {
-        $data = $this->plainProject('brandequity', $request);
+        $data = $this->plain('brandequity', $request);
         return $this->parseChartResult($data);
     }
 
     public function barSentiment(Request $request)
     {
-        $data = $this->projectWithMedia('sentiment', $request);
+        $data = $this->withMedia('sentiment', $request);
         return $this->parseChartResult($data);
     }
 
     public function trendSentiment(Request $request)
     {
-        $data = $this->projectWithMedia('sentimenttrend', $request);
+        $data = $this->withMedia('sentimenttrend', $request);
         return $this->parseChartResult($data);
     }
 
     public function trendPost(Request $request)
     {
-        $data = $this->projectWithMedia('posttrend', $request);
+        $data = $this->withMedia('posttrend', $request);
         return $this->parseChartResult($data);
     }
 
     public function trendBuzz(Request $request)
     {
-        $data = $this->projectWithMedia('buzztrend', $request);
+        $data = $this->withMedia('buzztrend', $request);
         return $this->parseChartResult($data);
     }
 
     public function trendReach(Request $request)
     {
-        $data = $this->projectWithMedia('reachtrend', $request);
+        $data = $this->withMedia('reachtrend', $request);
         return $this->parseChartResult($data);
     }
 
     public function trendInteraction(Request $request)
     {
-        $data = $this->projectWithMedia('interactiontrend', $request);
+        $data = $this->withMedia('interactiontrend', $request);
         return $this->parseChartResult($data);
     }
 
     public function trendUser(Request $request)
     {
-        $data = $this->plainProject('1/usertrend', $request);
+        $data = $this->withoutMedia('usertrend', $request);
         return $this->parseChartResult($data);
     }
 
     public function trendComment(Request $request)
     {
-        $data = $this->projectWithMedia('commentrend', $request);
+        $data = $this->withMedia('commentrend', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function trendView(Request $request)
+    {
+        $data = $this->withoutMedia('viewtrend', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function trendPotentialReach(Request $request)
+    {
+        $data = $this->withoutMedia('potensialreachtrend', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function trendLove(Request $request)
+    {
+        $data = $this->withoutMedia('lovetrend', $request);
         return $this->parseChartResult($data);
     }
 
     public function piePost(Request $request)
     {
-        $data = $this->projectWithMedia('post', $request);
+        $data = $this->withMedia('post', $request);
         return $this->parseChartResult($data);
     }
 
     public function pieBuzz(Request $request)
     {
-        $data = $this->projectWithMedia('buzz', $request);
+        $data = $this->withMedia('buzz', $request);
         return $this->parseChartResult($data);
     }
 
     public function pieInteraction(Request $request)
     {
-        $data = $this->projectWithMedia('interaction', $request);
+        $data = $this->withMedia('interaction', $request);
         return $this->parseChartResult($data);
     }
 
@@ -102,93 +120,114 @@ class ChartController extends Controller
 
     public function pieComment(Request $request)
     {
-        $data = $this->projectWithMedia('comment', $request);
+        $data = $this->withMedia('comment', $request);
         return $this->parseChartResult($data);
     }
 
     public function pieLike(Request $request)
     {
-        $data = $this->plainProject('1/like', $request);
+        $data = $this->withoutMedia('like', $request);
         return $this->parseChartResult($data);
     }
 
     public function pieShare(Request $request)
     {
-        $data = $this->plainProject('1/share', $request);
+        $data = $this->withoutMedia('share', $request);
         return $this->parseChartResult($data);
     }
 
     public function pieViralReach(Request $request)
     {
-        $data = $this->plainProject('1/viralreach', $request);
+        $data = $this->withoutMedia('viralreach', $request);
         return $this->parseChartResult($data);
     }
 
     public function piePotentialReach(Request $request)
     {
-        $data = $this->projectWithMedia('potentialreach', $request);
+        $data = $this->withMedia('potentialreach', $request);
         return $this->parseChartResult($data);
     }
 
     public function pieReach(Request $request)
     {
-        $data = $this->projectWithMedia('reach', $request);
+        $data = $this->withMedia('reach', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function pieView(Request $request)
+    {
+        $data = $this->withoutMedia('viewcount', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function pieRating(Request $request)
+    {
+        $data = $this->withoutMedia('rating', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function pieLove(Request $request)
+    {
+        $data = $this->withoutMedia('love', $request);
         return $this->parseChartResult($data);
     }
 
     public function barInteractionRate(Request $request)
     {
-        $data = $this->projectWithMedia('interactionrate', $request);
+        $data = $this->withMedia('interactionrate', $request);
         return $this->parseChartResult($data);
     }
 
     public function barMediaShare(Request $request)
     {
-        $data = $this->plainProject('shareofmedia', $request);
+        $data = $this->plain('shareofmedia', $request);
         return $this->parseChartResult($data);
     }
 
     public function wordcloud(Request $request)
     {
-        $data = $this->projectWithMedia('wordcloud', $request);
+        $data = $this->withMedia('wordcloud', $request);
         return $this->parseChartResult($data);
     }
 
     public function convo(Request $request)
     {
-        $data = $this->projectWithMedia('convo', $request);
+        $data = $this->withMedia('convo', $request);
         return $this->parseChartResult($data);
     }
 
 
 
-    private function projectWithMedia($url, $request)
+    private function withMedia($url, $request)
     {
         $chartParameter = new ChartParameter($request);
+
+        $reportType = $request->input('reportType');
+        $apiUrl = 'project/' . $reportType;
+
         $idMedia = $request->input('idMedia');
-        $apiUrl = 'project/1';
         if ($idMedia != '') {
             $apiUrl .= '/' . $idMedia;
         }
+
         $apiUrl .= '/' . $url;
 
         return $this->chartApi($apiUrl, $chartParameter);
     }
 
-    private function projectWithoutMedia($url, $request)
+    private function withoutMedia($url, $request)
     {
         $chartParameter = new ChartParameter($request);
-        // $idMedia = $request->input('idMedia');
-        $apiUrl = 'project/1';
-        // if ($idMedia != '') {
-        //     $apiUrl .= '/' . $idMedia;
-        // }
+
+        $reportType = $request->input('reportType');
+        $apiUrl = 'project/' . $reportType;
+
         $apiUrl .= '/' . $url;
 
         return $this->chartApi($apiUrl, $chartParameter);
     }
 
-    private function plainProject($url, $request)
+    private function plain($url, $request)
     {
         $apiUrl = 'project/' . $url;
         $chartParameter = new ChartParameter($request);

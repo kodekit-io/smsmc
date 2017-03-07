@@ -22,10 +22,8 @@ class ApiAuthController extends Controller
         $this->smsmc = $smsmc;
     }
 
-    public function getLogin(Request $request
-    )
+    public function getLogin(Request $request)
     {
-        Log::warning('Check on login ==> ' . \GuzzleHttp\json_encode(Auth::check()));
         $data['pageTitle'] = 'Login';
         return view('pages.login', $data);
     }

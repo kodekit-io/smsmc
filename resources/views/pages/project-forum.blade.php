@@ -47,18 +47,51 @@
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
 
     <script>
-        var influencers = ["top10Forum"];
-        $(document).ready(function() {
-            chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
-            chartTrend('02',baseUrl+'/json/charts/101-trend-post.json');
-            chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
 
-            chartBarStack('04',baseUrl+'/json/charts/305-bar-sentiment.json');
+        $(document).ready(function() {
+            var influencers = ["top10Forum"];
+            var $projectId = '{!! $projectId !!}';
+            var $startDate = '{!! $startDate !!}';
+            var $endDate = '{!! $endDate !!}';
+            var $keywords = '{!! $submittedKeywords !!}';
+            var $topics = '{!! $submittedTopics !!}';
+            var $sentiments = '{!! $submittedSentiments !!}';
+            var $text = '{!! $searchText !!}';
+
+            var $chartData = {
+                "_token": token,
+                "projectId": $projectId,
+                "startDate": $startDate,
+                "endDate": $endDate,
+                "keywords": $keywords,
+                "topics": $topics,
+                "sentiments": $sentiments,
+                "text": $text,
+                "idMedia": 6,
+                "reportType": 1
+            };
+
+            // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+
+            // chartTrend('02',baseUrl+'/json/charts/101-trend-post.json');
+            chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
+
+            // chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
+            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
+
+            // chartBarStack('04',baseUrl+'/json/charts/305-bar-sentiment.json');
+            chartBarStack('04', baseUrl + '/charts/bar-sentiment', $chartData);
+
             chartBarStack('05',baseUrl+'/json/charts/308-bar-topic-distribution.json');
 
-            wordcloud('06',baseUrl+'/json/charts/403-wordcloud.json');
+            // wordcloud('06',baseUrl+'/json/charts/403-wordcloud.json');
+            wordcloud('06', baseUrl + '/charts/wordcloud', $chartData);
+
             chartOntology('07',baseUrl+'/json/charts/402-ontology.json');
+
             tableInfluencers('08',influencers);
+
             tableConvo('09',baseUrl+'/json/charts/405-table-convo.json');
         });
     </script>

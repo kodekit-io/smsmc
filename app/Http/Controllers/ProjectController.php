@@ -54,4 +54,32 @@ class ProjectController extends Controller
 
         return view('pages.project-news', $data);
     }
+
+    public function blog(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'Blog';
+        return view('pages.project-blog', $data);
+    }
+
+    public function forum(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'Forum';
+        return view('pages.project-forum', $data);
+    }
+
+    public function youtube(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'Video';
+        return view('pages.project-yt', $data);
+    }
+
+    public function instagram(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'Instagram';
+        return view('pages.project-ig', $data);
+    }
 }

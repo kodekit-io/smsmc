@@ -74,7 +74,8 @@
                 "topics": $topics,
                 "sentiments": $sentiments,
                 "text": $text,
-                "idMedia": 8
+                "idMedia": 8,
+                "reportType": 1
             };
 
             chartBubble('01', baseUrl + '/charts/brand-equity', $chartData);

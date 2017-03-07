@@ -69,7 +69,8 @@
                 "topics": $topics,
                 "sentiments": $sentiments,
                 "text": $text,
-                "idMedia": 2
+                "idMedia": 4,
+                "reportType": 1
             };
 
             // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
@@ -79,7 +80,7 @@
             chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
 
             // chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
-            chartPie('03', baseUrl + '/charts/trend-comment', $chartData);
+            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
 
             // chartPie('04',baseUrl+'/json/charts/201-pie-post.json');
             chartPie('04', baseUrl + '/charts/pie-post', $chartData);
