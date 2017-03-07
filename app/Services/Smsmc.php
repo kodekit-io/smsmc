@@ -81,7 +81,7 @@ class Smsmc
             }
         }
 
-        Log::warning($apiUrl . '===> ' . \GuzzleHttp\json_encode($params) . '===> ' . \GuzzleHttp\json_encode($parsedResponse));
+        // Log::warning($apiUrl . '===> ' . \GuzzleHttp\json_encode($params) . '===> ' . \GuzzleHttp\json_encode($parsedResponse));
 
         return $parsedResponse;
 
