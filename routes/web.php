@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('/project/all/{projectId}', 'ProjectController@allMedia');
     Route::any('/project/facebook/{projectId}', 'ProjectController@facebook');
     Route::any('/project/twitter/{projectId}', 'ProjectController@twitter');
+    Route::any('/project/news/{projectId}', 'ProjectController@news');
 
     // Charts
     Route::post('charts/brand-equity', 'ChartController@brandEquity');
@@ -39,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/trend-reach', 'ChartController@trendReach');
     Route::post('charts/trend-interaction', 'ChartController@trendInteraction');
     Route::post('charts/trend-user', 'ChartController@trendUser');
+    Route::post('charts/trend-comment', 'ChartController@trendComment');
 
     Route::post('charts/pie-post', 'ChartController@piePost');
     Route::post('charts/pie-buzz', 'ChartController@pieBuzz');
@@ -49,6 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/pie-share', 'ChartController@pieShare');
     Route::post('charts/pie-viral-reach', 'ChartController@pieViralReach');
     Route::post('charts/pie-potential-reach', 'ChartController@piePotentialReach');
+    Route::post('charts/pie-reach', 'ChartController@pieReach');
 
     Route::post('charts/bar-interaction-rate', 'ChartController@barInteractionRate');
     Route::post('charts/bar-media-share', 'ChartController@barMediaShare');

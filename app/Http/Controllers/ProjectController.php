@@ -46,4 +46,12 @@ class ProjectController extends Controller
 
         return view('pages.project-tw', $data);
     }
+
+    public function news(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'Online News';
+
+        return view('pages.project-news', $data);
+    }
 }

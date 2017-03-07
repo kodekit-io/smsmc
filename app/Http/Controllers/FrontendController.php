@@ -31,11 +31,6 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Instagram';
         return view('pages.project-ig', $data);
     }
-    public function projectNews()
-    {
-        $data['pageTitle'] = 'Online News';
-        return view('pages.project-news', $data);
-    }
     public function projectBlog()
     {
         $data['pageTitle'] = 'Blog';
