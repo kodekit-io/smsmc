@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service\Smsmc;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ApiAuthController extends Controller
 {
@@ -53,15 +54,16 @@ class ApiAuthController extends Controller
 
         session(['userAttributes' => $attributes]);
 
-        \Auth::loginUsingId($apiLoginResult->result->user->userName);
+        Auth::loginUsingId($apiLoginResult->result->user->userName);
 
         $this->saveApiAuthToken($token);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        \Auth::logout();
-        session()->flush();
+        $request->session()->forget(['userAttributes']);
+        $request->session()->flush();
+        Auth::logout();
 
         return redirect('/home');
     }
