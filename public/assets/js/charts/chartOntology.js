@@ -1,8 +1,10 @@
-function chartOntology(domId,url,name) {
+function chartOntology(domId,url,chartApiData,name) {
     // $.get(url, function (result) {
     var xxx=0;
     $.ajax({
+        method: "POST",
         url: url,
+        data: chartApiData,
         beforeSend : function(xhr) {
             var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
                 + '<div class="uk-card uk-card-small">'
@@ -24,7 +26,8 @@ function chartOntology(domId,url,name) {
             }
         },
         success: function(result){
-
+            var result = jQuery.parseJSON(result);
+            // console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;

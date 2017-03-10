@@ -184,6 +184,18 @@ class ChartController extends Controller
         return $this->parseChartResult($data);
     }
 
+    public function barTopicDistribution(Request $request)
+    {
+        $data = $this->withMedia('topic', $request);
+        return $this->parseChartResult($data);
+    }
+
+    public function ontologi(Request $request)
+    {
+        $data = $this->withMedia('ontologi', $request);
+        return $this->parseChartResult($data);
+    }
+
     public function wordcloud(Request $request)
     {
         $data = $this->withMedia('wordcloud', $request);

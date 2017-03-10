@@ -92,7 +92,7 @@
 
             tableInfluencers('08',influencers);
 
-            tableConvo('09',baseUrl+'/json/charts/405-table-convo.json');
+            //tableConvo('09',baseUrl+'/json/charts/405-table-convo.json');
         });
     </script>
 @endsection

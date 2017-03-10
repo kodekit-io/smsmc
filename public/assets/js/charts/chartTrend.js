@@ -62,10 +62,14 @@ function chartTrend(domId, url, chartApiData, title) {
                     color[i] = chartData[i].color;
                     data = chartData[i].value;
                     date = chartData[i].date;
+
+
+                    //console.log(sDate+'-'+eDate);
                     for (var n = 0; n < date.length; n++) {
-                        dmy[n] = moment.parseZone(date[n]).local().format('DD/MM/YY');
-                        if(dmy[0]===dmy[1]){
-                            dates[n] = moment.parseZone(date[n]).local().format('HH:mm');
+                        var sDate = moment.parseZone(chartApiData.startDate).format('DD/MM/YY');
+                        var eDate = moment.parseZone(chartApiData.endDate).format('DD/MM/YY');
+                        if(sDate==eDate){
+                            dates[n] = moment(date[n],'HH:mm:ss').local().format('HH:mm');
                         } else {
                             dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
                         }
@@ -81,7 +85,7 @@ function chartTrend(domId, url, chartApiData, title) {
                 var data = {
                     legend: key,
                     colors: color,
-                    xaxis: date,
+                    xaxis: dates,
                     series: serie
                 }
 
@@ -287,9 +291,10 @@ function itemCombo(id, url, chartApiData) {
                     date = chartData[i].date;
 
                     for (var n = 0; n < date.length; n++) {
-                        dmy[n] = moment.parseZone(date[n]).local().format('DD/MM/YY');
-                        if(dmy[0]===dmy[1]){
-                            dates[n] = moment.parseZone(date[n]).local().format('HH:mm');
+                        var sDate = moment.parseZone(chartApiData.startDate).format('DD/MM/YY');
+                        var eDate = moment.parseZone(chartApiData.endDate).format('DD/MM/YY');
+                        if(sDate==eDate){
+                            dates[n] = moment(date[n],'HH:mm:ss').local().format('HH:mm');
                         } else {
                             dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
                         }
@@ -305,7 +310,7 @@ function itemCombo(id, url, chartApiData) {
                 var data = {
                     legend: key,
                     colors: color,
-                    xaxis: date,
+                    xaxis: dates,
                     series: serie
                 }
                 //$('#chart'+id).append('hehe'+id);

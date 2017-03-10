@@ -115,9 +115,11 @@
             // chartBarStack('13', baseUrl + '/json/charts/306-bar-media-share.json');
             chartBarStack('13', baseUrl + '/charts/bar-media-share', $chartData);
 
-            chartBarStack('14', baseUrl + '/json/charts/308-bar-topic-distribution.json');
+            // chartBarStack('14', baseUrl + '/json/charts/308-bar-topic-distribution.json');
+            chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
 
-            chartOntology('15', baseUrl+'/json/charts/402-ontology.json');
+            // chartOntology('15', baseUrl+'/json/charts/402-ontology.json');
+            chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
 
             // wordcloud('16',baseUrl+'/json/charts/403-wordcloud.json');
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);

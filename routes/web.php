@@ -65,7 +65,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('charts/bar-interaction-rate', 'ChartController@barInteractionRate');
     Route::post('charts/bar-media-share', 'ChartController@barMediaShare');
+    Route::post('charts/bar-topic-distribution', 'ChartController@barTopicDistribution');
 
+    Route::post('charts/ontologi', 'ChartController@ontologi');
     Route::post('charts/wordcloud', 'ChartController@wordcloud');
     Route::post('charts/convo', 'ChartController@convo');
 });
