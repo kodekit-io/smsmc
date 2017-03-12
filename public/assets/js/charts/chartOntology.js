@@ -117,9 +117,9 @@ function chartOntology(domId,url,chartApiData,name) {
                     categories: result.categories,
                     force: {
                         //initLayout: 'circular',
-                        edgeLength: 50,
-                        repulsion: 100,
-                        gravity: 0.2
+                        edgeLength: 100,
+                        repulsion: 10,
+                        gravity: 0
                     },
                     edges: result.links,
                     itemStyle: {},
