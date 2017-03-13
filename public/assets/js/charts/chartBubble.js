@@ -1,5 +1,4 @@
 function chartBubble(domId, url, chartApiData, name) {
-    var xxx=0;
     $.ajax({
         method: "POST",
         url: url,
@@ -16,13 +15,9 @@ function chartBubble(domId, url, chartApiData, name) {
                 + '</div>'
             + '</div>';
             $('#'+domId).append(cardloader);
-            xxx++;
         },
         complete : function(xhr, status) {
-            xxx--;
-            if (xxx <= 0) {
-                $('.cardloader').remove();
-            }
+            $('.cardloader').remove();
         },
         success: function(result) {
             var result = jQuery.parseJSON(result);
@@ -94,19 +89,19 @@ function chartBubble(domId, url, chartApiData, name) {
                 };
                 //console.log(data.colors);
 
-                var arr_xval = $xval;
-                var arr_xmax = Math.max.apply(Math,arr_xval);
-                var arr_xmin = Math.min.apply(Math,arr_xval);
-                var xmax = arr_xmax + (arr_xmax * 0.1);
-                var xmin = arr_xmin - (arr_xmax * 0.1);
-                //console.log(xmin+'-'+xmax);
-
-                var arr_yval = $yval;
-                var arr_ymax = Math.max.apply(Math,arr_yval);
-                var arr_ymin = Math.min.apply(Math,arr_yval);
-                var ymax = arr_ymax + (arr_ymax * 0.5);
-                var ymin = arr_ymin - (arr_ymax * 0.5);
-                //console.log(ymin+'-'+ymax);
+                // var arr_xval = $xval;
+                // var arr_xmax = Math.max.apply(Math,arr_xval);
+                // var arr_xmin = Math.min.apply(Math,arr_xval);
+                // var xmax = arr_xmax + (arr_xmax * 0.1);
+                // var xmin = arr_xmin - (arr_xmax * 0.1);
+                // //console.log(xmin+'-'+xmax);
+                //
+                // var arr_yval = $yval;
+                // var arr_ymax = Math.max.apply(Math,arr_yval);
+                // var arr_ymin = Math.min.apply(Math,arr_yval);
+                // var ymax = arr_ymax + (arr_ymax * 0.5);
+                // var ymin = arr_ymin - (arr_ymax * 0.5);
+                // //console.log(ymin+'-'+ymax);
 
 
                 //CHART
@@ -192,8 +187,8 @@ function chartBubble(domId, url, chartApiData, name) {
                                 return $v;
                             }
                         },
-                        min: xmin,
-                        max: xmax
+                        // min: xmin,
+                        // max: xmax
                     },
                     yAxis: {
                         type: 'value',
@@ -218,8 +213,8 @@ function chartBubble(domId, url, chartApiData, name) {
                                 return $v;
                             }
                         },
-                        min: ymin,
-                        max: ymax
+                        // min: ymin,
+                        // max: ymax
                     },
                     series: data.series
                 };

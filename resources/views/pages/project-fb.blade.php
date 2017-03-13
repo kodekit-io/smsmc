@@ -107,7 +107,7 @@
             tableInfluencers('12',influencers);
 
             // tableConvo('13',baseUrl+'/json/charts/405-table-convo.json');
-            tableConvo('13', baseUrl + '/charts/convo', $chartData);
+            //tableConvo('13', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection

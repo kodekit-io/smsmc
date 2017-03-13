@@ -35,11 +35,11 @@
                                 <div class="uk-form-controls">
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                        <input type="text" class="uk-input uk-width-small" name="startDate" aria-describedby="option-startDate" placeholder="" data-toggle="datepicker">
+                                        <input type="text" class="datetimepicker uk-input uk-width-small" name="startDate" aria-describedby="option-startDate">
                                     </div>
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                        <input type="text" class="uk-input uk-width-small" name="endDate" aria-describedby="option-endDate" placeholder="" data-toggle="datepicker">
+                                        <input type="text" class="datetimepicker uk-input uk-width-small" name="endDate" aria-describedby="option-endDate">
                                     </div>
                                 </div>
                             </div>

@@ -5,18 +5,11 @@
     });
 
     function projectGrid(domId, url) {
-        var x = 0;
         $.ajax({
             url: url,
             beforeSend : function(xhr) {
-                $('#'+domId).append('<div class="uk-position-center uk-width-auto" uk-spinner></div>');
-                x++;
             },
             complete : function(xhr, status) {
-                x--;
-                if (x <= 0) {
-                    $('[uk-spinner]').remove();
-                }
             },
             success : function(result) {
                 result = jQuery.parseJSON(result);
@@ -102,19 +95,12 @@
     }
 
     function chartCover(pid) {
-        var x=0;
         $.ajax({
             // url: 'json/charts/401-brand-equity.json',
             url: baseUrl + '/get-brand-equity/' + pid,
             beforeSend : function(xhr) {
-                $('#chartCover'+pid).append('<div class="uk-position-center" uk-spinner></div>');
-                x++;
             },
             complete : function(xhr, status) {
-                x--;
-                if (x <= 0) {
-                    $('[uk-spinner]').remove();
-                }
             },
             success : function(result) {
                 //console.log(result);

@@ -4,7 +4,7 @@
 @import "fonts/GothamPro-Medium/styles.css";
 @import "fonts/GothamPro-Bold/styles.css";
 @import "fonts/GothamPro-Light/styles.css";
-@import "lib/jquery.datetimepicker.min.css";
+@import "lib/jquery.simple-dtpicker.css";
 @import "lib/color.css";
 body {
     font-family: 'GothamPro';
@@ -36,7 +36,9 @@ a.fa {
 .uk-text-small {
     font-size: .75rem !important;
 }
-
+.uk-placeholder {
+    border: 1px dashed #fff;
+}
 .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
     height: 50px;
     color: #fff;
@@ -99,7 +101,9 @@ a.fa {
 .uk-button-small {
     padding: 2px 15px 0;
 }
-
+.sm-chart-container.cardloader {
+    border: 1px dashed #fff;
+}
 .sm-label {
     margin-top: -2px;
     padding-top: 2px;

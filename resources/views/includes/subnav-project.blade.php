@@ -85,11 +85,11 @@
                                 <div class="uk-inline sm-text-bold">Date Range:</div>
                                 <div class="uk-inline">
                                     <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                    <input type="text" class="uk-input uk-form-small uk-width-small" name="startDate" aria-describedby="option-startDate" placeholder="" data-toggle="datepicker" value="{!! $shownStartDate !!}">
+                                    <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="startDate" aria-describedby="option-startDate" value="{!! $shownStartDate !!}">
                                 </div>
                                 <div class="uk-inline">
                                     <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                    <input type="text" class="uk-input uk-form-small uk-width-small" name="endDate" aria-describedby="option-endDate" placeholder="" data-toggle="datepicker" value="{!! $shownEndDate !!}">
+                                    <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="endDate" aria-describedby="option-endDate" value="{!! $shownEndDate !!}">
                                 </div>
                             </li>
                             <li class="uk-width-expand@m">
