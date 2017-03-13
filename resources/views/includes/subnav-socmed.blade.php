@@ -2,10 +2,10 @@
     <div class="uk-navbar-left">
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="Social Media" uk-tooltip="pos: bottom">Social Media</h2>
         <ul class="uk-navbar-nav">
-            <li><a href="{!! url('/socmed-fb') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
-            <li><a href="{!! url('/socmed-tw') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
-            <li><a href="{!! url('/socmed-yt') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
-            <li><a href="{!! url('/socmed-ig') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
+            <li><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
+            <li><a href="{!! url('somed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+            <li><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
+            <li><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
         </ul>
     </div>
     <div class="uk-navbar-right">
@@ -32,27 +32,27 @@
                         <li class="uk-width-auto@m">
                             <ul class="sm-list">
                                 <li class="sm-text-bold">Sentiment:</li>
-                                <li><label><input class="uk-checkbox" type="checkbox" checked> Positive</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox" checked> Neutral</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox" checked> Negative</label></li>
+                                @foreach($sentiments as $sentimentId => $sentiment)
+                                    <li><label><input class="uk-checkbox" name="sentiments[]" type="checkbox" value="{!! $sentiment['value'] !!}" {!! $sentiment['checked'] !!}> {!! $sentiment['showName'] !!}</label></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li class="uk-width-auto@m">
                             <div class="uk-inline sm-text-bold">Date Range:</div>
                             <div class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="startDate" aria-describedby="option-startDate">
+                                <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="startDate" aria-describedby="option-startDate" value="{!! $shownStartDate !!}">
                             </div>
                             <div class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="endDate" aria-describedby="option-endDate">
+                                <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="endDate" aria-describedby="option-endDate" value="{!! $shownEndDate !!}">
                             </div>
                         </li>
                         <li class="uk-width-expand@m">
                             <div class="uk-inline sm-text-bold">Search:</div>
                             <form class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: search"></span>
-                                <input class="uk-input uk-form-small uk-width-small" type="text" placeholder="Filter">
+                                <input class="uk-input uk-form-small uk-width-small" name="searchText" type="text" value="{!! $searchText !!}" placeholder="Filter">
                             </form>
                         </li>
                         <li class="uk-width-auto@m">

@@ -55,20 +55,49 @@
     Subscribe Trend
     Sentiment Trend			 --}}
     <script>
-        var influencers = ["topLikeVid","topRateVid"];
         $(document).ready(function() {
-            chartTrend('01',baseUrl+'/json/charts/101-trend-post.json');
-            chartTrend('02',baseUrl+'/json/charts/112-trend-view.json');
-            chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
+            var influencers = ["topLikeVid","topRateVid"];
+            var $userId = '{!! \Auth::user()->id !!}';
+            var $startDate = '{!! $startDate !!}';
+            var $endDate = '{!! $endDate !!}';
+            var $sentiments = '{!! $submittedSentiments !!}';
+            var $text = '{!! $searchText !!}';
 
-            chartPie('04',baseUrl+'/json/charts/212-pie-view.json');
-            chartPie('05',baseUrl+'/json/charts/203-pie-comment.json');
-            chartPie('06',baseUrl+'/json/charts/209-pie-rating.json');
+            var $chartData = {
+                "_token": token,
+                "userId": $userId,
+                "startDate": $startDate,
+                "endDate": $endDate,
+                "sentiments": $sentiments,
+                "text": $text,
+                "idMedia": 5,
+                "reportType": 2
+            };
+            // chartTrend('01',baseUrl+'/json/charts/101-trend-post.json');
+            chartTrend('01', baseUrl + '/charts/trend-post', $chartData);
+
+            // chartTrend('02',baseUrl+'/json/charts/112-trend-view.json');
+            chartTrend('02', baseUrl + '/charts/trend-view', $chartData);
+
+            // chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
+            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
+
+            // chartPie('04',baseUrl+'/json/charts/212-pie-view.json');
+            chartPie('04', baseUrl + '/charts/pie-view', $chartData);
+
+            // chartPie('05',baseUrl+'/json/charts/203-pie-comment.json');
+            chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
+
+            // chartPie('06',baseUrl+'/json/charts/209-pie-rating.json');
+            chartPie('06', baseUrl + '/charts/pie-rating', $chartData);
 
             chartBarStack('07',baseUrl+'/json/charts/308-bar-topic-distribution.json');
 
-            wordcloud('08',baseUrl+'/json/charts/403-wordcloud.json');
+            // wordcloud('08',baseUrl+'/json/charts/403-wordcloud.json');
+            wordcloud('08', baseUrl + '/charts/wordcloud', $chartData);
+
             tableInfluencers('10',influencers);
+
             tableConvo('11',baseUrl+'/json/charts/405-table-convo.json');
         });
     </script>

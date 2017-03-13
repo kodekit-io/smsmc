@@ -26,26 +26,6 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Social Media Accounts';
         return view('pages.socmed-accounts', $data);
     }
-    public function socmedFB()
-    {
-        $data['pageTitle'] = 'Facebook';
-        return view('pages.socmed-fb', $data);
-    }
-    public function socmedTW()
-    {
-        $data['pageTitle'] = 'Twitter';
-        return view('pages.socmed-tw', $data);
-    }
-    public function socmedYT()
-    {
-        $data['pageTitle'] = 'Youtube';
-        return view('pages.socmed-yt', $data);
-    }
-    public function socmedIG()
-    {
-        $data['pageTitle'] = 'Instagram';
-        return view('pages.socmed-ig', $data);
-    }
 
 
     public function engagementAccounts()

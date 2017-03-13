@@ -18,6 +18,7 @@ class ChartParameter
     public function __construct(Request $request)
     {
         $this->projectId = $request->has('projectId') ? $request->input('projectId') : '';
+        $this->userId = $request->has('userId') ? $request->input('userId') : '';
         $this->startDate = $request->has('startDate') ? $request->input('startDate') : '';
         $this->endDate = $request->has('endDate') ? $request->input('endDate') : '';
         $this->keywords = $request->has('keywords') ? $request->input('keywords') : '';

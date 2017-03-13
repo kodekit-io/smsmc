@@ -34,6 +34,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('/project/youtube/{projectId}', 'ProjectController@youtube');
     Route::any('/project/instagram/{projectId}', 'ProjectController@instagram');
 
+    Route::any('socmed/facebook', 'SocmedController@facebook');
+    Route::any('socmed/twitter', 'SocmedController@twitter');
+    Route::any('socmed/youtube', 'SocmedController@youtube');
+    Route::any('socmed/instagram', 'SocmedController@instagram');
+
     // Charts
     Route::post('charts/brand-equity', 'ChartController@brandEquity');
     Route::post('charts/bar-sentiment', 'ChartController@barSentiment');
@@ -75,14 +80,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/project-add', 'FrontendController@projectAdd');
 Route::get('/project-edit', 'FrontendController@projectEdit');
-
-Route::get('/project-fb', 'FrontendController@projectFB');
-Route::get('/project-tw', 'FrontendController@projectTW');
-Route::get('/project-yt', 'FrontendController@projectYT');
-Route::get('/project-ig', 'FrontendController@projectIG');
-Route::get('/project-news', 'FrontendController@projectNews');
-Route::get('/project-blog', 'FrontendController@projectBlog');
-Route::get('/project-forum', 'FrontendController@projectForum');
 
 Route::get('/socmed-accounts', 'FrontendController@socmedAccounts');
 Route::get('/socmed-fb', 'FrontendController@socmedFB');

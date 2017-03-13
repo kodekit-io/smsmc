@@ -248,7 +248,12 @@ class ChartController extends Controller
 
     private function chartApi($url, $chartParameter)
     {
-        $params['pid'] = $chartParameter->projectId;
+        if ($chartParameter->projectId != '') {
+            $params['pid'] = $chartParameter->projectId;
+        }
+        if ($chartParameter->userId != '') {
+            $params['uid'] = $chartParameter->userId;
+        }
         $params['StartDate'] = $chartParameter->startDate;
         $params['EndDate'] = $chartParameter->endDate;
         $params['brandID'] = $chartParameter->keywords;

@@ -53,25 +53,65 @@
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
 
     <script>
-        var influencers = ["top10News"];
         $(document).ready(function() {
-            chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
-            chartTrend('02',baseUrl+'/json/charts/101-trend-post.json');
-            chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
-            chartTrend('04',baseUrl+'/json/charts/108-trend-love.json');
-            chartTrend('05',baseUrl+'/json/charts/105-trend-potential-reach.json');
+            var influencers = ["top10News"];
+            var $userId = '{!! \Auth::user()->id !!}';
+            var $startDate = '{!! $startDate !!}';
+            var $endDate = '{!! $endDate !!}';
+            var $sentiments = '{!! $submittedSentiments !!}';
+            var $text = '{!! $searchText !!}';
 
-            chartPie('06',baseUrl+'/json/charts/201-pie-post.json');
-            chartPie('07',baseUrl+'/json/charts/208-pie-love.json');
-            chartPie('08',baseUrl+'/json/charts/203-pie-comment.json');
-            chartPie('09',baseUrl+'/json/charts/212-pie-view.json');
+            var $chartData = {
+                "_token": token,
+                "userId": $userId,
+                "startDate": $startDate,
+                "endDate": $endDate,
+                "sentiments": $sentiments,
+                "text": $text,
+                "idMedia": 7,
+                "reportType": 2
+            };
 
-            chartBarStack('10',baseUrl+'/json/charts/305-bar-sentiment.json');
-            chartBar('11',baseUrl+'/json/charts/303-bar-interaction-rate.json');
+            // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+
+            // chartTrend('02',baseUrl+'/json/charts/101-trend-post.json');
+            chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
+
+            // chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
+            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
+
+            // chartTrend('04',baseUrl+'/json/charts/108-trend-love.json');
+            chartTrend('04', baseUrl + '/charts/trend-love', $chartData);
+
+            // chartTrend('05',baseUrl+'/json/charts/105-trend-potential-reach.json');
+            chartTrend('05', baseUrl + '/charts/trend-potential-reach', $chartData);
+
+            // chartPie('06',baseUrl+'/json/charts/201-pie-post.json');
+            chartPie('06', baseUrl + '/charts/pie-post', $chartData);
+
+            // chartPie('07',baseUrl+'/json/charts/208-pie-love.json');
+            chartPie('07', baseUrl + '/charts/pie-love', $chartData);
+
+            // chartPie('08',baseUrl+'/json/charts/203-pie-comment.json');
+            chartPie('08', baseUrl + '/charts/pie-comment', $chartData);
+
+            // chartPie('09',baseUrl+'/json/charts/212-pie-view.json');
+            chartPie('09', baseUrl + '/charts/pie-view', $chartData);
+
+            // chartBarStack('10',baseUrl+'/json/charts/305-bar-sentiment.json');
+            chartBarStack('10', baseUrl + '/charts/bar-sentiment', $chartData);
+
+            // chartBar('11',baseUrl+'/json/charts/303-bar-interaction-rate.json');
+            chartBar('11', baseUrl + '/charts/bar-interaction-rate', $chartData);
+
             chartBarStack('12',baseUrl+'/json/charts/308-bar-topic-distribution.json');
 
-            wordcloud('13',baseUrl+'/json/charts/403-wordcloud.json');
+            // wordcloud('13',baseUrl+'/json/charts/403-wordcloud.json');
+            wordcloud('13', baseUrl + '/charts/wordcloud', $chartData);
+
             tableInfluencers('14',influencers);
+
             tableConvo('15',baseUrl+'/json/charts/405-table-convo.json');
         });
     </script>
