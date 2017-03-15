@@ -4,7 +4,7 @@
 @import "fonts/GothamPro-Medium/styles.css";
 @import "fonts/GothamPro-Bold/styles.css";
 @import "fonts/GothamPro-Light/styles.css";
-@import "lib/jquery.simple-dtpicker.css";
+@import "lib/jquery.datetimepicker.min.css";
 @import "lib/color.css";
 body {
     font-family: 'GothamPro';

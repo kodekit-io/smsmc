@@ -2,8 +2,8 @@
     $(function () {
         setTimeout(function() { $(".sm-alert a.uk-alert-close").click(); }, 10000);
 
-        $('input.datetimepicker').appendDtpicker({
-            "dateFormat": "DD/MM/YY hh:mm"
+        $('input.datetimepicker').datetimepicker({
+            //"dateFormat": "DD/MM/YY hh:mm"
         });
         $('.select-all-keyword').checkAll(
             { container: $('#select-keyword'), showIndeterminate: true }

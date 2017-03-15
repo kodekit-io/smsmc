@@ -16,7 +16,7 @@
     <script src="{!! asset('assets/js/lib/html2canvas.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.plugin.html2canvas.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/numeral.js') !!}"></script>
-    <script src="{!! asset('assets/js/lib/jquery.simple-dtpicker.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/jquery.datetimepicker.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.checkall.js') !!}"></script>
 
     @section('page-level-scripts')
