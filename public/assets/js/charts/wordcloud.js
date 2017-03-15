@@ -87,7 +87,8 @@ function wordcloud(domId, url, chartApiData, name) {
                 });
                 $('#'+chartId)
                 .on('click','span',function(e){
-                    var pageUrl = $(location).attr('href')+'?';
+                    //var pageUrl = $(location).attr('href')+'?';
+                    var pageUrl = window.location.origin + window.location.pathname + '?';
                     var txt = $(this).text();
                     window.location.href = pageUrl+'text='+txt;
                 })
