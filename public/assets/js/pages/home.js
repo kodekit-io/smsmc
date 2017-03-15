@@ -36,7 +36,7 @@
                                 + '<div class="uk-modal-body"><h5>Edit Project <span class="uk-text-uppercase">'+pname+'</span>?</h5></div>'
                                 + '<div class="uk-modal-footer uk-clearfix">'
                                     + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
-                                    + '<a href="'+baseUrl+'/project-edit?pid='+pid+'" class="uk-button uk-float-right blue white-text">YES</a>'
+                                    + '<a href="' + baseUrl + '/project/' + pid + '/edit" class="uk-button uk-float-right blue white-text">YES</a>'
                                 + '</div>'
                             + '</div>'
                         + '</div>';
@@ -48,7 +48,7 @@
                                 + '</div>'
                                 + '<div class="uk-modal-footer uk-clearfix">'
                                     + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
-                                    + '<a href="'+baseUrl+'/project-delete?pid='+pid+'" class="uk-button uk-float-right red white-text">YES</a>'
+                                    + '<a href="' + baseUrl + '/project/' + pid + '/delete" class="uk-button uk-float-right red white-text">YES</a>'
                                 + '</div>'
                             + '</div>'
                         + '</div>';

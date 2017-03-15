@@ -23,6 +23,55 @@ class ProjectController extends Controller
         $this->projectService = $projectService;
     }
 
+    public function add()
+    {
+        $data['pageTitle'] = 'Create Project';
+        return view('pages.project-add', $data);
+    }
+
+    public function create(Request $request)
+    {
+        $response = $this->projectService->create($request->except(['_token']));
+        if ($response->status == '200') {
+            return redirect('home');
+        }
+
+        return redirect('project/add')->withErrors(['error' => $response->result]);
+    }
+
+    public function edit(Request $request, $id)
+    {
+        $projectInfo = $this->projectService->getProjectById($id);
+        $data['projectId'] = $id;
+        $data['project'] = $projectInfo->project;
+        $data['keywords'] = $projectInfo->projectInfo->keywordList;
+        $data['topics'] = $projectInfo->projectInfo->topicList;
+        $data['excludes'] = $projectInfo->projectInfo->noiseKeywordList;
+        $data['pageTitle'] = 'Edit Project';
+
+        return view('pages.project-edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $response = $this->projectService->update($request->except(['_token']), $id);
+        if ($response->status == '200') {
+            return redirect('home');
+        }
+
+        return redirect('project/' . $id . '/edit')->withErrors(['error' => $response->result]);
+    }
+
+    public function delete($projectId)
+    {
+        $response = $this->projectService->delete($projectId);
+        if ($response->status == '200') {
+            return redirect('home');
+        }
+
+        return redirect('home')->withErrors(['error' => $response->result]);
+    }
+
     public function allMedia(Request $request, $projectId)
     {
         $data = $this->parseRequest($request, $projectId);
