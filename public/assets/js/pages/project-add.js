@@ -10,30 +10,50 @@
                         $('#field_title').parent().append(error);
                     }
                 }
+            },
+            submitHandler: function(form) {
+                $( ".field-keyword" ).each(function( index ) {
+                    var oldVal = $( this ).val();
+                    var action = $(this).attr('data-prefix');
+                    $(this).val(action + ' ' + oldVal);
+                    console.log($(this).val(action + ' ' + oldVal));
+                });
+                $( ".field-topic" ).each(function( index ) {
+                    var oldVal = $( this ).val();
+                    var action = $(this).attr('data-prefix');
+                    $(this).val(action + ' ' + oldVal);
+                });
+                $( ".field-noise" ).each(function( index ) {
+                    var oldVal = $( this ).val();
+                    var action = $(this).attr('data-prefix');
+                    $(this).val(action + ' ' + oldVal);
+                });
+                // do other things for a valid form
+                form.submit();
             }
         });
-        /*
-        $('#project_add').on('submit', function(e) {
-            e.preventDefault();
-            $( ".field-keyword" ).each(function( index ) {
-                var oldVal = $( this ).val();
-                var action = $(this).attr('data-prefix');
-                $(this).val(action + ' ' + oldVal);
-                console.log($(this).val(action + ' ' + oldVal));
-            });
-            $( ".field-topic" ).each(function( index ) {
-                var oldVal = $( this ).val();
-                var action = $(this).attr('data-prefix');
-                $(this).val(action + ' ' + oldVal);
-            });
-            $( ".field-noise" ).each(function( index ) {
-                var oldVal = $( this ).val();
-                var action = $(this).attr('data-prefix');
-                $(this).val(action + ' ' + oldVal);
-            });
-            this.submit();
-        });
-        */
+
+        // $('#project_add').on('submit', function(e) {
+        //     e.preventDefault();
+        //     $( ".field-keyword" ).each(function( index ) {
+        //         var oldVal = $( this ).val();
+        //         var action = $(this).attr('data-prefix');
+        //         $(this).val(action + ' ' + oldVal);
+        //         console.log($(this).val(action + ' ' + oldVal));
+        //     });
+        //     $( ".field-topic" ).each(function( index ) {
+        //         var oldVal = $( this ).val();
+        //         var action = $(this).attr('data-prefix');
+        //         $(this).val(action + ' ' + oldVal);
+        //     });
+        //     $( ".field-noise" ).each(function( index ) {
+        //         var oldVal = $( this ).val();
+        //         var action = $(this).attr('data-prefix');
+        //         $(this).val(action + ' ' + oldVal);
+        //     });
+        //     this.submit();
+        // });
+
     });
 
 }(window.jQuery, window, document));

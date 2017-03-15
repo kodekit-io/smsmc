@@ -10,17 +10,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class FrontEndController extends Controller
 {
-    public function projectAdd()
-    {
-        $data['pageTitle'] = 'Create Project';
-        return view('pages.project-add', $data);
-    }
-    public function projectEdit()
-    {
-        $data['pageTitle'] = 'Edit Project';
-        return view('pages.project-edit', $data);
-    }
-
     public function socmedAccounts()
     {
         $data['pageTitle'] = 'Social Media Accounts';

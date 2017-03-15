@@ -25,14 +25,20 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('get-project-list', 'DashboardController@getProjectList');
     Route::get('get-brand-equity/{projectId}', 'DashboardController@getBrandEquity');
 
-    Route::any('/project/all/{projectId}', 'ProjectController@allMedia');
-    Route::any('/project/facebook/{projectId}', 'ProjectController@facebook');
-    Route::any('/project/twitter/{projectId}', 'ProjectController@twitter');
-    Route::any('/project/news/{projectId}', 'ProjectController@news');
-    Route::any('/project/blog/{projectId}', 'ProjectController@blog');
-    Route::any('/project/forum/{projectId}', 'ProjectController@forum');
-    Route::any('/project/youtube/{projectId}', 'ProjectController@youtube');
-    Route::any('/project/instagram/{projectId}', 'ProjectController@instagram');
+    Route::get('project/add', 'ProjectController@add');
+    Route::post('project/create', 'ProjectController@create');
+    Route::get('project/{id}/edit', 'ProjectController@edit');
+    Route::post('project/{id}/update', 'ProjectController@update');
+    Route::get('project/{id}/delete', 'ProjectController@delete');
+
+    Route::any('project/all/{projectId}', 'ProjectController@allMedia');
+    Route::any('project/facebook/{projectId}', 'ProjectController@facebook');
+    Route::any('project/twitter/{projectId}', 'ProjectController@twitter');
+    Route::any('project/news/{projectId}', 'ProjectController@news');
+    Route::any('project/blog/{projectId}', 'ProjectController@blog');
+    Route::any('project/forum/{projectId}', 'ProjectController@forum');
+    Route::any('project/youtube/{projectId}', 'ProjectController@youtube');
+    Route::any('project/instagram/{projectId}', 'ProjectController@instagram');
 
     Route::any('socmed/facebook', 'SocmedController@facebook');
     Route::any('socmed/twitter', 'SocmedController@twitter');
@@ -77,8 +83,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/convo', 'ChartController@convo');
 });
 
-
-Route::get('/project-add', 'FrontendController@projectAdd');
 Route::get('/project-edit', 'FrontendController@projectEdit');
 
 Route::get('/socmed-accounts', 'FrontendController@socmedAccounts');

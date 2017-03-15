@@ -14,7 +14,7 @@
                     <div uk-dropdown="offset: 0" class="uk-overflow-auto uk-height-medium uk-max-height-medium uk-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav" id="projectList">
                             <?php //if (admin) { ?>
-                            <li><a href="{!! url('/project-add') !!}"><i class="fa fa-plus fa-fw"></i> Add New Project</a></li>
+                            <li><a href="{!! url('project/add') !!}"><i class="fa fa-plus fa-fw"></i> Add New Project</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
                         </ul>

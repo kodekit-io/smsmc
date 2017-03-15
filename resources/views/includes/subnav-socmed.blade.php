@@ -3,7 +3,7 @@
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="Social Media" uk-tooltip="pos: bottom">Social Media</h2>
         <ul class="uk-navbar-nav">
             <li><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
-            <li><a href="{!! url('somed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+            <li><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
             <li><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
             <li><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
         </ul>
