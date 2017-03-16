@@ -2,6 +2,7 @@ function ticketList(div) {
     var card = '<div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small"> \
         <div class="uk-card-header uk-clearfix"> \
             <h5 class="uk-card-title uk-float-left">Ticket List</h5> \
+            <a href="'+baseUrl+'/engagement-ticket-create" title="Create New Ticket" class="uk-button red white-text uk-float-right">Create New Ticket</a> \
         </div> \
         <div class="uk-card-body"> \
             <table id="ticketList" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table"></table> \
@@ -31,7 +32,7 @@ function ticketList(div) {
             },
             { "data": "ticketFrom", "title": "From", "width": "7.5%" },
             { "data": "ticketTo", "title": "To", "width": "7.5%" },
-            { "data": "ticketMessage", "title": "Message", "width": "12.5%" },
+            { "data": "ticketMessage", "title": "Message", "width": "10%" },
             {
                 "data": "postChannel", "title": "Channel", "class": "uk-text-center",  "width": "5%",
                 "render": function ( cellData ) {
@@ -64,7 +65,7 @@ function ticketList(div) {
                 }
             },
             {
-                "data": null, "title": "Post", "width": "25%",
+                "data": null, "title": "Post", "width": "20%",
                 "render": function ( data ) {
                     var date = data["postDate"];
                     var localtime = moment.parseZone(date).local().format('llll');
@@ -85,16 +86,19 @@ function ticketList(div) {
                 }
             },
             {
+                "data": "ticketType","title": "Type","width": "7.5%"
+            },
+            {
                 "data": "ticketStatus", "title": "Status", "width": "7.5%",
                 "render": function ( cellData ) {
                     var status = cellData;
                     var btn = "";
                     switch (status) {
-                        case 'Close':
-                            btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>Closed</span>'
+                        case 'Closed':
+                            btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>'
                         break;
-                        case 'Open':
-                            btn = '<span class="uk-badge sm-badge red white-text" title="Waiting for a response" uk-tooltip>Open</span>'
+                        case 'Waiting':
+                            btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>'
                         break;
                     }
 
@@ -107,16 +111,16 @@ function ticketList(div) {
                     var ticketId = data["ticketId"];
                     var ticketStatus = data["ticketStatus"];
                     var btn = "";
-                    if (ticketStatus === "Open") {
+                    if (ticketStatus === "Waiting") {
                         btn = '<a href="'+baseUrl+'/engagement-ticket-details?ticketId='+ticketId+'" class="uk-button uk-button-small uk-button-secondary red white-text" title="Ticket Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>'
                     } else {
-                        btn = '<a href="#" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>'
+                        btn = '<a href="'+baseUrl+'/engagement-ticket-details?ticketId='+ticketId+'" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>'
                     }
                     return btn;
                 }
             },
         ],
-        order: [[ 8, "desc" ]]
+        order: [[ 1, "desc" ]]
     });
     /*
     theTable.on( 'order.dt search.dt', function () {

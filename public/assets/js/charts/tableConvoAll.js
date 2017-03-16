@@ -1,9 +1,10 @@
-function tableConvoAll(domId, url, chartApiData, name) {
+// function tableConvoAll(domId, url, chartApiData, name) {
+function tableConvoAll(domId, url, name) {
     var xxx=0;
     $.ajax({
-        method: "POST",
+        // method: "POST",
         url: url,
-        data: chartApiData,
+        // data: chartApiData,
         beforeSend : function(xhr) {
             var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
                 + '<div class="uk-card uk-card-small">'
@@ -25,7 +26,7 @@ function tableConvoAll(domId, url, chartApiData, name) {
             }
         },
         success: function(result){
-            var result = jQuery.parseJSON(result);
+            // var result = jQuery.parseJSON(result);
             //console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
@@ -36,52 +37,7 @@ function tableConvoAll(domId, url, chartApiData, name) {
             } else {
                 var chartTitle = chartName;
             }
-            var modal = '<div id="openTicket" uk-modal>'
-                + '<div class="uk-modal-dialog">'
-                    + '<div class="uk-modal-body">'
-                        + '<h5>Open New Ticket</h5>'
-                        + '<form class="open-ticket">'
-                            + '<div class="uk-flex uk-flex-middle">'
-                                + '<div>'
-                                    + '<a class="uk-button uk-button-default uk-button-small" type="button">Send to <span uk-icon="icon: chevron-down"></span></a>'
-                                    + '<div uk-dropdown="offset: 0">'
-                                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line sendto">'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Pulp & Paper</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Agribusiness & Food</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> President Office</label></li>'
-                                            + '<li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>'
-                                        + '</ul>'
-                                    + '</div>'
-                                + '</div>'
-                                + '<div class="uk-margin-left">'
-                                    + '<a class="uk-button uk-button-default uk-button-small" type="button">Ticket Type <span uk-icon="icon: chevron-down"></span></a>'
-                                    + '<div uk-dropdown="offset: 0">'
-                                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Agribusiness & Food</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Property</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - President Office</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Financial Services</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Communication & Technology</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Energy & Infrastructure</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Initiatives Project</label></li>'
-                                        + '</ul>'
-                                    + '</div>'
-                                + '</div>'
-                            + '</div>'
-                            + '<div class="uk-margin">'
-                                + '<textarea class="uk-textarea" rows="3" placeholder="Additional message"></textarea>'
-                            + '</div>'
-                        + '</form>'
-                    + '</div>'
-                    + '<div class="uk-modal-footer uk-clearfix">'
-                        + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
-                        + '<a class="uk-modal-close uk-button uk-float-right red white-text">SEND</a>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
+
             var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
                 + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
                     + '<div class="uk-card-header uk-clearfix">'
@@ -94,7 +50,6 @@ function tableConvoAll(domId, url, chartApiData, name) {
                     + '</div>'
                     + '<div class="uk-card-body">'
                         + '<table id="'+chartId+'Table" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>'
-                        + modal
                     + '</div>'
                 + '</div>'
             + '</div>';
@@ -179,15 +134,17 @@ function tableConvoAll(domId, url, chartApiData, name) {
                         "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
                         "render": function ( cellData, display, row ) {
                             var btn = '';
+                            var postLink = row.postLink;
+                            var post = row.post;
                             switch (cellData) {
                                 case 'New':
-                                    btn = '<a href="#openTicket" uk-toggle uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+cellData+'</span></a>';
+                                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-url="'+postLink+'" data-post="'+post+'"><span class="nothover">'+cellData+'</span></a>';
                                 break;
                                 case 'Closed':
-                                    btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                                    btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
                                 break;
-                                case 'Open':
-                                    btn = '<span class="uk-badge sm-badge red white-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                                case 'Waiting':
+                                    btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
                                 break;
                             }
                             //console.log(row);
@@ -240,6 +197,61 @@ function tableConvoAll(domId, url, chartApiData, name) {
                 } );
             } ).draw();
             theTable.columns.adjust().draw();
+
+            // Send Ticket
+            $('#'+chartId+'Table').on('click', '.sm-btn-openticket', function(e) {
+                e.preventDefault();
+                $(this).blur();
+                var postLink = $(this).attr('data-url');
+                var post = $(this).attr('data-post');
+                var sendTo = '<div class="uk-inline">'
+                    + '<a class="uk-button uk-button-default uk-button-small">Send to <span uk-icon="icon: chevron-down"></span></a>'
+                    + '<div class="sm-dropdown">'
+                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Pulp & Paper</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Agribusiness & Food</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> President Office</label></li>'
+                            + '<li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>'
+                        + '</ul>'
+                    + '</div>'
+                + '</div>';
+                var ticketType = '<div class="uk-margin-left uk-inline">'
+                    + '<a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>'
+                    + '<div class="sm-dropdown">'
+                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Agribusiness & Food</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Property</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - President Office</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Financial Services</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Communication & Technology</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Energy & Infrastructure</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Initiatives Project</label></li>'
+                        + '</ul>'
+                    + '</div>'
+                + '</div>';
+                var modal = '<form class="open-ticket">'
+                + '<div class="uk-modal-body">'
+                    + '<h5>Open New Ticket</h5>'
+                    + '<div class="uk-flex uk-flex-middle">'
+                        + sendTo
+                        + ticketType
+                    + '</div>'
+                    + '<div class="uk-margin">'
+                        + '<textarea class="uk-textarea" rows="3" placeholder="Additional message"></textarea>'
+                        + '<input type="hidden" name="postlink" value="'+postLink+'">'
+                        + '<input type="hidden" name="post" value="'+post+'">'
+                    + '</div>'
+                + '</div>'
+                + '<div class="uk-modal-footer uk-clearfix">'
+                    + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
+                    + '<a class="uk-modal-close uk-button uk-float-right red white-text">SEND</a>'
+                + '</div>'
+                + '</form>';
+                UIkit.modal.dialog(modal);
+            });
 
             // Edit Sentiment
             var sentiment = [

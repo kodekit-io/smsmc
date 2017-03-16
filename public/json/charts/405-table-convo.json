@@ -4,19 +4,6 @@
     "chartInfo": "All media conversations",
     "chartData": [
         {
-            "date": "2017-02-01T00:00:00Z",
-            "author": "Rifqi Mu'afa",
-            "post": "BUSET,,ITU CIUMAN KOK NAFSU SIH..LAMA BGETTT",
-            "comments": 0,
-            "likes": 0,
-            "shares": 0,
-            "channel": "facebook",
-            "sentiment": "neutral",
-            "status": "New",
-            "authorLink": "https://www.facebook.com/277932982321433",
-            "postLink": "https://www.facebook.com/277932982321431/posts/1114688908645832"
-        },
-        {
             "date": "2017-02-02T00:00:00Z",
             "author": "Ikatan Muslimin Malaysia",
             "post": "Terkini di portal berita: AirAsia beri tiga wira paralimpik Malaysia terbang percuma seumur hidup\n—-\nSertai Telegram Channel Kami\nPenerangan Isma -» https://telegram.me/peneranganisma\nInfo Program Isma Sedunia -» https://telegram.me/ismasanasini\nUntuk mengikuti perkembangan Isma di seluruh dunia, sila layari www.isma.org.my\nDaftar sebagai ahli Isma secara atas talian di http://ahli.isma.my/",
@@ -25,7 +12,7 @@
             "shares": 0,
             "channel": "facebook",
             "sentiment": "neutral",
-            "status": "Open",
+            "status": "Waiting",
             "authorLink": "https://www.facebook.com/277932982321432",
             "postLink": "https://www.facebook.com/277932982321431/posts/1114688908645831"
         },
