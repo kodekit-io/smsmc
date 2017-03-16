@@ -77,7 +77,7 @@
                 "idMedia": 8,
                 "reportType": 1
             };
-/*
+
             chartBubble('01', baseUrl + '/charts/brand-equity', $chartData);
 
             chartBarStack('02', baseUrl + '/charts/bar-sentiment', $chartData);
@@ -123,7 +123,7 @@
 
             // wordcloud('16',baseUrl+'/json/charts/403-wordcloud.json');
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
-*/
+
             tableConvoAll('17',baseUrl+'/json/charts/405-table-convo.json');
             //tableConvoAll('17', baseUrl + '/charts/convo', $chartData);
         });
