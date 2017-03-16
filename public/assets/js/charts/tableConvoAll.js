@@ -204,18 +204,18 @@ function tableConvoAll(domId, url, name) {
                 $(this).blur();
                 var postLink = $(this).attr('data-url');
                 var post = $(this).attr('data-post');
-                var sendTo = '<div class="uk-inline">'
-                    + '<a class="uk-button uk-button-default uk-button-small">Send to <span uk-icon="icon: chevron-down"></span></a>'
-                    + '<div class="sm-dropdown">'
-                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
-                            + '<li><label><input class="uk-checkbox" type="checkbox"> Pulp & Paper</label></li>'
-                            + '<li><label><input class="uk-checkbox" type="checkbox"> Agribusiness & Food</label></li>'
-                            + '<li><label><input class="uk-checkbox" type="checkbox"> President Office</label></li>'
-                            + '<li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>'
-                        + '</ul>'
-                    + '</div>'
-                + '</div>';
-                var ticketType = '<div class="uk-margin-left uk-inline">'
+                // var sendTo = '<div class="uk-inline">'
+                //     + '<a class="uk-button uk-button-default uk-button-small">Send to <span uk-icon="icon: chevron-down"></span></a>'
+                //     + '<div class="sm-dropdown">'
+                //         + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
+                //             + '<li><label><input class="uk-checkbox" type="checkbox"> Pulp & Paper</label></li>'
+                //             + '<li><label><input class="uk-checkbox" type="checkbox"> Agribusiness & Food</label></li>'
+                //             + '<li><label><input class="uk-checkbox" type="checkbox"> President Office</label></li>'
+                //             + '<li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>'
+                //         + '</ul>'
+                //     + '</div>'
+                // + '</div>';
+                var ticketType = '<div class="uk-inline">'
                     + '<a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>'
                     + '<div class="sm-dropdown">'
                         + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
@@ -235,8 +235,15 @@ function tableConvoAll(domId, url, name) {
                 var modal = '<form class="open-ticket">'
                 + '<div class="uk-modal-body">'
                     + '<h5>Open New Ticket</h5>'
-                    + '<div class="uk-flex uk-flex-middle">'
-                        + sendTo
+                    + '<div class="uk-margin">'
+                        + '<label>To</label>'
+                        + '<input class="uk-input" type="text">'
+                    + '</div>'
+                    + '<div class="uk-margin">'
+                        + '<label>CC</label>'
+                        + '<input class="uk-input" type="text">'
+                    + '</div>'
+                    + '<div class="uk-margin">'
                         + ticketType
                     + '</div>'
                     + '<div class="uk-margin">'

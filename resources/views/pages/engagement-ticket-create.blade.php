@@ -15,8 +15,16 @@
             <div class="uk-card-body">
                 <hr>
                 <form class="open-ticket">
-                    <div class="uk-flex uk-flex-middle">
-                        <div class="uk-inline">
+                    <div class="uk-margin">
+                        <label>To</label>
+                        <input class="uk-input" type="text">
+                    </div>
+                    <div class="uk-margin">
+                        <label>CC</label>
+                        <input class="uk-input" type="text">
+                    </div>
+                    <div class="uk-margin">
+                        {{-- <div class="uk-inline">
                             <a class="uk-button uk-button-default uk-button-small">Send to <span uk-icon="icon: chevron-down"></span></a>
                             <div class="sm-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
@@ -26,8 +34,8 @@
                                     <li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="uk-margin-left uk-inline">
+                        </div> --}}
+                        <div class="uk-inline">
                             <a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>
                             <div class="sm-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">

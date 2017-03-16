@@ -31,22 +31,20 @@
                                     <td>Mon, Jan 2, 2017 8:23 AM</td>
                                 </tr>
                                 <tr>
-                                    <td>Ticket Sender</td>
-                                    <td>Jon Snow (Manager)</td>
+                                    <td>From</td>
+                                    <td>Jon Snow (PO)</td>
                                 </tr>
                                 <tr>
                                     <td>To</td>
-                                    <td>Pulp & Paper</td>
+                                    <td>Arya Stark (APP)</td>
+                                </tr>
+                                <tr>
+                                    <td>CC</td>
+                                    <td>-</td>
                                 </tr>
                                 <tr>
                                     <td>Type</td>
                                     <td>Content - Pulp & Paper</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <p>Additional Message:</p>
-                                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
