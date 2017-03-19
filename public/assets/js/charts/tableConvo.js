@@ -26,6 +26,7 @@ function tableConvo(domId, url, chartApiData, name) {
         },
         success: function(result){
             var result = jQuery.parseJSON(result);
+            //console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -35,52 +36,6 @@ function tableConvo(domId, url, chartApiData, name) {
             } else {
                 var chartTitle = chartName;
             }
-            var modal = '<div id="openTicket" uk-modal>'
-                + '<div class="uk-modal-dialog">'
-                    + '<div class="uk-modal-body">'
-                        + '<h5>Open New Ticket</h5>'
-                        + '<form class="open-ticket">'
-                            + '<div class="uk-flex uk-flex-middle">'
-                                + '<div>'
-                                    + '<a class="uk-button uk-button-default uk-button-small" type="button">Send to <span uk-icon="icon: chevron-down"></span></a>'
-                                    + '<div uk-dropdown="offset: 0">'
-                                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line sendto">'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Pulp & Paper</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Agribusiness & Food</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> President Office</label></li>'
-                                            + '<li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>'
-                                        + '</ul>'
-                                    + '</div>'
-                                + '</div>'
-                                + '<div class="uk-margin-left">'
-                                    + '<a class="uk-button uk-button-default uk-button-small" type="button">Ticket Type <span uk-icon="icon: chevron-down"></span></a>'
-                                    + '<div uk-dropdown="offset: 0">'
-                                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Agribusiness & Food</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Property</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - President Office</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Financial Services</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Communication & Technology</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Energy & Infrastructure</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Initiatives Project</label></li>'
-                                        + '</ul>'
-                                    + '</div>'
-                                + '</div>'
-                            + '</div>'
-                            + '<div class="uk-margin">'
-                                + '<textarea class="uk-textarea" rows="3" placeholder="Additional message"></textarea>'
-                            + '</div>'
-                        + '</form>'
-                    + '</div>'
-                    + '<div class="uk-modal-footer uk-clearfix">'
-                        + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
-                        + '<a class="uk-modal-close uk-button uk-float-right red white-text">SEND</a>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
 
             var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
                 + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
@@ -94,159 +49,365 @@ function tableConvo(domId, url, chartApiData, name) {
                     + '</div>'
                     + '<div class="uk-card-body">'
                         + '<table id="'+chartId+'Table" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>'
-                        + modal
                     + '</div>'
                 + '</div>'
             + '</div>';
             $('#'+domId).append(card);
 
-            var theTable = $('#'+chartId+'Table').DataTable( {
-                data: chartData,
-                buttons: {
-                    buttons: [
-                        //{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
-                        { extend: 'excelHtml5', className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left' },
-                        { extend: 'csvHtml5', className: 'uk-button uk-button-small teal white-text uk-margin-small-left' }
-                    ]
-                },
-                columns: [
-                    { "data": null,"orderable": false,"width": "2.5%" },
-                    {
-                        "data": "date","title": "Date", "width": "12.5%",
-                        "render": function ( cellData ) {
-                            var localtime = moment.parseZone(cellData).local().format('llll');
-                            return localtime;
-                        }
-                    },
-                    // {
-                    //     "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
-                    //     "render": function ( cellData ) {
-                    //         var channel = cellData;
-                    //         var icon = "";
-                    //         switch (channel) {
-                    // 			case 'facebook':
-                    // 				icon = 'facebook';
-                    // 				break;
-                    // 			case 'twitter':
-                    // 				icon = 'twitter';
-                    // 				break;
-                    // 			case 'youtube':
-                    // 				icon = 'youtube';
-                    // 				break;
-                    // 			case 'instagram':
-                    // 				icon = 'instagram';
-                    // 				break;
-                    // 			case 'news':
-                    // 				icon = 'globe';
-                    // 				break;
-                    // 			case 'blog':
-                    // 				icon = 'rss';
-                    // 				break;
-                    // 			case 'forum':
-                    // 				icon = 'comments';
-                    // 				break;
-                    // 		}
-                    //         return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
-                    //     }
-                    // },
-                    { "data": "author", "title": "Author", "width": "15%" },
-                    {
-                        "data": null, "title": "Post", "width": "45%",
-                        "render": function ( data ) {
-                            var post = data["post"];
-                            var postrim = post.substring(0,100) + "...";
-                            var plink = data["postLink"];
-                            return '<a href="'+plink+'" target="_blank" data-uk-tooltip title="'+post+'" class="uk-link">'+postrim+'</a>';
-                        }
-                    },
-                    {
-                        "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "uk-text-center",
-                        "createdCell": function (td, cellData, rowData, row, col) {
-                            switch (cellData) {
-                                case 'positive':
-                                case 'Positif':
-                                case 'positif':
-                                    $(td).css('color', 'green');
-                                    break;
-                                case 'neutral':
-                                case 'Netral':
-                                case 'netral':
-                                    $(td).css('color', 'grey');
-                                    break;
-                                case 'negative':
-                                case 'Negatif':
-                                case 'negatif':
-                                    $(td).css('color', 'red');
-                                    break;
-                            }
-                        }
-                    },
-                    {
-                        "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
-                        "render": function ( cellData, rowData ) {
-                            //var status = cellData;
-                            var btn = '';
-                            switch (cellData) {
-                                case 'New':
-                                    btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+cellData+'</span></a>';
-                                break;
-                                case 'Closed':
-                                    btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
-                                break;
-                                case 'Open':
-                                    btn = '<span class="uk-badge sm-badge red white-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
-                                break;
-                            }
+            var idMedia = chartApiData.idMedia;
+            switch (idMedia) {
+                case 1:
+                    tableFacebook(chartId,chartData);
+                break;
+                case 2:
+                    tableTwitter(chartId,chartData);
+                break;
+                case 3:
+                    tableBlog(chartId,chartData);
+                break;
+                case 4:
+                    tableNews(chartId,chartData);
+                break;
+                case 5:
+                    tableVideo(chartId,chartData);
+                break;
+                case 6:
+                    tableForum(chartId,chartData);
+                break;
+                case 7:
+                    tableInstagram(chartId,chartData);
+                break;
+                case 8:
+                    tableAll(chartId,chartData);
+                break;
+            }
 
-                            return btn;
-                        }
+            // Send Ticket
+            $('#'+chartId+'Table').on('click', '.sm-btn-openticket', function(e) {
+                e.preventDefault();
+                $(this).blur();
+                var postLink = $(this).attr('data-url');
+                var post = $(this).attr('data-post');
+                var ticketType = '<div class="uk-inline">'
+                    + '<a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>'
+                    + '<div class="sm-dropdown">'
+                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Agribusiness & Food</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Property</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - President Office</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Financial Services</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Communication & Technology</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Energy & Infrastructure</label></li>'
+                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Initiatives Project</label></li>'
+                        + '</ul>'
+                    + '</div>'
+                + '</div>';
+                var modal = '<form class="open-ticket">'
+                + '<div class="uk-modal-body">'
+                    + '<h5>Open New Ticket</h5>'
+                    + '<div class="uk-margin">'
+                        + '<label>To</label>'
+                        + '<input class="uk-input" type="text">'
+                    + '</div>'
+                    + '<div class="uk-margin">'
+                        + '<label>CC</label>'
+                        + '<input class="uk-input" type="text">'
+                    + '</div>'
+                    + '<div class="uk-margin">'
+                        + ticketType
+                    + '</div>'
+                    + '<div class="uk-margin">'
+                        + '<textarea class="uk-textarea" rows="3" placeholder="Additional message"></textarea>'
+                        + '<input type="hidden" name="postlink" value="'+postLink+'">'
+                        + '<input type="hidden" name="post" value="'+post+'">'
+                    + '</div>'
+                + '</div>'
+                + '<div class="uk-modal-footer uk-clearfix">'
+                    + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
+                    + '<a class="uk-modal-close uk-button uk-float-right red white-text">SEND</a>'
+                + '</div>'
+                + '</form>';
+                UIkit.modal.dialog(modal);
+            });
+
+            // Edit Sentiment
+            $('#'+chartId+'Table').on('click', '.sm-sentiment', function(e) {
+                e.preventDefault();
+                $(this).blur();
+                var modal = '<form id="changeSentiment" class="change-sentiment">'
+                    + '<h5>Edit Sentiment</h5>'
+                    + '<div class="uk-margin">'
+                        + '<select class="uk-select">'
+                            + '<option value="">Positive</option>'
+                            + '<option value="">Neutral</option>'
+                            + '<option value="">Negative</option>'
+                        + '</select>'
+                    + '</div>'
+                + '</form>';
+                UIkit.modal.confirm(modal).then(function(){
+                    //console.log('ok');
+                    theTable.ajax.reload();
+                },function(){
+                    console.log('cancel');
+                });
+
+            });
+
+        }
+    });
+}
+function tableAll(chartId,chartData) {
+    var theTable = $('#'+chartId+'Table').DataTable( {
+        data: chartData,
+        buttons: {
+            buttons: [
+                //{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+                { extend: 'excelHtml5', className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left' },
+                { extend: 'csvHtml5', className: 'uk-button uk-button-small teal white-text uk-margin-small-left' }
+            ]
+        },
+        columns: [
+            { "data": null,"orderable": false,"width": "2.5%" },
+            {
+                "data": "date","title": "Date", "width": "12.5%",
+                "render": function ( cellData ) {
+                    var localtime = moment.parseZone(cellData).local().format('llll');
+                    return localtime;
+                }
+            },
+            {
+                "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
+                "render": function ( cellData ) {
+                    var channel = cellData;
+                    var icon = "";
+                    switch (channel) {
+                        case 'facebook':
+                            icon = 'facebook';
+                            break;
+                        case 'twitter':
+                            icon = 'twitter';
+                            break;
+                        case 'youtube':
+                            icon = 'youtube';
+                            break;
+                        case 'instagram':
+                            icon = 'instagram';
+                            break;
+                        case 'news':
+                            icon = 'globe';
+                            break;
+                        case 'blog':
+                            icon = 'rss';
+                            break;
+                        case 'forum':
+                            icon = 'comments';
+                            break;
                     }
-                ],
-                order: [[ 1, "desc" ]],
-                initComplete: function () {
-                    this.api().columns().every( function () {
-                        var column = this;
-                        if(column[0][0] == 4) {
-                            var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
-                                .appendTo( $(column.header()).empty() )
-                                .on( 'change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex(
-                                        $(this).val()
-                                    );
-                                    column
-                                        .search( val ? '^'+val+'$' : '', true, false )
-                                        .draw();
-                                } );
+                    return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
+                }
+            },
+            { "data": "author", "title": "Author", "width": "15%" },
+            {
+                "data": null, "title": "Post", "width": "40%",
+                "render": function ( data ) {
+                    var post = data["post"];
+                    var postrim = post.substring(0,100) + "...";
+                    var plink = data["postLink"];
+                    return '<a href="'+plink+'" target="_blank" data-uk-tooltip title="'+post+'" class="uk-link">'+postrim+'</a>';
+                }
+            },
+            {
+                "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "sentiment uk-text-center",
+                "createdCell": function (td, cellData, rowData, row, col) {
+                    switch (cellData) {
+                        case 'positive':
+                            $(td).addClass('sm-sentiment green-text');
+                            break;
+                        case 'neutral':
+                            $(td).addClass('sm-sentiment grey-text');
+                            break;
+                        case 'negative':
+                            $(td).addClass('sm-sentiment red-text');
+                            break;
+                    }
+                }
+            },
+            {
+                "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
+                "render": function ( cellData, display, row ) {
+                    var btn = '';
+                    var postLink = row.postLink;
+                    var post = row.post;
+                    switch (cellData) {
+                        case 'New':
+                            btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-url="'+postLink+'" data-post="'+post+'"><span class="nothover">'+cellData+'</span></a>';
+                        break;
+                        case 'Closed':
+                            btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                        break;
+                        case 'Waiting':
+                            btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                        break;
+                    }
+                    //console.log(row);
+                    return btn;
+                }
+            }
+        ],
+        order: [[ 1, "desc" ]],
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                if(column[0][0] == 5) {
+                    var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
+                        .appendTo( $(column.header()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
 
-                            column.data().unique().sort().each( function ( d, j ) {
-                                select.append( '<option value="'+d+'">'+d+'</option>' )
-                            });
-                        }
-                        if(column[0][0] == 5) {
-                            var select = $('<select class="uk-select select-sentiment"><option value="">All Status</option></select>')
-                                .appendTo( $(column.header()).empty() )
-                                .on( 'change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex(
-                                        $(this).val()
-                                    );
-                                    column
-                                        .search( val ? '^'+val+'$' : '', true, false )
-                                        .draw();
-                                } );
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    });
+                }
+                if(column[0][0] == 6) {
+                    var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
+                        .appendTo( $(column.header()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
 
-                            column.data().unique().sort().each( function ( d, j ) {
-                                select.append( '<option value="'+d+'">'+d+'</option>' )
-                            });
-                        }
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
                     });
                 }
             });
-            theTable.on( 'order.dt search.dt', function () {
-                theTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-                    cell.innerHTML = i+1;
-                } );
-            } ).draw();
-            theTable.columns.adjust().draw();
         }
     });
+    theTable.on( 'order.dt search.dt', function () {
+        theTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+    } ).draw();
+    theTable.columns.adjust().draw();
+}
+
+function tableFacebook(chartId,chartData) {
+    var theTable = $('#'+chartId+'Table').DataTable( {
+        data: chartData,
+        buttons: {
+            buttons: [
+                //{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+                { extend: 'excelHtml5', className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left' },
+                { extend: 'csvHtml5', className: 'uk-button uk-button-small teal white-text uk-margin-small-left' }
+            ]
+        },
+        columns: [
+            { "data": null,"orderable": false,"width": "2.5%" },
+            {
+                "data": "Date","title": "Date", "width": "12.5%",
+                "render": function ( cellData ) {
+                    var localtime = moment.parseZone(cellData).local().format('llll');
+                    return localtime;
+                }
+            },
+            { "data": "Author", "title": "Author", "width": "17.5%" },
+            {
+                "data": null, "title": "Post", "width": "35%",
+                "render": function ( data ) {
+                    var post = data["Post"];
+                    var postrim = post.substring(0,100) + "...";
+                    var plink = data["Link"];
+                    return '<a href="'+plink+'" target="_blank" data-uk-tooltip title="'+post+'" class="uk-link">'+postrim+'</a>';
+                }
+            },
+            {
+                "data": "Media Type", "title": "Type", "width": "5%"
+            },
+            {
+                "data": "Comments", "title": "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "width": "2.5%"
+            },
+            {
+                "data": "Likes", "title": "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "width": "2.5%"
+            },
+            {
+                "data": "Shares", "title": "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "width": "2.5%"
+            },
+            {
+                "data": "Sentiment","title": "","width": "10%","orderable": false,"class": "sentiment uk-text-center",
+                "createdCell": function (td, cellData, rowData, row, col) {
+                    switch (cellData) {
+                        case 'positive':
+                            $(td).addClass('sm-sentiment green-text');
+                            break;
+                        case 'neutral':
+                            $(td).addClass('sm-sentiment grey-text');
+                            break;
+                        case 'negative':
+                            $(td).addClass('sm-sentiment red-text');
+                            break;
+                    }
+                }
+            },
+            {
+                "data": null, "title": "Status", "width": "10%"
+            }
+        ],
+        order: [[ 1, "desc" ]],
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                if(column[0][0] == 8) {
+                    var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
+                        .appendTo( $(column.header()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    });
+                }
+                if(column[0][0] == 9) {
+                    var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
+                        .appendTo( $(column.header()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+
+                    column.data().unique().sort().each( function ( d, j ) {
+                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                    });
+                }
+            });
+        }
+    });
+    theTable.on( 'order.dt search.dt', function () {
+        theTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+    } ).draw();
+    theTable.columns.adjust().draw();
 }

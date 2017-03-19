@@ -208,6 +208,11 @@ class ChartController extends Controller
         return $this->parseChartResult($data);
     }
 
+    public function influencer(Request $request)
+    {
+        $data = $this->withMedia('influencer', $request);
+        return $this->parseChartResult($data);
+    }
 
 
     private function withMedia($url, $request)

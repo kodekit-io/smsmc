@@ -106,16 +106,20 @@
             // chartBar('10',baseUrl+'/json/charts/303-bar-interaction-rate.json');
             chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
 
-            chartBarStack('11',baseUrl+'/json/charts/308-bar-topic-distribution.json');
+            // chartBarStack('11',baseUrl+'/json/charts/308-bar-topic-distribution.json');
+            chartBarStack('11', baseUrl + '/charts/bar-topic-distribution', $chartData);
 
             // wordcloud('12',baseUrl+'/json/charts/403-wordcloud.json');
             wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
 
-            chartOntology('13',baseUrl+'/json/charts/402-ontology.json');
+            // chartOntology('13',baseUrl+'/json/charts/402-ontology.json');
+            chartOntology('13', baseUrl + '/charts/ontologi', $chartData);
 
-            tableInfluencers('14',influencers);
+            // tableInfluencers('14',influencers);
+            tableInfluencers('14', baseUrl + '/charts/influencer', $chartData, influencers);
 
             //tableConvo('15',baseUrl+'/json/charts/405-table-convo.json');
+            tableConvo('15', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection

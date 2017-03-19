@@ -54,89 +54,106 @@ function chartOntology(domId,url,chartApiData,name) {
             + '</div>';
             $('#'+domId).append(card);
 
-            //CHART
-            var domchart = document.getElementById(chartId);
-            var theme = 'default';
-            var theChart = echarts.init(domchart);
-            var loadingTicket;
-            var effectIndex = -1;
-            var effect = ['spin'];
+            var data = result.nodes;
+            if (data !== undefined || data.length > 0) {
+                //CHART
+                var domchart = document.getElementById(chartId);
+                var theme = 'default';
+                var theChart = echarts.init(domchart);
+                var loadingTicket;
+                var effectIndex = -1;
+                var effect = ['spin'];
 
-            theChart.showLoading({
-                text : '',
-            });
+                theChart.showLoading({
+                    text : '',
+                });
 
-            //theChart.hideLoading();
-
-            var option = {
-                legend: {
-                    data: result.categories,
-                    x: 'left',
-                    y: 'bottom',
-                },
-                grid: {
-                    x: 0,
-                    x2: 0,
-                    y: 0,
-                    y2: 0
-                },
-                tooltip: {
-                    trigger: 'item',
-                    //formatter: '{c}'
-                },
-                toolbox: {
-                    show: true,
-                    x: 'right',
-                    y: 'bottom',
-                    padding: ['0', '0', '0', '0'],
-                    feature: {
-                        mark: {
-                            show: true
-                        },
-                        restore: {show: true, title: 'Reload'},
-                        saveAsImage: {show: true, title: 'Save'}
+                var serie=[];
+                for (var i = 0; i < data.length; i++) {
+                    serie[i] = {
+                        name: data[i].name,
+                        value: data[i].value,
+                        symbolSize: data[i].value * 0.1,
+                        category: data[i].category,
+                        node: data[i].node
                     }
-                },
-                series: [{
-                    type: 'graph',
-                    layout: 'force',
-                    roam: true,
-                    animation: true,
-                    label: {
-                        normal: {
-                            show: true,
-                            position: 'right',
-                            formatter: '{b}'
+                }
+                console.log(serie);
+                var option = {
+                    legend: {
+                        data: result.categories,
+                        x: 'left',
+                        y: 'bottom',
+                    },
+                    grid: {
+                        x: 0,
+                        x2: 0,
+                        y: 0,
+                        y2: 0
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        //formatter: '{c}'
+                    },
+                    toolbox: {
+                        show: true,
+                        x: 'right',
+                        y: 'bottom',
+                        padding: ['0', '0', '0', '0'],
+                        feature: {
+                            mark: {
+                                show: true
+                            },
+                            restore: {show: true, title: 'Reload'},
+                            saveAsImage: {show: true, title: 'Save'}
                         }
                     },
-                    draggable: true,
-                    data: result.nodes.map(function (node, idx) {
-                        node.id = idx;
-                        return node;
-                    }),
-                    categories: result.categories,
-                    force: {
-                        //initLayout: 'circular',
-                        edgeLength: 100,
-                        repulsion: 10,
-                        gravity: 0
-                    },
-                    edges: result.links,
-                    itemStyle: {},
-                }]
+                    series: [{
+                        type: 'graph',
+                        layout: 'force',
+                        roam: true,
+                        animation: true,
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'right',
+                                formatter: '{b}'
+                            }
+                        },
+                        draggable: true,
+                        // focusNodeAdjacency: true,
+                        // data: result.nodes.map(function (node, idx) {
+                        //     node.id = idx;
+                        //     return node;
+                        // }),
+                        data: serie,
+                        categories: result.categories,
+                        force: {
+                            repulsion: 50,
+                            gravity: 0.1,
+                            edgeLength: 30,
+                            layoutAnimation: false,
+                        },
+                        edges: result.links,
+                        itemStyle: {},
+                    }]
 
-            };
-            clearTimeout(loadingTicket);
-            loadingTicket = setTimeout(function (){
-                theChart.hideLoading();
-                theChart.setOption(option);
-                theChart.resize();
-            },1200);
-            $(window).on('resize', function(){
-                if(theChart != null && theChart != undefined){
+                };
+                clearTimeout(loadingTicket);
+                loadingTicket = setTimeout(function (){
+                    theChart.hideLoading();
+                    theChart.setOption(option);
                     theChart.resize();
-                }
-            });
+                },1200);
+                $(window).on('resize', function(){
+                    if(theChart != null && theChart != undefined){
+                        theChart.resize();
+                    }
+                });
+
+            } else {
+                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
+            }
         }
     });
 

@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('charts/ontologi', 'ChartController@ontologi');
     Route::post('charts/wordcloud', 'ChartController@wordcloud');
+    Route::post('charts/influencer', 'ChartController@influencer');
     Route::post('charts/convo', 'ChartController@convo');
 });
 
@@ -106,10 +107,11 @@ Route::get('/admin', 'FrontendController@admin');
 Route::get('/admin-add', 'FrontendController@adminAdd');
 Route::get('/admin-edit', 'FrontendController@adminEdit');
 
+Route::get('/notifications', 'FrontendController@notif');
 Route::get('/page-help', 'FrontendController@pageHelp');
 
-Route::get('api1/{a}', 'TestController@api1');
-Route::get('api2/{a}/{b}', 'TestController@api2');
-Route::get('api3/{a}/{b}/{c}', 'TestController@api3');
-Route::get('api4/{a}/{b}/{c}/{d}', 'TestController@api4');
-Route::get('api5/{a}/{b}/{c}/{d}/[e]', 'TestController@api5');
+Route::get('api1/{x}/{a}', 'TestController@api1');
+Route::get('api2/{x}/{a}/{b}', 'TestController@api2');
+Route::get('api3/{x}/{a}/{b}/{c}', 'TestController@api3');
+Route::get('api4/{x}/{a}/{b}/{c}/{d}', 'TestController@api4');
+Route::get('api5/{x}/{a}/{b}/{c}/{d}/[e]', 'TestController@api5');

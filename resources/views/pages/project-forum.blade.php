@@ -83,16 +83,15 @@
             // chartBarStack('04',baseUrl+'/json/charts/305-bar-sentiment.json');
             chartBarStack('04', baseUrl + '/charts/bar-sentiment', $chartData);
 
-            chartBarStack('05',baseUrl+'/json/charts/308-bar-topic-distribution.json');
+            // chartBarStack('05',baseUrl+'/json/charts/308-bar-topic-distribution.json');
+            chartBarStack('05', baseUrl + '/charts/bar-topic-distribution', $chartData);
 
             // wordcloud('06',baseUrl+'/json/charts/403-wordcloud.json');
             wordcloud('06', baseUrl + '/charts/wordcloud', $chartData);
 
-            chartOntology('07',baseUrl+'/json/charts/402-ontology.json');
-
-            tableInfluencers('08',influencers);
-
-            //tableConvo('09',baseUrl+'/json/charts/405-table-convo.json');
+            chartOntology('07', baseUrl + '/charts/ontologi', $chartData);
+            tableInfluencers('08', baseUrl + '/charts/influencer', $chartData, influencers);
+            tableConvo('09', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection

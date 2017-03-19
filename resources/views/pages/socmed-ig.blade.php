@@ -23,7 +23,6 @@
             <div id="12"></div>
             <div id="13" class="uk-width-1-1"></div>
             <div id="14" class="uk-width-1-1"></div>
-            <div id="15" class="uk-width-1-1"></div>
         </div>
     </section>
 
@@ -47,7 +46,7 @@
     <script src="{!! asset('assets/js/charts/chartBar.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/chartTrend.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/chartPie.js') !!}"></script>
-    {{-- <script src="{!! asset('assets/js/charts/chartOntology.js') !!}"></script> --}}
+
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
@@ -105,14 +104,12 @@
             // chartBar('11',baseUrl+'/json/charts/303-bar-interaction-rate.json');
             chartBar('11', baseUrl + '/charts/bar-interaction-rate', $chartData);
 
-            chartBarStack('12',baseUrl+'/json/charts/308-bar-topic-distribution.json');
-
             // wordcloud('13',baseUrl+'/json/charts/403-wordcloud.json');
-            wordcloud('13', baseUrl + '/charts/wordcloud', $chartData);
+            wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
 
-            tableInfluencers('14',influencers);
+            tableInfluencers('13', baseUrl + '/charts/influencer', $chartData, influencers);
 
-            tableConvo('15',baseUrl+'/json/charts/405-table-convo.json');
+            tableConvo('14', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection
