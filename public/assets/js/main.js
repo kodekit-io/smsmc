@@ -3,10 +3,10 @@
         setTimeout(function() { $(".sm-alert a.uk-alert-close").click(); }, 10000);
 
         $('input.datetimepicker[name=startDate]').datetimepicker({
-            format:	'd-m-Y H:i'
+            format:	'd/m/y H:i'
         });
         $('input.datetimepicker[name=endDate]').datetimepicker({
-            format:	'd-m-Y H:i'
+            format:	'd/m/y H:i'
         });
         $('.select-all-keyword').checkAll(
             { container: $('#select-keyword'), showIndeterminate: true }
