@@ -22,6 +22,19 @@ class TestController extends Controller
         $this->smsmc = $smsmc;
     }
 
+    public function echarts()
+    {
+        $data['pageTitle'] = 'Test Echarts';
+        return view('tests.echarts-image', $data);
+    }
+
+    public function echartsPost(Request $request)
+    {
+        $data['pageTitle'] = 'Show Image';
+        $data['base64Image'] = $request->input('chart1');
+        return view('tests.echarts-showimage', $data);
+    }
+
     public function googlechart()
     {
         return view('tests.googlechart');
