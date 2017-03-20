@@ -21,6 +21,19 @@ class TestController extends Controller
         $this->smsmc = $smsmc;
     }
 
+    public function googlechart()
+    {
+        return view('tests.googlechart');
+    }
+
+    public function reportPdf()
+    {
+        $pdf = \PDF::loadView('tests.googlechart');
+        $pdf->setPaper('A4', 'landscape');
+        $pdfFileName = 'report.pdf';
+        $pdf->save(public_path($pdfFileName));
+    }
+
     public function testBrandEquity()
     {
         $params = [
