@@ -132,8 +132,7 @@
 }
 
 .datepicker>.datepicker_inner_container>.datepicker_calendar>.datepicker_table>tr>td.today {
-    color: #fff;
-	background: #F44336;
+    border: 1px solid #e5e5e5;
 }
 
 .datepicker>.datepicker_inner_container>.datepicker_calendar>.datepicker_table>tr>td.wday_sat {
@@ -179,14 +178,13 @@
 
 .datepicker>.datepicker_inner_container>.datepicker_timelist {
     float: left;
-    width: 4.2em;
-    height: 118px;
-    padding: 5px;
-    padding-left: 0px;
-    padding-right: 0px;
+    width: auto;
+    height: auto;
+    padding: 5px 10px 5px 5px;
     overflow: auto;
     overflow-x: hidden;
     background-color: #ffffff;
+    border-left: 1px solid #e5e5e5;
 }
 
 
@@ -234,13 +232,15 @@
 }
 
 .datepicker>.datepicker_inner_container>.datepicker_timelist>div.timelist_item {
-    padding-top: 1px;
+    /*padding-top: 1px;
     padding-bottom: 1px;
     padding-left: 7px;
     padding-right: 25px;
     margin-top: 5px;
-    margin-bottom: 2px;
-    font-size: small;
+    margin-bottom: 2px;*/
+    font-size: 12px;
+	font-weight: normal;
+	font-family: 'GothamPro' !important;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;

@@ -1,4 +1,4 @@
-function tableConvoAll(domId, url, chartApiData, name) {
+function tableConvo(domId, url, chartApiData, name) {
     var xxx=0;
     $.ajax({
         method: "POST",
@@ -26,7 +26,6 @@ function tableConvoAll(domId, url, chartApiData, name) {
         },
         success: function(result){
             var result = jQuery.parseJSON(result);
-            //console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -82,6 +81,7 @@ function tableConvoAll(domId, url, chartApiData, name) {
                     + '</div>'
                 + '</div>'
             + '</div>';
+
             var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
                 + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
                     + '<div class="uk-card-header uk-clearfix">'
@@ -118,40 +118,40 @@ function tableConvoAll(domId, url, chartApiData, name) {
                             return localtime;
                         }
                     },
-                    {
-                        "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
-                        "render": function ( cellData ) {
-                            var channel = cellData;
-                            var icon = "";
-                            switch (channel) {
-                    			case 'facebook':
-                    				icon = 'facebook';
-                    				break;
-                    			case 'twitter':
-                    				icon = 'twitter';
-                    				break;
-                    			case 'youtube':
-                    				icon = 'youtube';
-                    				break;
-                    			case 'instagram':
-                    				icon = 'instagram';
-                    				break;
-                    			case 'news':
-                    				icon = 'globe';
-                    				break;
-                    			case 'blog':
-                    				icon = 'rss';
-                    				break;
-                    			case 'forum':
-                    				icon = 'comments';
-                    				break;
-                    		}
-                            return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
-                        }
-                    },
+                    // {
+                    //     "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
+                    //     "render": function ( cellData ) {
+                    //         var channel = cellData;
+                    //         var icon = "";
+                    //         switch (channel) {
+                    // 			case 'facebook':
+                    // 				icon = 'facebook';
+                    // 				break;
+                    // 			case 'twitter':
+                    // 				icon = 'twitter';
+                    // 				break;
+                    // 			case 'youtube':
+                    // 				icon = 'youtube';
+                    // 				break;
+                    // 			case 'instagram':
+                    // 				icon = 'instagram';
+                    // 				break;
+                    // 			case 'news':
+                    // 				icon = 'globe';
+                    // 				break;
+                    // 			case 'blog':
+                    // 				icon = 'rss';
+                    // 				break;
+                    // 			case 'forum':
+                    // 				icon = 'comments';
+                    // 				break;
+                    // 		}
+                    //         return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
+                    //     }
+                    // },
                     { "data": "author", "title": "Author", "width": "15%" },
                     {
-                        "data": null, "title": "Post", "width": "40%",
+                        "data": null, "title": "Post", "width": "45%",
                         "render": function ( data ) {
                             var post = data["post"];
                             var postrim = post.substring(0,100) + "...";
@@ -160,28 +160,35 @@ function tableConvoAll(domId, url, chartApiData, name) {
                         }
                     },
                     {
-                        "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "sentiment uk-text-center",
+                        "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "uk-text-center",
                         "createdCell": function (td, cellData, rowData, row, col) {
                             switch (cellData) {
                                 case 'positive':
-                                    $(td).addClass('green-text');
+                                case 'Positif':
+                                case 'positif':
+                                    $(td).css('color', 'green');
                                     break;
                                 case 'neutral':
-                                    $(td).addClass('grey-text');
+                                case 'Netral':
+                                case 'netral':
+                                    $(td).css('color', 'grey');
                                     break;
                                 case 'negative':
-                                    $(td).addClass('red-text');
+                                case 'Negatif':
+                                case 'negatif':
+                                    $(td).css('color', 'red');
                                     break;
                             }
                         }
                     },
                     {
                         "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
-                        "render": function ( cellData, display, row ) {
+                        "render": function ( cellData, rowData ) {
+                            //var status = cellData;
                             var btn = '';
                             switch (cellData) {
                                 case 'New':
-                                    btn = '<a href="#openTicket" uk-toggle uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+cellData+'</span></a>';
+                                    btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+cellData+'</span></a>';
                                 break;
                                 case 'Closed':
                                     btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
@@ -190,7 +197,7 @@ function tableConvoAll(domId, url, chartApiData, name) {
                                     btn = '<span class="uk-badge sm-badge red white-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
                                 break;
                             }
-                            //console.log(row);
+
                             return btn;
                         }
                     }
@@ -199,7 +206,7 @@ function tableConvoAll(domId, url, chartApiData, name) {
                 initComplete: function () {
                     this.api().columns().every( function () {
                         var column = this;
-                        if(column[0][0] == 5) {
+                        if(column[0][0] == 4) {
                             var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
                                 .appendTo( $(column.header()).empty() )
                                 .on( 'change', function () {
@@ -215,7 +222,7 @@ function tableConvoAll(domId, url, chartApiData, name) {
                                 select.append( '<option value="'+d+'">'+d+'</option>' )
                             });
                         }
-                        if(column[0][0] == 6) {
+                        if(column[0][0] == 5) {
                             var select = $('<select class="uk-select select-sentiment"><option value="">All Status</option></select>')
                                 .appendTo( $(column.header()).empty() )
                                 .on( 'change', function () {
@@ -240,58 +247,6 @@ function tableConvoAll(domId, url, chartApiData, name) {
                 } );
             } ).draw();
             theTable.columns.adjust().draw();
-
-            // Edit Sentiment
-            var sentiment = [
-                "positive",
-                "neutral",
-                "negative"
-            ];
-            $('#'+chartId+'Table').on('click', '.sentiment', function() {
-                var row = this.parentElement;
-                if (!$('#'+chartId+'Table').hasClass("editing")) {
-                    $('#'+chartId+'Table').addClass("editing");
-                    var data = theTable.row(row).data();
-                    var $row = $(row);
-                    var idx = $row.find("td:nth-child(1)").text();
-                    var thisSentiment = $row.find("td:nth-child(6)");
-                    var thisSentimentText = thisSentiment.text();
-                    thisSentiment.empty().append($("<select></select>", {
-                        "id": "sentiment_" + idx,
-                        "class": "changeSentiment"
-                    }).append(function() {
-                        var options = [];
-                        $.each(sentiment, function(k, v) {
-                            options.push($("<option></option>", {
-                                "text": v,
-                                "value": v
-                            }))
-                        })
-                        return options;
-                    }));
-                    $("#sentiment_" + idx).val(thisSentimentText)
-                }
-            });
-
-            $('#'+chartId+'Table tbody').on("change", ".changeSentiment", function() {
-            	var $this = $(this);
-                var $tempData = $this.val();
-                switch ($tempData) {
-                    case 'positive':
-                        $this.parent("td").addClass('green-text').removeClass('red-text').removeClass('grey-text');
-                        break;
-                    case 'neutral':
-                        $this.parent("td").addClass('grey-text').removeClass('red-text').removeClass('green-text');
-                        break;
-                    case 'negative':
-                        $this.parent("td").addClass('red-text').removeClass('green-text').removeClass('grey-text');
-                        break;
-                }
-                $this.parent("td").empty().text($this.val());
-                $('#'+chartId+'Table').removeClass("editing");
-                // todo : Post $tempData to API
-            });
-
         }
     });
 }

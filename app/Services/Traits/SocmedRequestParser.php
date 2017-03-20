@@ -51,8 +51,8 @@ trait SocmedRequestParser
         $data['searchText'] = $searchText;
         $data['startDate'] = $startDate;
         $data['endDate'] = $endDate;
-        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d-m-y H:i');
-        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d-m-y H:i');
+        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d/m/y H:i');
+        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
 
         return $data;
     }

@@ -90,16 +90,15 @@
             // chartPie('06',baseUrl+'/json/charts/209-pie-rating.json');
             chartPie('06', baseUrl + '/charts/pie-rating', $chartData);
 
-            chartBarStack('07',baseUrl+'/json/charts/308-bar-topic-distribution.json');
+            // chartBarStack('07',baseUrl+'/json/charts/308-bar-topic-distribution.json');
+            chartBarStack('07', baseUrl + '/charts/bar-topic-distribution', $chartData);
 
             // wordcloud('08',baseUrl+'/json/charts/403-wordcloud.json');
             wordcloud('08', baseUrl + '/charts/wordcloud', $chartData);
 
-            chartOntology('09',baseUrl+'/json/charts/402-ontology.json');
-
-            tableInfluencers('10',influencers);
-
-            //tableConvo('11',baseUrl+'/json/charts/405-table-convo.json');
+            chartOntology('09', baseUrl + '/charts/ontologi', $chartData);
+            tableInfluencers('10', baseUrl + '/charts/influencer', $chartData, influencers);
+            tableConvo('11', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection

@@ -80,6 +80,7 @@
             chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
 
             // chartTrend('03',baseUrl+'/json/charts/110-trend-fans.json');
+            chartTrend('03', baseUrl + '/charts/trend-fans', $chartData);
 
             // chartPie('04',baseUrl+'/json/charts/201-pie-post.json');
             chartPie('04', baseUrl + '/charts/pie-post', $chartData);
@@ -102,8 +103,11 @@
             // wordcloud('10',baseUrl+'/json/charts/403-wordcloud.json');
             wordcloud('10', baseUrl + '/charts/wordcloud', $chartData);
 
-            tableInfluencers('11', influencers);
+            // tableInfluencers('11', influencers);
+            tableInfluencers('11', baseUrl + '/charts/influencer', $chartData, influencers);
+
             // tableConvo('12',baseUrl+'/json/charts/405-table-convo.json');
+            tableConvo('12', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection

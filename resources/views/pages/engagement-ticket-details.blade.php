@@ -8,75 +8,114 @@
 @section('content')
 
     <section class="sm-main uk-container uk-container-expand">
-        <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
-            <div class="uk-card-header uk-clearfix">
-                <h5 class="uk-card-title uk-float-left uk-margin-small-top">Ticket #76324</h5>
-                <ul class="uk-subnav uk-float-right uk-margin-small-top">
+        <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-margin">
+            <div class="uk-card-header uk-clearfix sm-card-toolbar">
+                <h5 class="uk-card-title uk-float-left">Ticket #76324</h5>
+                <ul class="uk-subnav uk-float-right uk-margin-remove">
                     <li><span>Updates: <span class="uk-label sm-label uk-label-success">Mon, Jan 2, 2017 8:23 AM</span></span></li>
                     <li><span>Status: <span class="uk-label sm-label uk-label-danger">OPEN</span></span></li>
                 </ul>
             </div>
             <div class="uk-card-body">
-                <hr>
                 <div uk-grid>
                     <div class="uk-width-1-2">
                         <table class="uk-table uk-table-small">
-                            <tr>
-                                <td width="25%">Create Date</td>
-                                <td>Mon, Jan 2, 2017 8:23 AM</td>
-                            </tr>
-                            <tr>
-                                <td>Ticket Sender</td>
-                                <td>Jon Snow (Manager)</td>
-                            </tr>
-                            <tr>
-                                <td>To</td>
-                                <td>Pulp & Paper</td>
-                            </tr>
-                            <tr>
-                                <td>Type</td>
-                                <td>Content - Pulp & Paper</td>
-                            </tr>
+                            <thead>
+                                    <tr>
+                                        <th colspan="2">Ticket Details</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="25%">Create Date</td>
+                                    <td>Mon, Jan 2, 2017 8:23 AM</td>
+                                </tr>
+                                <tr>
+                                    <td>From</td>
+                                    <td>Jon Snow (PO)</td>
+                                </tr>
+                                <tr>
+                                    <td>To</td>
+                                    <td>Arya Stark (APP)</td>
+                                </tr>
+                                <tr>
+                                    <td>CC</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Type</td>
+                                    <td>Content - Pulp & Paper</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
-                    <div class="uk-width-1-2">
-                        <h6>Additional Message</h6>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-                <h5 class="uk-card-title uk-margin-bottom-remove">Related Post</h5>
-                <hr class="uk-margin-small-top">
-                <div uk-grid>
                     <div class="uk-width-1-2">
                         <table class="uk-table uk-table-small">
-                            <tr>
-                                <td width="25%">Channel</td>
-                                <td>Facebook</td>
-                            </tr>
-                            <tr>
-                                <td>Author</td>
-                                <td>Petyr Baelish</td>
-                            </tr>
-                            <tr>
-                                <td>Post Date</td>
-                                <td>Mon, Jan 2, 2017 8:23 AM</td>
-                            </tr>
-                            <tr>
-                                <td>Sentiment</td>
-                                <td>Negative</td>
-                            </tr>
+                            <thead>
+                                    <tr>
+                                        <th colspan="2">Related Post</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="25%">Channel</td>
+                                    <td>Facebook</td>
+                                </tr>
+                                <tr>
+                                    <td>Author</td>
+                                    <td>Petyr Baelish</td>
+                                </tr>
+                                <tr>
+                                    <td>Post Date</td>
+                                    <td>Mon, Jan 2, 2017 8:23 AM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sentiment</td>
+                                    <td>Negative</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <p>Post Details:</p>
+                                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
-                    <div class="uk-width-1-2">
-                        <h6>Post Details</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
                 </div>
-                <h5 class="uk-card-title">Respond</h5>
+            </div>
+        </div>
+        <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-margin">
+            <div class="uk-card-header sm-card-toolbar">
+                <h5 class="uk-card-title">Ticket Thread</h5>
+            </div>
+            <div class="uk-card-body">
+                <ul class="sm-thread" uk-accordion="multiple: true">
+                    <li>
+                        <h6 class="uk-accordion-title">Reply from Sender on Mon, Jan 1, 2017 0:00 AM</h6>
+                        <div class="uk-accordion-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h6 class="uk-accordion-title">Reply from You on Mon, Jan 2, 2017 0:00 AM</h6>
+                        <div class="uk-accordion-content">
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+                        </div>
+                    </li>
+                    <li class="uk-open">
+                        <h6 class="uk-accordion-title">Reply from Sender on Mon, Jan 3, 2017 0:00 AM</h6>
+                        <div class="uk-accordion-content">
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <h5 class="uk-card-title">New Respond</h5>
                 <hr class="uk-margin-small-top">
                 <form action="./engagement-ticket">
                     <fieldset class="uk-fieldset">
-                        <div class="uk-margin">
+                        {{-- <div class="uk-margin">
                             <label class="uk-form-label" for="channel">Channel</label>
                             <div class="uk-form-controls">
                                 <select class="uk-select" id="channel">
@@ -89,17 +128,14 @@
                                     <option>Blog</option>
                                 </select>
                             </div>
-                        </div>
-
+                        </div> --}}
                         <div class="uk-margin">
                             <label class="uk-form-label" for="post">Your Post</label>
-                            <textarea class="uk-textarea" id="post" rows="8" placeholder="What's up?"></textarea>
+                            <textarea class="uk-textarea" id="post" rows="4" placeholder="What's up?"></textarea>
                         </div>
                         <div class="uk-margin">
-                            <span class="uk-text-middle">Post with Image</span>
-                            <div uk-form-custom>
-                                <input type="file">
-                            </div>
+                            <label class="uk-form-label" for="img">Post with Image</label>
+                            <input type="file" id="img">
                         </div>
                         <hr>
                         <div class="uk-clearfix">
@@ -111,22 +147,25 @@
                         </div>
                     </fieldset>
                 </form>
+
             </div>
         </div>
+        <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-card-body">
+            <h5 class="uk-card-title uk-inline uk-margin-small-right">Change Ticket Status</h5>
+            <div class="uk-inline">
+                <select class="uk-select">
+                    <option>Close Ticket</option>
+                    <option>Change to Responded</option>
+                    <option>Change to Waiting</option>
+                </select>
+            </div>
+            <button class="uk-button uk-button-danger black uk-float-right" type="submit">SAVE</button>
+        </div>
     </section>
-    
+
 @endsection
 
 @section('page-level-scripts')
-    <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
-    <script src="{!! asset('assets/js/datatables/extensions/dataTables.buttons.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/datatables/extensions/jszip.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/datatables/extensions/buttons.html5.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/datatables/extensions/pdfmake.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script>
-
-    <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     {{--<script src="{!! asset('assets/js/pages/ticket-details.js') !!}"></script>--}}
     <script>
     $(document).ready(function() {

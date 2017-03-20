@@ -19,11 +19,9 @@
             <div id="08"></div>
             <div id="09"></div>
             <div id="10"></div>
-            <div id="11"></div>
-            <div id="12"></div>
+            <div id="11" class="uk-width-1-1"></div>
+            <div id="12" class="uk-width-1-1"></div>
             <div id="13" class="uk-width-1-1"></div>
-            <div id="14" class="uk-width-1-1"></div>
-            <div id="15" class="uk-width-1-1"></div>
         </div>
     </section>
 
@@ -105,14 +103,12 @@
             // chartBar('10',baseUrl+'/json/charts/303-bar-interaction-rate.json');
             chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
 
-            chartBarStack('11',baseUrl+'/json/charts/308-bar-topic-distribution.json');
-
             // wordcloud('12',baseUrl+'/json/charts/403-wordcloud.json');
-            wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
+            wordcloud('11', baseUrl + '/charts/wordcloud', $chartData);
 
-            tableInfluencers('14',influencers);
+            tableInfluencers('12', baseUrl + '/charts/influencer', $chartData, influencers);
 
-            tableConvo('15',baseUrl+'/json/charts/405-table-convo.json');
+            tableConvo('13', baseUrl + '/charts/convo', $chartData);
         });
     </script>
 @endsection

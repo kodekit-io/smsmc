@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service\Smsmc;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class TestController extends Controller
 {
@@ -34,72 +35,61 @@ class TestController extends Controller
         $pdf->save(public_path($pdfFileName));
     }
 
-    public function testBrandEquity()
-    {
-        $params = [
-            'pid' => '2131142012017',
-            'StartDate' => '2016-11-13T00:00:00Z',
-            'EndDate' => '2016-11-15T00:00:00Z',
-            'sentiment' => '1,0,-1',
-        ];
-        $result = $this->smsmc->post('project/brandequity', $params);
 
-        return \GuzzleHttp\json_encode($result);
-    }
-    public function api1($a)
+    public function api1($x,$a)
     {
         $params = [
-            'pid' => '2131142012017',
-            'StartDate' => '2017-02-01T00:00:00Z',
-            'EndDate' => '2017-02-10T00:00:00Z',
+            'pid' => $x,
+            'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
+            'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
             'sentiment' => '1,0,-1',
         ];
         $result = $this->smsmc->post('project/'.$a, $params);
         //return \GuzzleHttp\json_encode($result->result);
         echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
-    public function api2($a,$b)
+    public function api2($x,$a,$b)
     {
         $params = [
-            'pid' => '2131142012017',
-            'StartDate' => '2017-02-01T00:00:00Z',
-            'EndDate' => '2017-02-10T00:00:00Z',
+            'pid' => $x,
+            'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
+            'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
             'sentiment' => '1,0,-1',
         ];
         $result = $this->smsmc->post('project/'.$a.'/'.$b, $params);
         //return \GuzzleHttp\json_encode($result->result);
         echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
-    public function api3($a,$b,$c)
+    public function api3($x,$a,$b,$c)
     {
         $params = [
-            'pid' => '2131142012017',
-            'StartDate' => '2017-02-01T00:00:00Z',
-            'EndDate' => '2017-02-10T00:00:00Z',
+            'pid' => $x,
+            'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
+            'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
             'sentiment' => '1,0,-1',
         ];
         $result = $this->smsmc->post('project/'.$a.'/'.$b.'/'.$c, $params);
         //return \GuzzleHttp\json_encode($result->result);
         echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
-    public function api4($a,$b,$c,$d)
+    public function api4($x,$a,$b,$c,$d)
     {
         $params = [
-            'pid' => '2131142012017',
-            'StartDate' => '2017-02-01T00:00:00Z',
-            'EndDate' => '2017-02-10T00:00:00Z',
+            'pid' => $x,
+            'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
+            'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
             'sentiment' => '1,0,-1',
         ];
         $result = $this->smsmc->post('project/'.$a.'/'.$b.'/'.$c.'/'.$d, $params);
         //return \GuzzleHttp\json_encode($result->result);
         echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
-    public function api5($a,$b,$c,$d,$e)
+    public function api5($x,$a,$b,$c,$d,$e)
     {
         $params = [
-            'pid' => '2131142012017',
-            'StartDate' => '2017-02-01T00:00:00Z',
-            'EndDate' => '2017-02-10T00:00:00Z',
+            'pid' => $x,
+            'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
+            'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
             'sentiment' => '1,0,-1',
         ];
         $result = $this->smsmc->post('project/'.$a.'/'.$b.'/'.$c.'/'.$d.'/'.$e, $params);

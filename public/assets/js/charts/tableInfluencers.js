@@ -1,13 +1,14 @@
-function tableInfluencers(domId, influencers, name) {
+function tableInfluencers(domId, url, chartApiData, influencers, name) {
 	$.ajax({
-		url : baseUrl + '/json/charts/404-table-influencer.json',
-        //data : data,
+		method : 'POST',
+		url : url,
+        data : chartApiData,
 		beforeSend : function(xhr) {
 		},
 		complete : function(xhr, status) {
 		},
 		success : function(result) {
-            //result = jQuery.parseJSON(result);
+            result = jQuery.parseJSON(result);
 			var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -554,9 +555,9 @@ function topStatusFB(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "<span class='fa fa- fa-comment'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-thumbs-up'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-share'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				{
 					data: null,
 					render: function ( data ) {
@@ -606,9 +607,9 @@ function topLinkFB(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "<span class='fa fa- fa-comment'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-thumbs-up'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-share'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				{
 					data: null,
 					render: function ( data ) {
@@ -658,9 +659,9 @@ function topPhotoFB(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "<span class='fa fa- fa-comment'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-thumbs-up'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-share'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				{
 					data: null,
 					render: function ( data ) {
@@ -710,9 +711,9 @@ function topVideoFB(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "<span class='fa fa- fa-comment'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-thumbs-up'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-share'></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				{
 					data: null,
 					render: function ( data ) {

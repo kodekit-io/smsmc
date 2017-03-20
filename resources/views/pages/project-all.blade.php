@@ -53,7 +53,7 @@
     <script src="{!! asset('assets/js/charts/chartOntology.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/tableConvoAll.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
     <script>
         //var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
         $(document).ready(function() {
@@ -124,9 +124,9 @@
             // wordcloud('16',baseUrl+'/json/charts/403-wordcloud.json');
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
 
-            //tableInfluencers('17',influencers);
-            // tableConvoAll('17',baseUrl+'/json/charts/405-table-convo.json');
-            tableConvoAll('17', baseUrl + '/charts/convo', $chartData);
+            // tableConvo('17',baseUrl+'/json/charts/405-table-convo.json');
+            tableConvo('17', baseUrl + '/charts/convo', $chartData);
+
         });
     </script>
 @endsection
