@@ -1,0 +1,50 @@
+body {
+	background: #fff !important;
+}
+
+page {
+	background: white;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 0.5cm;
+	border: 1px dashed #d00;
+}
+
+page[size="A4"] {
+	width: 21cm;
+	height: 29.7cm;
+}
+
+page[size="A4"][layout="portrait"] {
+	width: 29.7cm;
+	height: 21cm;
+}
+
+page[size="A3"] {
+	width: 29.7cm;
+	height: 42cm;
+}
+
+page[size="A3"][layout="portrait"] {
+	width: 42cm;
+	height: 29.7cm;
+}
+
+page[size="A5"] {
+	width: 14.8cm;
+	height: 21cm;
+}
+
+page[size="A5"][layout="portrait"] {
+	width: 21cm;
+	height: 14.8cm;
+}
+.page-margin {
+	padding: 1cm;
+}
+@media print {
+	body, page {
+		margin: 0;
+		box-shadow: 0;
+	}
+}
