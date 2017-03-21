@@ -38,7 +38,7 @@ trait ProjectRequestParser
             $searchText = $request->get('text');
         }
 
-        $projectDetail = $this->projectService->projectDetail($projectId);
+        $projectDetail = $this->projectService->getProject($projectId);
 
         $keywords = [];
         if (count($projectDetail->projectInfo->keywordList) > 0) {
