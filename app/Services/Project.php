@@ -49,6 +49,20 @@ class Project
         return [];
     }
 
+    public function getProject($projectId)
+    {
+        $params = [
+            'pid' => $projectId
+        ];
+
+        $projectDetail = $this->smsmc->post('project/get', $params, true, true, false);
+        if ($projectDetail->status == 200) {
+            return $projectDetail->result;
+        }
+
+        return [];
+    }
+
     public function create($data)
     {
         $mode = 'simple';
