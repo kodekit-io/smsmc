@@ -31,28 +31,6 @@
                         pname = data[i].pname;
                         length = data.length;
 
-                        var modalEdit = '<div id="edit'+pid+'" uk-modal>'
-                            + '<div class="uk-modal-dialog">'
-                                + '<div class="uk-modal-body"><h5>Edit Project <span class="uk-text-uppercase">'+pname+'</span>?</h5></div>'
-                                + '<div class="uk-modal-footer uk-clearfix">'
-                                    + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
-                                    + '<a href="' + baseUrl + '/project/' + pid + '/edit" class="uk-button uk-float-right blue white-text">YES</a>'
-                                + '</div>'
-                            + '</div>'
-                        + '</div>';
-                        var modalDelete = '<div id="delete'+pid+'" uk-modal>'
-                            + '<div class="uk-modal-dialog">'
-                                + '<div class="uk-modal-body">'
-                                    + '<h5>Are You Sure?</h5>'
-                                    + '<p>Project <span class="uk-text-uppercase">'+pname+'</span> will no longer available.</p>'
-                                + '</div>'
-                                + '<div class="uk-modal-footer uk-clearfix">'
-                                    + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
-                                    + '<a href="' + baseUrl + '/project/' + pid + '/delete" class="uk-button uk-float-right red white-text">YES</a>'
-                                + '</div>'
-                            + '</div>'
-                        + '</div>';
-
                         var project = '<div id="'+pid+'">'
                             + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
                                 + '<div class="uk-card-header">'
@@ -72,19 +50,43 @@
                                 + '<div class="uk-card-footer uk-clearfix">'
                                     + '<div class="uk-inline">'
                                         + '<a class="grey-text" uk-icon="icon: more-vertical"></a>'
-                                        + '<div class="sm-card-action" uk-drop="mode: click; pos: right-center">'
-                                            + '<a class="uk-icon-button green white-text" uk-icon="icon: pencil" title="Edit Project" uk-tooltip href="#edit'+pid+'" uk-toggle></a>'
-                                            + modalEdit
-                                            + '<a class="uk-icon-button red white-text" uk-icon="icon: trash" title="Delete Project" uk-tooltip href="#delete'+pid+'" uk-toggle></a>'
-                                            + modalDelete
+                                        + '<div class="sm-card-action" uk-drop="pos: right-center">'
+                                            + '<a class="sm-edit-project uk-icon-button green white-text" uk-icon="icon: pencil" title="Edit Project" uk-tooltip data-id="'+pid+'" data-name="'+pname+'"></a>'
+                                            + '<a class="sm-delete-project uk-icon-button red white-text" uk-icon="icon: trash" title="Delete Project" uk-tooltip data-id="'+pid+'" data-name="'+pname+'"></a>'
                                         + '</div>'
                                     + '</div>'
-                                    + '<a href="'+baseUrl+'/project/all/'+pid+'" class="uk-button uk-button-text uk-float-right red-text">View Project</a>'
+                                    + '<a href="'+baseUrl+'/project/all/'+pid+'" class="uk-button uk-button-text uk-float-right red-text" title="Project '+pname+'" uk-tooltip>View Project</a>'
                                 + '</div>'
                             + '</div>'
                         + '</div>'
                         $('#'+domId).append(project);
                         chartCover(pid);
+						// Edit Project
+			            $('.uk-card').on('click', '.sm-edit-project', function(e) {
+			                e.preventDefault();
+			                $(this).blur();
+							var pId = $(this).attr('data-id');
+			                var pName = $(this).attr('data-name');
+							var link = baseUrl+'/project/'+pId+'/edit';
+							var modal = '<h5>Edit Project <span class="uk-text-uppercase">'+pName+'</span>?</h5>';
+			                UIkit.modal.confirm(modal).then(function(){
+			                    window.location.href = link;
+			                },function(){});
+
+			            });
+						// Delete Project
+			            $('.uk-card').on('click', '.sm-delete-project', function(e) {
+			                e.preventDefault();
+			                $(this).blur();
+							var pId = $(this).attr('data-id');
+			                var pName = $(this).attr('data-name');
+							var link = baseUrl+'/project/'+pId+'/delete';
+							var modal = '<h5>Are you sure?</h5>Project <span class="uk-text-uppercase">'+pName+'</span> will no longer available.</h5>';
+			                UIkit.modal.confirm(modal).then(function(){
+			                    window.location.href = link;
+			                },function(){});
+
+			            });
                     }
                 }
             },

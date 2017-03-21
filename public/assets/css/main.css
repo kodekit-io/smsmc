@@ -235,9 +235,10 @@ li:hover .sm-nav-round {
 }
 
 .sm-card-action {
-    width: 150px;
-    padding: 0 !important;
-    margin-left: 0 !important;
+	width: 90px;
+}
+.sm-card-action a {
+	margin-left: 5px;
 }
 .sm-card-toolbar {
     padding-top: 20px !important;
