@@ -258,7 +258,7 @@ function chartTrendCombo(domId, url, chartApiData, title) {
             $('#'+domId).append(card);
 
             if (chartData.length === 0) {
-                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
+                $('.uk-card-body').html('<div class="sm-chart"><div class="uk-position-center uk-text-center">No Data!</div></div>');
             } else {
                 var data = [];
                 for (var x = 0; x < chartData.length; x++) {

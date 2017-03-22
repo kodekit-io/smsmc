@@ -94,7 +94,7 @@ Route::get('/socmed-ig', 'FrontendController@socmedIG');
 
 Route::get('/engagement-accounts', 'FrontendController@engagementAccounts');
 Route::get('/engagement-ticket', 'FrontendController@engagementTicket');
-Route::get('/engagement-ticket-details', 'FrontendController@engagementTicketDetails');
+Route::get('/engagement-ticket-details/{ticketId}', 'FrontendController@engagementTicketDetails');
 Route::get('/engagement-ticket-create', 'FrontendController@engagementTicketCreate');
 Route::get('/engagement-calendar', 'FrontendController@engagementCalendar');
 Route::get('/engagement-timeline', 'FrontendController@engagementTimeline');

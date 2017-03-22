@@ -70,13 +70,15 @@ function chartOntology(domId,url,chartApiData,name) {
 
                 var serie=[];
                 for (var i = 0; i < data.length; i++) {
-                    serie[i] = {
-                        name: data[i].name,
-                        value: data[i].value,
-                        symbolSize: data[i].value * 0.1,
-                        category: data[i].category,
-                        node: data[i].node
-                    }
+					if (i < 25) {
+						serie[i] = {
+	                        name: data[i].name,
+	                        value: data[i].value,
+	                        // symbolSize: data[i].value,
+	                        category: data[i].category,
+	                        node: data[i].node
+	                    }
+					}
                 }
                 console.log(serie);
                 var option = {
@@ -121,12 +123,11 @@ function chartOntology(domId,url,chartApiData,name) {
                             }
                         },
                         draggable: true,
-                        // focusNodeAdjacency: true,
                         // data: result.nodes.map(function (node, idx) {
                         //     node.id = idx;
                         //     return node;
                         // }),
-                        data: serie,
+						data: serie,
                         categories: result.categories,
                         force: {
                             repulsion: 50,
