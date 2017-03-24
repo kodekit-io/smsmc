@@ -49,10 +49,6 @@
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
 
-    {{-- Post Trend	Post Pie	Sentiment Bar	Wordclouds
-    Sentiment Trend	Comment Pie	Interaction Rate Bar	Influencer (Top Status, Top Photo, Top Link, Top Video)
-    Fans Trend	Like Pie		Conversation
-    	Share Pie		 --}}
     <script>
         $(document).ready(function() {
             var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
