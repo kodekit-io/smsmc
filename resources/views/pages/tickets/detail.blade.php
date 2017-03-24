@@ -10,10 +10,10 @@
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-margin">
             <div class="uk-card-header uk-clearfix sm-card-toolbar">
-                <h5 class="uk-card-title uk-float-left">Ticket #76324</h5>
+                <h5 class="uk-card-title uk-float-left">Ticket #{!! $ticket->ticketId !!}</h5>
                 <ul class="uk-subnav uk-float-right uk-margin-remove">
                     <li><span>Updates: <span class="uk-label sm-label uk-label-success">Mon, Jan 2, 2017 8:23 AM</span></span></li>
-                    <li><span>Status: <span class="uk-label sm-label uk-label-danger">OPEN</span></span></li>
+                    <li><span>Status: <span class="uk-label sm-label uk-label-danger">{!! strtoupper($ticket->email) !!}</span></span></li>
                 </ul>
             </div>
             <div class="uk-card-body">
@@ -28,15 +28,15 @@
                             <tbody>
                                 <tr>
                                     <td width="25%">Create Date</td>
-                                    <td>Mon, Jan 2, 2017 8:23 AM</td>
+                                    <td>{!! $ticket->date !!}</td>
                                 </tr>
                                 <tr>
                                     <td>From</td>
-                                    <td>Jon Snow (PO)</td>
+                                    <td>{!! $ticket->formName !!} ({!! $ticket->fromGroup !!})</td>
                                 </tr>
                                 <tr>
                                     <td>To</td>
-                                    <td>Arya Stark (APP)</td>
+                                    <td>{!! $ticket->SendName !!} ({!! $ticket->SendGroup !!})</td>
                                 </tr>
                                 <tr>
                                     <td>CC</td>
@@ -44,7 +44,13 @@
                                 </tr>
                                 <tr>
                                     <td>Type</td>
-                                    <td>Content - Pulp & Paper</td>
+                                    <td>{!! strtoupper($ticket->type) !!}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <p>Content :</p>
+                                        <div>{!! $ticket->content !!}</div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

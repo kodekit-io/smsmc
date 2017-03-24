@@ -14,14 +14,15 @@
             </div>
             <div class="uk-card-body">
                 <hr>
-                <form class="open-ticket">
+                <form class="open-ticket" method="post" action="{!! url('ticket/create') !!}">
+                    {!! csrf_field() !!}
                     <div class="uk-margin">
                         <label>To</label>
-                        <input class="uk-input" type="text">
+                        <input class="uk-input" type="text" name="to">
                     </div>
                     <div class="uk-margin">
                         <label>CC</label>
-                        <input class="uk-input" type="text">
+                        <input class="uk-input" type="text" name="to_cc">
                     </div>
                     <div class="uk-margin">
                         {{-- <div class="uk-inline">
@@ -39,27 +40,27 @@
                             <a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>
                             <div class="sm-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Content - Agribusiness & Food</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Content - Property</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Content - President Office</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Content - Financial Services</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Content - Communication & Technology</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Content - Energy & Infrastructure</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Content - Initiatives Project</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="1"> Respon</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="2"> Monitor</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="3"> Content - Pulp & Paper</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="4"> Content - Agribusiness & Food</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="5"> Content - Property</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="6"> Content - President Office</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="7"> Content - Financial Services</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="8"> Content - Communication & Technology</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="9"> Content - Energy & Infrastructure</label></li>
+                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="10"> Content - Initiatives Project</label></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="uk-margin">
                         <label>Message</label>
-                        <textarea class="uk-textarea" rows="3" placeholder="What's up?"></textarea>
+                        <textarea class="uk-textarea" name="message" rows="3" placeholder="What's up?"></textarea>
                     </div>
                     <div class="uk-flex uk-flex-between">
-                        <a class="uk-modal-close uk-button grey white-text">CANCEL</a>
-                        <a class="uk-modal-close uk-button uk-float-right red white-text">SEND</a>
+                        <a class="uk-modal-close uk-button grey white-text" href="{!! url('ticket') !!}">CANCEL</a>
+                        <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SEND" />
                     </div>
                 </form>
             </div>

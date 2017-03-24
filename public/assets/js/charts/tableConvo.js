@@ -140,15 +140,16 @@ function tableConvo(domId, url, chartApiData, name) {
                 var modal = '<form id="changeSentiment" class="change-sentiment">'
                     + '<h5>Edit Sentiment</h5>'
                     + '<div class="uk-margin">'
-                        + '<select class="uk-select">'
-                            + '<option value="">Positive</option>'
-                            + '<option value="">Neutral</option>'
-                            + '<option value="">Negative</option>'
+                        + '<select id="sentiment" class="uk-select">'
+                            + '<option value="1">Positive</option>'
+                            + '<option value="0">Neutral</option>'
+                            + '<option value="-1">Negative</option>'
                         + '</select>'
                     + '</div>'
                 + '</form>';
                 UIkit.modal.confirm(modal).then(function(){
-                    //console.log('ok');
+                    console.log($('#sentiment').val());
+                    console.log('ok');
                     theTable.ajax.reload();
                 },function(){
                     console.log('cancel');
@@ -222,6 +223,7 @@ function tableAll(chartId,chartData) {
             {
                 "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "sentiment uk-text-center",
                 "createdCell": function (td, cellData, rowData, row, col) {
+                    console.log(cellData);
                     switch (cellData) {
                         case 'positive':
                             $(td).addClass('sm-sentiment green-text');
