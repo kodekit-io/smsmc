@@ -19,7 +19,7 @@
                 if (data.length === 0 || data == undefined) {
                     $('#'+domId).append(
                         '<div class="uk-position-center uk-text-center uk-card uk-card-default uk-card-body uk-width-auto@m">'
-                        + '<a href="'+baseUrl+'/project-add" class="red-text"><i class="fa fa-plus fa-3x"></i><br>Create Your First Project</a>'
+                        + '<a href="'+baseUrl+'/project/add" class="red-text"><i class="fa fa-plus fa-3x"></i><br>Create Your First Project</a>'
                         +'</div>'
                     );
 
