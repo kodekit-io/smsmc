@@ -22,9 +22,9 @@ class Ticket
 
     public function create($data)
     {
-        $userId = \Auth::user()->id;
         $message = $data['message'];
-        $types = $data['types'];
+        $types = ( count($data['types']) > 0 ? implode(',', $data['types']) : '' );
+        $from = \Auth::user()->id;
         // $to = $data['to'];
         $to = 561;
         $toCc = $data['to_cc'];
@@ -32,12 +32,12 @@ class Ticket
         $sentiment = 'general';
 
         $params = [
-            'uid' => $userId,
+            'uid' => $to,
             'text' => $message,
             'postId' => '',
-            'tipeId' => 1,
-            'from' => $userId,
-            'send' => $to,
+            'tipeId' => $types,
+            'from' => $to,
+            'send' => $from,
             'idmedia' => '',
             'postDate' => $postDate,
             'sentiment' => $sentiment
@@ -64,5 +64,62 @@ class Ticket
         }
 
         return '';
+    }
+
+    public function reply($ticketId, $content)
+    {
+        $params = [
+            'uid' => \Auth::user()->id,
+            'ticketId' => $ticketId,
+            'text' => $content
+        ];
+
+        $response = $this->smsmc->post('ticket/reply', $params);
+        if ($response->status == '200') {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function changeStatus($ticketId, $status)
+    {
+        $params = [
+            'uid' => \Auth::user()->id,
+            'ticketId' => $ticketId,
+            'statusId' => $status
+        ];
+        $response = $this->smsmc->post('ticket/updateStatus', $params);
+        if ($response->status == '200') {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function getTicketStatus()
+    {
+        $params = [
+            'uid' => \Auth::user()->id
+        ];
+        $response = $this->smsmc->post('ticket/status', $params);
+        if ($response->status == '200') {
+            return $response->result->data;
+        }
+
+        return [];
+    }
+
+    public function getTicketType()
+    {
+        $params = [
+            'uid' => \Auth::user()->id
+        ];
+        $response = $this->smsmc->post('ticket/tipe', $params);
+        if ($response->status == '200') {
+            return $response->result->data;
+        }
+
+        return [];
     }
 }

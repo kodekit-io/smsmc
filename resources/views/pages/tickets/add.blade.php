@@ -40,16 +40,13 @@
                             <a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>
                             <div class="sm-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="1"> Respon</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="2"> Monitor</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="3"> Content - Pulp & Paper</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="4"> Content - Agribusiness & Food</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="5"> Content - Property</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="6"> Content - President Office</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="7"> Content - Financial Services</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="8"> Content - Communication & Technology</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="9"> Content - Energy & Infrastructure</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="10"> Content - Initiatives Project</label></li>
+                                    @if(count($ticketTypes) > 0)
+                                        @foreach($ticketTypes as $ticketType)
+                                            <li><label>
+                                                <input class="uk-checkbox" type="checkbox" name="types[]" value="{!! $ticketType->id !!}"> {!! strtoupper($ticketType->name) !!}
+                                            </label></li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </div>

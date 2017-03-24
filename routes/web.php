@@ -87,6 +87,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('ticket/add', 'TicketController@add');
     Route::post('ticket/create', 'TicketController@create');
     Route::get('ticket/{ticketId}/detail', 'TicketController@detail');
+    Route::post('ticket/{ticketId}/reply', 'TicketController@reply');
+    Route::post('ticket/{ticketId}/change-status', 'TicketController@changeStatus');
 });
 
 Route::get('/project-edit', 'FrontendController@projectEdit');

@@ -30,13 +30,34 @@ class TicketController extends Controller
     {
         $ticket = $this->ticket->getTicketById($ticketId);
         $data['ticket'] = $ticket->data->ticketDetail[0];
+        $data['userId'] = \Auth::user()->id;
+        $data['threads'] = $ticket->data->threadDetail;
         $data['ticketId'] = $ticketId;
         $data['pageTitle'] = 'Ticket';
+
         return view('pages.tickets.detail', $data);
+    }
+
+    public function reply(Request $request, $ticketId)
+    {
+        if ($this->ticket->reply($ticketId, $request->get('reply_content'))) {
+            return redirect('ticket/' . $ticketId . '/detail');
+        }
+        return redirect('ticket/' . $ticketId . '/detail')->withErrors(['error' => 'Can not reply the ticket.']);
+    }
+
+    public function changeStatus(Request $request, $ticketId)
+    {
+        if ($this->ticket->changeStatus($ticketId, $request->get('ticket_status'))) {
+            dd('adfadsf');
+            return redirect('ticket/' . $ticketId . '/detail');
+        }
+        return redirect('ticket/' . $ticketId . '/detail')->withErrors(['error' => 'Can not change ticket status.']);
     }
 
     public function add()
     {
+        $data['ticketTypes'] = $this->ticket->getTicketStatus();
         $data['pageTitle'] = 'Ticket';
         return view('pages.tickets.add', $data);
     }
