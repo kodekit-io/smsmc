@@ -22,21 +22,6 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Engagement Accounts';
         return view('pages.engagement-accounts', $data);
     }
-    public function engagementTicket()
-    {
-        $data['pageTitle'] = 'Ticket';
-        return view('pages.engagement-ticket', $data);
-    }
-    public function engagementTicketDetails($ticketId)
-    {
-        $data['pageTitle'] = 'Ticket';
-        return view('pages.engagement-ticket-details', $data);
-    }
-    public function engagementTicketCreate()
-    {
-        $data['pageTitle'] = 'Ticket';
-        return view('pages.engagement-ticket-create', $data);
-    }
     public function engagementCalendar()
     {
         $data['pageTitle'] = 'Scheduled Calendar';

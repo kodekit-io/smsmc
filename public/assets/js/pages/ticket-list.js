@@ -1,14 +1,14 @@
 function ticketList(div) {
-    var card = '<div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small"> \
-        <div class="uk-card-header uk-clearfix"> \
-            <h5 class="uk-card-title uk-float-left">Ticket List</h5> \
-            <a href="'+baseUrl+'/engagement-ticket-create" title="Create New Ticket" class="uk-button red white-text uk-float-right">Create New Ticket</a> \
-        </div> \
-        <div class="uk-card-body"> \
-            <table id="ticketList" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table"></table> \
-        </div> \
-    </div>';
-    $('#'+div).append(card);
+    // var card = '<div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small"> \
+    //     <div class="uk-card-header uk-clearfix"> \
+    //         <h5 class="uk-card-title uk-float-left">Ticket List</h5> \
+    //         <a href="' + baseUrl + '/ticket/add" title="Create New Ticket" class="uk-button red white-text uk-float-right">Create New Ticket</a> \
+    //     </div> \
+    //     <div class="uk-card-body"> \
+    //         <table id="ticketList" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table"></table> \
+    //     </div> \
+    // </div>';
+    // $('#'+div).append(card);
 
     var theTable = $('#ticketList').DataTable( {
         ajax: {
@@ -122,9 +122,9 @@ function ticketList(div) {
                     var ticketStatus = data['status'];
                     var btn = '';
                     if (ticketStatus === 'open') {
-                        btn = '<a href="'+baseUrl+'/engagement-ticket-details/'+ticketId+'" class="uk-button uk-button-small uk-button-secondary red white-text" title="Ticket Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>'
+                        btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/detail" class="uk-button uk-button-small uk-button-secondary red white-text" title="Ticket Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>'
                     } else {
-                        btn = '<a href="'+baseUrl+'/engagement-ticket-details/'+ticketId+'" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>'
+                        btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/reopen" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>'
                     }
                     return btn;
                 }

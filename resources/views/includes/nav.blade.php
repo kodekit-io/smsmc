@@ -37,14 +37,14 @@
                 </li>
                 <?php //if (usercanpost) { ?>
                 <li>
-                    <a href="{!! url('/engagement-ticket') !!}"><i class="material-icons md-18">mode_comment</i> Engagement</a>
+                    <a href="{!! url('ticket') !!}"><i class="material-icons md-18">mode_comment</i> Engagement</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <?php //if (admin) { ?>
                             <li><a href="{!! url('/engagement-accounts') !!}"><i class="fa fa-cog fa-fw"></i> Manage Accounts</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
-                            <li><a href="{!! url('/engagement-ticket') !!}"><i class="fa fa-ticket fa-fw"></i> Ticket</a></li>
+                            <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> Ticket</a></li>
                             <li><a href="{!! url('/engagement-calendar') !!}"><i class="fa fa-calendar fa-fw"></i> Calendar</a></li>
                             <li><a href="{!! url('/engagement-timeline') !!}"><i class="fa fa-hashtag fa-fw"></i> Timeline</a></li>
                         </ul>

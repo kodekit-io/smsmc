@@ -9,7 +9,17 @@
 
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-grid-medium uk-child-width-1-1@m" uk-grid>
-            <div id="01"></div>
+            <div id="01">
+                <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
+                    <div class="uk-card-header uk-clearfix">
+                        <h5 class="uk-card-title uk-float-left">Ticket List</h5>
+                        <a href="{!! url('ticket/add') !!}" title="Create New Ticket" class="uk-button red white-text uk-float-right">Create New Ticket</a>
+                    </div>
+                    <div class="uk-card-body">
+                        <table id="ticketList" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table"></table>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

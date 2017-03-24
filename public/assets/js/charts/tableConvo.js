@@ -140,6 +140,7 @@ function tableConvo(domId, url, chartApiData, name) {
                 $(this).blur();
 				var id = $(this).attr('data-id');
                 var modal = '<form id="changeSentiment" class="change-sentiment">'
+
                     + '<div class="uk-modal-body">'
 						+ '<h5>Edit Sentiment</h5>'
 	                    + '<div class="uk-margin">'
@@ -226,6 +227,7 @@ function tableAll(chartId,chartData) {
             {
                 "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "sentiment uk-text-center",
                 "createdCell": function (td, cellData, rowData, row, col) {
+                    console.log(cellData);
                     switch (cellData) {
                         case 'positive':
                             $(td).addClass('sm-sentiment green-text');

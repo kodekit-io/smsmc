@@ -82,6 +82,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/wordcloud', 'ChartController@wordcloud');
     Route::post('charts/influencer', 'ChartController@influencer');
     Route::post('charts/convo', 'ChartController@convo');
+
+    Route::get('ticket', 'TicketController@index');
+    Route::get('ticket/add', 'TicketController@add');
+    Route::post('ticket/create', 'TicketController@create');
+    Route::get('ticket/{ticketId}/detail', 'TicketController@detail');
 });
 
 Route::get('/project-edit', 'FrontendController@projectEdit');
@@ -93,9 +98,6 @@ Route::get('/socmed-yt', 'FrontendController@socmedYT');
 Route::get('/socmed-ig', 'FrontendController@socmedIG');
 
 Route::get('/engagement-accounts', 'FrontendController@engagementAccounts');
-Route::get('/engagement-ticket', 'FrontendController@engagementTicket');
-Route::get('/engagement-ticket-details/{ticketId}', 'FrontendController@engagementTicketDetails');
-Route::get('/engagement-ticket-create', 'FrontendController@engagementTicketCreate');
 Route::get('/engagement-calendar', 'FrontendController@engagementCalendar');
 Route::get('/engagement-timeline', 'FrontendController@engagementTimeline');
 
