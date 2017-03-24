@@ -12,7 +12,7 @@
             <div class="uk-card-header uk-clearfix sm-card-toolbar">
                 <h5 class="uk-card-title uk-float-left">Ticket #{!! $ticket->ticketId !!}</h5>
                 <ul class="uk-subnav uk-float-right uk-margin-remove">
-                    <li><span>Updates: <span class="uk-label sm-label uk-label-success">Mon, Jan 2, 2017 8:23 AM</span></span></li>
+                    <li><span>Updates: <span class="uk-label sm-label uk-label-success">{{ Carbon\Carbon::parse($ticket->date)->toDayDateTimeString() }}</span></span></li>
                     <li><span>Status: <span class="uk-label sm-label uk-label-danger">{!! strtoupper($ticket->type) !!}</span></span></li>
                 </ul>
             </div>
@@ -28,7 +28,7 @@
                             <tbody>
                                 <tr>
                                     <td width="25%">Create Date</td>
-                                    <td>{!! $ticket->date !!}</td>
+                                    <td>{{ Carbon\Carbon::parse($ticket->date)->toDayDateTimeString() }}</td>
                                 </tr>
                                 <tr>
                                     <td>From</td>
@@ -47,10 +47,8 @@
                                     <td>{!! strtoupper($ticket->type) !!}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
-                                        <p>Content :</p>
-                                        <div>{!! $ticket->content !!}</div>
-                                    </td>
+									<td>Message</td>
+                                    <td>{!! strtoupper($ticket->content) !!}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -66,7 +64,7 @@
                             <tbody>
                                 <tr>
                                     <td width="25%">Channel</td>
-                                    <td>{!! $ticket->media !!}</td>
+                                    <td><span class="media-{!! $ticket->media !!}"></span></td>
                                 </tr>
                                 <tr>
                                     <td>Author</td>
@@ -74,7 +72,7 @@
                                 </tr>
                                 <tr>
                                     <td>Post Date</td>
-                                    <td>{!! $ticket->post->date !!}</td>
+                                    <td>{{ Carbon\Carbon::parse($ticket->post->date)->toDayDateTimeString() }}</td>
                                 </tr>
                                 <tr>
                                     <td>Sentiment</td>
@@ -105,7 +103,7 @@
                 <ul class="sm-thread" uk-accordion="multiple: true">
                     @foreach($threads as $thread)
                     <li>
-                        <h6 class="uk-accordion-title">Reply from {!! $thread->sender !!} on {!! $thread->date !!}</h6>
+                        <h6 class="uk-accordion-title">Reply from {!! $thread->sender !!} on {{ Carbon\Carbon::parse($thread->date)->toDayDateTimeString() }}</h6>
                         <div class="uk-accordion-content">
                             <p>{!! $thread->content !!}</p>
                         </div>
@@ -113,7 +111,7 @@
                     @endforeach
                 </ul>
                 @endif
-                <h5 class="uk-card-title">New Respond</h5>
+                <h5 class="uk-card-title">Respond</h5>
                 <hr class="uk-margin-small-top">
                 <form action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
                     {!! csrf_field() !!}

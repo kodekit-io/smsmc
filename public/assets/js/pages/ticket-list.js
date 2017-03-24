@@ -28,8 +28,8 @@ function ticketList(div) {
             {
                 title: 'Ticket Date', width: '9%',
                 data: function ( data ) {
-                    // var localtime = moment.parseZone(data['date']).local().format('llll');
-                    return data['date'];
+                    var localtime = moment.parseZone(data['date']).format('llll');
+                    return localtime;
                 }
             },
             {
@@ -84,7 +84,7 @@ function ticketList(div) {
                 title: 'Post', width: '20%',
                 data: function ( data ) {
                     var date = data['postDate'];
-                    var localtime = date; // moment.parseZone(date).local().format('llll');
+                    var localtime = moment.parseZone(date).format('llll');
                     var postAuthor = data.post['author'];
                     var postDetails = data.post['post'];
                     var postLink = data.post['url'];

@@ -25,8 +25,9 @@ function tableConvo(domId, url, chartApiData, name) {
             }
         },
         success: function(result){
-            var result = jQuery.parseJSON(result);
-            console.log(result);
+            // console.log(result);
+			var result = jQuery.parseJSON(result);
+
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -175,132 +176,133 @@ function tableAll(chartId,chartData) {
             ]
         },
         columns: [
-            { "data": null,"orderable": false,"width": "2.5%" },
-            {
-                "data": "date","title": "Date", "width": "12.5%",
-                "render": function ( cellData ) {
-                    var localtime = moment.parseZone(cellData).local().format('llll');
-                    return localtime;
-                }
-            },
-            {
-                "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
-                "render": function ( cellData ) {
-                    var channel = cellData;
-                    var icon = "";
-                    switch (channel) {
-                        case 'facebook':
-                            icon = 'facebook';
-                            break;
-                        case 'twitter':
-                            icon = 'twitter';
-                            break;
-                        case 'youtube':
-                            icon = 'youtube';
-                            break;
-                        case 'instagram':
-                            icon = 'instagram';
-                            break;
-                        case 'news':
-                            icon = 'globe';
-                            break;
-                        case 'blog':
-                            icon = 'rss';
-                            break;
-                        case 'forum':
-                            icon = 'comments';
-                            break;
-                    }
-                    return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
-                }
-            },
-            { "data": "author", "title": "Author", "width": "15%" },
-            {
-                "data": null, "title": "Post", "width": "40%",
-                "render": function ( data ) {
-                    var post = data["post"];
-                    var postrim = post.substring(0,100) + "...";
-                    var plink = data["postLink"];
-                    return '<a href="'+plink+'" target="_blank" data-uk-tooltip title="'+post+'" class="uk-link">'+postrim+'</a>';
-                }
-            },
-            {
-                "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "sentiment uk-text-center",
-                "createdCell": function (td, cellData, rowData, row, col) {
-                    console.log(cellData);
-                    switch (cellData) {
-                        case 'positive':
-                            $(td).addClass('sm-sentiment green-text');
-                            break;
-                        case 'neutral':
-                            $(td).addClass('sm-sentiment grey-text');
-                            break;
-                        case 'negative':
-                            $(td).addClass('sm-sentiment red-text');
-                            break;
-                    }
-                }
-            },
-            {
-                "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
-                "render": function ( cellData, display, row ) {
-                    var btn = '';
-                    var postLink = row.postLink;
-                    var post = row.post;
-                    switch (cellData) {
-                        case 'New':
-                            btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-url="'+postLink+'" data-post="'+post+'"><span class="nothover">'+cellData+'</span></a>';
-                        break;
-                        case 'Closed':
-                            btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
-                        break;
-                        case 'Waiting':
-                            btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
-                        break;
-                    }
-                    //console.log(row);
-                    return btn;
-                }
-            }
+			{ "data": null },
+            // { "data": null,"orderable": false,"width": "2.5%" },
+            // {
+            //     "data": "date","title": "Date", "width": "12.5%",
+            //     "render": function ( cellData ) {
+            //         var localtime = moment.parseZone(cellData).local().format('llll');
+            //         return localtime;
+            //     }
+            // },
+            // {
+            //     "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
+            //     "render": function ( cellData ) {
+            //         var channel = cellData;
+            //         var icon = "";
+            //         switch (channel) {
+            //             case 'facebook':
+            //                 icon = 'facebook';
+            //                 break;
+            //             case 'twitter':
+            //                 icon = 'twitter';
+            //                 break;
+            //             case 'youtube':
+            //                 icon = 'youtube';
+            //                 break;
+            //             case 'instagram':
+            //                 icon = 'instagram';
+            //                 break;
+            //             case 'news':
+            //                 icon = 'globe';
+            //                 break;
+            //             case 'blog':
+            //                 icon = 'rss';
+            //                 break;
+            //             case 'forum':
+            //                 icon = 'comments';
+            //                 break;
+            //         }
+            //         return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
+            //     }
+            // },
+            // { "data": "author", "title": "Author", "width": "15%" },
+            // {
+            //     "data": null, "title": "Post", "width": "40%",
+            //     "render": function ( data ) {
+            //         var post = data["post"];
+            //         var postrim = post.substring(0,100) + "...";
+            //         var plink = data["postLink"];
+            //         return '<a href="'+plink+'" target="_blank" data-uk-tooltip title="'+post+'" class="uk-link">'+postrim+'</a>';
+            //     }
+            // },
+            // {
+            //     "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "sentiment uk-text-center",
+            //     "createdCell": function (td, cellData, rowData, row, col) {
+            //         // console.log(cellData);
+            //         switch (cellData) {
+            //             case 'positive':
+            //                 $(td).addClass('sm-sentiment green-text');
+            //                 break;
+            //             case 'neutral':
+            //                 $(td).addClass('sm-sentiment grey-text');
+            //                 break;
+            //             case 'negative':
+            //                 $(td).addClass('sm-sentiment red-text');
+            //                 break;
+            //         }
+            //     }
+            // },
+            // {
+            //     "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
+            //     "render": function ( cellData, display, row ) {
+            //         var btn = '';
+            //         var postLink = row.postLink;
+            //         var post = row.post;
+            //         switch (cellData) {
+            //             case 'New':
+            //                 btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-url="'+postLink+'" data-post="'+post+'"><span class="nothover">'+cellData+'</span></a>';
+            //             break;
+            //             case 'Closed':
+            //                 btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+            //             break;
+            //             case 'Waiting':
+            //                 btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+            //             break;
+            //         }
+            //         //console.log(row);
+            //         return btn;
+            //     }
+            // }
         ],
-        order: [[ 1, "desc" ]],
-        initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                if(column[0][0] == 5) {
-                    var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
-                        .appendTo( $(column.header()).empty() )
-                        .on( 'change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-                            column
-                                .search( val ? '^'+val+'$' : '', true, false )
-                                .draw();
-                        } );
-
-                    column.data().unique().sort().each( function ( d, j ) {
-                        select.append( '<option value="'+d+'">'+d+'</option>' )
-                    });
-                }
-                if(column[0][0] == 6) {
-                    var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
-                        .appendTo( $(column.header()).empty() )
-                        .on( 'change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-                            column
-                                .search( val ? '^'+val+'$' : '', true, false )
-                                .draw();
-                        } );
-
-                    column.data().unique().sort().each( function ( d, j ) {
-                        select.append( '<option value="'+d+'">'+d+'</option>' )
-                    });
-                }
-            });
-        }
+        // order: [[ 1, "desc" ]],
+        // initComplete: function () {
+        //     this.api().columns().every( function () {
+        //         var column = this;
+        //         if(column[0][0] == 5) {
+        //             var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
+        //                 .appendTo( $(column.header()).empty() )
+        //                 .on( 'change', function () {
+        //                     var val = $.fn.dataTable.util.escapeRegex(
+        //                         $(this).val()
+        //                     );
+        //                     column
+        //                         .search( val ? '^'+val+'$' : '', true, false )
+        //                         .draw();
+        //                 } );
+		//
+        //             column.data().unique().sort().each( function ( d, j ) {
+        //                 select.append( '<option value="'+d+'">'+d+'</option>' )
+        //             });
+        //         }
+        //         if(column[0][0] == 6) {
+        //             var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
+        //                 .appendTo( $(column.header()).empty() )
+        //                 .on( 'change', function () {
+        //                     var val = $.fn.dataTable.util.escapeRegex(
+        //                         $(this).val()
+        //                     );
+        //                     column
+        //                         .search( val ? '^'+val+'$' : '', true, false )
+        //                         .draw();
+        //                 } );
+		//
+        //             column.data().unique().sort().each( function ( d, j ) {
+        //                 select.append( '<option value="'+d+'">'+d+'</option>' )
+        //             });
+        //         }
+        //     });
+        // }
     });
     theTable.on( 'order.dt search.dt', function () {
         theTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {

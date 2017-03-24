@@ -541,3 +541,24 @@ div.sm-dropdown li {
     border: 1px solid #e5e5e5;
     padding: 1rem;
 }
+.media-1:before {
+	content: "Facebook";
+}
+.media-2:before {
+	content: "Twitter";
+}
+.media-3:before {
+	content: "Blog";
+}
+.media-4:before {
+	content: "Online News";
+}
+.media-5:before {
+	content: "Youtube";
+}
+.media-6:before {
+	content: "Forum";
+}
+.media-7:before {
+	content: "Instagram";
+}
