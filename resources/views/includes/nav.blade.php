@@ -63,13 +63,13 @@
                 </li>
                 <?php //} ?>
                 <li>
-                    <a href="{!! url('/account') !!}"><i class="material-icons md-18">account_circle</i> Profile</a>
+                    <a href="{!! url('setting/account') !!}"><i class="material-icons md-18">account_circle</i> Profile</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li><a href="{!! url('/account') !!}"><i class="fa fa-user fa-fw"></i> My Account</a></li>
+                            <li><a href="{!! url('setting/account') !!}"><i class="fa fa-user fa-fw"></i> My Account</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //if (admin) { ?>
-                            <li><a href="{!! url('/admin') !!}" title="Only show to Admin" uk-tooltip><i class="fa fa-cogs fa-fw"></i> Setting</a></li>
+                            <li><a href="{!! url('setting/user') !!}" title="Only show to Admin" uk-tooltip><i class="fa fa-cogs fa-fw"></i> Setting</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
                             <li><a href="{!! url('/logout') !!}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>

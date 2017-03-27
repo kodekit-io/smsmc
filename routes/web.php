@@ -89,6 +89,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('ticket/{ticketId}/detail', 'TicketController@detail');
     Route::post('ticket/{ticketId}/reply', 'TicketController@reply');
     Route::post('ticket/{ticketId}/change-status', 'TicketController@changeStatus');
+
+    Route::get('setting/user', 'SettingController@user');
+    Route::get('setting/user/list', 'SettingController@userList');
+    Route::get('setting/user/add', 'SettingController@userAdd');
+    Route::post('setting/user/store', 'SettingController@userStore');
+    Route::get('setting/user/{userId}/edit', 'SettingController@userEdit');
+    Route::post('setting/user/{userId}/update', 'SettingController@userUpdate');
+    Route::get('setting/user/{userId}/delete', 'SettingController@userDelete');
 });
 
 Route::get('/project-edit', 'FrontendController@projectEdit');
@@ -107,9 +115,6 @@ Route::get('/report-view', 'FrontendController@reportView');
 Route::get('/report-add', 'FrontendController@reportAdd');
 
 Route::get('/account', 'FrontendController@account');
-Route::get('/admin', 'FrontendController@admin');
-Route::get('/admin-add', 'FrontendController@adminAdd');
-Route::get('/admin-edit', 'FrontendController@adminEdit');
 
 Route::get('/notifications', 'FrontendController@notif');
 Route::get('/page-help', 'FrontendController@pageHelp');

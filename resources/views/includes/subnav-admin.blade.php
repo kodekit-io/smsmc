@@ -3,13 +3,13 @@
 
         <ul class="uk-navbar-nav">
             <li>
-                <a href="{!! url('/') !!}/admin"> Manage Accounts</a>
+                <a href="{!! url('setting/user') !!}"> Manage Accounts</a>
             </li>
             <li>
-                <a href="#"> Manage Groups</a>
+                <a href="{!! url('setting/group') !!}"> Manage Groups</a>
             </li>
             <li>
-                <a href="#"> Notifications Setting</a>
+                <a href="{!! url('setting/notification') !!}"> Notifications Setting</a>
             </li>
         </ul>
     </div>

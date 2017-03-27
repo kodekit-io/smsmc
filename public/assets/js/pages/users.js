@@ -3,22 +3,23 @@ $(document).ready(function() {
         //"searching": false,
         //"info": false,
         "ajax": {
-            "url" : "json/users-list.json",
-            "data" : "data",
+            //"url" : "json/users-list.json",
+            "url": baseUrl + '/setting/user/list',
+            "data" : "user",
         },
         "columns": [
             {
                 "title": "Id",
                 "data": null,
                 "render": function ( data ) {
-                    return data["id"];
+                    return data["idLogin"];
                 }
             },
             {
                 "title": "Username",
                 "data": null,
                 "render": function ( data ) {
-                    return data["username"];
+                    return data["userName"];
                 }
             },
             {
@@ -39,7 +40,7 @@ $(document).ready(function() {
                 "title": "BP",
                 "data": null,
                 "render": function ( data ) {
-                    return data["bp"];
+                    return data["BP"];
                 }
             },
             {
@@ -62,8 +63,8 @@ $(document).ready(function() {
                 "class": "uk-text-right",
                 "render": function ( data ) {
                     var id = data["id"];
-                    var url = '/admin-edit/?id='+id;
-                    return '<a href="#" title="Edit User" class="uk-button uk-button-small uk-button-default">Edit</a> <a href="#" title="Delete User" class="uk-button uk-button-small uk-button-default">Delete</a>';
+                    var url = '/setting/user/' + id + '/';
+                    return '<a href="' + url + 'edit" title="Edit User" class="uk-button uk-button-small uk-button-default">Edit</a> <a href="' + url + 'delete" title="Delete User" class="uk-button uk-button-small uk-button-default">Delete</a>';
                 }
             }
         ],
