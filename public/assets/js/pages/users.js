@@ -1,73 +1,65 @@
-$(document).ready(function() {
-    $("#users").DataTable({
-        //"searching": false,
-        //"info": false,
-        "ajax": {
-            //"url" : "json/users-list.json",
-            "url": baseUrl + '/setting/user/list',
-            "data" : "user",
-        },
-        "columns": [
-            {
-                "title": "Id",
-                "data": null,
-                "render": function ( data ) {
-                    return data["idLogin"];
-                }
+(function ($, window, document) {
+    $(function () {
+		userlist('users', baseUrl + '/setting/user/list');
+	});
+
+	function userlist(domId,url) {
+		$.ajax({
+            url: url,
+			dataType: 'json',
+            beforeSend : function(xhr) {
             },
-            {
-                "title": "Username",
-                "data": null,
-                "render": function ( data ) {
-                    return data["userName"];
-                }
+            complete : function(xhr, status) {
             },
-            {
-                "title": "Name",
-                "data": null,
-                "render": function ( data ) {
-                    return data["name"];
-                }
-            },
-            {
-                "title": "Email",
-                "data": null,
-                "render": function ( data ) {
-                    return data["email"];
-                }
-            },
-            {
-                "title": "BP",
-                "data": null,
-                "render": function ( data ) {
-                    return data["BP"];
-                }
-            },
-            {
-                "title": "Group",
-                "data": null,
-                "render": function ( data ) {
-                    return data["group"];
-                }
-            },
-            {
-                "title": "Type",
-                "data": null,
-                "render": function ( data ) {
-                    return data["type"];
-                }
-            },
-            {
-                "title": "",
-                "data": null,
-                "class": "uk-text-right",
-                "render": function ( data ) {
-                    var id = data["id"];
-                    var url = '/setting/user/' + id + '/';
-                    return '<a href="' + url + 'edit" title="Edit User" class="uk-button uk-button-small uk-button-default">Edit</a> <a href="' + url + 'delete" title="Delete User" class="uk-button uk-button-small uk-button-default">Delete</a>';
-                }
-            }
-        ],
-        "order": [[ 0, "asc" ]]
-    });
-});
+            success : function(result) {
+				var data = result.user;
+			    var theTable = $("#"+domId).DataTable({
+			        //"searching": false,
+			        //"info": false,
+					"data": data,
+			        "columns": [
+			            {
+			                "title": "Id",
+			                "data": "idLogin"
+			            },
+			            {
+			                "title": "Username",
+			                "data": "userName"
+			            },
+			            {
+			                "title": "Name",
+			                "data": "name"
+			            },
+			            {
+			                "title": "Email",
+			                "data": "email"
+			            },
+			            {
+			                "title": "BP",
+			                "data": "BP"
+			            },
+			            {
+			                "title": "Group",
+			                "data": "group"
+			            },
+			            {
+			                "title": "Type",
+			                "data": "type"
+			            },
+			            {
+			                "title": "",
+			                "class": "uk-text-right",
+			                "data": function ( data ) {
+			                    var id = data["id"];
+			                    var url = '/setting/user/' + id + '/';
+			                    return '<a href="' + url + 'edit" title="Edit User" class="uk-button uk-button-small uk-button-default">Edit</a> <a href="' + url + 'delete" title="Delete User" class="uk-button uk-button-small uk-button-default">Delete</a>';
+			                }
+			            }
+			        ],
+			        "order": [[ 0, "asc" ]]
+			    });
+
+			}
+		});
+	}
+}(window.jQuery, window, document));
