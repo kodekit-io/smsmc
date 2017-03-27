@@ -80,7 +80,7 @@ function chartOntology(domId,url,chartApiData,name) {
 	                    }
 					}
                 }
-                console.log(serie);
+                // console.log(serie);
                 var option = {
                     legend: {
                         data: result.categories,
