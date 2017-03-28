@@ -70,7 +70,7 @@ function chartOntology(domId,url,chartApiData,name) {
 
                 var serie=[];
                 for (var i = 0; i < data.length; i++) {
-					if (i < 25) {
+					// if (i < 25) {
 						serie[i] = {
 	                        name: data[i].name,
 	                        value: data[i].value,
@@ -78,7 +78,7 @@ function chartOntology(domId,url,chartApiData,name) {
 	                        category: data[i].category,
 	                        node: data[i].node
 	                    }
-					}
+					// }
                 }
                 // console.log(serie);
                 var option = {
@@ -123,11 +123,11 @@ function chartOntology(domId,url,chartApiData,name) {
                             }
                         },
                         draggable: true,
-                        // data: result.nodes.map(function (node, idx) {
-                        //     node.id = idx;
-                        //     return node;
-                        // }),
-						data: serie,
+                        data: result.nodes.map(function (node, idx) {
+                            node.id = idx;
+                            return node;
+                        }),
+						// data: serie,
                         categories: result.categories,
                         force: {
                             repulsion: 50,

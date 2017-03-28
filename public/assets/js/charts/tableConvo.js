@@ -359,7 +359,7 @@ function tableFacebook(chartId,chartData) {
                 "title": "","width": "10%","orderable": false,"class": "sentiment uk-text-center", "data": "Sentiment",
 				"createdCell": function (td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					console.log(id);
+					// console.log(id);
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text').attr('data-id',id);
@@ -474,7 +474,7 @@ function tableTwitter(chartId,chartData) {
                 "data": "sentiment",
 				"createdCell": function (td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					console.log(id);
+					// console.log(id);
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text').attr('data-id',id);
@@ -584,7 +584,7 @@ function tableNews(chartId,chartData) {
                 "data": "sentiment",
 				"createdCell": function (td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					console.log(id);
+					// console.log(id);
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text').attr('data-id',id);
@@ -694,7 +694,7 @@ function tableBlog(chartId,chartData) {
                 "data": "Sentiment",
 				"createdCell": function (td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					console.log(id);
+					// console.log(id);
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text').attr('data-id',id);
@@ -916,7 +916,7 @@ function tableVideo(chartId,chartData) {
                 "data": "Sentiment",
 				"createdCell": function (td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					console.log(id);
+					// console.log(id);
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text').attr('data-id',id);
@@ -1030,7 +1030,7 @@ function tableInstagram(chartId,chartData) {
                 "data": "sentiment",
 				"createdCell": function (td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					console.log(id);
+					// console.log(id);
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text').attr('data-id',id);
