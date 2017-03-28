@@ -32,4 +32,21 @@ class SettingController extends Controller
         $data = $this->user->getUsers();
         return \GuzzleHttp\json_encode($data);
     }
+
+    public function userAdd()
+    {
+        $data['pageTitle'] = 'Add Account';
+
+        return view('pages.users.add', $data);
+    }
+
+    public function userStore(Request $request)
+    {
+        $response = $this->user->create($request->except(['_token']));
+        if ($response->status == '200') {
+            return redirect('setting/user');
+        }
+
+        return redirect('setting/user/add')->withErrors(['error' => 'Error.']);
+    }
 }
