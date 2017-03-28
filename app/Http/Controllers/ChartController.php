@@ -72,7 +72,7 @@ class ChartController extends Controller
 
     public function trendComment(Request $request)
     {
-        $data = $this->withMedia('commentrend', $request);
+        $data = $this->withMedia('commenttrend', $request);
         return $this->parseChartResult($data);
     }
 
@@ -84,7 +84,7 @@ class ChartController extends Controller
 
     public function trendPotentialReach(Request $request)
     {
-        $data = $this->withoutMedia('potensialreachtrend', $request);
+        $data = $this->withoutMedia('potentialreachtrend', $request);
         return $this->parseChartResult($data);
     }
 

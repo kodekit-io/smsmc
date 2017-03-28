@@ -25,6 +25,7 @@ function chartTrend(domId, url, chartApiData, title) {
             }
         },
         success: function(result){
+			// console.log(result);
             var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
@@ -53,16 +54,13 @@ function chartTrend(domId, url, chartApiData, title) {
             + '</div>';
             $('#'+domId).append(card);
 
-            if (chartData.length === 0) {
-                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
-            } else {
-                var serie=[], key=[], color=[], dmy=[], dates=[];
+            if (chartData.length > 0) {
+				var serie=[], key=[], color=[], dmy=[], dates=[];
                 for (var i = 0; i < chartData.length; i++) {
                     key[i] = chartData[i].key;
                     color[i] = chartData[i].color;
                     data = chartData[i].value;
                     date = chartData[i].date;
-
 
                     //console.log(sDate+'-'+eDate);
                     for (var n = 0; n < date.length; n++) {
@@ -184,6 +182,8 @@ function chartTrend(domId, url, chartApiData, title) {
                         theChart.resize();
                     }
                 });
+            } else {
+				$('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
             }
         }
     });
