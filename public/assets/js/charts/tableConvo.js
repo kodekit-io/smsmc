@@ -25,8 +25,8 @@ function tableConvo(domId, url, chartApiData, name) {
             }
         },
         success: function(result){
-            // console.log(result);
 			var result = jQuery.parseJSON(result);
+			console.log(result);
 
             var chartId = result.chartId;
             var chartName = result.chartName;
@@ -87,8 +87,7 @@ function tableConvo(domId, url, chartApiData, name) {
             $('#'+chartId+'Table').on('click', '.sm-btn-openticket', function(e) {
                 e.preventDefault();
                 $(this).blur();
-                var postLink = $(this).attr('data-url');
-                var post = $(this).attr('data-post');
+                var postId = $(this).attr('data-id');
                 var ticketType = '<li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>'
                 + '<li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>'
                 + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>'
@@ -123,8 +122,7 @@ function tableConvo(domId, url, chartApiData, name) {
                     + '</div>'
                     + '<div class="uk-margin">'
                         + '<textarea class="uk-textarea" rows="3" placeholder="Additional message"></textarea>'
-                        + '<input type="hidden" name="postlink" value="'+postLink+'">'
-                        + '<input type="hidden" name="post" value="'+post+'">'
+                        + '<input type="hidden" name="postId" value="'+postId+'">'
                     + '</div>'
                 + '</div>'
                 + '<div class="uk-modal-footer uk-clearfix">'
@@ -374,7 +372,28 @@ function tableFacebook(chartId,chartData) {
 				}
             },
             {
-                "data": null, "title": "Status", "width": "10%"
+                "title": "Status", "orderable": false, "width": "10%", "class": "uk-text-center",
+        "data": function ( data ) {
+  var cellData = data['status'];
+  var id = data['id'];
+            var btn = '';
+            switch (cellData) {
+                case 'New':
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">'+cellData+'</span></a>';
+                break;
+                case 'Closed':
+                    btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                break;
+                case 'Waiting':
+                    btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                break;
+    default:
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">New</span></a>';
+                break;
+            }
+            //console.log(row);
+            return btn;
+        }
             }
         ],
         order: [[ 0, "desc" ]],
@@ -430,6 +449,7 @@ function tableFacebook(chartId,chartData) {
 function tableTwitter(chartId,chartData) {
     var theTable = $('#'+chartId+'Table').DataTable( {
         data: chartData,
+		pageLength: 25,
         buttons: {
             buttons: [
                 //{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
@@ -488,8 +508,29 @@ function tableTwitter(chartId,chartData) {
 					}
 				}
             },
-            {
-                "data": null, "title": "Status", "width": "10%"
+			{
+                "title": "Status", "orderable": false, "width": "10%", "class": "uk-text-center",
+                "data": function ( data ) {
+					var cellData = data['status'];
+					var id = data['id'];
+                    var btn = '';
+                    switch (cellData) {
+                        case 'New':
+                            btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">'+cellData+'</span></a>';
+                        break;
+                        case 'Closed':
+                            btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                        break;
+                        case 'Waiting':
+                            btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                        break;
+						default:
+                            btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">New</span></a>';
+                        break;
+                    }
+                    //console.log(row);
+                    return btn;
+                }
             }
         ],
         order: [[ 0, "desc" ]],
@@ -599,7 +640,28 @@ function tableNews(chartId,chartData) {
 				}
             },
             {
-                "data": null, "title": "Status", "width": "10%"
+                "title": "Status", "orderable": false, "width": "10%", "class": "uk-text-center",
+        "data": function ( data ) {
+  var cellData = data['status'];
+  var id = data['id'];
+            var btn = '';
+            switch (cellData) {
+                case 'New':
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">'+cellData+'</span></a>';
+                break;
+                case 'Closed':
+                    btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                break;
+                case 'Waiting':
+                    btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                break;
+    default:
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">New</span></a>';
+                break;
+            }
+            //console.log(row);
+            return btn;
+        }
             }
         ],
         order: [[ 0, "desc" ]],
@@ -709,7 +771,28 @@ function tableBlog(chartId,chartData) {
 				}
             },
             {
-                "data": null, "title": "Status", "width": "10%"
+                "title": "Status", "orderable": false, "width": "10%", "class": "uk-text-center",
+        "data": function ( data ) {
+  var cellData = data['status'];
+  var id = data['id'];
+            var btn = '';
+            switch (cellData) {
+                case 'New':
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">'+cellData+'</span></a>';
+                break;
+                case 'Closed':
+                    btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                break;
+                case 'Waiting':
+                    btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                break;
+    default:
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">New</span></a>';
+                break;
+            }
+            //console.log(row);
+            return btn;
+        }
             }
         ],
         order: [[ 0, "desc" ]],
@@ -818,7 +901,28 @@ function tableForum(chartId,chartData) {
 				}
             },
             {
-                "data": null, "title": "Status", "width": "10%"
+                "title": "Status", "orderable": false, "width": "10%", "class": "uk-text-center",
+        "data": function ( data ) {
+  var cellData = data['status'];
+  var id = data['id'];
+            var btn = '';
+            switch (cellData) {
+                case 'New':
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">'+cellData+'</span></a>';
+                break;
+                case 'Closed':
+                    btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                break;
+                case 'Waiting':
+                    btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                break;
+    default:
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">New</span></a>';
+                break;
+            }
+            //console.log(row);
+            return btn;
+        }
             }
         ],
         order: [[ 0, "desc" ]],
@@ -931,7 +1035,28 @@ function tableVideo(chartId,chartData) {
 				}
             },
             {
-                "data": null, "title": "Status", "width": "10%"
+                "title": "Status", "orderable": false, "width": "10%", "class": "uk-text-center",
+        "data": function ( data ) {
+  var cellData = data['status'];
+  var id = data['id'];
+            var btn = '';
+            switch (cellData) {
+                case 'New':
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">'+cellData+'</span></a>';
+                break;
+                case 'Closed':
+                    btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                break;
+                case 'Waiting':
+                    btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                break;
+    default:
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">New</span></a>';
+                break;
+            }
+            //console.log(row);
+            return btn;
+        }
             }
         ],
         order: [[ 0, "desc" ]],
@@ -1045,7 +1170,28 @@ function tableInstagram(chartId,chartData) {
 				}
             },
             {
-                "data": null, "title": "Status", "width": "10%"
+                "title": "Status", "orderable": false, "width": "10%", "class": "uk-text-center",
+        "data": function ( data ) {
+  var cellData = data['status'];
+  var id = data['id'];
+            var btn = '';
+            switch (cellData) {
+                case 'New':
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">'+cellData+'</span></a>';
+                break;
+                case 'Closed':
+                    btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
+                break;
+                case 'Waiting':
+                    btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
+                break;
+    default:
+                    btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="'+id+'"><span class="nothover">New</span></a>';
+                break;
+            }
+            //console.log(row);
+            return btn;
+        }
             }
         ],
         order: [[ 0, "desc" ]],
