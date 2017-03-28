@@ -64,7 +64,16 @@ class TestController extends Controller
 		return \GuzzleHttp\json_encode($result->result);
 		// echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
 	}
-
+	public function api0($x,$y,$a)
+	{
+		$params = [
+			'id_login' => $x,
+			'id_media' => $y,
+		];
+		$result = $this->smsmc->post($a, $params);
+		//return \GuzzleHttp\json_encode($result->result);
+		echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+	}
     public function api1($x,$a)
     {
         $params = [
