@@ -46,8 +46,6 @@ class User
         ];
         $response = $this->smsmc->post('user/add', $params);
 
-        dd($response);
-
         return $response;
     }
 
@@ -77,5 +75,50 @@ class User
         $response = $this->smsmc->post('user/delete', $params);
 
         return $response;
+    }
+
+    public function getUserById($id)
+    {
+        $params = [
+            'uid' => \Auth::user()->id,
+            'userId' => $id
+        ];
+        $response = $this->smsmc->post('user/get', $params);
+        if ($response->status == '200') {
+            return $response->result;
+        }
+
+        return [];
+    }
+
+    public function updateUser($data, $id)
+    {
+        $params = [
+            'uid' => \Auth::user()->id,
+            'userId' => $id,
+            'email' => $data['email'],
+            'name' => $data['name']
+        ];
+
+        if ($data['password'] != '') {
+            if ($data['password'] == $data['password2']) {
+                $params['password'] = $data['password'];
+                $params['conPassWord'] = $data['password'];
+            }
+        }
+
+        $response = $this->smsmc->post('user/edit', $params);
+
+        return $response;
+    }
+
+    public function deleteUser($id)
+    {
+        $params = [
+            'uid' => \Auth::user()->id,
+            'userId' => $id
+        ];
+
+        return $this->smsmc->post('user/delete', $params);
     }
 }
