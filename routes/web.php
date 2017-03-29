@@ -59,6 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/trend-view', 'ChartController@trendView');
     Route::post('charts/trend-potential-reach', 'ChartController@trendPotentialReach');
     Route::post('charts/trend-love', 'ChartController@trendLove');
+    Route::post('charts/trend-fans', 'ChartController@trendFans');
 
     Route::post('charts/pie-post', 'ChartController@piePost');
     Route::post('charts/pie-buzz', 'ChartController@pieBuzz');
@@ -82,6 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/wordcloud', 'ChartController@wordcloud');
     Route::post('charts/influencer', 'ChartController@influencer');
     Route::post('charts/convo', 'ChartController@convo');
+    Route::any('charts/paging-convo', 'ChartController@pagingConvo');
 
     Route::get('ticket', 'TicketController@index');
     Route::get('ticket/add', 'TicketController@add');
@@ -97,11 +99,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('setting/user/{userId}/edit', 'SettingController@userEdit');
     Route::post('setting/user/{userId}/update', 'SettingController@userUpdate');
     Route::get('setting/user/{userId}/delete', 'SettingController@userDelete');
+
+    Route::get('/socmed-accounts', 'FrontendController@socmedAccounts');
+    Route::post('/socmed-accounts/save', 'FrontendController@socmedAccountsSave');
 });
 
 Route::get('/project-edit', 'FrontendController@projectEdit');
 
-Route::get('/socmed-accounts', 'FrontendController@socmedAccounts');
+
 Route::get('/socmed-fb', 'FrontendController@socmedFB');
 Route::get('/socmed-tw', 'FrontendController@socmedTW');
 Route::get('/socmed-yt', 'FrontendController@socmedYT');

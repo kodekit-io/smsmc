@@ -25,28 +25,28 @@ class SocmedController extends Controller
 
     public function facebook(Request $request)
     {
-        $data = $this->parseRequest($request);
+        $data = $this->parseRequest($request, 'facebook');
         $data['pageTitle'] = 'Facebook';
         return view('pages.socmed-fb', $data);
     }
 
     public function twitter(Request $request)
     {
-        $data = $this->parseRequest($request);
+        $data = $this->parseRequest($request, 'twitter');
         $data['pageTitle'] = 'Twitter';
         return view('pages.socmed-tw', $data);
     }
 
     public function youtube(Request $request)
     {
-        $data = $this->parseRequest($request);
+        $data = $this->parseRequest($request, 'youtube');
         $data['pageTitle'] = 'Youtube';
         return view('pages.socmed-yt', $data);
     }
 
     public function instagram(Request $request)
     {
-        $data = $this->parseRequest($request);
+        $data = $this->parseRequest($request, 'instagram');
         $data['pageTitle'] = 'Instagram';
         return view('pages.socmed-ig', $data);
     }

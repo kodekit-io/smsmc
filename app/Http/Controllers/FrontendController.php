@@ -2,20 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Service\Project;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use App\Service\Account;
+use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
 {
+    /**
+     * @var Account
+     */
+    private $account;
+
+    /**
+     * FrontEndController constructor.
+     */
+    public function __construct(Account $account)
+    {
+        $this->account = $account;
+    }
+
     public function socmedAccounts()
     {
+        $data['socmed'] = $this->account->getSocialAccounts()[0];
         $data['pageTitle'] = 'Social Media Accounts';
         return view('pages.socmed-accounts', $data);
     }
 
+    public function socmedAccountsSave(Request $request)
+    {
+        $this->account->updateSocialAccount($request->except(['_token']));
+        return redirect('socmed-accounts');
+    }
 
     public function engagementAccounts()
     {

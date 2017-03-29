@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service\ChartParameter;
+use App\Service\DatatableResult;
 use App\Service\Smsmc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -13,13 +14,18 @@ class ChartController extends Controller
      * @var Smsmc
      */
     private $smsmc;
+    /**
+     * @var DatatableResult
+     */
+    private $datatableResult;
 
     /**
      * ChartController constructor.
      */
-    public function __construct(Smsmc $smsmc)
+    public function __construct(Smsmc $smsmc, DatatableResult $datatableResult)
     {
         $this->smsmc = $smsmc;
+        $this->datatableResult = $datatableResult;
     }
 
     public function brandEquity(Request $request)
@@ -92,6 +98,13 @@ class ChartController extends Controller
     {
         $data = $this->withoutMedia('lovetrend', $request);
         return $this->parseChartResult($data);
+    }
+
+    public function trendFans(Request $request)
+    {
+//        $data = $this->withoutMedia('lovetrend', $request);
+//        return $this->parseChartResult($data);
+        return [];
     }
 
     public function piePost(Request $request)
@@ -206,6 +219,23 @@ class ChartController extends Controller
     {
         $data = $this->withMedia('convo', $request);
         return $this->parseChartResult($data);
+    }
+
+    public function pagingConvo(Request $request)
+    {
+        $params['pid'] = '1022492332017';
+        $params['StartDate'] = '2017-03-22T00:00:01Z';
+        $params['EndDate'] = '2017-03-29T11:36:14Z';
+        $params['brandID'] = '';
+        $params['sentiment'] = '-1,0,1';
+
+        $data = $this->smsmc->post('project/1/2/convo', $params);
+        $dtResult = new DatatableResult();
+        $dtResult->setData($data);
+        Log::warning(\GuzzleHttp\json_encode($dtResult));
+        return \GuzzleHttp\json_encode($dtResult);
+        // Log::warning(\GuzzleHttp\json_encode($dtResult));
+        // return $this->parseChartResult($data);
     }
 
     public function influencer(Request $request)
