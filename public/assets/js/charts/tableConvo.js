@@ -138,9 +138,7 @@ function tableConvo(domId, url, chartApiData, name) {
 				e.preventDefault();
 				$(this).blur();
 				var id = $(this).attr('data-id');
-				var modal = '<form id="changeSentiment" class="change-sentiment">'
-
-					+
+				var modal = '<form id="changeSentiment" class="change-sentiment">' +
 					'<div class="uk-modal-body">' +
 					'<h5>Edit Sentiment</h5>' +
 					'<div class="uk-margin">' +
@@ -457,8 +455,6 @@ function tableFacebook(chartId, chartData) {
 							var val = $.fn.dataTable.util.escapeRegex(
 								$(this).val()
 							);
-							// var dval = $(this).val();
-							// console.log(dval);
 							column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
@@ -502,7 +498,6 @@ function tableFacebook(chartId, chartData) {
 function tableTwitter(chartId, chartData) {
 	var theTable = $('#' + chartId + 'Table').DataTable({
 		data: chartData, pageLength: 25,
-
 		buttons: {
 			buttons: [
 				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
@@ -635,8 +630,6 @@ function tableTwitter(chartId, chartData) {
 							var val = $.fn.dataTable.util.escapeRegex(
 								$(this).val()
 							);
-							// var dval = $(this).val();
-							// console.log(dval);
 							column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
@@ -801,8 +794,6 @@ function tableNews(chartId, chartData) {
 							var val = $.fn.dataTable.util.escapeRegex(
 								$(this).val()
 							);
-							// var dval = $(this).val();
-							// console.log(dval);
 							column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
@@ -958,8 +949,6 @@ function tableBlog(chartId, chartData) {
 							var val = $.fn.dataTable.util.escapeRegex(
 								$(this).val()
 							);
-							// var dval = $(this).val();
-							// console.log(dval);
 							column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
@@ -1123,8 +1112,6 @@ function tableForum(chartId, chartData) {
 							var val = $.fn.dataTable.util.escapeRegex(
 								$(this).val()
 							);
-							// var dval = $(this).val();
-							// console.log(dval);
 							column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
@@ -1292,8 +1279,6 @@ function tableVideo(chartId, chartData) {
 							var val = $.fn.dataTable.util.escapeRegex(
 								$(this).val()
 							);
-							// var dval = $(this).val();
-							// console.log(dval);
 							column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
@@ -1459,8 +1444,6 @@ function tableInstagram(chartId, chartData) {
 							var val = $.fn.dataTable.util.escapeRegex(
 								$(this).val()
 							);
-							// var dval = $(this).val();
-							// console.log(dval);
 							column
 								.search(val ? '^' + val + '$' : '', true, false)
 								.draw();
