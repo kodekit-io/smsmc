@@ -96,9 +96,11 @@ trait ProjectRequestParser
     function isKeywordSelected($keywordId, $request)
     {
         $select = '';
-        if ($request->has('keywords')) {
-            if (in_array($keywordId, $request->input('keywords'))) {
-                $select = 'checked';
+        if($request->has('filter')) {
+            if ($request->has('keywords')) {
+                if (in_array($keywordId, $request->input('keywords'))) {
+                    $select = 'checked';
+                }
             }
         } else {
             $select = 'checked';
@@ -109,22 +111,27 @@ trait ProjectRequestParser
     function isTopicSelected($topicId, $request)
     {
         $select = '';
-        if ($request->has('topics')) {
-            if (in_array($topicId, $request->input('keywords'))) {
-                $select = 'checked';
+        if($request->has('filter')) {
+            if ($request->has('topics')) {
+                if (in_array($topicId, $request->input('topics'))) {
+                    $select = 'checked';
+                }
             }
         } else {
             $select = 'checked';
         }
+
         return $select;
     }
 
     function isSentimentSelected($sentiment, $request)
     {
         $select = '';
-        if ($request->has('sentiments')) {
-            if (in_array($sentiment, $request->input('sentiments'))) {
-                $select = 'checked';
+        if($request->has('filter')) {
+            if ($request->has('sentiments')) {
+                if (in_array($sentiment, $request->input('sentiments'))) {
+                    $select = 'checked';
+                }
             }
         } else {
             $select = 'checked';

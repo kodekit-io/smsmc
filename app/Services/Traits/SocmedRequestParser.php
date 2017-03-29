@@ -10,7 +10,7 @@ trait SocmedRequestParser
 {
     use LastSevenDays;
 
-    function parseRequest(Request $request)
+    function parseRequest(Request $request, $accountType)
     {
         $last7DaysRange = $this->getLastSevenDaysRange();
         $startDate = $last7DaysRange['startDate'];
@@ -24,6 +24,7 @@ trait SocmedRequestParser
             $endDateRequest = $request->input('endDate');
             $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTime(00, 00, 01)->format('Y-m-d\TH:i:s\Z') : $startDate;
             $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTime(23, 59, 59)->format('Y-m-d\TH:i:s\Z') : $endDate;
+            $submittedAccounts = ( $request->has('accounts') ? implode(',', $request->input('accounts')) : '' );
             $submittedSentiments = ( $request->has('sentiments') ? implode(',', $request->input('sentiments')) : '' );
             $searchText = $request->has('searchText') ? $request->input('searchText') : '';
         }
@@ -31,6 +32,17 @@ trait SocmedRequestParser
         // search text from wordcloud
         if ($request->has('text')) {
             $searchText = $request->get('text');
+        }
+
+        $accountData = $this->accountService->getSocialAccounts()[0];
+        $accountList = $accountData->{$accountType};
+
+        $accounts = [];
+        if (count($accountList) > 0) {
+            foreach ($accountList as $account) {
+                $accounts[$account->id]['value'] = $account->name;
+                $accounts[$account->id]['selected'] = $this->isAccountSelected($account->id, $request);
+            }
         }
 
         $sentiments = [];
@@ -46,7 +58,9 @@ trait SocmedRequestParser
         }
 
         $data['sentiments'] = $sentiments;
+        $data['accounts'] = $accounts;
 
+        $data['submittedAccounts'] = $submittedAccounts;
         $data['submittedSentiments'] = $submittedSentiments;
         $data['searchText'] = $searchText;
         $data['startDate'] = $startDate;
@@ -57,25 +71,15 @@ trait SocmedRequestParser
         return $data;
     }
 
-    function isKeywordSelected($keywordId, $request)
+    function isAccountSelected($accountId, $request)
     {
+        //dd($request->all());
         $select = '';
-        if ($request->has('keywords')) {
-            if (in_array($keywordId, $request->input('keywords'))) {
-                $select = 'checked';
-            }
-        } else {
-            $select = 'checked';
-        }
-        return $select;
-    }
-
-    function isTopicSelected($topicId, $request)
-    {
-        $select = '';
-        if ($request->has('topics')) {
-            if (in_array($topicId, $request->input('keywords'))) {
-                $select = 'checked';
+        if($request->has('filter')) {
+            if ($request->has('accounts')) {
+                if (in_array($accountId, $request->input('accounts'))) {
+                    $select = 'checked';
+                }
             }
         } else {
             $select = 'checked';

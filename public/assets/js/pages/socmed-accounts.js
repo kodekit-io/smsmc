@@ -13,26 +13,26 @@ var twitter = 'twitter';
 var youtube = 'youtube';
 var instagram = 'instagram';
 var r = 1;
-$('#'+facebook).prepend(
-    '<li>'
-        + '<input class="uk-input field-'+facebook+'" name="field_'+facebook+'['+r+']" type="text" placeholder="'+facebook+'">'
-    +'</li>'
-);
-$('#'+twitter).prepend(
-    '<li>'
-        + '<input class="uk-input field-'+twitter+'" name="field_'+twitter+'['+r+']" type="text" placeholder="'+twitter+'">'
-    +'</li>'
-);
-$('#'+youtube).prepend(
-    '<li>'
-        + '<input class="uk-input field-'+youtube+'" name="field_'+youtube+'['+r+']" type="text" placeholder="'+youtube+'">'
-    +'</li>'
-);
-$('#'+instagram).prepend(
-    '<li>'
-        + '<input class="uk-input field-'+instagram+'" name="field_'+instagram+'['+r+']" type="text" placeholder="'+instagram+'">'
-    +'</li>'
-);
+// $('#'+facebook).prepend(
+//     '<li>'
+//         + '<input class="uk-input field-'+facebook+'" name="field_'+facebook+'['+r+']" type="text" placeholder="'+facebook+'">'
+//     +'</li>'
+// );
+// $('#'+twitter).prepend(
+//     '<li>'
+//         + '<input class="uk-input field-'+twitter+'" name="field_'+twitter+'['+r+']" type="text" placeholder="'+twitter+'">'
+//     +'</li>'
+// );
+// $('#'+youtube).prepend(
+//     '<li>'
+//         + '<input class="uk-input field-'+youtube+'" name="field_'+youtube+'['+r+']" type="text" placeholder="'+youtube+'">'
+//     +'</li>'
+// );
+// $('#'+instagram).prepend(
+//     '<li>'
+//         + '<input class="uk-input field-'+instagram+'" name="field_'+instagram+'['+r+']" type="text" placeholder="'+instagram+'">'
+//     +'</li>'
+// );
 
 function addRowItem(wrapper) {
     r = $('#'+wrapper).find('li').length + 1;

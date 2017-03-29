@@ -34,16 +34,48 @@ class User
 
     public function create($data)
     {
+        $params = [
+            'uid' => \Auth::user()->id,
+            'userName' => $data['username'],
+            'password' => $data['password'],
+            'conPassWord' => $data['password2'],
+            'email' => $data['email'],
+            'name' => $data['name'],
+            'idBussiness' => 2,
+            'idRole' => 2
+        ];
+        $response = $this->smsmc->post('user/add', $params);
 
+        dd($response);
+
+        return $response;
     }
 
     public function update($id, $data)
     {
+        $params = [
+            'uid' => \Auth::user()->id,
+            'userId' => $id,
+            'email' => $data['email'],
+            'name' => $data['name']
+        ];
+        if (isset($data['password'])) {
+            $params['password'] = $data['password'];
+            $params['conPassWord'] = $data['password2'];
+        }
+        $response = $this->smsmc->post('user/edit', $params);
 
+        return $response;
     }
 
     public function delete($id)
     {
+        $params = [
+            'uid' => \Auth::user()->id,
+            'userId' => $id
+        ];
+        $response = $this->smsmc->post('user/delete', $params);
 
+        return $response;
     }
 }

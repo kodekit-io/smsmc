@@ -9,7 +9,8 @@
         </ul>
     </div>
     <div class="uk-navbar-right">
-
+        <form method="post" action="">
+        {!! csrf_field() !!}
         <a class="uk-navbar-item uk-button grey darken-3 white-text">FILTER <span uk-icon="icon: chevron-down" class="uk-margin-small-left"></span></a>
         <div uk-dropdown="mode: click; offset: 0;" class="uk-width-1-1 dropdown-stack">
             <div class="uk-grid-divider uk-grid-small" uk-grid>
@@ -18,11 +19,12 @@
                         <div class="uk-width-auto@m sm-text-bold">Accounts:</div>
                         <div class="uk-width-expand@m">
                             <ul class="sm-list" id="select-account">
+                                @if(count($accounts) > 0)
                                 <li><label><input class="uk-checkbox select-all-account" type="checkbox" checked> Select All</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox" checked> Account</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox" checked> Account</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox" checked> Account</label></li>
-                                <li><label><input class="uk-checkbox" type="checkbox" checked> Account</label></li>
+                                    @foreach($accounts as $key => $account)
+                                        <li><label><input type="checkbox" name="accounts[]" class="uk-checkbox" value="{!! $key !!}" {!! $account['selected'] !!}> {!! $account['value'] !!}</label></li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -56,13 +58,13 @@
                             </form>
                         </li>
                         <li class="uk-width-auto@m">
-                            <button class="uk-button uk-button-small white-text red darken-1 sm-text-bold" name="filter" type="submit">UPDATE</button>
+                            <button class="uk-button uk-button-small white-text red darken-1 sm-text-bold" name="filter" type="submit" value="filter">UPDATE</button>
                         </li>
                     </ul>
 
                 </div>
             </div>
         </div>
-
+        </form>
     </div>
 </nav>
