@@ -50,7 +50,7 @@
 			                "title": "",
 			                "class": "uk-text-right",
 			                "data": function ( data ) {
-			                    var id = data["id"];
+			                    var id = data["idLogin"];
 			                    var url = '/setting/user/' + id + '/';
 			                    return '<a href="' + url + 'edit" title="Edit User" class="uk-button uk-button-small uk-button-default">Edit</a> <a href="' + url + 'delete" title="Delete User" class="uk-button uk-button-small uk-button-default">Delete</a>';
 			                }

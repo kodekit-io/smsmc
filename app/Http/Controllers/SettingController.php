@@ -49,4 +49,32 @@ class SettingController extends Controller
 
         return redirect('setting/user/add')->withErrors(['error' => 'Error.']);
     }
+
+    public function userEdit(Request $request, $id)
+    {
+        $data['pageTitle'] = 'Edit Account';
+        $data['id'] = $id;
+        $response = $this->user->getUserById($id);
+        $data['user'] = $response->user;
+
+        return view('pages.users.edit', $data);
+    }
+
+    public function userUpdate(Request $request, $id)
+    {
+        $response = $this->user->updateUser($request->except(['_token']), $id);
+        if ($response->status == '200') {
+            return redirect('setting/user');
+        }
+
+        return redirect('setting/user' . $id . '/edit')->with(['error' => 'Error.']);
+    }
+
+    public function userDelete($id)
+    {
+        $response = $this->user->deleteUser($id);
+        return redirect('setting/user');
+    }
+
+
 }
