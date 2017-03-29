@@ -64,6 +64,20 @@ class TestController extends Controller
 		return \GuzzleHttp\json_encode($result->result);
 		// echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
 	}
+	public function convo($pid,$idmedia,$page,$row)
+	{
+		$params = [
+			'pid' => $pid,
+			'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
+			'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
+			'sentiment' => '1,0,-1',
+			'page' => $page,
+			'row' => $row
+		];
+		$result = $this->smsmc->post('project/1/'.$idmedia.'/convo', $params);
+		return \GuzzleHttp\json_encode($result->result);
+		// echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+	}
 	public function api0($x,$y,$a)
 	{
 		$params = [
