@@ -50,7 +50,7 @@
 
     <script>
         $(document).ready(function() {
-            var influencers = ["topLikeVid","topRateVid"];
+            var influencers = ["topLikeVid"]; //,"topRateVid"];
             var $projectId = '{!! $projectId !!}';
             var $startDate = '{!! $startDate !!}';
             var $endDate = '{!! $endDate !!}';

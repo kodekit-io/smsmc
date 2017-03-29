@@ -54,7 +54,7 @@
     Sentiment Trend			 --}}
     <script>
         $(document).ready(function() {
-            var influencers = ["topLikeVid","topRateVid"];
+            var influencers = ["topLikeVid"] //,"topRateVid"];
             var $userId = '{!! \Auth::user()->id !!}';
             var $startDate = '{!! $startDate !!}';
             var $endDate = '{!! $endDate !!}';

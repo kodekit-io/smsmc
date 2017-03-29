@@ -73,7 +73,7 @@
                 "sentiments": $sentiments,
                 "text": $text,
                 "idMedia": 2,
-                "reportType": 1
+                "reportType": 1,
             };
 
             // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');

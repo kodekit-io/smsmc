@@ -303,8 +303,9 @@ function top10Blog(id,result) {
 }
 
 function topLikeVid(id,result) {
-	$data = result.chartData.video_like.data;
-	$groupName = result.chartData.video_like.groupName;
+	// console.log(result);
+	$data = result.chartData.top10LikeStatus.data;
+	$groupName = result.chartData.top10LikeStatus.groupName;
 	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
 
 	// console.log($data);

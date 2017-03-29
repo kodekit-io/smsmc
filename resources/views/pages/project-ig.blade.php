@@ -53,7 +53,7 @@
 
     <script>
         $(document).ready(function() {
-            var influencers = ["top10News"];
+            var influencers = ["topLoveIG","topCommentIG","topViewIG"];
             var $projectId = '{!! $projectId !!}';
             var $startDate = '{!! $startDate !!}';
             var $endDate = '{!! $endDate !!}';
