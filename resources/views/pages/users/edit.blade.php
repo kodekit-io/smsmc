@@ -33,7 +33,7 @@
                         <input class="uk-input" type="password" name="password2">
                     </div>
                     <div class="uk-flex uk-flex-between">
-                        <a class="uk-modal-close uk-button grey white-text" href="{!! url('ticket') !!}">CANCEL</a>
+                        <a class="uk-modal-close uk-button grey white-text" href="{!! url('setting/user') !!}">CANCEL</a>
                         <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SEND" />
                     </div>
                 </form>

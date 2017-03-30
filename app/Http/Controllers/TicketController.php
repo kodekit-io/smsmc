@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TicketController extends Controller
 {
@@ -63,6 +64,14 @@ class TicketController extends Controller
     }
 
     public function create(Request $request)
+    {
+        if ($this->ticket->create($request->except(['_token']))) {
+            return redirect('ticket');
+        }
+        return redirect('ticket/add')->withInput();
+    }
+
+    public function createTicketFromConvo(Request $request)
     {
         if ($this->ticket->create($request->except(['_token']))) {
             return redirect('ticket');

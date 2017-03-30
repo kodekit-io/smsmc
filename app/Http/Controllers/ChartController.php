@@ -223,16 +223,20 @@ class ChartController extends Controller
 
     public function pagingConvo(Request $request)
     {
+        Log::warning(\GuzzleHttp\json_encode($request->input('columns')[9]['search']));
+        $draw = $request->input('draw');
+        $length = $request->input('length');
         $params['pid'] = '1022492332017';
         $params['StartDate'] = '2017-03-22T00:00:01Z';
         $params['EndDate'] = '2017-03-29T11:36:14Z';
         $params['brandID'] = '';
         $params['sentiment'] = '-1,0,1';
+        $params['row'] = $length;
 
         $data = $this->smsmc->post('project/1/2/convo', $params);
         $dtResult = new DatatableResult();
+        $dtResult->setDraw($draw);
         $dtResult->setData($data);
-        Log::warning(\GuzzleHttp\json_encode($dtResult));
         return \GuzzleHttp\json_encode($dtResult);
         // Log::warning(\GuzzleHttp\json_encode($dtResult));
         // return $this->parseChartResult($data);

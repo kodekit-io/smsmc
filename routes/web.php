@@ -86,11 +86,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('charts/paging-convo', 'ChartController@pagingConvo');
 
     Route::get('ticket', 'TicketController@index');
+    Route::get('view-ticket', 'TestController@viewTicket');
     Route::get('ticket/add', 'TicketController@add');
     Route::post('ticket/create', 'TicketController@create');
     Route::get('ticket/{ticketId}/detail', 'TicketController@detail');
     Route::post('ticket/{ticketId}/reply', 'TicketController@reply');
     Route::post('ticket/{ticketId}/change-status', 'TicketController@changeStatus');
+    Route::post('convo/create-ticket', 'TicketController@createTicketFromConvo');
 
     Route::get('setting/user', 'SettingController@user');
     Route::get('setting/user/list', 'SettingController@userList');
@@ -128,8 +130,6 @@ Route::get('tests/googlechart', 'TestController@googlechart');
 Route::get('tests/echarts', 'TestController@echarts');
 Route::post('tests/echarts/post', 'TestController@echartsPost');
 Route::get('tests/summary', 'TestController@summary');
-
-Route::get('view-ticket', 'TestController@viewTicket');
 
 Route::get('api1/{x}/{a}', 'TestController@api1');
 Route::get('api2/{x}/{a}/{b}', 'TestController@api2');

@@ -59,8 +59,11 @@
             var $topics = '{!! $submittedTopics !!}';
             var $sentiments = '{!! $submittedSentiments !!}';
             var $text = '{!! $searchText !!}';
+            var $ticketTypes = jQuery.parseJSON('{!! $ticketTypes !!}');
+            console.log($ticketTypes);
 
             var $chartData = {
+                "baseUrl": baseUrl,
                 "_token": token,
                 "projectId": $projectId,
                 "startDate": $startDate,
@@ -70,7 +73,8 @@
                 "sentiments": $sentiments,
                 "text": $text,
                 "idMedia": 1,
-                "reportType": 1
+                "reportType": 1,
+                "ticketTypes": $ticketTypes
             };
 
             // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');

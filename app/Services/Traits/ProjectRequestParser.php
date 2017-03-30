@@ -5,6 +5,7 @@ namespace App\Service;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 trait ProjectRequestParser
 {
@@ -12,6 +13,7 @@ trait ProjectRequestParser
 
     function parseRequest(Request $request, $projectId)
     {
+        Log::warning(\GuzzleHttp\json_encode($request->all()));
         $last7DaysRange = $this->getLastSevenDaysRange();
         $startDate = $last7DaysRange['startDate'];
         $endDate = $last7DaysRange['endDate'];
@@ -73,6 +75,10 @@ trait ProjectRequestParser
             $sentiments[$sentiment[1]]['checked'] = $this->isSentimentSelected($sentiment[0], $request);
             $sentiments[$sentiment[1]]['showName'] = $sentiment[2];
         }
+
+        // get ticket type
+        $ticketTypes = $this->ticketService->getTicketStatus();
+        $data['ticketTypes'] = \GuzzleHttp\json_encode($ticketTypes);
 
         $data['keywords'] = $keywords;
         $data['topics'] = $topics;

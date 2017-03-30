@@ -15,9 +15,16 @@ class DatatableResult
     public function setData($data)
     {
         $dtData = $data->result->chartData;
-        $this->recordsTotal = count($dtData);
-        $this->recordsFiltered = count($dtData);
+        $totalRecords = $data->result->totalConvo;
+        $this->recordsTotal = $totalRecords;
+        $this->recordsFiltered = $totalRecords;
+//        $this->recordsTotal = count($dtData);
+//        $this->recordsFiltered = count($dtData);
         $this->data = $dtData;
-        $this->draw = 1;
+    }
+
+    public function setDraw($draw)
+    {
+        $this->draw = $draw;
     }
 }
