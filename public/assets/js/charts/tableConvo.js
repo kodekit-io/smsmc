@@ -180,95 +180,94 @@ function tableAll(chartId, chartData) {
 			]
 		},
 		columns: [{
-				"data": null
+				"data": "postDate",
+				"visible": false
 			},
-			// { "data": null,"orderable": false,"width": "2.5%" },
-			// {
-			//     "data": "date","title": "Date", "width": "12.5%",
-			//     "render": function ( cellData ) {
-			//         var localtime = moment.parseZone(cellData).local().format('llll');
-			//         return localtime;
-			//     }
-			// },
-			// {
-			//     "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
-			//     "render": function ( cellData ) {
-			//         var channel = cellData;
-			//         var icon = "";
-			//         switch (channel) {
-			//             case 'facebook':
-			//                 icon = 'facebook';
-			//                 break;
-			//             case 'twitter':
-			//                 icon = 'twitter';
-			//                 break;
-			//             case 'youtube':
-			//                 icon = 'youtube';
-			//                 break;
-			//             case 'instagram':
-			//                 icon = 'instagram';
-			//                 break;
-			//             case 'news':
-			//                 icon = 'globe';
-			//                 break;
-			//             case 'blog':
-			//                 icon = 'rss';
-			//                 break;
-			//             case 'forum':
-			//                 icon = 'comments';
-			//                 break;
-			//         }
-			//         return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
-			//     }
-			// },
-			// { "data": "author", "title": "Author", "width": "15%" },
-			// {
-			//     "data": null, "title": "Post", "width": "40%",
-			//     "render": function ( data ) {
-			//         var post = data["post"];
-			//         var postrim = post.substring(0,100) + "...";
-			//         var plink = data["postLink"];
-			//         return '<a href="'+plink+'" target="_blank" data-uk-tooltip title="'+post+'" class="uk-link">'+postrim+'</a>';
-			//     }
-			// },
-			// {
-			//     "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "sentiment uk-text-center",
-			//     "createdCell": function (td, cellData, rowData, row, col) {
-			//         // console.log(cellData);
-			//         switch (cellData) {
-			//             case 'positive':
-			//                 $(td).addClass('sm-sentiment green-text');
-			//                 break;
-			//             case 'neutral':
-			//                 $(td).addClass('sm-sentiment grey-text');
-			//                 break;
-			//             case 'negative':
-			//                 $(td).addClass('sm-sentiment red-text');
-			//                 break;
-			//         }
-			//     }
-			// },
-			// {
-			//     "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
-			//     "render": function ( cellData, display, row ) {
-			//         var btn = '';
-			//         var postLink = row.postLink;
-			//         var post = row.post;
-			//         switch (cellData) {
-			//             case 'New':
-			//                 btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-url="'+postLink+'" data-post="'+post+'"><span class="nothover">'+cellData+'</span></a>';
-			//             break;
-			//             case 'Closed':
-			//                 btn = '<span class="black-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
-			//             break;
-			//             case 'Waiting':
-			//                 btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
-			//             break;
-			//         }
-			//         //console.log(row);
-			//         return btn;
-			//     }
-			// }
+			{
+				"data": null,
+				"orderable": false,
+				"width": "2.5%"
+			},
+			{
+				"title": "postDate",
+				"width": "12.5%",
+				"data": function(data) {
+					var localtime = moment.parseZone(data['Date']).format('llll');
+					return localtime;
+				}
+			},
+			{
+				"data": "post.author",
+				"title": "Author",
+				"width": "20%"
+			},
+			{
+				"title": "Post",
+				"width": "35%",
+				"data": function(data) {
+					var post = data.post["post"];
+					var postrim = post.substring(0, 100) + "...";
+					var plink = data.post["url"];
+					return '<a href="' + plink + '" target="_blank" data-uk-tooltip title="' + post + '" class="uk-link">' + postrim + '</a>';
+				}
+			},
+			{
+				"data": "media",
+				"title": "Type",
+				"width": "10%"
+			},
+			{
+				"title": "",
+				"width": "10%",
+				"orderable": false,
+				"class": "sentiment uk-text-center",
+				"data": "post.sentiment",
+				"createdCell": function(td, cellData, rowData, row, col) {
+					var id = rowData['id'];
+					// console.log(id);
+					switch (cellData) {
+						case 'positive':
+							$(td).addClass('sm-sentiment green-text').attr('data-id', id);
+							break;
+						case 'neutral':
+							$(td).addClass('sm-sentiment grey-text').attr('data-id', id);
+							break;
+						case 'negative':
+							$(td).addClass('sm-sentiment red-text').attr('data-id', id);
+							break;
+					}
+				}
+			},
+			{
+				"title": "Status",
+				"orderable": false,
+				"width": "10%",
+				"class": "uk-text-center",
+				"data": function(data) {
+					var cellData = data['status'];
+					var id = data['id'];
+					var btn = '';
+					switch (cellData) {
+						case 'New':
+							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">' + cellData + '</span></a>';
+							break;
+						case 'Closed':
+							btn = '<span class="black-text" title="Responded and closed" uk-tooltip>' + cellData + '</span>';
+							break;
+						case 'Waiting':
+							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
+							break;
+						default:
+
+							break;
+					}
+					//console.log(row);
+					return btn;
+				}
+			}
+		],
+		order: [
+			[0, "desc"]
 		],
 		// order: [[ 1, "desc" ]],
 		// initComplete: function () {
@@ -434,7 +433,7 @@ function tableFacebook(chartId, chartData) {
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">New</span></a>';
+
 							break;
 					}
 					//console.log(row);
@@ -609,7 +608,7 @@ function tableTwitter(chartId, chartData) {
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">New</span></a>';
+
 							break;
 					}
 					//console.log(row);
@@ -773,7 +772,7 @@ function tableNews(chartId, chartData) {
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">New</span></a>';
+
 							break;
 					}
 					//console.log(row);
@@ -928,7 +927,7 @@ function tableBlog(chartId, chartData) {
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">New</span></a>';
+
 							break;
 					}
 					//console.log(row);
@@ -1091,7 +1090,7 @@ function tableForum(chartId, chartData) {
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">New</span></a>';
+
 							break;
 					}
 					//console.log(row);
@@ -1258,7 +1257,7 @@ function tableVideo(chartId, chartData) {
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">New</span></a>';
+
 							break;
 					}
 					//console.log(row);
@@ -1423,7 +1422,7 @@ function tableInstagram(chartId, chartData) {
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">New</span></a>';
+
 							break;
 					}
 					//console.log(row);
