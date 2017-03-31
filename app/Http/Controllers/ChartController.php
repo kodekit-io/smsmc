@@ -223,23 +223,46 @@ class ChartController extends Controller
 
     public function pagingConvo(Request $request)
     {
-        Log::warning(\GuzzleHttp\json_encode($request->input('columns')[9]['search']));
+        $arrSentimentByValue = [
+            'negative' => '-1',
+            'neutral' => '0',
+            'positive' => '1'
+        ];
+
+        $idMedia = $request->idMedia;
+        $reportType = $request->reportType;
         $draw = $request->input('draw');
         $length = $request->input('length');
-        $params['pid'] = '1022492332017';
-        $params['StartDate'] = '2017-03-22T00:00:01Z';
-        $params['EndDate'] = '2017-03-29T11:36:14Z';
-        $params['brandID'] = '';
-        $params['sentiment'] = '-1,0,1';
+
+        // Log::warning(\GuzzleHttp\json_encode($request->all()));
+        // sentiment filter
+        if (isset($request->input('columns')[9]['search']['value'])) {
+            $sentimentValue = $request->input('columns')[9]['search']['value'];
+            if ($sentimentValue != 'null') {
+                $params['sentiment'] = $arrSentimentByValue[$sentimentValue];
+            }
+        }
+
+        // search text
+        if ($request->has('search')) {
+            $searchText = $request->input('search')['value'];
+            $params['text'] = $searchText;
+        }
+
+        // other params
+        $params['pid'] = $request->projectId;
+        $params['StartDate'] = $request->startDate;
+        $params['EndDate'] = $request->endDate;
+        $params['brandID'] = $request->keywords;;
         $params['row'] = $length;
 
-        $data = $this->smsmc->post('project/1/2/convo', $params);
+//        Log::warning('params => ' . \GuzzleHttp\json_encode($params));
+
+        $data = $this->smsmc->post('project/' . $reportType . '/' . $idMedia . '/convo', $params);
         $dtResult = new DatatableResult();
         $dtResult->setDraw($draw);
         $dtResult->setData($data);
         return \GuzzleHttp\json_encode($dtResult);
-        // Log::warning(\GuzzleHttp\json_encode($dtResult));
-        // return $this->parseChartResult($data);
     }
 
     public function influencer(Request $request)

@@ -43,7 +43,8 @@ trait ProjectRequestParser
         $projectDetail = $this->projectService->getProject($projectId);
 
         $keywords = [];
-        if (count($projectDetail->projectInfo->keywordList) > 0) {
+        //dd($projectDetail);
+        if (isset($projectDetail->projectInfo->keywordList) && count($projectDetail->projectInfo->keywordList) > 0) {
             $keywordLists = $projectDetail->projectInfo->keywordList;
             foreach ($keywordLists as $keywordList) {
                 $keyword = $keywordList->keyword;
@@ -55,7 +56,7 @@ trait ProjectRequestParser
         }
 
         $topics = [];
-        if (count($projectDetail->projectInfo->topicList) > 0) {
+        if (isset($projectDetail->projectInfo->topicList) && count($projectDetail->projectInfo->topicList) > 0) {
             $topicLists = $projectDetail->projectInfo->topicList;
             foreach ($topicLists as $topicList) {
                 $topicId = $topicList->topicId;

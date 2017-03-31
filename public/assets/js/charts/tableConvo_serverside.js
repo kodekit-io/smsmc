@@ -544,6 +544,7 @@ function tableTwitter(chartId, url, chartApiData) {
 				"title": "Post",
 				"width": "30%",
 				"data": function(data) {
+					// console.log(data);
 					var post = data["Post"];
 					var postrim = post.substring(0, 100) + "...";
 					var plink = data["Link"];
@@ -638,7 +639,7 @@ function tableTwitter(chartId, url, chartApiData) {
 								$(this).val()
 							);
 							column
-								.search(val ? '^' + val + '$' : '', true, false)
+								.search($(this).val())
 								.draw();
 						});
 
@@ -665,12 +666,13 @@ function tableTwitter(chartId, url, chartApiData) {
 			});
 		}
 	});
-	theTable.on('order.dt search.dt', function() {
+	theTable.on('order.dt search.dt draw.dt', function() {
+        var info = theTable.page.info();
 		theTable.column(1, {
 			search: 'applied',
 			order: 'applied'
 		}).nodes().each(function(cell, i) {
-			cell.innerHTML = i + 1;
+			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
 	theTable.columns.adjust().draw();
