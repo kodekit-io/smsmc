@@ -54,6 +54,7 @@
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoAllmedia.js') !!}"></script>
     <script>
         //var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
         $(document).ready(function() {

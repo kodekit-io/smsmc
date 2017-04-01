@@ -45,13 +45,8 @@
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
-    {{-- Post Trend	Post Pie	Rating Bar	Wordclouds
-    Comment Trend	View Pie	View Count Bar	Influencer (Top Rate, Top Like, Top Post)
-    View Trend	Comment Pie	Comment Bar	Conversation
-    Like Trend
-    Dislilke Trend
-    Subscribe Trend
-    Sentiment Trend			 --}}
+    <script src="{!! asset('assets/js/charts/convoVideo.js') !!}"></script>
+
     <script>
         $(document).ready(function() {
             var influencers = ["topLikeVid"] //,"topRateVid"];

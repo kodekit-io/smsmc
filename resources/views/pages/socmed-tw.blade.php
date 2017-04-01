@@ -49,10 +49,8 @@
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
-    {{-- Buzz Trend	Buzz Pie	Sentiment Bar	Wordclouds
-    User Trend	Interactions Pie	Interaction Rate Bar	Influencer (Top Reach, Top Post, Top Impact)
-    Reach Trend	Post Pie		Conversation
-    Sentiment Trend	Potential Reach Pie		 --}}
+    <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
+
     <script>
         $(document).ready(function() {
             var influencers = ["top10ByReachTW", "top10ByNumberTW", "top10ByImpactTW"];

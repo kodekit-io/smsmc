@@ -48,6 +48,7 @@
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoBlog.js') !!}"></script>
 
     <script>
         $(document).ready(function() {
