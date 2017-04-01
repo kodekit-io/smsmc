@@ -553,7 +553,7 @@ function tableTwitter(chartId, url, chartApiData) {
 			},
 			{
 				"data": "Interactions",
-				"title": "Inter- actions",
+				"title": "Interactions",
 				"class": "uk-text-right",
 				"width": "5%"
 			},

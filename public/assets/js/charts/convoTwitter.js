@@ -1,7 +1,14 @@
 // Table convo twitter
-function tableTwitter(chartId, chartData) {
+function tableTwitter(chartId, url, chartApiData) {
 	var theTable = $('#' + chartId + 'Table').DataTable({
-		data: chartData, pageLength: 25,
+		processing: true,
+        serverSide: true,
+        ajax: {
+		    url: url,
+            type: "POST",
+            data: chartApiData
+        },
+        pageLength: 25,
 		buttons: {
 			buttons: [
 
@@ -41,6 +48,7 @@ function tableTwitter(chartId, chartData) {
 				"title": "Post",
 				"width": "30%",
 				"data": function(data) {
+					// console.log(data);
 					var post = data["Post"];
 					var postrim = post.substring(0, 100) + "...";
 					var plink = data["Link"];
@@ -49,7 +57,7 @@ function tableTwitter(chartId, chartData) {
 			},
 			{
 				"data": "Interactions",
-				"title": "Inter- actions",
+				"title": "Interactions",
 				"class": "uk-text-right",
 				"width": "5%"
 			},
@@ -103,17 +111,17 @@ function tableTwitter(chartId, chartData) {
 					var id = data['id'];
 					var btn = '';
 					switch (cellData) {
-						case 'new':
+						case 'New':
 							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">' + cellData + '</span></a>';
 							break;
-						case 'closed':
+						case 'Closed':
 							btn = '<span class="black-text" title="Responded and closed" uk-tooltip>' + cellData + '</span>';
 							break;
-						case 'waiting':
+						case 'Waiting':
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-
+							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">New</span></a>';
 							break;
 					}
 					//console.log(row);
@@ -135,7 +143,7 @@ function tableTwitter(chartId, chartData) {
 								$(this).val()
 							);
 							column
-								.search(val ? '^' + val + '$' : '', true, false)
+								.search($(this).val())
 								.draw();
 						});
 
@@ -143,31 +151,32 @@ function tableTwitter(chartId, chartData) {
 						select.append('<option value="' + d + '">' + d + '</option>')
 					});
 				}
-				if (column[0][0] == 10) {
-					var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
-						.appendTo($(column.header()).empty())
-						.on('change', function() {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
-							column
-								.search(val ? '^' + val + '$' : '', true, false)
-								.draw();
-						});
-
-					column.data().unique().sort().each(function(d, j) {
-						select.append('<option value="' + d + '">' + d + '</option>')
-					});
-				}
+				// if (column[0][0] == 10) {
+				// 	var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
+				// 		.appendTo($(column.header()).empty())
+				// 		.on('change', function() {
+				// 			var val = $.fn.dataTable.util.escapeRegex(
+				// 				$(this).val()
+				// 			);
+				// 			column
+				// 				.search(val ? '^' + val + '$' : '', true, false)
+				// 				.draw();
+				// 		});
+				//
+				// 	column.data().unique().sort().each(function(d, j) {
+				// 		select.append('<option value="' + d + '">' + d + '</option>')
+				// 	});
+				// }
 			});
 		}
 	});
-	theTable.on('order.dt search.dt', function() {
+	theTable.on('order.dt search.dt draw.dt', function() {
+        var info = theTable.page.info();
 		theTable.column(1, {
 			search: 'applied',
 			order: 'applied'
 		}).nodes().each(function(cell, i) {
-			cell.innerHTML = i + 1;
+			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
 	theTable.columns.adjust().draw();

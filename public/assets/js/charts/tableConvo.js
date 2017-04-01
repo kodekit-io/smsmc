@@ -25,6 +25,7 @@ function tableConvo(domId, url, chartApiData, name) {
 			}
 		},
 		success: function(result) {
+			console.log(result);
 			var result = jQuery.parseJSON(result);
 			console.log(result);
 
@@ -61,7 +62,7 @@ function tableConvo(domId, url, chartApiData, name) {
 					tableFacebook(chartId, chartData);
 					break;
 				case 2:
-					tableTwitter(chartId, chartData);
+					tableTwitter(chartId, url, chartApiData);
 					break;
 				case 3:
 					tableBlog(chartId, chartData);
@@ -85,49 +86,49 @@ function tableConvo(domId, url, chartApiData, name) {
 
 			// Send Ticket
 			$('#' + chartId + 'Table').on('click', '.sm-btn-openticket', function(e) {
-			    var $createTicketUrl = chartApiData.baseUrl + '/convo/create-ticket';
-			    var $ticketTypes = chartApiData.ticketTypes;
 				e.preventDefault();
 				$(this).blur();
 				var postId = $(this).attr('data-id');
+				var ticketType = '<li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Agribusiness & Food</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Property</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Content - President Office</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Financial Services</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Communication & Technology</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Energy & Infrastructure</label></li>' +
+					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Initiatives Project</label></li>';
 
-				var ticketType = '';
-				for (i=0; i < $ticketTypes.length; i++) {
-				    var $ticketTypeId = $ticketTypes[i].id;
-				    var $ticketTypeName = $ticketTypes[i].name;
-				    ticketType += '<li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="' + $ticketTypeId + '"> ' + $ticketTypeName + '</label></li>';
-                }
-
-				var modal = '<form class="open-ticket" method="post" action="'+ $createTicketUrl +'">' +
-                    '<input type="hidden" value="' + chartApiData._token + '" name="_token" /> ' +
+				var modal = '<form class="open-ticket">' +
 					'<div class="uk-modal-body">' +
-                        '<h5>Open New Ticket</h5>' +
-                        '<div class="uk-margin">' +
-                            '<label>To</label>' +
-                            '<input class="uk-input" type="text" name="to">' +
-                        '</div>' +
-                        '<div class="uk-margin">' +
-                            '<label>CC</label>' +
-                            '<input class="uk-input" type="text" name="to_cc">' +
-                        '</div>' +
-                        '<div class="uk-margin">' +
-                            '<div class="uk-inline">' +
-                                '<a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>' +
-                                '<div class="sm-dropdown">' +
-                                    '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">' +
-                                        ticketType +
-                                    '</ul>' +
-                                '</div>' +
-					        '</div>' +
-					    '</div>' +
-                        '<div class="uk-margin">' +
-                            '<textarea class="uk-textarea" rows="3" name="message" placeholder="Additional message"></textarea>' +
-                            '<input type="hidden" name="postId" value="' + postId + '">' +
-                        '</div>' +
+					'<h5>Open New Ticket</h5>' +
+					'<div class="uk-margin">' +
+					'<label>To</label>' +
+					'<input class="uk-input" type="text">' +
+					'</div>' +
+					'<div class="uk-margin">' +
+					'<label>CC</label>' +
+					'<input class="uk-input" type="text">' +
+					'</div>' +
+					'<div class="uk-margin">' +
+					'<div class="uk-inline">' +
+					'<a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>' +
+					'<div class="sm-dropdown">' +
+					'<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">' +
+					ticketType +
+					'</ul>' +
+					'</div>' +
+					'</div>' +
+					'</div>' +
+					'<div class="uk-margin">' +
+					'<textarea class="uk-textarea" rows="3" placeholder="Additional message"></textarea>' +
+					'<input type="hidden" name="postId" value="' + postId + '">' +
+					'</div>' +
 					'</div>' +
 					'<div class="uk-modal-footer uk-clearfix">' +
-                        '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>' +
-                        '<button class="uk-button uk-float-right red white-text" name="createticket" value="createticket" type="submit" id="submitticket">SUBMIT</button>' +
+					'<a class="uk-modal-close uk-button grey white-text">CANCEL</a>' +
+					'<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
 					'</div>' +
 					'</form>';
 				UIkit.modal.dialog(modal);
