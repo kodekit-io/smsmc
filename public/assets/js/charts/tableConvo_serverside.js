@@ -26,7 +26,7 @@ function tableConvo(domId, url, chartApiData, name) {
 		},
 		success: function(result) {
 			var result = jQuery.parseJSON(result);
-			// console.log(result);
+			console.log(result);
 
 			var chartId = result.chartId;
 			var chartName = result.chartName;
@@ -168,7 +168,7 @@ function tableAll(chartId, chartData) {
 		data: chartData, pageLength: 25,
 		buttons: {
 			buttons: [
-				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -326,7 +326,7 @@ function tableFacebook(chartId, chartData) {
 		data: chartData, pageLength: 25,
 		buttons: {
 			buttons: [
-				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -507,7 +507,7 @@ function tableTwitter(chartId, url, chartApiData) {
         pageLength: 25,
 		buttons: {
 			buttons: [
-				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -684,7 +684,7 @@ function tableNews(chartId, chartData) {
 		data: chartData, pageLength: 25,
 		buttons: {
 			buttons: [
-				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -847,7 +847,7 @@ function tableBlog(chartId, chartData) {
 		data: chartData, pageLength: 25,
 		buttons: {
 			buttons: [
-				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -1002,7 +1002,7 @@ function tableForum(chartId, chartData) {
 		data: chartData, pageLength: 25,
 		buttons: {
 			buttons: [
-				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -1165,7 +1165,7 @@ function tableVideo(chartId, chartData) {
 		data: chartData, pageLength: 25,
 		buttons: {
 			buttons: [
-				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -1332,7 +1332,7 @@ function tableInstagram(chartId, chartData) {
 		data: chartData, pageLength: 25,
 		buttons: {
 			buttons: [
-				//{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
+
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
