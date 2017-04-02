@@ -1,12 +1,26 @@
 // Table convo twitter
+function callbackk(data) {
+    console.log(data);
+}
+
 function tableTwitter(chartId, url, chartApiData) {
+    var settings = {
+        'url': url,
+        'type': "POST"
+    };
 	var theTable = $('#' + chartId + 'Table').DataTable({
 		processing: true,
         serverSide: true,
         ajax: {
 		    url: url,
             type: "POST",
-            data: chartApiData
+            data: chartApiData,
+            complete: function(data) {
+		        if (data.responseJSON.draw == 1) {
+		            var title = data.chartName;
+                    $('.uk-card-title').html(title);
+                }
+            }
         },
         pageLength: 25,
 		buttons: {

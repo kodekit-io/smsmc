@@ -21,6 +21,7 @@ class DatatableResult
 //        $this->recordsTotal = count($dtData);
 //        $this->recordsFiltered = count($dtData);
         $this->data = $dtData;
+        $this->chartName = $data->result->chartName;
     }
 
     public function setDraw($draw)
