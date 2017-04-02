@@ -180,4 +180,6 @@ function tableTwitter(chartId, url, chartApiData) {
 		});
 	}).draw();
 	theTable.columns.adjust().draw();
+
+	return theTable;
 }

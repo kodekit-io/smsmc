@@ -159,6 +159,11 @@ function tableConvo(domId, url, chartApiData, name) {
 
 			});
 
+            $( "#changeSentiment" ).on( "submit", function( event ) {
+                event.preventDefault();
+                console.log( $( this ).serialize() );
+            });
+
 		}
 	});
 }

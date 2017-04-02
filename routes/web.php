@@ -84,6 +84,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/influencer', 'ChartController@influencer');
     Route::post('charts/convo', 'ChartController@convo');
     Route::any('charts/paging-convo', 'ChartController@pagingConvo');
+    Route::post('change-sentiment', 'ChartController@changeSentiment');
 
     Route::get('ticket', 'TicketController@index');
     Route::get('view-ticket', 'TestController@viewTicket');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service\ChartParameter;
 use App\Service\DatatableResult;
 use App\Service\Smsmc;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -269,6 +270,28 @@ class ChartController extends Controller
     {
         $data = $this->withMedia('influencer', $request);
         return $this->parseChartResult($data);
+    }
+
+    public function changeSentiment(Request $request)
+    {
+        $reportType = $request->input('reportType');
+        $idMedia = $request->input('idMedia');
+        $postId = $request->input('id');
+        $projectId = $request->input('projectId');
+        $sentiment = $request->input('sentiment');
+        $date = Carbon::now()->format('Y-m-d\TH:i:s\Z');
+        $params = [
+            'pid' => $projectId,
+            'date' => $date,
+            'postId' => $postId,
+            'sentiment' => $sentiment
+        ];
+        $url = 'project/' . $reportType . '/' . $idMedia . '/sentiment/update';
+        $response = $this->smsmc->post($url, $params);
+        if ($response->status == '200') {
+            return 1;
+        }
+        return 0;
     }
 
 

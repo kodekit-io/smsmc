@@ -51,8 +51,8 @@
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     {{-- <script src="{!! asset('assets/js/charts/tableConvo_serverside.js') !!}"></script> --}}
-    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
 
     <script>
         $(document).ready(function() {
@@ -76,6 +76,7 @@
                 "text": $text,
                 "idMedia": 2,
                 "reportType": 1,
+                "changeSentimentUrl": '{!! url('change-sentiment') !!}',
             };
 
 //            // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');

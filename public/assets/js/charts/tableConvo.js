@@ -25,9 +25,9 @@ function tableConvo(domId, url, chartApiData, name) {
 			}
 		},
 		success: function(result) {
-			console.log(result);
+			// console.log(result);
 			var result = jQuery.parseJSON(result);
-			console.log(result);
+			// console.log(result);
 
 			var chartId = result.chartId;
 			var chartName = result.chartName;
@@ -62,7 +62,7 @@ function tableConvo(domId, url, chartApiData, name) {
 					tableFacebook(chartId, chartData);
 					break;
 				case 2:
-					tableTwitter(chartId, url, chartApiData);
+					var theTable = tableTwitter(chartId, url, chartApiData);
 					break;
 				case 3:
 					tableBlog(chartId, chartData);
@@ -139,11 +139,15 @@ function tableConvo(domId, url, chartApiData, name) {
 				e.preventDefault();
 				$(this).blur();
 				var id = $(this).attr('data-id');
-				var modal = '<form id="changeSentiment" class="change-sentiment">' +
+				var modal = '<form id="changeSentiment" class="change-sentiment" action="' + chartApiData.changeSentimentUrl + '">' +
 					'<div class="uk-modal-body">' +
 					'<h5>Edit Sentiment</h5>' +
+                    '<input type="hidden" name="_token" value="'+ chartApiData._token +'">' +
+                    '<input type="hidden" name="reportType" value="'+ chartApiData.reportType +'">' +
+                    '<input type="hidden" name="idMedia" value="'+ chartApiData.idMedia +'">' +
+                    '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'">' +
 					'<div class="uk-margin">' +
-					'<select class="uk-select">' +
+					'<select name="sentiment" class="uk-select">' +
 					'<option value="1">Positive</option>' +
 					'<option value="0">Neutral</option>' +
 					'<option value="-1">Negative</option>' +
@@ -156,7 +160,25 @@ function tableConvo(domId, url, chartApiData, name) {
 					'<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
 					'</div>' +
 					'</form>';
-				UIkit.modal.dialog(modal);
+				var uikitModal = UIkit.modal.dialog(modal);
+
+                $( "#changeSentiment" ).on( "submit", function( event ) {
+                    event.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        success: function ($res) {
+                            if ($res == '1') {
+                                uikitModal.hide();
+                                theTable.ajax.reload();
+                            } else {
+                                alert('Error when updating the data.');
+                            }
+                        }
+                    })
+                    //console.log( $( this ).serialize() );
+                });
 
 			});
 
