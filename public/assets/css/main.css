@@ -140,6 +140,10 @@ a.fa {
     position: relative;
     margin-right: 1rem;
 }
+.sm-logo img {
+    height: 30px;
+    width: auto;
+}
 
 .sm-logo-round {
     background: #fff;
