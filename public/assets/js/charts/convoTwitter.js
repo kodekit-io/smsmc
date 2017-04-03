@@ -7,6 +7,7 @@ function tableTwitter(chartId, url, chartApiData) {
 		    url: url,
             type: "POST",
             data: chartApiData,
+<<<<<<< HEAD
             complete: function(data) {
 		        if (data.responseJSON.draw == 1) {
 		            var title = data.responseJSON.chartName;
@@ -15,6 +16,15 @@ function tableTwitter(chartId, url, chartApiData) {
                     $('.uk-card-info').attr('title', info);
                 }
             }
+=======
+            // complete: function(data) {
+		    //     if (data.responseJSON.draw == 1) {
+            //         $('.uk-card-title').html(data.chartName);
+            //         $('.sm-convo-wrap').prop('id', data.chartId);
+            //         $('.sm-convo-info').prop('title', data.chartInfo);
+            //     }
+            // }
+>>>>>>> upstream/master
         },
         pageLength: 25,
 		buttons: {
@@ -119,18 +129,21 @@ function tableTwitter(chartId, url, chartApiData) {
 					var id = data['id'];
 					var postDate = data['Date'];
 					var btn = '';
-					switch (cellData) {
+                    switch (cellData) {
+						case 'new':
 						case 'New':
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '" data-date="' + postDate + '"><span class="nothover">' + cellData + '</span></a>';
+							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">' + cellData + '</span></a>';
 							break;
+						case 'closed':
 						case 'Closed':
 							btn = '<span class="black-text" title="Responded and closed" uk-tooltip>' + cellData + '</span>';
 							break;
+						case 'waiting':
 						case 'Waiting':
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '" data-date="' + postDate + '"><span class="nothover">New</span></a>';
+
 							break;
 					}
 					//console.log(row);

@@ -109,6 +109,7 @@
             // chartOntology('11', baseUrl + '/charts/ontologi', $chartData);
             // tableInfluencers('12', baseUrl + '/charts/influencer', $chartData, influencers);
             tableConvo('fbTable', baseUrl + '/charts/paging-convo', $chartData);
+
         });
     </script>
 @endsection
