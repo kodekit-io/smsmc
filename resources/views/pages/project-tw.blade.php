@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('page-level-nav')
     @include('includes.subnav-project')
@@ -58,6 +59,7 @@
     <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jqcloud.js') !!}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
     <script src="{!! asset('assets/js/charts/chartBubble.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/chartBar.js') !!}"></script>
@@ -94,7 +96,8 @@
                 "reportType": 1,
                 "createTicketUrl": '{!! url('convo/create-ticket') !!}',
                 "changeSentimentUrl": '{!! url('change-sentiment') !!}',
-                "ticketTypes": '{!! $ticketTypes !!}'
+                "ticketTypes": '{!! $ticketTypes !!}',
+                'users': '{!! $users !!}'
             };
 
             // chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);

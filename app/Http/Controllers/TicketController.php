@@ -73,8 +73,8 @@ class TicketController extends Controller
 
     public function createTicketFromConvo(Request $request)
     {
-        // Log::warning($request->all());
-        if ($this->ticket->create($request->except(['_token']))) {
+        Log::warning($request->all());
+        if ($this->ticket->create($request)) {
             return 1;
         }
         return 0;

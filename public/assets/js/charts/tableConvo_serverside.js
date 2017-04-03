@@ -33,25 +33,38 @@ function tableConvo(chartId, url, chartApiData) {
         $(this).blur();
         var postId = $(this).attr('data-id');
         var postDate = $(this).attr('data-date');
+        var sentiment = $(this).attr('data-sentiment');
         var $ticketTypes = jQuery.parseJSON(chartApiData.ticketTypes);
+        var $users = jQuery.parseJSON(chartApiData.users);
         var ticketType = '';
         for (i=0; i < $ticketTypes.length; i++) {
             var theType = $ticketTypes[i];
             ticketType += '<li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="'+ theType.id +'"> '+ theType.name +'</label></li>';
         }
+        var $toSelect = '<select id="to_select" name="to[]" class="uk-input" multiple >';
+        var $toCcSelect = '<select id="to_cc_select" name="to_cc[]" class="uk-input" multiple >';
+        for (i=0; i < $users.length; i++) {
+            var theUser = $users[i];
+            $toSelect += '<option value="'+ theUser.idLogin +'"> '+ theUser.name +'</option>';
+            $toCcSelect += '<option value="'+ theUser.idLogin +'"> '+ theUser.name +'</option>';
+        }
+        $toSelect += '</select>';
+        $toCcSelect += '</select>';
 
         var modal = '<form class="open-ticket" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
             '<input type="hidden" name="postDate" value="'+ postDate +'"> ' +
+            '<input type="hidden" name="idMedia" value="' + chartApiData.idMedia + '" >' +
+            '<input type="hidden" name="sentiment" value="' + sentiment + '" >' +
             '<div class="uk-modal-body">' +
             '<h5>Open New Ticket</h5>' +
             '<div class="uk-margin">' +
             '<label>To</label>' +
-            '<input class="uk-input" type="text" name="to">' +
+            $toSelect +
             '</div>' +
             '<div class="uk-margin">' +
             '<label>CC</label>' +
-            '<input class="uk-input" type="text" name="to_cc">' +
+            $toCcSelect +
             '</div>' +
             '<div class="uk-margin">' +
             '<div class="uk-inline">' +
@@ -75,6 +88,9 @@ function tableConvo(chartId, url, chartApiData) {
             '</form>';
         var uikitModal = UIkit.modal.dialog(modal);
 
+        $("#to_select").select2();
+        $("#to_cc_select").select2();
+
         $( "#createticket" ).on( "submit", function( event ) {
             event.preventDefault();
             $.ajax({
@@ -97,6 +113,7 @@ function tableConvo(chartId, url, chartApiData) {
         e.preventDefault();
         $(this).blur();
         var id = $(this).attr('data-id');
+        var postDate = $(this).attr('data-date');
         var modal = '<form id="changeSentiment" class="change-sentiment" action="' + chartApiData.changeSentimentUrl + '">' +
             '<div class="uk-modal-body">' +
             '<h5>Edit Sentiment</h5>' +
@@ -104,13 +121,14 @@ function tableConvo(chartId, url, chartApiData) {
             '<input type="hidden" name="reportType" value="'+ chartApiData.reportType +'">' +
             '<input type="hidden" name="idMedia" value="'+ chartApiData.idMedia +'">' +
             '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'">' +
+            '<input type="hidden" name="id" value="' + id + '" >' +
+            '<input type="hidden" name="postDate" value="' + postDate + '" >' +
             '<div class="uk-margin">' +
             '<select name="sentiment" class="uk-select">' +
             '<option value="1">Positive</option>' +
             '<option value="0">Neutral</option>' +
             '<option value="-1">Negative</option>' +
             '</select>' +
-            '<input type="hidden" name="id" value="' + id + '" >' +
             '</div>' +
             '</div>' +
             '<div class="uk-modal-footer uk-clearfix">' +

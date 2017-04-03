@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service\Project;
 use App\Service\ProjectRequestParser;
 use App\Service\Ticket;
+use App\Service\User;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -19,14 +20,19 @@ class ProjectController extends Controller
      * @var Ticket
      */
     protected $ticketService;
+    /**
+     * @var User
+     */
+    protected $userService;
 
     /**
      * ProjectController constructor.
      */
-    public function __construct(Project $projectService, Ticket $ticketService)
+    public function __construct(Project $projectService, Ticket $ticketService, User $userService)
     {
         $this->projectService = $projectService;
         $this->ticketService = $ticketService;
+        $this->userService = $userService;
     }
 
     public function add()

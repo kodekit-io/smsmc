@@ -20,25 +20,26 @@ class Ticket
         $this->smsmc = $smsmc;
     }
 
-    public function create($data)
+    public function create($request)
     {
-        $message = $data['message'];
-        $types = ( count($data['types']) > 0 ? implode(',', $data['types']) : '' );
+        $message = $request->has('message') ? $request->input('message') : '';
+        $types = $request->has('types') ? count($request->input('types')) > 0 ? implode(',', $request->input('types')) : '' : '';
         $from = \Auth::user()->id;
-        // $to = $data['to'];
+        $idMedia = $request->has('idMedia') ? $request->input('idMedia') : '';
+        // $to = $request->has('to') ? count($request->input('to')) > 0 ? implode(',', $request->input('to')) : '' : '';
         $to = 561;
-        $toCc = $data['to_cc'];
-        $postDate = isset($data['postDate']) ? $data['postDate'] : Carbon::create()->format('Y-m-d\TH:i:s\Z');
-        $sentiment = 'general';
+        // $toCc = $request->has('to_cc') ? count($request->input('to_cc')) > 0 ? implode(',', $request->input('to_cc')) : '' : '';
+        $postDate = $request->has('postDate') ? $request->input('postDate') : Carbon::create()->format('Y-m-d\TH:i:s\Z');
+        $sentiment = $request->has('sentiment') ? $request->input('sentiment') : 'general';
 
         $params = [
             'uid' => $to,
             'text' => $message,
             'postId' => '',
             'tipeId' => $types,
-            'from' => $to,
-            'send' => $from,
-            'idmedia' => '',
+            'from' => $from,
+            'send' => $to,
+            'idmedia' => $idMedia,
             'postDate' => $postDate,
             'sentiment' => $sentiment
         ];
