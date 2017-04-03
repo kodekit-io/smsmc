@@ -6,18 +6,15 @@ function tableFacebook(chartId, url, chartApiData) {
         ajax: {
 		    url: url,
             type: "POST",
-<<<<<<< HEAD
-            data: chartApiData
-=======
             data: chartApiData,
-			// complete: function(data) {
-		    //     if (data.responseJSON.draw == 1) {
-            //         $('.uk-card-title').html(data.chartName);
-            //         $('.sm-convo-wrap').prop('id', data.chartId);
-            //         $('.sm-convo-info').prop('title', data.chartInfo);
-            //     }
-            // }
->>>>>>> upstream/master
+            complete: function(data) {
+                if (data.responseJSON.draw == 1) {
+                    var title = data.responseJSON.chartName;
+                    var info = data.responseJSON.chartInfo;
+                    $('.uk-card-title').html(title);
+                    $('.uk-card-info').attr('title', info);
+                }
+            }
         },
         pageLength: 25,
 		buttons: {

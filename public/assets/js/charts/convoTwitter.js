@@ -7,7 +7,6 @@ function tableTwitter(chartId, url, chartApiData) {
 		    url: url,
             type: "POST",
             data: chartApiData,
-<<<<<<< HEAD
             complete: function(data) {
 		        if (data.responseJSON.draw == 1) {
 		            var title = data.responseJSON.chartName;
@@ -16,15 +15,6 @@ function tableTwitter(chartId, url, chartApiData) {
                     $('.uk-card-info').attr('title', info);
                 }
             }
-=======
-            // complete: function(data) {
-		    //     if (data.responseJSON.draw == 1) {
-            //         $('.uk-card-title').html(data.chartName);
-            //         $('.sm-convo-wrap').prop('id', data.chartId);
-            //         $('.sm-convo-info').prop('title', data.chartInfo);
-            //     }
-            // }
->>>>>>> upstream/master
         },
         pageLength: 25,
 		buttons: {
