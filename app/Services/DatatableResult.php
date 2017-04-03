@@ -10,6 +10,8 @@ class DatatableResult
     public $recordsTotal;
     public $recordsFiltered;
     public $draw;
+    public $chartInfo;
+    public $chartName;
 
 
     public function setData($data)
@@ -22,6 +24,7 @@ class DatatableResult
 //        $this->recordsFiltered = count($dtData);
         $this->data = $dtData;
         $this->chartName = $data->result->chartName;
+        $this->chartInfo = $data->result->chartInfo;
     }
 
     public function setDraw($draw)

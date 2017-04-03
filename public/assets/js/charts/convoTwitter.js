@@ -1,14 +1,6 @@
 // Table convo twitter
-function callbackk(data) {
-    console.log(data);
-}
-
 function tableTwitter(chartId, url, chartApiData) {
-    var settings = {
-        'url': url,
-        'type': "POST"
-    };
-	var theTable = $('#' + chartId + 'Table').DataTable({
+	var theTable = $('#' + chartId).DataTable({
 		processing: true,
         serverSide: true,
         ajax: {
@@ -17,8 +9,10 @@ function tableTwitter(chartId, url, chartApiData) {
             data: chartApiData,
             complete: function(data) {
 		        if (data.responseJSON.draw == 1) {
-		            var title = data.chartName;
+		            var title = data.responseJSON.chartName;
+		            var info = data.responseJSON.chartInfo;
                     $('.uk-card-title').html(title);
+                    $('.uk-card-info').attr('title', info);
                 }
             }
         },
@@ -166,22 +160,6 @@ function tableTwitter(chartId, url, chartApiData) {
 						select.append('<option value="' + d + '">' + d + '</option>')
 					});
 				}
-				// if (column[0][0] == 10) {
-				// 	var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
-				// 		.appendTo($(column.header()).empty())
-				// 		.on('change', function() {
-				// 			var val = $.fn.dataTable.util.escapeRegex(
-				// 				$(this).val()
-				// 			);
-				// 			column
-				// 				.search(val ? '^' + val + '$' : '', true, false)
-				// 				.draw();
-				// 		});
-				//
-				// 	column.data().unique().sort().each(function(d, j) {
-				// 		select.append('<option value="' + d + '">' + d + '</option>')
-				// 	});
-				// }
 			});
 		}
 	});

@@ -23,7 +23,23 @@
             <div id="12"></div>
             <div id="13" class="uk-width-1-1"></div>
             <div id="14" class="uk-width-1-1"></div>
-            <div id="15" class="uk-width-1-1"></div>
+            <div id="15" class="uk-width-1-1">
+                <div id="" class="sm-chart-container uk-animation-fade">
+                    <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+                        <div class="uk-card-header uk-clearfix">
+                            <h5 class="uk-card-title uk-float-left"></h5>
+                            <ul class="uk-float-right uk-subnav uk-margin-remove">
+                                <li><a class="grey-text fa fa-info-circle uk-card-info" title="" uk-tooltip></a></li>
+                                <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>
+                                <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>
+                                </ul>
+                        </div>
+                    <div class="uk-card-body">
+                        <table id="twitterTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                        </div>
+                    </div>
+                </div>'
+            </div>
         </div>
     </section>
 
@@ -51,8 +67,8 @@
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
     {{-- <script src="{!! asset('assets/js/charts/tableConvo_serverside.js') !!}"></script> --}}
-    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/tableConvo_serverside.js') !!}"></script>
 
     <script>
         $(document).ready(function() {
@@ -96,7 +112,7 @@
             // chartOntology('13', baseUrl + '/charts/ontologi', $chartData);
             // tableInfluencers('14', baseUrl + '/charts/influencer', $chartData, influencers);
 
-            tableConvo('15', baseUrl + '/charts/paging-convo', $chartData);
+            tableConvo('twitterTable', baseUrl + '/charts/paging-convo', $chartData);
         });
     </script>
 @endsection
