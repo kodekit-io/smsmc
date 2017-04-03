@@ -90,7 +90,7 @@
             // wordcloud('10', baseUrl + '/charts/wordcloud', $chartData);
             // chartOntology('11', baseUrl + '/charts/ontologi', $chartData);
             // tableInfluencers('12', baseUrl + '/charts/influencer', $chartData, influencers);
-            tableConvo('13', baseUrl + '/charts/convo', $chartData);
+            tableConvo('13', baseUrl + '/charts/paging-convo', $chartData);
         });
     </script>
 @endsection

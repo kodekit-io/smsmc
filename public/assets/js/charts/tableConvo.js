@@ -39,12 +39,12 @@ function tableConvo(domId, url, chartApiData, name) {
 				var chartTitle = chartName;
 			}
 
-			var card = '<div id="' + chartId + '" class="sm-chart-container uk-animation-fade">' +
+			var card = '<div id="' + chartId + '" class="sm-chart-container sm-convo-wrap uk-animation-fade">' +
 				'<div class="uk-card uk-card-hover uk-card-default uk-card-small">' +
 				'<div class="uk-card-header uk-clearfix">' +
 				'<h5 class="uk-card-title uk-float-left">' + chartTitle + '</h5>' +
 				'<ul class="uk-float-right uk-subnav uk-margin-remove">' +
-				'<li><a class="grey-text fa fa-info-circle" title="' + chartInfo + '" uk-tooltip></a></li>' +
+				'<li><a class="grey-text fa fa-info-circle sm-convo-info" title="' + chartInfo + '" uk-tooltip></a></li>' +
 				'<li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>' +
 				'<li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>' +
 				'</ul>' +
