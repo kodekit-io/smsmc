@@ -28,10 +28,12 @@ class DashboardController extends Controller
         $this->smsmc = $smsmc;
     }
 
-    public function dashboard()
+    public function dashboard($page = 1)
     {
         $data['pageTitle'] = 'Dashboard';
-
+        $projects = $this->projectService->projectList();
+        $data['projects'] = $projects->projectList;
+        $data['page'] = $page;
         return view('pages.home', $data);
     }
 
