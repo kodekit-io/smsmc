@@ -59,7 +59,7 @@ function tableConvo(domId, url, chartApiData, name) {
 			var idMedia = chartApiData.idMedia;
 			switch (idMedia) {
 				case 1:
-					tableFacebook(chartId, chartData);
+					var theTable = tableFacebook(chartId, url, chartApiData);
 					break;
 				case 2:
 					var theTable = tableTwitter(chartId, url, chartApiData);
