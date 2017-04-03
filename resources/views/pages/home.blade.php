@@ -15,18 +15,18 @@
                 <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header">
                         <h5 class="uk-card-title uk-text-truncate">{!! $project->pname !!}</h5>
-                        </div>
+                    </div>
                     <div class="uk-card-body">
                         <div uk-grid class="uk-grid-collapse">
                             <div class="uk-width-1-1">
                                 <div id="chartCover{!! $project->pid !!}" class="sm-chartcover"></div>
-                                </div>
+                            </div>
                             <div class="uk-width-2-5">Date Create</div>
                             <div class="uk-width-3-5">: {!! $project->pdate !!}</div>
                             <div class="uk-width-2-5">Project Group</div>
                             <div class="uk-width-3-5">: {!! $project->pgroup !!}</div>
-                            </div>
                         </div>
+                    </div>
                     <div class="uk-card-footer uk-clearfix">
                         <div class="uk-inline">
                             <a class="grey-text" uk-icon="icon: more-vertical"></a>
@@ -73,6 +73,7 @@
             $('#select-group').checkAll(
                 { container: $('ul'), showIndeterminate: true }
             );
+            $('ul.pagination').addClass('uk-pagination uk-flex-center');
         });
     </script>
 @endsection

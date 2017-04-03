@@ -31,18 +31,19 @@ class DashboardController extends Controller
 
     public function dashboard(Request $request)
     {
-        $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 0;
         $data['pageTitle'] = 'Dashboard';
+
+        $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 0;
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $perPage = 4;
+        $perPage = 6;
         $projectResponse = $this->projectService->projectList($currentPage, $perPage, $totalPage);
-        //dd($projectResponse);
+        // dd($projectResponse);
         $projects = $projectResponse->projectList;
         $totalRow = $projectResponse->totalProject;
         $collection = new Collection($projects);
         $currentPageSearchResults = $collection->all();
         $totalPage = floor($totalRow / $perPage);
-        //Create our paginator and pass it to the view
+        // dd($totalPage);
         $paginatedSearchResults= new LengthAwarePaginator($currentPageSearchResults, $totalRow, $perPage);
         $data['projects'] = $paginatedSearchResults
             ->appends(['totalPage' => $totalPage])
