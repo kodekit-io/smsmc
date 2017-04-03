@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Service\Smsmc;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class TestController extends Controller
 {
@@ -64,19 +66,22 @@ class TestController extends Controller
 		return \GuzzleHttp\json_encode($result->result);
 		// echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
 	}
-	public function convo($pid,$idmedia,$page,$row)
+	public function plist($page,$row)
 	{
 		$params = [
-			'pid' => $pid,
-			'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
-			'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
-			'sentiment' => '1,0,-1',
+			// 'pid' => $pid,
+			// 'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
+			// 'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
+			// 'sentiment' => '1,0,-1',
+            'uid' => Auth::user()->id,
+            // 'auth_token' => 'qcS97Knu',
 			'page' => $page,
-			'row' => $row
+			'row' => $row,
+            'totalPage' => 6
 		];
-		$result = $this->smsmc->post('project/1/'.$idmedia.'/convo', $params);
-		return \GuzzleHttp\json_encode($result->result);
-		// echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+		$result = $this->smsmc->post('project/list', $params);
+		// return \GuzzleHttp\json_encode($result->result);
+		echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
 	}
 	public function api0($x,$y,$a)
 	{
