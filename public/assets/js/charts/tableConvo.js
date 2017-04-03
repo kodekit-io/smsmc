@@ -65,22 +65,22 @@ function tableConvo(domId, url, chartApiData, name) {
 					var theTable = tableTwitter(chartId, url, chartApiData);
 					break;
 				case 3:
-					tableBlog(chartId, chartData);
+					var theTable = tableBlog(chartId, url, chartApiData);
 					break;
 				case 4:
-					tableNews(chartId, chartData);
+					var theTable = tableNews(chartId, url, chartApiData);
 					break;
 				case 5:
-					tableVideo(chartId, chartData);
+					var theTable = tableVideo(chartId, url, chartApiData);
 					break;
 				case 6:
-					tableForum(chartId, chartData);
+					var theTable = tableForum(chartId, url, chartApiData);
 					break;
 				case 7:
-					tableInstagram(chartId, chartData);
+					var theTable = tableInstagram(chartId, url, chartApiData);
 					break;
 				case 8:
-					tableAll(chartId, chartData);
+					var theTable = tableAll(chartId, url, chartApiData);
 					break;
 			}
 
