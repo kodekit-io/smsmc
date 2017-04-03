@@ -42,15 +42,16 @@
             @endforeach
         </div>
 
-        <ul class="uk-pagination uk-flex-center" uk-margin>
-            <li class="uk-disabled"><a href="#"><span uk-pagination-previous></span></a></li>
-            <li class="uk-active"><span>1</span></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#"><span uk-pagination-next></span></a></li>
-        </ul>
+        {{--<ul class="uk-pagination uk-flex-center" uk-margin>--}}
+            {{--<li class="uk-disabled"><a href="#"><span uk-pagination-previous></span></a></li>--}}
+            {{--<li class="uk-active"><span>1</span></li>--}}
+            {{--<li><a href="#">2</a></li>--}}
+            {{--<li><a href="#">3</a></li>--}}
+            {{--<li><a href="#">4</a></li>--}}
+            {{--<li><a href="#">5</a></li>--}}
+            {{--<li><a href="#"><span uk-pagination-next></span></a></li>--}}
+        {{--</ul>--}}
+        {{ $projects->links() }}
     </section>
 
     {{-- <div class="uk-alert-danger sm-alert uk-animation-slide-top-small" uk-alert>
