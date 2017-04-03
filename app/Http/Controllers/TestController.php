@@ -77,7 +77,7 @@ class TestController extends Controller
             // 'auth_token' => 'qcS97Knu',
 			'page' => $page,
 			'row' => $row,
-            'totalPage' => 6
+            'totalPage' => 1
 		];
 		$result = $this->smsmc->post('project/list', $params);
 		// return \GuzzleHttp\json_encode($result->result);
