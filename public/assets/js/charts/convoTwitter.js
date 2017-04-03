@@ -25,7 +25,6 @@ function tableTwitter(chartId, url, chartApiData) {
         pageLength: 25,
 		buttons: {
 			buttons: [
-
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -36,7 +35,8 @@ function tableTwitter(chartId, url, chartApiData) {
 				}
 			]
 		},
-		columns: [{
+		columns: [
+            {
 				"data": "Date",
 				"visible": false
 			},
