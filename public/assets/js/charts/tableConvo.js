@@ -89,27 +89,26 @@ function tableConvo(domId, url, chartApiData, name) {
 				e.preventDefault();
 				$(this).blur();
 				var postId = $(this).attr('data-id');
-				var ticketType = '<li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Agribusiness & Food</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Property</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Content - President Office</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Financial Services</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Communication & Technology</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Energy & Infrastructure</label></li>' +
-					'<li><label><input class="uk-checkbox" type="checkbox"> Content - Initiatives Project</label></li>';
+                var postDate = $(this).attr('data-date');
+				var $ticketTypes = jQuery.parseJSON(chartApiData.ticketTypes);
+				var ticketType = '';
+                for (i=0; i < $ticketTypes.length; i++) {
+                    var theType = $ticketTypes[i];
+				    ticketType += '<li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="'+ theType.id +'"> '+ theType.name +'</label></li>';
+                }
 
-				var modal = '<form class="open-ticket">' +
+				var modal = '<form class="open-ticket" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
+                    '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
+                    '<input type="hidden" name="postDate" value="'+ postDate +'"> ' +
 					'<div class="uk-modal-body">' +
 					'<h5>Open New Ticket</h5>' +
 					'<div class="uk-margin">' +
 					'<label>To</label>' +
-					'<input class="uk-input" type="text">' +
+					'<input class="uk-input" type="text" name="to">' +
 					'</div>' +
 					'<div class="uk-margin">' +
 					'<label>CC</label>' +
-					'<input class="uk-input" type="text">' +
+					'<input class="uk-input" type="text" name="to_cc">' +
 					'</div>' +
 					'<div class="uk-margin">' +
 					'<div class="uk-inline">' +
@@ -122,7 +121,7 @@ function tableConvo(domId, url, chartApiData, name) {
 					'</div>' +
 					'</div>' +
 					'<div class="uk-margin">' +
-					'<textarea class="uk-textarea" rows="3" placeholder="Additional message"></textarea>' +
+					'<textarea class="uk-textarea" rows="3" placeholder="Additional message" name="message"></textarea>' +
 					'<input type="hidden" name="postId" value="' + postId + '">' +
 					'</div>' +
 					'</div>' +
@@ -131,7 +130,23 @@ function tableConvo(domId, url, chartApiData, name) {
 					'<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
 					'</div>' +
 					'</form>';
-				UIkit.modal.dialog(modal);
+				var uikitModal = UIkit.modal.dialog(modal);
+
+                $( "#createticket" ).on( "submit", function( event ) {
+                    event.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        success: function ($res) {
+                            if ($res == '1') {
+                                uikitModal.hide();
+                            } else {
+                                alert('Error when updating the data.');
+                            }
+                        }
+                    })
+                });
 			});
 
 			// Edit Sentiment

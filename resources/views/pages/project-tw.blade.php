@@ -76,7 +76,9 @@
                 "text": $text,
                 "idMedia": 2,
                 "reportType": 1,
+                "createTicketUrl": '{!! url('convo/create-ticket') !!}',
                 "changeSentimentUrl": '{!! url('change-sentiment') !!}',
+                "ticketTypes": '{!! $ticketTypes !!}'
             };
 
 //            // chartTrendCombo('01',baseUrl+'/json/charts/113-trend-sentiment.json');

@@ -73,9 +73,10 @@ class TicketController extends Controller
 
     public function createTicketFromConvo(Request $request)
     {
+        // Log::warning($request->all());
         if ($this->ticket->create($request->except(['_token']))) {
-            return redirect('ticket');
+            return 1;
         }
-        return redirect('ticket/add')->withInput();
+        return 0;
     }
 }

@@ -28,7 +28,7 @@ class Ticket
         // $to = $data['to'];
         $to = 561;
         $toCc = $data['to_cc'];
-        $postDate = Carbon::create()->format('Y-m-d\TH:i:s\Z');
+        $postDate = isset($data['postDate']) ? $data['postDate'] : Carbon::create()->format('Y-m-d\TH:i:s\Z');
         $sentiment = 'general';
 
         $params = [
@@ -42,6 +42,11 @@ class Ticket
             'postDate' => $postDate,
             'sentiment' => $sentiment
         ];
+
+        if (isset($data['postId'])) {
+            $params['postId'] = $data['postId'];
+
+        }
 
         $response = $this->smsmc->post('ticket/send', $params);
         if ($response->status == '200') {
