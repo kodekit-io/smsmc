@@ -1,10 +1,26 @@
 // Table convo Instagram
-function tableInstagram(chartId, chartData) {
-	var theTable = $('#' + chartId + 'Table').DataTable({
-		data: chartData, pageLength: 25,
+function tableInstagram(chartId, url, chartApiData) {
+
+	var theTable = $('#' + chartId).DataTable({
+		processing: true,
+        serverSide: true,
+        ajax: {
+		    url: url,
+            type: "POST",
+            data: chartApiData,
+            complete: function(data) {
+		        if (data.responseJSON.draw == 1) {
+		            var title = data.responseJSON.chartName;
+		            var info = data.responseJSON.chartInfo;
+					$('.convo-title').html(title);
+                    $('.convo-info').attr('title', info);
+					// console.log(data);
+                }
+            }
+        },
+        pageLength: 25,
 		buttons: {
 			buttons: [
-
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -33,21 +49,23 @@ function tableInstagram(chartId, chartData) {
 				}
 			},
 			{
+				"data": "Author",
 				"title": "Author",
-				"width": "15%",
-				"data": function(data) {
-					var user = data["Author"];
-					return '<a href="https://www.instagram.com/' + user + '" target="_blank" data-uk-tooltip title="' + user + '" class="uk-link">' + user + '</a>';
-				}
+				"width": "20%"
 			},
 			{
-				"title": "Post",
-				"width": "35%",
+				"title": "Video",
+				"width": "30%",
 				"data": function(data) {
-					var post = data["Post"];
-					var postrim = post.substring(0, 200) + "...";
+					var title = data["Title"];
+					var post = data["Summary"];
+					var postrim = post.substring(0, 100) + "...";
 					var plink = data["Url"];
-					return '<a href="' + plink + '" target="_blank" data-uk-tooltip="{pos:\'top-left\'}" title="' + postrim + '">' + postrim + '</a>';
+					var img = data["Thumbnail"];
+					return '<div class="thumb-wrap" data-uk-tooltip="{pos:\'top-left\'}" title="' + postrim + '">' +
+						'<a href="' + plink + '" target="_blank" class="thumb-img"><span style="background-image:url(' + img + ');"></span></a>' +
+						'<a href="' + plink + '" target="_blank" class="thumb-txt">' + post + '</a>' +
+						'</div>';
 				}
 			},
 			{
@@ -57,8 +75,8 @@ function tableInstagram(chartId, chartData) {
 				"width": "7.5%"
 			},
 			{
-				"data": "Likes",
-				"title": "Likes",
+				"data": "view",
+				"title": "View",
 				"class": "uk-text-right",
 				"width": "7.5%"
 			},
@@ -67,7 +85,7 @@ function tableInstagram(chartId, chartData) {
 				"width": "10%",
 				"orderable": false,
 				"class": "sentiment uk-text-center",
-				"data": "sentiment",
+				"data": "Sentiment",
 				"createdCell": function(td, cellData, rowData, row, col) {
 					var id = rowData['id'];
 					// console.log(id);
@@ -126,23 +144,7 @@ function tableInstagram(chartId, chartData) {
 								$(this).val()
 							);
 							column
-								.search(val ? '^' + val + '$' : '', true, false)
-								.draw();
-						});
-
-					column.data().unique().sort().each(function(d, j) {
-						select.append('<option value="' + d + '">' + d + '</option>')
-					});
-				}
-				if (column[0][0] == 8) {
-					var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
-						.appendTo($(column.header()).empty())
-						.on('change', function() {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
-							column
-								.search(val ? '^' + val + '$' : '', true, false)
+								.search($(this).val())
 								.draw();
 						});
 
@@ -153,13 +155,16 @@ function tableInstagram(chartId, chartData) {
 			});
 		}
 	});
-	theTable.on('order.dt search.dt', function() {
+	theTable.on('order.dt search.dt draw.dt', function() {
+        var info = theTable.page.info();
 		theTable.column(1, {
 			search: 'applied',
 			order: 'applied'
 		}).nodes().each(function(cell, i) {
-			cell.innerHTML = i + 1;
+			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
 	theTable.columns.adjust().draw();
+
+	return theTable;
 }

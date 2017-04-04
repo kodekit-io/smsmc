@@ -1,9 +1,24 @@
-function tableAll(chartId, chartData) {
-	var theTable = $('#' + chartId + 'Table').DataTable({
-		data: chartData, pageLength: 25,
+// Table convo tableAll
+function tableAll(chartId, url, chartApiData) {
+	var theTable = $('#' + chartId).DataTable({
+		processing: true,
+        serverSide: true,
+        ajax: {
+		    url: url,
+            type: "POST",
+            data: chartApiData,
+            complete: function(data) {
+		        if (data.responseJSON.draw == 1) {
+		            var title = data.responseJSON.chartName;
+		            var info = data.responseJSON.chartInfo;
+                    $('.convo-title').html(title);
+                    $('.convo-info').attr('title', info);
+                }
+            }
+        },
+        pageLength: 25,
 		buttons: {
 			buttons: [
-
 				{
 					extend: 'excelHtml5',
 					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
@@ -104,52 +119,38 @@ function tableAll(chartId, chartData) {
 		order: [
 			[0, "desc"]
 		],
-		// order: [[ 1, "desc" ]],
-		// initComplete: function () {
-		//     this.api().columns().every( function () {
-		//         var column = this;
-		//         if(column[0][0] == 5) {
-		//             var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
-		//                 .appendTo( $(column.header()).empty() )
-		//                 .on( 'change', function () {
-		//                     var val = $.fn.dataTable.util.escapeRegex(
-		//                         $(this).val()
-		//                     );
-		//                     column
-		//                         .search( val ? '^'+val+'$' : '', true, false )
-		//                         .draw();
-		//                 } );
-		//
-		//             column.data().unique().sort().each( function ( d, j ) {
-		//                 select.append( '<option value="'+d+'">'+d+'</option>' )
-		//             });
-		//         }
-		//         if(column[0][0] == 6) {
-		//             var select = $('<select class="uk-select select-status"><option value="">All Status</option></select>')
-		//                 .appendTo( $(column.header()).empty() )
-		//                 .on( 'change', function () {
-		//                     var val = $.fn.dataTable.util.escapeRegex(
-		//                         $(this).val()
-		//                     );
-		//                     column
-		//                         .search( val ? '^'+val+'$' : '', true, false )
-		//                         .draw();
-		//                 } );
-		//
-		//             column.data().unique().sort().each( function ( d, j ) {
-		//                 select.append( '<option value="'+d+'">'+d+'</option>' )
-		//             });
-		//         }
-		//     });
-		// }
+		initComplete: function() {
+			this.api().columns().every(function() {
+				var column = this;
+				if (column[0][0] == 9) {
+					var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
+						.appendTo($(column.header()).empty())
+						.on('change', function() {
+							var val = $.fn.dataTable.util.escapeRegex(
+								$(this).val()
+							);
+							column
+								.search($(this).val())
+								.draw();
+						});
+
+					column.data().unique().sort().each(function(d, j) {
+						select.append('<option value="' + d + '">' + d + '</option>')
+					});
+				}
+			});
+		}
 	});
-	theTable.on('order.dt search.dt', function() {
-		theTable.column(0, {
+	theTable.on('order.dt search.dt draw.dt', function() {
+        var info = theTable.page.info();
+		theTable.column(1, {
 			search: 'applied',
 			order: 'applied'
 		}).nodes().each(function(cell, i) {
-			cell.innerHTML = i + 1;
+			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
 	theTable.columns.adjust().draw();
+
+	return theTable;
 }

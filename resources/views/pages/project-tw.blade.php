@@ -30,7 +30,7 @@
                         <div class="uk-card-header uk-clearfix">
                             <h5 class="uk-card-title uk-float-left convo-title"></h5>
                             <ul class="uk-float-right uk-subnav uk-margin-remove">
-                                <li><a class="grey-text fa fa-info-circle uk-card-info convo-info" title="" uk-tooltip></a></li>
+                                <li><a class="grey-text fa fa-info-circle convo-info" title="" uk-tooltip></a></li>
                                 <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>
                                 <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>
                             </ul>
@@ -99,23 +99,6 @@
                 'users': '{!! $users !!}'
             };
 
-<<<<<<< Updated upstream
-            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
-            chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
-            chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
-            chartTrend('04', baseUrl + '/charts/trend-reach', $chartData);
-            chartPie('05', baseUrl + '/charts/pie-buzz', $chartData);
-            chartPie('06', baseUrl + '/charts/pie-interaction', $chartData);
-            chartPie('07', baseUrl + '/charts/pie-viral-reach', $chartData);
-            chartPie('08', baseUrl + '/charts/pie-potential-reach', $chartData);
-            chartBarStack('09', baseUrl + '/charts/bar-sentiment', $chartData);
-            chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
-            chartBarStack('11', baseUrl + '/charts/bar-topic-distribution', $chartData);
-            wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
-            chartOntology('13', baseUrl + '/charts/ontologi', $chartData);
-            tableInfluencers('14', baseUrl + '/charts/influencer', $chartData, influencers);
-            tableConvo('twitterTable', baseUrl + '/charts/paging-convo', $chartData);
-=======
             // chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
             // chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
             // chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
@@ -131,7 +114,6 @@
             // chartOntology('13', baseUrl + '/charts/ontologi', $chartData);
             // tableInfluencers('14', baseUrl + '/charts/influencer', $chartData, influencers);
             tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
->>>>>>> Stashed changes
         });
     </script>
 @endsection

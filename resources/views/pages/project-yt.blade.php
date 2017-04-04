@@ -24,9 +24,9 @@
                 <div id="405" class="sm-chart-container uk-animation-fade">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                         <div class="uk-card-header uk-clearfix">
-                            <h5 class="uk-card-title uk-float-left"></h5>
+                            <h5 class="uk-card-title uk-float-left convo-title"></h5>
                             <ul class="uk-float-right uk-subnav uk-margin-remove">
-                                <li><a class="grey-text fa fa-info-circle uk-card-info" title="" uk-tooltip></a></li>
+                                <li><a class="grey-text fa fa-info-circle convo-info" title="" uk-tooltip></a></li>
                                 <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>
                                 <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>
                             </ul>
@@ -105,7 +105,7 @@
             // wordcloud('08', baseUrl + '/charts/wordcloud', $chartData);
             // chartOntology('09', baseUrl + '/charts/ontologi', $chartData);
             // tableInfluencers('10', baseUrl + '/charts/influencer', $chartData, influencers);
-            tableConvo('11', baseUrl + '/charts/paging-convo', $chartData);
+            tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
         });
     </script>
 @endsection
