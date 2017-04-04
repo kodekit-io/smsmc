@@ -10,7 +10,7 @@
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-animation-fade uk-card no-header uk-card-hover uk-card-default uk-card-small">
             <div class="uk-card-header uk-clearfix">
-                <h5 class="uk-card-title uk-float-left">Manage Accounts</h5>
+                <h5 class="uk-card-title uk-float-left">Manage Groups</h5>
                 <a href="{!! url('setting/group/add') !!}" title="Add User" class="uk-button red white-text uk-float-right">Add Group</a>
             </div>
             <div class="uk-card-body">
