@@ -21,19 +21,19 @@ class Project
         $this->smsmc = $smsmc;
     }
 
-    public function projectList($page = 1, $row = 4, $totalPage = 1)
+    public function projectList($page = 0, $row = 4, $totalPage = 0)
     {
         $params['uid'] =Auth::user()->id;
-        if ($page != 1) {
+        if ($page != 0) {
             $params['page'] = $page;
         }
         if ($row != 4) {
             $params['row'] = $row;
         }
-        if ($totalPage != 1) {
+        if ($totalPage != 0) {
             $params['totalPage'] = $totalPage;
         }
-        // Log::warning(\GuzzleHttp\json_encode($params));
+        Log::warning(\GuzzleHttp\json_encode($params));
         $projectList = $this->smsmc->post('project/list', $params);
         if ($projectList->status == 200) {
             return $projectList->result;

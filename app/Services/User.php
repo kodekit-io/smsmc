@@ -49,7 +49,7 @@ class User
         return $response;
     }
 
-    public function update($id, $data)
+    public function update($data, $id)
     {
         $params = [
             'uid' => \Auth::user()->id,
@@ -57,10 +57,14 @@ class User
             'email' => $data['email'],
             'name' => $data['name']
         ];
-        if (isset($data['password'])) {
-            $params['password'] = $data['password'];
-            $params['conPassWord'] = $data['password2'];
+
+        if ($data['password'] != '') {
+            if ($data['password'] == $data['password2']) {
+                $params['password'] = $data['password'];
+                $params['conPassWord'] = $data['password'];
+            }
         }
+
         $response = $this->smsmc->post('user/edit', $params);
 
         return $response;
@@ -91,34 +95,5 @@ class User
         return [];
     }
 
-    public function updateUser($data, $id)
-    {
-        $params = [
-            'uid' => \Auth::user()->id,
-            'userId' => $id,
-            'email' => $data['email'],
-            'name' => $data['name']
-        ];
 
-        if ($data['password'] != '') {
-            if ($data['password'] == $data['password2']) {
-                $params['password'] = $data['password'];
-                $params['conPassWord'] = $data['password'];
-            }
-        }
-
-        $response = $this->smsmc->post('user/edit', $params);
-
-        return $response;
-    }
-
-    public function deleteUser($id)
-    {
-        $params = [
-            'uid' => \Auth::user()->id,
-            'userId' => $id
-        ];
-
-        return $this->smsmc->post('user/delete', $params);
-    }
 }

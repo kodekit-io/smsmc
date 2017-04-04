@@ -103,6 +103,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('setting/user/{userId}/update', 'SettingController@userUpdate');
     Route::get('setting/user/{userId}/delete', 'SettingController@userDelete');
 
+    Route::get('setting/group', 'SettingController@group');
+    Route::get('setting/group/list', 'SettingController@groupList');
+    Route::get('setting/group/add', 'SettingController@groupAdd');
+    Route::post('setting/group/store', 'SettingController@groupStore');
+    Route::get('setting/group/{groupId}/edit', 'SettingController@groupEdit');
+    Route::post('setting/group/{groupId}/update', 'SettingController@groupUpdate');
+    Route::get('setting/group/{groupId}/delete', 'SettingController@groupDelete');
+
     Route::get('/socmed-accounts', 'FrontendController@socmedAccounts');
     Route::post('/socmed-accounts/save', 'FrontendController@socmedAccountsSave');
 });

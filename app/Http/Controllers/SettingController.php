@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\Group;
 use App\Service\User;
 use Illuminate\Http\Request;
 
@@ -11,13 +12,18 @@ class SettingController extends Controller
      * @var User
      */
     private $user;
+    /**
+     * @var Group
+     */
+    private $group;
 
     /**
      * SettingController constructor.
      */
-    public function __construct(User $user)
+    public function __construct(User $user, Group $group)
     {
         $this->user = $user;
+        $this->group = $group;
     }
 
     public function user()
@@ -62,7 +68,7 @@ class SettingController extends Controller
 
     public function userUpdate(Request $request, $id)
     {
-        $response = $this->user->updateUser($request->except(['_token']), $id);
+        $response = $this->user->update($request->except(['_token']), $id);
         if ($response->status == '200') {
             return redirect('setting/user');
         }
@@ -72,8 +78,76 @@ class SettingController extends Controller
 
     public function userDelete($id)
     {
-        $response = $this->user->deleteUser($id);
+        $this->user->delete($id);
         return redirect('setting/user');
+    }
+    
+    
+    
+    /******* GROUP ***********/
+    public function group()
+    {
+        $data['pageTitle'] = 'Manage Group';
+
+        return view('pages.groups.list', $data);
+    }
+
+    public function groupList()
+    {
+        $data = $this->group->getGroups();
+        return \GuzzleHttp\json_encode($data);
+    }
+
+    public function groupAdd()
+    {
+        $data['pageTitle'] = 'Add Group';
+
+        return view('pages.groups.add', $data);
+    }
+
+    public function groupStore(Request $request)
+    {
+        $response = $this->group->create($request->except(['_token']));
+        if ($response->status == '200') {
+            return redirect('setting/group');
+        }
+
+        return redirect('setting/group/add')->withErrors(['error' => 'Error.']);
+    }
+
+    public function groupEdit(Request $request, $id)
+    {
+        $data['pageTitle'] = 'Edit Group';
+        $data['id'] = $id;
+        $response = $this->group->getGroupById($id);
+        $data['group'] = $response->group;
+
+        return view('pages.groups.edit', $data);
+    }
+
+    public function groupUpdate(Request $request, $id)
+    {
+        $response = $this->group->update($request->except(['_token']), $id);
+        if ($response->status == '200') {
+            return redirect('setting/group');
+        }
+
+        return redirect('setting/group' . $id . '/edit')->with(['error' => 'Error.']);
+    }
+
+    public function groupDelete($id)
+    {
+        $response = $this->group->delete($id);
+        if ($response->status == '200') {
+            if ($response->result->code == '200') {
+                return redirect('setting/group');
+            } else {
+                return redirect('setting/group')->withErrors(['error' => $response->result->msg]);
+            }
+        } else {
+            return redirect('setting/group')->withErrors(['error' => 'Error when delete the data.']);
+        }
+
     }
 
 

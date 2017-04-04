@@ -33,8 +33,8 @@ class DashboardController extends Controller
     {
         $data['pageTitle'] = 'Dashboard';
 
-        $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 1;
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 0;
+        $currentPage = LengthAwarePaginator::resolveCurrentPage() == 0 ? 0 : LengthAwarePaginator::resolveCurrentPage() - 1;
         $perPage = 6;
         $projectResponse = $this->projectService->projectList($currentPage, $perPage, $totalPage);
         // dd($projectResponse);
@@ -42,8 +42,7 @@ class DashboardController extends Controller
         $totalRow = $projectResponse->totalProject;
         $collection = new Collection($projects);
         $currentPageSearchResults = $collection->all();
-        $totalPage = floor($totalRow / $perPage);
-        // dd($totalPage);
+        $totalPage = $projectResponse->totalPage;
         $paginatedSearchResults= new LengthAwarePaginator($currentPageSearchResults, $totalRow, $perPage);
         $data['projects'] = $paginatedSearchResults
             ->appends(['totalPage' => $totalPage])
