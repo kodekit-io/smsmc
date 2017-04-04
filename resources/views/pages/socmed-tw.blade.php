@@ -93,18 +93,18 @@
                 'users': '{!! $users !!}'
             };
 
-            // chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
-            // chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
-            // chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
-            // chartTrend('04', baseUrl + '/charts/trend-reach', $chartData);
-            // chartPie('05', baseUrl + '/charts/pie-buzz', $chartData);
-            // chartPie('06', baseUrl + '/charts/pie-interaction', $chartData);
-            // chartPie('07', baseUrl + '/charts/pie-viral-reach', $chartData);
-            // chartPie('08', baseUrl + '/charts/pie-potential-reach', $chartData);
-            // chartBarStack('09', baseUrl + '/charts/bar-sentiment', $chartData);
-            // chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
-            // wordcloud('11', baseUrl + '/charts/wordcloud', $chartData);
-            // tableInfluencers('12', baseUrl + '/charts/influencer', $chartData, influencers);
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+            chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
+            chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
+            chartTrend('04', baseUrl + '/charts/trend-reach', $chartData);
+            chartPie('05', baseUrl + '/charts/pie-buzz', $chartData);
+            chartPie('06', baseUrl + '/charts/pie-interaction', $chartData);
+            chartPie('07', baseUrl + '/charts/pie-viral-reach', $chartData);
+            chartPie('08', baseUrl + '/charts/pie-potential-reach', $chartData);
+            chartBarStack('09', baseUrl + '/charts/bar-sentiment', $chartData);
+            chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
+            wordcloud('11', baseUrl + '/charts/wordcloud', $chartData);
+            tableInfluencers('12', baseUrl + '/charts/influencer', $chartData, influencers);
 
             tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
         });

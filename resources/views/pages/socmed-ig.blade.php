@@ -94,19 +94,19 @@
                 'users': '{!! $users !!}'
             };
 
-            // chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
-            // chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
-            // chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
-            // chartTrend('04', baseUrl + '/charts/trend-love', $chartData);
-            // chartTrend('05', baseUrl + '/charts/trend-potential-reach', $chartData);
-            // chartPie('06', baseUrl + '/charts/pie-post', $chartData);
-            // chartPie('07', baseUrl + '/charts/pie-love', $chartData);
-            // chartPie('08', baseUrl + '/charts/pie-comment', $chartData);
-            // chartPie('09', baseUrl + '/charts/pie-view', $chartData);
-            // chartBarStack('10', baseUrl + '/charts/bar-sentiment', $chartData);
-            // chartBar('11', baseUrl + '/charts/bar-interaction-rate', $chartData);
-            // wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
-            // tableInfluencers('13', baseUrl + '/charts/influencer', $chartData, influencers);
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+            chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
+            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
+            chartTrend('04', baseUrl + '/charts/trend-love', $chartData);
+            chartTrend('05', baseUrl + '/charts/trend-potential-reach', $chartData);
+            chartPie('06', baseUrl + '/charts/pie-post', $chartData);
+            chartPie('07', baseUrl + '/charts/pie-love', $chartData);
+            chartPie('08', baseUrl + '/charts/pie-comment', $chartData);
+            chartPie('09', baseUrl + '/charts/pie-view', $chartData);
+            chartBarStack('10', baseUrl + '/charts/bar-sentiment', $chartData);
+            chartBar('11', baseUrl + '/charts/bar-interaction-rate', $chartData);
+            wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
+            tableInfluencers('13', baseUrl + '/charts/influencer', $chartData, influencers);
 
             tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
         });
