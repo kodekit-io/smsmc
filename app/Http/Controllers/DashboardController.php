@@ -33,7 +33,7 @@ class DashboardController extends Controller
     {
         $data['pageTitle'] = 'Dashboard';
 
-        $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 0;
+        $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 1;
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $perPage = 6;
         $projectResponse = $this->projectService->projectList($currentPage, $perPage, $totalPage);

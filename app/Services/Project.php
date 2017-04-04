@@ -21,7 +21,7 @@ class Project
         $this->smsmc = $smsmc;
     }
 
-    public function projectList($page = 1, $row = 4, $totalPage = 0)
+    public function projectList($page = 1, $row = 4, $totalPage = 1)
     {
         $params['uid'] =Auth::user()->id;
         if ($page != 1) {
@@ -30,10 +30,10 @@ class Project
         if ($row != 4) {
             $params['row'] = $row;
         }
-        if ($totalPage != 0) {
+        if ($totalPage != 1) {
             $params['totalPage'] = $totalPage;
         }
-        Log::warning(\GuzzleHttp\json_encode($params));
+        // Log::warning(\GuzzleHttp\json_encode($params));
         $projectList = $this->smsmc->post('project/list', $params);
         if ($projectList->status == 200) {
             return $projectList->result;

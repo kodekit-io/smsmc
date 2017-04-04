@@ -11,8 +11,8 @@ function tableFacebook(chartId, url, chartApiData) {
                 if (data.responseJSON.draw == 1) {
                     var title = data.responseJSON.chartName;
                     var info = data.responseJSON.chartInfo;
-                    $('.uk-card-title').html(title);
-                    $('.uk-card-info').attr('title', info);
+                    $('.convo-title').html(title);
+                    $('.convo-info').attr('title', info);
                 }
             }
         },
