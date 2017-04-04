@@ -53,7 +53,15 @@ a.fa {
 .uk-dropdown {
     padding: 1rem !important;
 }
-
+.uk-pagination .active *,
+.uk-pagination .uk-active *{
+    color: #EC1C23;
+}
+.uk-input:focus,
+.uk-select:focus,
+.uk-textarea:focus {
+    border-color: #EC1C23;
+}
 .uk-card-small .uk-card-header {
     border-bottom: none;
     padding-bottom: 0;
@@ -565,4 +573,13 @@ div.sm-dropdown li {
 }
 .media-7:before {
 	content: "Instagram";
+}
+
+/* select2 */
+.select2-container--default .select2-selection--multiple {
+    border-radius: 0 !important;
+    border: 1px solid #e5e5e5 !important;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #EC1C23 !important;
 }
