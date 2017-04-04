@@ -18,14 +18,31 @@
                     {!! csrf_field() !!}
                     <div class="uk-margin">
                         <label>To</label>
-                        <input class="uk-input" type="text" name="to">
+                        <input class="uk-input to" type="text" name="to">
                     </div>
                     <div class="uk-margin">
                         <label>CC</label>
                         <input class="uk-input" type="text" name="to_cc">
                     </div>
                     <div class="uk-margin">
-                        {{-- <div class="uk-inline">
+                        <div class="uk-flex uk-flex-middle">
+                            <label class="uk-margin-small-right">Ticket Type</label>
+                            <ul class="uk-subnav uk-margin-remove">
+                                @if(count($ticketTypes) > 0)
+                                    @foreach($ticketTypes as $ticketType)
+                                        <li>
+                                            <label>
+                                                <input class="uk-checkbox type" type="checkbox" name="types[]" value="{!! $ticketType->id !!}">
+                                                {!! strtoupper($ticketType->name) !!}
+                                            </label>
+                                        </li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                        </div>
+                    </div>
+                    {{-- <div class="uk-margin">
+                        <div class="uk-inline">
                             <a class="uk-button uk-button-default uk-button-small">Send to <span uk-icon="icon: chevron-down"></span></a>
                             <div class="sm-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
@@ -35,7 +52,7 @@
                                     <li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>
                                 </ul>
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="uk-inline">
                             <a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>
                             <div class="sm-dropdown">
@@ -50,7 +67,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="uk-margin">
                         <label>Message</label>
                         <textarea class="uk-textarea" name="message" rows="3" placeholder="What's up?"></textarea>
@@ -70,12 +87,13 @@
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/pages/ticket-create.js') !!}"></script>
 
     <script>
     $(document).ready(function() {
-
+        jQuery.validator.addClassRules('to', {
+            required: true
+        });
+        $('form').validate();
     });
-
     </script>
 @endsection

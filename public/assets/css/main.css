@@ -57,6 +57,11 @@ a.fa {
 .uk-pagination .uk-active *{
     color: #EC1C23;
 }
+.uk-input,
+.uk-select,
+.uk-textarea {
+    border-color: #afadad;
+}
 .uk-input:focus,
 .uk-select:focus,
 .uk-textarea:focus {
