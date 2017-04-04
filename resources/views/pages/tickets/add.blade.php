@@ -100,9 +100,6 @@
 
     <script>
     $(document).ready(function() {
-        jQuery.validator.addClassRules('to', {
-            required: true
-        });
         $('form').validate();
 
         $("#to_select").select2();
