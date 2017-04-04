@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('page-level-nav')
     @include('includes.subnav-project')
@@ -26,7 +27,23 @@
             <div id="15"></div>
             <div id="16"></div>
             <div id="17" class="uk-width-1-1"></div>
-            <div id="18" class="uk-width-1-1"></div>
+            <div id="18" class="uk-width-1-1">
+                <div id="405" class="sm-chart-container uk-animation-fade">
+                    <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+                        <div class="uk-card-header uk-clearfix">
+                            <h5 class="uk-card-title uk-float-left"></h5>
+                            <ul class="uk-float-right uk-subnav uk-margin-remove">
+                                <li><a class="grey-text fa fa-info-circle uk-card-info" title="" uk-tooltip></a></li>
+                                <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>
+                                <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-card-body">
+                            <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -45,6 +62,7 @@
     <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jqcloud.js') !!}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
     <script src="{!! asset('assets/js/charts/chartBubble.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/chartBar.js') !!}"></script>
@@ -76,57 +94,30 @@
                 "sentiments": $sentiments,
                 "text": $text,
                 "idMedia": 8,
-                "reportType": 1
+                "reportType": 1,
+                "createTicketUrl": '{!! url('convo/create-ticket') !!}',
+                "changeSentimentUrl": '{!! url('change-sentiment') !!}',
+                "ticketTypes": '{!! $ticketTypes !!}',
+                'users': '{!! $users !!}'
             };
 
-            chartBubble('01', baseUrl + '/charts/brand-equity', $chartData);
-
-            chartBarStack('02', baseUrl + '/charts/bar-sentiment', $chartData);
-
-            // chartTrendCombo('03',baseUrl+'/json/charts/113-trend-sentiment.json');
-            chartTrendCombo('03', baseUrl + '/charts/trend-sentiment', $chartData);
-
-            //chartTrend('04', baseUrl+'/json/charts/101-trend-post.json');
-            chartTrend('04', baseUrl + '/charts/trend-post', $chartData);
-
-            //chartTrend('05', baseUrl+'/json/charts/102-trend-buzz.json');
-            chartTrend('05', baseUrl + '/charts/trend-buzz', $chartData);
-
-            //chartTrend('06', baseUrl+'/json/charts/106-trend-reach.json');
-            chartTrend('06', baseUrl + '/charts/trend-reach', $chartData);
-
-            //chartTrend('07', baseUrl+'/json/charts/104-trend-interaction.json');
-            chartTrend('07', baseUrl + '/charts/trend-interaction', $chartData);
-
-            // chartPie('08',baseUrl+'/json/charts/201-pie-post.json');
-            chartPie('08', baseUrl + '/charts/pie-post', $chartData);
-
-            // chartPie('09',baseUrl+'/json/charts/202-pie-buzz.json');
-            chartPie('09', baseUrl + '/charts/pie-buzz', $chartData);
-
-            // chartPie('10',baseUrl+'/json/charts/204-pie-interaction.json');
-            chartPie('10', baseUrl + '/charts/pie-interaction', $chartData);
-
-            // chartPie('11',baseUrl+'/json/charts/211-pie-unique-user.json');
-            chartPie('11', baseUrl + '/charts/pie-unique-user', $chartData);
-
-            // chartBar('12', baseUrl + '/json/charts/303-bar-interaction-rate.json');
-            chartBar('12', baseUrl + '/charts/bar-interaction-rate', $chartData);
-
-            // chartBarStack('13', baseUrl + '/json/charts/306-bar-media-share.json');
-            chartBarStack('13', baseUrl + '/charts/bar-media-share', $chartData);
-
-            // chartBarStack('14', baseUrl + '/json/charts/308-bar-topic-distribution.json');
-            chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
-
-            // chartOntology('15', baseUrl+'/json/charts/402-ontology.json');
-            chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
-
-            // wordcloud('16',baseUrl+'/json/charts/403-wordcloud.json');
-            wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
-
-            // tableConvo('17',baseUrl+'/json/charts/405-table-convo.json');
-            tableConvo('17', baseUrl + '/charts/convo', $chartData);
+            // chartBubble('01', baseUrl + '/charts/brand-equity', $chartData);
+            // chartBarStack('02', baseUrl + '/charts/bar-sentiment', $chartData);
+            // chartTrendCombo('03', baseUrl + '/charts/trend-sentiment', $chartData);
+            // chartTrend('04', baseUrl + '/charts/trend-post', $chartData);
+            // chartTrend('05', baseUrl + '/charts/trend-buzz', $chartData);
+            // chartTrend('06', baseUrl + '/charts/trend-reach', $chartData);
+            // chartTrend('07', baseUrl + '/charts/trend-interaction', $chartData);
+            // chartPie('08', baseUrl + '/charts/pie-post', $chartData);
+            // chartPie('09', baseUrl + '/charts/pie-buzz', $chartData);
+            // chartPie('10', baseUrl + '/charts/pie-interaction', $chartData);
+            // chartPie('11', baseUrl + '/charts/pie-unique-user', $chartData);
+            // chartBar('12', baseUrl + '/charts/bar-interaction-rate', $chartData);
+            // chartBarStack('13', baseUrl + '/charts/bar-media-share', $chartData);
+            // chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
+            // chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
+            // wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
+            tableConvo('17', baseUrl + '/charts/paging-convo', $chartData);
 
         });
     </script>

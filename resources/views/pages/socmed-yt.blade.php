@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('page-level-nav')
     @include('includes.subnav-socmed')
@@ -17,7 +18,23 @@
             <div id="06"></div>
             <div id="07" class="uk-width-1-1"></div>
             <div id="08" class="uk-width-1-1"></div>
-            <div id="09" class="uk-width-1-1"></div>
+            <div id="09" class="uk-width-1-1">
+                <div id="405" class="sm-chart-container uk-animation-fade">
+                    <div class="uk-card uk-card-hover uk-card-default uk-card-small">
+                        <div class="uk-card-header uk-clearfix">
+                            <h5 class="uk-card-title uk-float-left"></h5>
+                            <ul class="uk-float-right uk-subnav uk-margin-remove">
+                                <li><a class="grey-text fa fa-info-circle uk-card-info" title="" uk-tooltip></a></li>
+                                <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>
+                                <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-card-body">
+                            <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -36,6 +53,7 @@
     <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jqcloud.js') !!}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
     <script src="{!! asset('assets/js/charts/chartBubble.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/chartBar.js') !!}"></script>
@@ -64,32 +82,22 @@
                 "sentiments": $sentiments,
                 "text": $text,
                 "idMedia": 5,
-                "reportType": 2
+                "reportType": 2,
+                "createTicketUrl": '{!! url('convo/create-ticket') !!}',
+                "changeSentimentUrl": '{!! url('change-sentiment') !!}',
+                "ticketTypes": '{!! $ticketTypes !!}',
+                'users': '{!! $users !!}'
             };
-            // chartTrend('01',baseUrl+'/json/charts/101-trend-post.json');
-            chartTrend('01', baseUrl + '/charts/trend-post', $chartData);
+            // chartTrend('01', baseUrl + '/charts/trend-post', $chartData);
+            // chartTrend('02', baseUrl + '/charts/trend-view', $chartData);
+            // chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
+            // chartPie('04', baseUrl + '/charts/pie-view', $chartData);
+            // chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
+            // chartPie('06', baseUrl + '/charts/pie-rating', $chartData);
+            // wordcloud('07', baseUrl + '/charts/wordcloud', $chartData);
+            // tableInfluencers('08', baseUrl + '/charts/influencer', $chartData, influencers);
 
-            // chartTrend('02',baseUrl+'/json/charts/112-trend-view.json');
-            chartTrend('02', baseUrl + '/charts/trend-view', $chartData);
-
-            // chartTrend('03',baseUrl+'/json/charts/103-trend-comment.json');
-            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
-
-            // chartPie('04',baseUrl+'/json/charts/212-pie-view.json');
-            chartPie('04', baseUrl + '/charts/pie-view', $chartData);
-
-            // chartPie('05',baseUrl+'/json/charts/203-pie-comment.json');
-            chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
-
-            // chartPie('06',baseUrl+'/json/charts/209-pie-rating.json');
-            chartPie('06', baseUrl + '/charts/pie-rating', $chartData);
-
-            // wordcloud('08',baseUrl+'/json/charts/403-wordcloud.json');
-            wordcloud('07', baseUrl + '/charts/wordcloud', $chartData);
-
-            tableInfluencers('08', baseUrl + '/charts/influencer', $chartData, influencers);
-
-            tableConvo('09', baseUrl + '/charts/convo', $chartData);
+            tableConvo('09', baseUrl + '/charts/paging-convo', $chartData);
         });
     </script>
 @endsection

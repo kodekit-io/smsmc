@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('page-level-nav')
     @include('includes.subnav-project')
@@ -22,7 +23,7 @@
             <div id="11" class="uk-width-1-1"></div>
             <div id="12" class="uk-width-1-1"></div>
             <div id="13" class="uk-width-1-1">
-                <div id="" class="sm-chart-container uk-animation-fade">
+                <div id="405" class="sm-chart-container uk-animation-fade">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                         <div class="uk-card-header uk-clearfix">
                             <h5 class="uk-card-title uk-float-left convo-title"></h5>
@@ -33,10 +34,10 @@
                             </ul>
                         </div>
                         <div class="uk-card-body">
-                            <table id="fbTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                            <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                         </div>
                     </div>
-                </div>'
+                </div>
             </div>
         </div>
     </section>
@@ -56,6 +57,7 @@
     <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jqcloud.js') !!}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
     <script src="{!! asset('assets/js/charts/chartBubble.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/chartBar.js') !!}"></script>
@@ -64,9 +66,8 @@
     <script src="{!! asset('assets/js/charts/chartOntology.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
-    {{--<script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>--}}
+    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoFacebook.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/tableConvo_serverside.js') !!}"></script>
 
     <script>
         $(document).ready(function() {
@@ -93,9 +94,11 @@
                 "reportType": 1,
                 "createTicketUrl": '{!! url('convo/create-ticket') !!}',
                 "changeSentimentUrl": '{!! url('change-sentiment') !!}',
-                "ticketTypes": '{!! $ticketTypes !!}'
+                "ticketTypes": '{!! $ticketTypes !!}',
+                'users': '{!! $users !!}'
             };
 
+<<<<<<< Updated upstream
              chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
              chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
              chartPie('03', baseUrl + '/charts/pie-post', $chartData);
@@ -109,6 +112,21 @@
              chartOntology('11', baseUrl + '/charts/ontologi', $chartData);
              tableInfluencers('12', baseUrl + '/charts/influencer', $chartData, influencers);
             tableConvo('fbTable', baseUrl + '/charts/paging-convo', $chartData);
+=======
+            // chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+            // chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
+            // chartPie('03', baseUrl + '/charts/pie-post', $chartData);
+            // chartPie('04', baseUrl + '/charts/pie-comment', $chartData);
+            // chartPie('05', baseUrl + '/charts/pie-like', $chartData);
+            // chartPie('06', baseUrl + '/charts/pie-share', $chartData);
+            // chartBarStack('07', baseUrl + '/charts/bar-sentiment', $chartData);
+            // chartBar('08', baseUrl + '/charts/bar-interaction-rate', $chartData);
+            // chartBarStack('09', baseUrl + '/charts/bar-topic-distribution', $chartData);
+            // wordcloud('10', baseUrl + '/charts/wordcloud', $chartData);
+            // chartOntology('11', baseUrl + '/charts/ontologi', $chartData);
+            // tableInfluencers('12', baseUrl + '/charts/influencer', $chartData, influencers);
+            tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
+>>>>>>> Stashed changes
 
         });
     </script>

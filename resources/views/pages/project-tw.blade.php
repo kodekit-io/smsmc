@@ -25,7 +25,7 @@
             <div id="13" class="uk-width-1-1"></div>
             <div id="14" class="uk-width-1-1"></div>
             <div id="15" class="uk-width-1-1">
-                <div id="" class="sm-chart-container uk-animation-fade">
+                <div id="405" class="sm-chart-container uk-animation-fade">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                         <div class="uk-card-header uk-clearfix">
                             <h5 class="uk-card-title uk-float-left convo-title"></h5>
@@ -33,13 +33,13 @@
                                 <li><a class="grey-text fa fa-info-circle uk-card-info convo-info" title="" uk-tooltip></a></li>
                                 <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>
                                 <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>
-                                </ul>
+                            </ul>
                         </div>
-                    <div class="uk-card-body">
-                        <table id="twitterTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                        <div class="uk-card-body">
+                            <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                         </div>
                     </div>
-                </div>'
+                </div>
             </div>
         </div>
     </section>
@@ -68,9 +68,8 @@
     <script src="{!! asset('assets/js/charts/chartOntology.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
-    {{-- <script src="{!! asset('assets/js/charts/tableConvo_serverside.js') !!}"></script> --}}
+    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/tableConvo_serverside.js') !!}"></script>
 
     <script>
         $(document).ready(function() {
@@ -100,6 +99,7 @@
                 'users': '{!! $users !!}'
             };
 
+<<<<<<< Updated upstream
             chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
             chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
             chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
@@ -115,6 +115,23 @@
             chartOntology('13', baseUrl + '/charts/ontologi', $chartData);
             tableInfluencers('14', baseUrl + '/charts/influencer', $chartData, influencers);
             tableConvo('twitterTable', baseUrl + '/charts/paging-convo', $chartData);
+=======
+            // chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+            // chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
+            // chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
+            // chartTrend('04', baseUrl + '/charts/trend-reach', $chartData);
+            // chartPie('05', baseUrl + '/charts/pie-buzz', $chartData);
+            // chartPie('06', baseUrl + '/charts/pie-interaction', $chartData);
+            // chartPie('07', baseUrl + '/charts/pie-viral-reach', $chartData);
+            // chartPie('08', baseUrl + '/charts/pie-potential-reach', $chartData);
+            // chartBarStack('09', baseUrl + '/charts/bar-sentiment', $chartData);
+            // chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
+            // chartBarStack('11', baseUrl + '/charts/bar-topic-distribution', $chartData);
+            // wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
+            // chartOntology('13', baseUrl + '/charts/ontologi', $chartData);
+            // tableInfluencers('14', baseUrl + '/charts/influencer', $chartData, influencers);
+            tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
+>>>>>>> Stashed changes
         });
     </script>
 @endsection
