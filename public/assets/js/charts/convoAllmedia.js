@@ -27,7 +27,7 @@ function tableAll(div) {
         },
         columns: [
 			{ data: 'postDate', visible: false, },
-            { data: 'ticketId', title: 'ID', width: '5%', },
+            { data: null, "orderable": false, width: '5%', },
             {
                 title: 'Date', width: '15%',
                 data: function ( data ) {
@@ -53,7 +53,7 @@ function tableAll(div) {
 			// },
             // { data: 'content', title: 'Message', width: '10%' },
             {
-                data: 'media', title: 'Channel', class: 'uk-text-center',  width: '5%',
+                data: 'media', title: 'Channel', class: 'uk-text-center',  width: '10%',
                 render: function ( cellData ) {
                     var channel = cellData;
                     var icon = '';
@@ -99,7 +99,7 @@ function tableAll(div) {
                 }
             },
             {
-                title: 'Post', width: '35%',
+                title: 'Post', width: '30%',
                 data: function ( data ) {
                     // var date = data['postDate'];
                     // var localtime = moment.parseZone(date).format('llll');
@@ -135,13 +135,13 @@ function tableAll(div) {
 					}
 				}
 			},
-			{
-                data: 'type', title: 'Type', width: '10%'
-            },
+			// {
+            //     data: 'type', title: 'Type', width: '10%'
+            // },
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "10%",
+				"width": "20%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];
@@ -182,13 +182,13 @@ function tableAll(div) {
         ],
         order: [[ 0, 'desc' ]]
     });
-    /*
+
     theTable.on( 'order.dt search.dt', function () {
-        theTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+        theTable.column(1, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
             cell.innerHTML = i+1;
         } );
     } ).draw();
-    */
+
     theTable.columns.adjust().draw();
 }
 
