@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('page-level-nav')
     @include('includes.subnav-engagement-ticket')
@@ -18,11 +19,19 @@
                     {!! csrf_field() !!}
                     <div class="uk-margin">
                         <label>To</label>
-                        <input class="uk-input" type="text" name="to">
+                        <select name="to[]" id="to_select" class="uk-input" multiple>
+                        @foreach($users as $to)
+                            <option value="{!! $to->idLogin !!}">{!! $to->name !!}</option>
+                        @endforeach
+                        </select>
                     </div>
                     <div class="uk-margin">
                         <label>CC</label>
-                        <input class="uk-input" type="text" name="to_cc">
+                        <select name="to_cc[]" id="to_cc_select" class="uk-input" multiple>
+                            @foreach($users as $toCc)
+                                <option value="{!! $toCc->idLogin !!}">{!! $toCc->name !!}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="uk-margin">
                         {{-- <div class="uk-inline">
@@ -68,14 +77,15 @@
 @endsection
 
 @section('page-level-scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
-    <script src="{!! asset('assets/js/pages/ticket-create.js') !!}"></script>
+    {{--<script src="{!! asset('assets/js/pages/ticket-create.js') !!}"></script>--}}
 
     <script>
     $(document).ready(function() {
-
+        $("#to_select").select2();
+        $("#to_cc_select").select2();
     });
-
     </script>
 @endsection

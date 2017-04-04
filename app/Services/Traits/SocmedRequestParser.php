@@ -57,6 +57,14 @@ trait SocmedRequestParser
             $sentiments[$sentiment[1]]['showName'] = $sentiment[2];
         }
 
+        // get ticket type
+        $ticketTypes = $this->ticketService->getTicketStatus();
+        $data['ticketTypes'] = \GuzzleHttp\json_encode($ticketTypes);
+
+        // get TO
+        $users = $this->userService->getUsers();
+        $data['users'] = \GuzzleHttp\json_encode($users->user);
+
         $data['sentiments'] = $sentiments;
         $data['accounts'] = $accounts;
 
