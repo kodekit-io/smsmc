@@ -11,8 +11,9 @@ function tableAll(chartId, url, chartApiData) {
 		        if (data.responseJSON.draw == 1) {
 		            var title = data.responseJSON.chartName;
 		            var info = data.responseJSON.chartInfo;
-                    $('.convo-title').html(title);
+                    $('.convo-title').html('Conversation Ticket');
                     $('.convo-info').attr('title', info);
+					console.log(data);
                 }
             }
         },
