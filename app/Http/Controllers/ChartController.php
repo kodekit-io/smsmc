@@ -260,7 +260,7 @@ class ChartController extends Controller
         Log::warning('params => ' . \GuzzleHttp\json_encode($params));
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
         Log::warning('convo url => ' . $convoUrl);
-        return 1;
+        // return 1;
         $data = $this->smsmc->post($convoUrl, $params);
         $dtResult = new DatatableResult();
         $dtResult->setDraw($draw);
