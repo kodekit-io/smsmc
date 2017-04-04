@@ -92,17 +92,18 @@
                 'users': '{!! $users !!}'
             };
 
-            // chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
-            // chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
-            // chartTrend('03', baseUrl + '/charts/trend-fans', $chartData);
-            // chartPie('04', baseUrl + '/charts/pie-post', $chartData);
-            // chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
-            // chartPie('06', baseUrl + '/charts/pie-like', $chartData);
-            // chartPie('07', baseUrl + '/charts/pie-share', $chartData);
-            // chartBarStack('08', baseUrl + '/charts/bar-sentiment', $chartData);
-            // chartBar('09', baseUrl + '/charts/bar-interaction-rate', $chartData);
-            // wordcloud('10', baseUrl + '/charts/wordcloud', $chartData);
-            // tableInfluencers('11', baseUrl + '/charts/influencer', $chartData, influencers);
-            tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);        });
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+            chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
+            chartTrend('03', baseUrl + '/charts/trend-fans', $chartData);
+            chartPie('04', baseUrl + '/charts/pie-post', $chartData);
+            chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
+            chartPie('06', baseUrl + '/charts/pie-like', $chartData);
+            chartPie('07', baseUrl + '/charts/pie-share', $chartData);
+            chartBarStack('08', baseUrl + '/charts/bar-sentiment', $chartData);
+            chartBar('09', baseUrl + '/charts/bar-interaction-rate', $chartData);
+            wordcloud('10', baseUrl + '/charts/wordcloud', $chartData);
+            tableInfluencers('11', baseUrl + '/charts/influencer', $chartData, influencers);
+            tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
+        });
     </script>
 @endsection

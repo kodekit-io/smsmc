@@ -88,14 +88,14 @@
                 "ticketTypes": '{!! $ticketTypes !!}',
                 'users': '{!! $users !!}'
             };
-            // chartTrend('01', baseUrl + '/charts/trend-post', $chartData);
-            // chartTrend('02', baseUrl + '/charts/trend-view', $chartData);
-            // chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
-            // chartPie('04', baseUrl + '/charts/pie-view', $chartData);
-            // chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
-            // chartPie('06', baseUrl + '/charts/pie-rating', $chartData);
-            // wordcloud('07', baseUrl + '/charts/wordcloud', $chartData);
-            // tableInfluencers('08', baseUrl + '/charts/influencer', $chartData, influencers);
+            chartTrend('01', baseUrl + '/charts/trend-post', $chartData);
+            chartTrend('02', baseUrl + '/charts/trend-view', $chartData);
+            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
+            chartPie('04', baseUrl + '/charts/pie-view', $chartData);
+            chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
+            chartPie('06', baseUrl + '/charts/pie-rating', $chartData);
+            wordcloud('07', baseUrl + '/charts/wordcloud', $chartData);
+            tableInfluencers('08', baseUrl + '/charts/influencer', $chartData, influencers);
 
             tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
         });

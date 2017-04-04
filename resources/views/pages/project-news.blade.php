@@ -96,17 +96,17 @@
                 'users': '{!! $users !!}'
             };
 
-            // chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
-            // chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
-            // chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
-            // chartPie('04', baseUrl + '/charts/pie-post', $chartData);
-            // chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
-            // chartPie('06', baseUrl + '/charts/pie-reach', $chartData);
-            // chartBarStack('07', baseUrl + '/charts/bar-sentiment', $chartData);
-            // chartBarStack('08', baseUrl + '/charts/bar-topic-distribution', $chartData);
-            // wordcloud('09', baseUrl + '/charts/wordcloud', $chartData);
-            // chartOntology('10', baseUrl + '/charts/ontologi', $chartData);
-            // tableInfluencers('11', baseUrl + '/charts/influencer', $chartData, influencers);
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+            chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
+            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
+            chartPie('04', baseUrl + '/charts/pie-post', $chartData);
+            chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
+            chartPie('06', baseUrl + '/charts/pie-reach', $chartData);
+            chartBarStack('07', baseUrl + '/charts/bar-sentiment', $chartData);
+            chartBarStack('08', baseUrl + '/charts/bar-topic-distribution', $chartData);
+            wordcloud('09', baseUrl + '/charts/wordcloud', $chartData);
+            chartOntology('10', baseUrl + '/charts/ontologi', $chartData);
+            tableInfluencers('11', baseUrl + '/charts/influencer', $chartData, influencers);
             tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
         });
     </script>
