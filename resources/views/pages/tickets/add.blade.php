@@ -34,17 +34,6 @@
                         </select>
                     </div>
                     <div class="uk-margin">
-                        {{-- <div class="uk-inline">
-                            <a class="uk-button uk-button-default uk-button-small">Send to <span uk-icon="icon: chevron-down"></span></a>
-                            <div class="sm-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Pulp & Paper</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> Agribusiness & Food</label></li>
-                                    <li><label><input class="uk-checkbox" type="checkbox"> President Office</label></li>
-                                    <li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>
-                                </ul>
-                            </div>
-                        </div> --}}
                         <div class="uk-inline">
                             <a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>
                             <div class="sm-dropdown">

@@ -139,13 +139,9 @@ class SettingController extends Controller
     {
         $response = $this->group->delete($id);
         if ($response->status == '200') {
-            if ($response->result->code == '200') {
-                return redirect('setting/group');
-            } else {
-                return redirect('setting/group')->withErrors(['error' => $response->result->msg]);
-            }
+            return redirect('setting/group');
         } else {
-            return redirect('setting/group')->withErrors(['error' => 'Error when delete the data.']);
+            return redirect('setting/group')->withErrors(['error' => $response->result]);
         }
 
     }

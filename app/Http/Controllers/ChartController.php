@@ -257,9 +257,9 @@ class ChartController extends Controller
         $params['brandID'] = $request->keywords;;
         $params['row'] = $length;
 
-        Log::warning('params => ' . \GuzzleHttp\json_encode($params));
+//        Log::warning('params => ' . \GuzzleHttp\json_encode($params));
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
-        Log::warning('convo url => ' . $convoUrl);
+//        Log::warning('convo url => ' . $convoUrl);
         return 1;
         $data = $this->smsmc->post($convoUrl, $params);
         $dtResult = new DatatableResult();
