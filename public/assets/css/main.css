@@ -583,7 +583,7 @@ div.sm-dropdown li {
 /* select2 */
 .select2-container--default .select2-selection--multiple {
     border-radius: 0 !important;
-    border: 1px solid #e5e5e5 !important;
+    border: 1px solid #afadad !important;
 }
 .select2-container--default.select2-container--focus .select2-selection--multiple {
     border: 1px solid #EC1C23 !important;

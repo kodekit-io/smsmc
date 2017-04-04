@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service\Ticket;
+use App\Service\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -12,13 +13,18 @@ class TicketController extends Controller
      * @var Ticket
      */
     private $ticket;
+    /**
+     * @var User
+     */
+    protected $userService;
 
     /**
      * TicketController constructor.
      */
-    public function __construct(Ticket $ticket)
+    public function __construct(Ticket $ticket, User $userService)
     {
         $this->ticket = $ticket;
+        $this->userService = $userService;
     }
 
     public function index()
@@ -50,7 +56,6 @@ class TicketController extends Controller
     public function changeStatus(Request $request, $ticketId)
     {
         if ($this->ticket->changeStatus($ticketId, $request->get('ticket_status'))) {
-            dd('adfadsf');
             return redirect('ticket/' . $ticketId . '/detail');
         }
         return redirect('ticket/' . $ticketId . '/detail')->withErrors(['error' => 'Can not change ticket status.']);
@@ -58,7 +63,9 @@ class TicketController extends Controller
 
     public function add()
     {
+        $users = $this->userService->getUsers();
         $data['ticketTypes'] = $this->ticket->getTicketStatus();
+        $data['users'] = $users->user;
         $data['pageTitle'] = 'Ticket';
         return view('pages.tickets.add', $data);
     }
@@ -73,7 +80,7 @@ class TicketController extends Controller
 
     public function createTicketFromConvo(Request $request)
     {
-        Log::warning($request->all());
+        // Log::warning($request->all());
         if ($this->ticket->create($request)) {
             return 1;
         }
