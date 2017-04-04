@@ -52,7 +52,7 @@ class DashboardController extends Controller
 
     public function getProjectList()
     {
-        $projectList = $this->projectService->projectList();
+        $projectList = $this->projectService->projectList(0, 100);
 
         return \GuzzleHttp\json_encode($projectList);
     }
