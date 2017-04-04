@@ -34,19 +34,20 @@
                         </select>
                     </div>
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>
-                            <div class="sm-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
-                                    @if(count($ticketTypes) > 0)
-                                        @foreach($ticketTypes as $ticketType)
-                                            <li><label>
-                                                <input class="uk-checkbox" type="checkbox" name="types[]" value="{!! $ticketType->id !!}"> {!! strtoupper($ticketType->name) !!}
-                                            </label></li>
-                                        @endforeach
-                                    @endif
-                                </ul>
-                            </div>
+                        <div class="uk-flex uk-flex-middle">
+                            <label class="uk-margin-small-right">Ticket Type</label>
+                            <ul class="uk-subnav uk-margin-remove">
+                                @if(count($ticketTypes) > 0)
+                                @foreach($ticketTypes as $ticketType)
+                                    <li>
+                                        <label>
+                                            <input class="uk-checkbox type" type="checkbox" name="types[]" value="{!! $ticketType->id !!}">
+                                            {!! strtoupper($ticketType->name) !!}
+                                        </label>
+                                    </li>
+                                @endforeach
+                                @endif
+                            </ul>
                         </div>
                     </div>
                     <div class="uk-margin">
@@ -69,10 +70,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
-    {{--<script src="{!! asset('assets/js/pages/ticket-create.js') !!}"></script>--}}
 
     <script>
     $(document).ready(function() {
+        $('form').validate();
+
         $("#to_select").select2();
         $("#to_cc_select").select2();
     });
