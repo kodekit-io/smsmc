@@ -234,6 +234,7 @@ class ChartController extends Controller
         $reportType = $request->reportType;
         $draw = $request->input('draw');
         $length = $request->input('length');
+        // Log::warning('length ==> ' . $length);
 
         // Log::warning(\GuzzleHttp\json_encode($request->all()));
         // sentiment filter
@@ -251,13 +252,19 @@ class ChartController extends Controller
         }
 
         // other params
-        $params['pid'] = $request->projectId;
+        if ($reportType == 1) {
+            $params['pid'] = $request->projectId;
+        }
+        if ($reportType == 2) {
+            $params['uid'] = \Auth::id();
+        }
+
         $params['StartDate'] = $request->startDate;
         $params['EndDate'] = $request->endDate;
         $params['brandID'] = $request->keywords;;
         $params['row'] = $length;
 
-//        Log::warning('params => ' . \GuzzleHttp\json_encode($params));
+        // Log::warning('params => ' . \GuzzleHttp\json_encode($params));
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
 
         $data = $this->smsmc->post($convoUrl, $params);

@@ -33,7 +33,7 @@ class Project
         if ($totalPage != 0) {
             $params['totalPage'] = $totalPage;
         }
-        Log::warning(\GuzzleHttp\json_encode($params));
+        // Log::warning(\GuzzleHttp\json_encode($params));
         $projectList = $this->smsmc->post('project/list', $params);
         if ($projectList->status == 200) {
             return $projectList->result;

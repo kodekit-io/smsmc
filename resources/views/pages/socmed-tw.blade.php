@@ -93,7 +93,7 @@
                 'users': '{!! $users !!}'
             };
 
-            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+            chartTrend('01', baseUrl + '/charts/trend-sentiment', $chartData);
             chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
             chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
             chartTrend('04', baseUrl + '/charts/trend-reach', $chartData);
