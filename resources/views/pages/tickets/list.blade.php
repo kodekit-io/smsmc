@@ -39,7 +39,7 @@
 
     <script>
     $(document).ready(function() {
-        ticketList('01');
+        ticketList('ticketList');
     });
 
     </script>

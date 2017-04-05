@@ -73,7 +73,7 @@
 
     <script>
     $(document).ready(function() {
-        $('form').validate();
+        // $('form').validate();
 
         $("#to_select").select2();
         $("#to_cc_select").select2();

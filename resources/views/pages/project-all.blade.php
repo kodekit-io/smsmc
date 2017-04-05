@@ -117,8 +117,8 @@
             chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
             chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
-            tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
-
+            // tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
+            tableAll('convoTable');
         });
     </script>
 @endsection

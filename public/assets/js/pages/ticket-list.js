@@ -10,7 +10,7 @@ function ticketList(div) {
     // </div>';
     // $('#'+div).append(card);
 
-    var theTable = $('#ticketList').DataTable( {
+    var theTable = $('#'+div).DataTable( {
         ajax: {
             // "url": "json/ticket-list.json",
 			url : baseUrl + '/view-ticket'
