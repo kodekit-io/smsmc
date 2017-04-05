@@ -33,6 +33,13 @@ class TicketController extends Controller
         return view('pages.tickets.list', $data);
     }
 
+    public function ticketList()
+    {
+        $result = $this->ticket->getTickets();
+
+        return \GuzzleHttp\json_encode($result);
+    }
+
     public function detail($ticketId)
     {
         $ticket = $this->ticket->getTicketById($ticketId);
@@ -72,7 +79,7 @@ class TicketController extends Controller
 
     public function create(Request $request)
     {
-        if ($this->ticket->create($request->except(['_token']))) {
+        if ($this->ticket->create($request)) {
             return redirect('ticket');
         }
         return redirect('ticket/add')->withInput();

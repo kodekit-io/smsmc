@@ -56,16 +56,7 @@ class TestController extends Controller
         $pdf->save(public_path($pdfFileName));
     }
 
-	public function viewTicket()
-	{
-		$params = [
-			'auth_token' => '1M25Bfr5',
-			'uid' => '561'
-		];
-		$result = $this->smsmc->post('ticket/view', $params);
-		return \GuzzleHttp\json_encode($result->result);
-		// echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
-	}
+
 	public function plist($page,$row)
 	{
 		$params = [

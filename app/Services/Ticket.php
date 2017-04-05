@@ -4,6 +4,7 @@ namespace App\Service;
 
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class Ticket
 {
@@ -20,14 +21,30 @@ class Ticket
         $this->smsmc = $smsmc;
     }
 
+    public function getTickets()
+    {
+        $params = [
+            'uid' => \Auth::id()
+        ];
+
+        $response = $this->smsmc->post('ticket/view', $params);
+        Log::warning(\GuzzleHttp\json_encode($response));
+        if ($response->status == 200) {
+            Log::warning(\GuzzleHttp\json_encode($response->result));
+            return $response->result;
+        }
+
+        return [];
+    }
+
     public function create($request)
     {
         $message = $request->has('message') ? $request->input('message') : '';
         $types = $request->has('types') ? count($request->input('types')) > 0 ? implode(',', $request->input('types')) : '' : '';
         $from = \Auth::user()->id;
         $idMedia = $request->has('idMedia') ? $request->input('idMedia') : '';
-        // $to = $request->has('to') ? count($request->input('to')) > 0 ? implode(',', $request->input('to')) : '' : '';
-        $to = 561;
+        $to = $request->has('to') ? count($request->input('to')) > 0 ? implode(',', $request->input('to')) : '' : '';
+        // $to = 561;
         // $toCc = $request->has('to_cc') ? count($request->input('to_cc')) > 0 ? implode(',', $request->input('to_cc')) : '' : '';
         $postDate = $request->has('postDate') ? $request->input('postDate') : Carbon::create()->format('Y-m-d\TH:i:s\Z');
         $sentiment = $request->has('sentiment') ? $request->input('sentiment') : 'general';

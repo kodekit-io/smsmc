@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('change-sentiment', 'ChartController@changeSentiment');
 
     Route::get('ticket', 'TicketController@index');
-    Route::get('view-ticket', 'TestController@viewTicket');
+    Route::get('view-ticket', 'TicketController@ticketList');
     Route::get('ticket/add', 'TicketController@add');
     Route::post('ticket/create', 'TicketController@create');
     Route::get('ticket/{ticketId}/detail', 'TicketController@detail');
