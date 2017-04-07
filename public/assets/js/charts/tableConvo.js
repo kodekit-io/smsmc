@@ -22,9 +22,6 @@ function tableConvo(chartId, url, chartApiData) {
         case 7:
             var theTable = tableInstagram(chartId, url, chartApiData);
             break;
-        case 8:
-            var theTable = tableAll(chartId, url, chartApiData);
-            break;
     }
 
     // Send Ticket

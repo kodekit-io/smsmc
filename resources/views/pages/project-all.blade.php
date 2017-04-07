@@ -39,7 +39,43 @@
                             </ul>
                         </div>
                         <div class="uk-card-body">
-                            <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                            <ul class="uk-child-width-expand" uk-tab>
+                                <li class="uk-active"><a href="#">Facebook</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">News</a></li>
+                                <li><a href="#">Int. News</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Forum</a></li>
+                                <li><a href="#">Video</a></li>
+                                <li><a href="#">Instagram</a></li>
+                            </ul>
+                            <ul class="uk-switcher uk-margin">
+                                <li>
+                                    <table id="convoFacebook" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                </li>
+                                <li>
+                                    <table id="convoTwitter" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                </li>
+                                <li>
+                                    <table id="convoNews" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                </li>
+                                <li>
+                                    <table id="convoNewsInt" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                </li>
+                                <li>
+                                    <table id="convoBlog" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                </li>
+                                <li>
+                                    <table id="convoForum" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                </li>
+                                <li>
+                                    <table id="convoVideo" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                </li>
+                                <li>
+                                    <table id="convoInstagram" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                </li>
+                            </ul>
+
                         </div>
                     </div>
                 </div>
@@ -71,10 +107,9 @@
     <script src="{!! asset('assets/js/charts/chartOntology.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
+
     <script src="{!! asset('assets/js/charts/convoAllmedia.js') !!}"></script>
     <script>
-        //var influencers = ["topStatusFB", "topPhotoFB", "topLinkFB", "topVideoFB"];
         $(document).ready(function() {
             var $projectId = '{!! $projectId !!}';
             var $startDate = '{!! $startDate !!}';
@@ -118,7 +153,6 @@
             chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
             // tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
-            tableAll('convoTable');
         });
     </script>
 @endsection
