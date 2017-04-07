@@ -28,9 +28,9 @@ class Ticket
         ];
 
         $response = $this->smsmc->post('ticket/view', $params);
-        Log::warning(\GuzzleHttp\json_encode($response));
+        // Log::warning(\GuzzleHttp\json_encode($response));
         if ($response->status == 200) {
-            Log::warning(\GuzzleHttp\json_encode($response->result));
+            // Log::warning(\GuzzleHttp\json_encode($response->result));
             return $response->result;
         }
 
@@ -63,7 +63,10 @@ class Ticket
 
         if (isset($data['postId'])) {
             $params['postId'] = $data['postId'];
+        }
 
+        if (isset($data['projectId'])) {
+            $params['pid'] = $data['projectId'];
         }
 
         $response = $this->smsmc->post('ticket/send', $params);

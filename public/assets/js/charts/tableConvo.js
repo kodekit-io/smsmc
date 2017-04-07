@@ -53,6 +53,7 @@ function tableConvo(chartId, url, chartApiData) {
 
         var modal = '<form class="open-ticket" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
+            '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'"> ' +
             '<input type="hidden" name="postDate" value="'+ postDate +'"> ' +
             '<input type="hidden" name="idMedia" value="' + chartApiData.idMedia + '" >' +
             '<input type="hidden" name="sentiment" value="' + sentiment + '" >' +
