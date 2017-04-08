@@ -2,30 +2,22 @@
     <div class="uk-navbar-left">
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="{!! $projectDetail->project->pname !!}" uk-tooltip="pos: bottom">{!! $projectDetail->project->pname !!}</h2>
         <ul class="uk-navbar-nav">
-            <li>
-                <a href="{!! url('/project/all/' . $projectId) !!}"><i class="fa fa-th-large"></i>All Media</a>
+            <li {!! isset($activeAll) ? $activeAll : '' !!}><a href="{!! url('/project/all/' . $projectId) !!}"><i class="fa fa-th-large"></i>All Media</a></li>
+            <li {!! isset($activeFb) ? $activeFb : '' !!}><a href="{!! url('/project/facebook/' . $projectId) !!}"><i class="fa fa-facebook"></i>Facebook</a></li>
+            <li {!! isset($activeTw) ? $activeTw : '' !!}><a href="{!! url('/project/twitter/' . $projectId) !!}"><i class="fa fa-twitter"></i>Twitter</a></li>
+            <li {!! isset($activeNews) ? $activeNews : '' !!}>
+                <a href="{!! url('/project/news/' . $projectId) !!}"><i class="fa fa-globe"></i>News</a>
+                <div uk-dropdown="offset: 0" class="uk-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="{!! url('/project/news/' . $projectId) !!}">National</a></li>
+                        <li><a href="{!! url('/project/news-int/' . $projectId) !!}">International</a></li>
+                    </ul>
+                </div>
             </li>
-            <li>
-                <a href="{!! url('/project/facebook/' . $projectId) !!}"><i class="fa fa-facebook"></i>Facebook</a>
-            </li>
-            <li>
-                <a href="{!! url('/project/twitter/' . $projectId) !!}"><i class="fa fa-twitter"></i>Twitter</a>
-            </li>
-            <li>
-                <a href="{!! url('/project/news/' . $projectId) !!}"><i class="fa fa-globe"></i>Online News</a>
-            </li>
-            <li>
-                <a href="{!! url('/project/blog/' . $projectId) !!}"><i class="fa fa-rss"></i>Blog</a>
-            </li>
-            <li>
-                <a href="{!! url('/project/forum/' . $projectId) !!}"><i class="fa fa-comments"></i>Forum</a>
-            </li>
-            <li>
-                <a href="{!! url('/project/youtube/' . $projectId) !!}"><i class="fa fa-youtube-play"></i>Video</a>
-            </li>
-            <li>
-                <a href="{!! url('/project/instagram/' . $projectId) !!}"><i class="fa fa-instagram"></i>Instagram</a>
-            </li>
+            <li {!! isset($activeBlog) ? $activeBlog : '' !!}><a href="{!! url('/project/blog/' . $projectId) !!}"><i class="fa fa-rss"></i>Blog</a></li>
+            <li {!! isset($activeForum) ? $activeForum : '' !!}><a href="{!! url('/project/forum/' . $projectId) !!}"><i class="fa fa-comments"></i>Forum</a></li>
+            <li {!! isset($activeVid) ? $activeVid : '' !!}><a href="{!! url('/project/youtube/' . $projectId) !!}"><i class="fa fa-youtube-play"></i>Video</a></li>
+            <li {!! isset($activeIg) ? $activeIg : '' !!}><a href="{!! url('/project/instagram/' . $projectId) !!}"><i class="fa fa-instagram"></i>Instagram</a></li>
         </ul>
     </div>
     <div class="uk-navbar-right">

@@ -2,10 +2,10 @@
     <div class="uk-navbar-left">
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="Social Media" uk-tooltip="pos: bottom">Social Media</h2>
         <ul class="uk-navbar-nav">
-            <li><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
-            <li><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
-            <li><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
-            <li><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
+            <li {!! isset($activeFb) ? $activeFb : '' !!}><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
+            <li {!! isset($activeTw) ? $activeTw : '' !!}><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+            <li {!! isset($activeVid) ? $activeVid : '' !!}><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
+            <li {!! isset($activeIg) ? $activeIg : '' !!}><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
         </ul>
     </div>
     <div class="uk-navbar-right">
@@ -52,10 +52,10 @@
                         </li>
                         <li class="uk-width-expand@m">
                             <div class="uk-inline sm-text-bold">Search:</div>
-                            <form class="uk-inline">
+                            <div class="uk-inline">
                                 <span class="uk-form-icon" uk-icon="icon: search"></span>
                                 <input class="uk-input uk-form-small uk-width-small" name="searchText" type="text" value="{!! $searchText !!}" placeholder="Filter">
-                            </form>
+                            </div>
                         </li>
                         <li class="uk-width-auto@m">
                             <button class="uk-button uk-button-small white-text red darken-1 sm-text-bold" name="filter" type="submit" value="filter">UPDATE</button>

@@ -41,6 +41,7 @@ class SocmedController extends Controller
     {
         $data = $this->parseRequest($request, 'facebook');
         $data['pageTitle'] = 'Facebook';
+        $data['activeFb'] = 'class="uk-active"';
         return view('pages.socmed-fb', $data);
     }
 
@@ -48,6 +49,7 @@ class SocmedController extends Controller
     {
         $data = $this->parseRequest($request, 'twitter');
         $data['pageTitle'] = 'Twitter';
+        $data['activeTw'] = 'class="uk-active"';
         return view('pages.socmed-tw', $data);
     }
 
@@ -55,6 +57,7 @@ class SocmedController extends Controller
     {
         $data = $this->parseRequest($request, 'youtube');
         $data['pageTitle'] = 'Youtube';
+        $data['activeVid'] = 'class="uk-active"';
         return view('pages.socmed-yt', $data);
     }
 
@@ -62,6 +65,7 @@ class SocmedController extends Controller
     {
         $data = $this->parseRequest($request, 'instagram');
         $data['pageTitle'] = 'Instagram';
+        $data['activeIg'] = 'class="uk-active"';
         return view('pages.socmed-ig', $data);
     }
 }

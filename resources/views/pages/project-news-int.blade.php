@@ -20,14 +20,8 @@
             <div id="08"></div>
             <div id="09"></div>
             <div id="10"></div>
-            <div id="11"></div>
-            <div id="12"></div>
-            <div id="13"></div>
-            <div id="14"></div>
-            <div id="15"></div>
-            <div id="16"></div>
-            <div id="17" class="uk-width-1-1"></div>
-            <div id="18" class="uk-width-1-1">
+            <div id="11" class="uk-width-1-1"></div>
+            <div id="12" class="uk-width-1-1">
                 <div id="405" class="sm-chart-container uk-animation-fade">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                         <div class="uk-card-header uk-clearfix">
@@ -39,43 +33,7 @@
                             </ul>
                         </div>
                         <div class="uk-card-body">
-                            <ul class="uk-child-width-expand" uk-tab>
-                                <li class="uk-active"><a href="#">Facebook</a></li>
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Int. News</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Forum</a></li>
-                                <li><a href="#">Video</a></li>
-                                <li><a href="#">Instagram</a></li>
-                            </ul>
-                            <ul class="uk-switcher uk-margin">
-                                <li>
-                                    <table id="convoFacebook" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                </li>
-                                <li>
-                                    <table id="convoTwitter" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                </li>
-                                <li>
-                                    <table id="convoNews" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                </li>
-                                <li>
-                                    <table id="convoNewsInt" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                </li>
-                                <li>
-                                    <table id="convoBlog" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                </li>
-                                <li>
-                                    <table id="convoForum" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                </li>
-                                <li>
-                                    <table id="convoVideo" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                </li>
-                                <li>
-                                    <table id="convoInstagram" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                </li>
-                            </ul>
-
+                            <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                         </div>
                     </div>
                 </div>
@@ -107,11 +65,12 @@
     <script src="{!! asset('assets/js/charts/chartOntology.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
-
-    <script src="{!! asset('assets/js/charts/convoAllmedia.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoNews.js') !!}"></script>
 
     <script>
         $(document).ready(function() {
+            var influencers = ["top10News"];
             var $projectId = '{!! $projectId !!}';
             var $startDate = '{!! $startDate !!}';
             var $endDate = '{!! $endDate !!}';
@@ -129,7 +88,7 @@
                 "topics": $topics,
                 "sentiments": $sentiments,
                 "text": $text,
-                "idMedia": 8,
+                "idMedia": 4,
                 "reportType": 1,
                 "createTicketUrl": '{!! url('convo/create-ticket') !!}',
                 "changeSentimentUrl": '{!! url('change-sentiment') !!}',
@@ -137,22 +96,18 @@
                 'users': '{!! $users !!}'
             };
 
-            // chartBubble('01', baseUrl + '/charts/brand-equity', $chartData);
-            // chartBarStack('02', baseUrl + '/charts/bar-sentiment', $chartData);
-            // chartTrendCombo('03', baseUrl + '/charts/trend-sentiment', $chartData);
-            // chartTrend('04', baseUrl + '/charts/trend-post', $chartData);
-            // chartTrend('05', baseUrl + '/charts/trend-buzz', $chartData);
-            // chartTrend('06', baseUrl + '/charts/trend-reach', $chartData);
-            // chartTrend('07', baseUrl + '/charts/trend-interaction', $chartData);
-            // chartPie('08', baseUrl + '/charts/pie-post', $chartData);
-            // chartPie('09', baseUrl + '/charts/pie-buzz', $chartData);
-            // chartPie('10', baseUrl + '/charts/pie-interaction', $chartData);
-            // chartPie('11', baseUrl + '/charts/pie-unique-user', $chartData);
-            // chartBar('12', baseUrl + '/charts/bar-interaction-rate', $chartData);
-            // chartBarStack('13', baseUrl + '/charts/bar-media-share', $chartData);
-            // chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
-            // chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
-            // wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
+            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+            chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
+            chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
+            chartPie('04', baseUrl + '/charts/pie-post', $chartData);
+            chartPie('05', baseUrl + '/charts/pie-comment', $chartData);
+            chartPie('06', baseUrl + '/charts/pie-reach', $chartData);
+            chartBarStack('07', baseUrl + '/charts/bar-sentiment', $chartData);
+            chartBarStack('08', baseUrl + '/charts/bar-topic-distribution', $chartData);
+            wordcloud('09', baseUrl + '/charts/wordcloud', $chartData);
+            chartOntology('10', baseUrl + '/charts/ontologi', $chartData);
+            tableInfluencers('11', baseUrl + '/charts/influencer', $chartData, influencers);
+            tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
         });
     </script>
 @endsection

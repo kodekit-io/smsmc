@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('project/facebook/{projectId}', 'ProjectController@facebook');
     Route::any('project/twitter/{projectId}', 'ProjectController@twitter');
     Route::any('project/news/{projectId}', 'ProjectController@news');
+    Route::any('project/news-int/{projectId}', 'ProjectController@newsInt');
     Route::any('project/blog/{projectId}', 'ProjectController@blog');
     Route::any('project/forum/{projectId}', 'ProjectController@forum');
     Route::any('project/youtube/{projectId}', 'ProjectController@youtube');
