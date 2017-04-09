@@ -108,7 +108,16 @@
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
 
-    <script src="{!! asset('assets/js/charts/convoAllmedia.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoFacebook.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoFacebook.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoNews.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoBlog.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoForum.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoVideo.js') !!}"></script>
+    <script src="{!! asset('assets/js/charts/convoInstagram.js') !!}"></script>
 
     <script>
         $(document).ready(function() {
@@ -153,6 +162,20 @@
             chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
             chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
+
+            $('.convo-title').html('Conversation');
+            $('.convo-info').attr('title', 'All media conversations');
+            // $('.uk-switcher').on('show.uk.switcher', function(){
+            	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
+                tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
+                tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
+                tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
+                tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3);
+                tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
+                tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
+                tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
+            // });
+
         });
     </script>
 @endsection

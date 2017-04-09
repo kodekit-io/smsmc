@@ -24,7 +24,7 @@
     <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jqcloud.js') !!}"></script>
-<script src="{!! asset('assets/js/charts/chartBarOri.js') !!}"></script>
+<script src="{!! asset('assets/js/report/chartBarOri.js') !!}"></script>
 <script type="text/javascript">
     var baseUrl = "{!! url('/') !!}";
     chartBar('01',baseUrl+'/json/charts/303-bar-interaction-rate.json');
