@@ -1,5 +1,8 @@
-function tableConvo(chartId, url, chartApiData) {
+function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
     var idMedia = chartApiData.idMedia;
+    if (idMediaParam != '') {
+        idMedia = idMediaParam;
+    }
     switch (idMedia) {
         case 1:
             var theTable = tableFacebook(chartId, url, chartApiData);
