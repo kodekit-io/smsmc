@@ -75,14 +75,14 @@ function chartPie(domId, url, chartApiData, name) {
                     text : '',
                 });
 
-                if(color[0] !== '' && color.length > 0){
-                    dataColor = chartData.colors;
-                } else {
+                if(color[0] == '' || color[0] === undefined || color[0] == null){
                     dataColor = [
                         '#5ab1ef','#ffb980','#07a2a4','#9a7fd1','#588dd5',
                         '#f5994e','#c05050','#7eb00a','#6f5553','#c14089',
                         '#59678c','#c9ab00','#dc69aa','#2ec7c9','#b6a2de',
                     ];
+                } else {
+                    dataColor = chartData.colors;
                 }
 
                 var option = {

@@ -25,7 +25,7 @@ function chartTrend(domId, url, chartApiData, title) {
             }
         },
         success: function(result){
-			// console.log(result);
+			console.log(result);
             var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
@@ -98,14 +98,14 @@ function chartTrend(domId, url, chartApiData, title) {
                     text : '',
                 });
 
-                if(data.colors[0] !== '' && data.colors.length > 0){
-                    dataColor = data.colors;
-                } else {
+                if(data.colors[0] === undefined || data.colors[0] == '' || data.colors[0] == null){
                     dataColor = [
                         '#5ab1ef','#ffb980','#07a2a4','#9a7fd1','#588dd5',
                         '#f5994e','#c05050','#7eb00a','#6f5553','#c14089',
                         '#59678c','#c9ab00','#dc69aa','#2ec7c9','#b6a2de',
                     ];
+                } else {
+                    dataColor = data.colors;
                 }
                 var option = {
                     tooltip: {
@@ -325,14 +325,14 @@ function itemCombo(id, url, chartApiData) {
                     text : '',
                 });
 
-                if(data.colors[0] !== '' && data.colors.length > 0){
-                    dataColor = data.colors;
-                } else {
+                if(data.colors[0] === undefined || data.colors[0] == '' || data.colors[0] == null){
                     dataColor = [
                         '#5ab1ef','#ffb980','#07a2a4','#9a7fd1','#588dd5',
                         '#f5994e','#c05050','#7eb00a','#6f5553','#c14089',
                         '#59678c','#c9ab00','#dc69aa','#2ec7c9','#b6a2de',
                     ];
+                } else {
+                    dataColor = data.colors;
                 }
                 var option = {
                     tooltip: {
