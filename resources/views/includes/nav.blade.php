@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{!! url('/page-help') !!}" class="sm-nav-round" title="Help" uk-tooltip="pos:left">
+                    <a href="{!! url('/page-help') !!}" class="sm-nav-round" title="Glossary" uk-tooltip="pos:left">
                         <span class="fa fa-life-ring"></span>
                     </a>
                 </li>

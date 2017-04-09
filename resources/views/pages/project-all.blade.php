@@ -31,9 +31,9 @@
                 <div id="405" class="sm-chart-container uk-animation-fade">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                         <div class="uk-card-header uk-clearfix">
-                            <h5 class="uk-card-title uk-float-left convo-title"></h5>
+                            <h5 class="uk-card-title uk-float-left convo-title">Conversation</h5>
                             <ul class="uk-float-right uk-subnav uk-margin-remove">
-                                <li><a class="grey-text fa fa-info-circle convo-info" title="" uk-tooltip></a></li>
+                                <li><a class="grey-text fa fa-info-circle convo-info" title="All Media Conversation" uk-tooltip></a></li>
                                 <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>
                                 <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>
                             </ul>
@@ -162,9 +162,7 @@
             chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
             chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
-
-            $('.convo-title').html('Conversation');
-            $('.convo-info').attr('title', 'All media conversations');
+            
             // $('.uk-switcher').on('show.uk.switcher', function(){
             	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
                 tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
