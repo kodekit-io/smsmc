@@ -5,16 +5,6 @@ function chartTrend(domId, url, chartApiData, title) {
         url: url,
         data: chartApiData,
         beforeSend : function(xhr) {
-            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left"></h5>'
-                    + '</div>'
-                    + '<div class="uk-card-body">'
-                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
             $('#'+domId).append(cardloader);
             xxx++;
         },
@@ -25,7 +15,10 @@ function chartTrend(domId, url, chartApiData, title) {
             }
         },
         success: function(result){
-			console.log(result);
+            // console.log(result);
+            if (result[0]===undefined) {
+                $('#'+domId).html(cardEmpty);
+            }
             var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
@@ -53,9 +46,9 @@ function chartTrend(domId, url, chartApiData, title) {
                 + '</div>'
             + '</div>';
             $('#'+domId).append(card);
-
+            // console.log(chartData);
             if (chartData.length > 0) {
-				var serie=[], key=[], color=[], dmy=[], dates=[];
+                var serie=[], key=[], color=[], dmy=[], dates=[];
                 for (var i = 0; i < chartData.length; i++) {
                     key[i] = chartData[i].key;
                     color[i] = chartData[i].color;
@@ -183,7 +176,7 @@ function chartTrend(domId, url, chartApiData, title) {
                     }
                 });
             } else {
-				$('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
+                $('#'+domId).html(cardEmpty);
             }
         }
     });
@@ -196,16 +189,6 @@ function chartTrendCombo(domId, url, chartApiData, title) {
         url: url,
         data: chartApiData,
         beforeSend : function(xhr) {
-            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left"></h5>'
-                    + '</div>'
-                    + '<div class="uk-card-body">'
-                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
             $('#'+domId).append(cardloader);
             xxx++;
         },
@@ -216,8 +199,11 @@ function chartTrendCombo(domId, url, chartApiData, title) {
             }
         },
         success: function(result){
+            // console.log(result);
+            if (result[0]===undefined || typeof obj.result==='undefined') {
+                $('#'+domId).html(cardEmpty);
+            }
             var result = jQuery.parseJSON(result);
-            //console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -229,13 +215,13 @@ function chartTrendCombo(domId, url, chartApiData, title) {
             }
 
             var $item = [], $nav=[];
-			if (chartData.length > 0) {
+            if (chartData.length > 0) {
                 for(var x = 0; x < chartData.length; x++) {
-					$nav[x] = '<li><a class="sm-text-bold uk-text-capitalize">'+result.chartData[x].name+'</a></li>';
+                    $nav[x] = '<li><a class="sm-text-bold uk-text-capitalize">'+result.chartData[x].name+'</a></li>';
                     $item[x] = '<li id="chart'+[x]+'" class="sm-chart"></li>';
                 }
             }
-			var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
+            var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
                 + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
                     + '<div class="uk-card-header uk-clearfix">'
                         + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
@@ -257,9 +243,7 @@ function chartTrendCombo(domId, url, chartApiData, title) {
             + '</div>';
             $('#'+domId).append(card);
 
-            if (chartData.length === 0) {
-                $('.uk-card-body').html('<div class="sm-chart"><div class="uk-position-center uk-text-center">No Data!</div></div>');
-            } else {
+            if (chartData.length > 0) {
                 var data = [];
                 for (var x = 0; x < chartData.length; x++) {
                     name = chartData[x].name;
@@ -280,9 +264,7 @@ function itemCombo(id, url, chartApiData) {
         success: function(result){
             var result = jQuery.parseJSON(result);
             var chartData = result.chartData[id].data;
-            if (chartData.length === 0) {
-                //$('#chart'+id).html('<div class="uk-position-center uk-text-center">No Data!</div>');
-            } else {
+            if (chartData.length > 0) {
                 var serie=[], key=[], color=[], dmy=[], dates=[];
                 for (var i = 0; i < chartData.length; i++) {
                     key[i] = chartData[i].key;
@@ -412,6 +394,8 @@ function itemCombo(id, url, chartApiData) {
                         theChart.resize();
                     }
                 });
+            } else {
+                $('#'+domId).html(cardEmpty);
             }
         }
     });
