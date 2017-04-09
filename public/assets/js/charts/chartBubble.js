@@ -4,22 +4,15 @@ function chartBubble(domId, url, chartApiData, name) {
         url: url,
         data: chartApiData,
         beforeSend : function(xhr) {
-            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left"></h5>'
-                    + '</div>'
-                    + '<div class="uk-card-body">'
-                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
             $('#'+domId).append(cardloader);
         },
         complete : function(xhr, status) {
             $('.cardloader').remove();
         },
         success: function(result) {
+            if (result[0]===undefined) {
+                $('#'+domId).html(cardEmpty);
+            }
             var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
@@ -48,9 +41,7 @@ function chartBubble(domId, url, chartApiData, name) {
             + '</div>';
             $('#'+domId).append(card);
 
-            if (chartData.length === 0) {
-                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
-            } else {
+            if (chartData.length > 0) {
                 var $colors=[], $series=[], $legend=[], $xval=[], $yval=[];
                 for (var i = 0; i < chartData.length; i++) {
                     $length = chartData.length;
@@ -232,7 +223,12 @@ function chartBubble(domId, url, chartApiData, name) {
                     }
                 });
 
+            } else {
+                $('#'+chartId).html(msgEmpty);
             }
+        },
+        error: function(xhr, status){
+            $('#'+domId).html(cardEmpty);
         }
     });
 }

@@ -1,31 +1,18 @@
 function chartOntology(domId,url,chartApiData,name) {
-    // $.get(url, function (result) {
-    var xxx=0;
     $.ajax({
         method: "POST",
         url: url,
         data: chartApiData,
         beforeSend : function(xhr) {
-            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left"></h5>'
-                    + '</div>'
-                    + '<div class="uk-card-body">'
-                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
             $('#'+domId).append(cardloader);
-            xxx++;
         },
         complete : function(xhr, status) {
-            xxx--;
-            if (xxx <= 0) {
-                $('.cardloader').remove();
-            }
+            $('.cardloader').remove();
         },
         success: function(result){
+            if (result[0]===undefined) {
+                $('#'+domId).html(cardEmpty);
+            }
             var result = jQuery.parseJSON(result);
             // console.log(result);
             var chartId = result.chartId;
@@ -55,7 +42,7 @@ function chartOntology(domId,url,chartApiData,name) {
             $('#'+domId).append(card);
 
             var data = result.nodes;
-            if (data !== undefined || data.length > 0) {
+            if (data.length > 0) {
                 //CHART
                 var domchart = document.getElementById(chartId);
                 var theme = 'default';
@@ -153,8 +140,11 @@ function chartOntology(domId,url,chartApiData,name) {
                 });
 
             } else {
-                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
+                $('#'+chartId).html(msgEmpty);
             }
+        },
+        error: function(xhr, status){
+            $('#'+domId).html(cardEmpty);
         }
     });
 

@@ -1,30 +1,18 @@
 function chartPie(domId, url, chartApiData, name) {
-    var xxx=0;
     $.ajax({
         method: "POST",
         url: url,
         data: chartApiData,
         beforeSend : function(xhr) {
-            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left"></h5>'
-                    + '</div>'
-                    + '<div class="uk-card-body">'
-                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
             $('#'+domId).append(cardloader);
-            xxx++;
         },
         complete : function(xhr, status) {
-            xxx--;
-            if (xxx <= 0) {
-                $('.cardloader').remove();
-            }
+            $('.cardloader').remove();
         },
         success: function(result){
+            if (result[0]===undefined) {
+                $('#'+domId).html(cardEmpty);
+            }
             var result = jQuery.parseJSON(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
@@ -52,10 +40,8 @@ function chartPie(domId, url, chartApiData, name) {
                 + '</div>'
             + '</div>';
             $('#'+domId).append(card);
-
-            if (chartData.length === 0) {
-                $('#'+chartId).html('<div class="uk-position-center uk-text-center">No Data!</div>');
-            } else {
+            
+            if (chartData.length > 0) {
                 var serie=[], key=[], color=[], value=[];
                 for (var i = 0; i < chartData.length; i++) {
                     key[i] = chartData[i].key;
@@ -149,7 +135,12 @@ function chartPie(domId, url, chartApiData, name) {
                         theChart.resize();
                     }
                 });
+            } else {
+                $('#'+chartId).html(msgEmpty);
             }
+        },
+        error: function(xhr, status){
+            $('#'+domId).html(cardEmpty);
         }
     });
 

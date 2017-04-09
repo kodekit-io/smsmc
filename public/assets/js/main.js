@@ -113,20 +113,20 @@ function savePage() {
     });
 }
 
+var msgEmpty = '<div class="uk-position-center uk-text-center">'
+    + '<i class="fa fa-smile-o fa-lg" aria-hidden="true"></i><br>'
+    + 'Sorry, there is no data to display.'
++ '</div>';
 var cardEmpty = '<div class="sm-chart-container uk-animation-fade">'
     + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
         + '<div class="uk-card-header uk-clearfix">'
             + '<h5 class="uk-card-title uk-float-left">&nbsp;</h5>'
         + '</div>'
         + '<div class="uk-card-body">'
-            + '<div class="sm-chart"><div class="uk-position-center uk-text-center">'
-            + '<i class="fa fa-smile-o fa-lg" aria-hidden="true"></i><br>'
-            + 'Sorry, there is no data to display.'
-            + '</div></div>'
+            + '<div class="sm-chart">'+msgEmpty+'</div>'
         + '</div>'
     + '</div>'
 + '</div>';
-
 var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
     + '<div class="uk-card uk-card-small">'
         + '<div class="uk-card-header uk-clearfix">'
