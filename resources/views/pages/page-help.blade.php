@@ -8,7 +8,7 @@
     <section class="sm-main sm-nosubnav uk-container uk-container-expand">
         <div class="uk-card uk-card-hover uk-card-default uk-card-small uk-width-1-1">
             <div class="uk-card-header">
-                <h1 class="uk-card-title">Glossary</h1>
+                <h2 class="uk-card-title">Glossary</h2>
             </div>
         	<div class="uk-card-body">
                 <dl class="uk-description-list">

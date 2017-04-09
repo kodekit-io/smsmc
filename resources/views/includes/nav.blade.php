@@ -77,6 +77,11 @@
                     </div>
                 </li>
                 <li>
+                    <a href="{!! url('/page-media') !!}" class="sm-nav-round" title="List of Media" uk-tooltip="pos:left">
+                        <span class="fa fa-newspaper-o"></span>
+                    </a>
+                </li>
+                <li>
                     <a href="{!! url('/page-help') !!}" class="sm-nav-round" title="Help" uk-tooltip="pos:left">
                         <span class="fa fa-life-ring"></span>
                     </a>

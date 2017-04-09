@@ -102,4 +102,10 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Glossary';
         return view('pages.page-help', $data);
     }
+
+    public function media()
+    {
+        $data['pageTitle'] = 'List of Media';
+        return view('pages.page-media', $data);
+    }
 }

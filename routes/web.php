@@ -135,6 +135,7 @@ Route::get('/account', 'FrontendController@account');
 
 Route::get('/notifications', 'FrontendController@notif');
 Route::get('/page-help', 'FrontendController@pageHelp');
+Route::get('/page-media', 'FrontendController@media');
 
 Route::get('tests/googlechart', 'TestController@googlechart');
 Route::get('tests/echarts', 'TestController@echarts');
