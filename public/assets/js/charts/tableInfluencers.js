@@ -246,7 +246,7 @@ function top10News(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Media", },
-				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Rank", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				//{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				{ title: "Popularity", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				{

@@ -88,7 +88,7 @@ class ProjectController extends Controller
     {
         $data = $this->parseRequest($request, $projectId);
         $data['pageTitle'] = 'All Media';
-
+        $data['activeAll'] = 'class="uk-active"';
         return view('pages.project-all', $data);
     }
 
@@ -96,7 +96,7 @@ class ProjectController extends Controller
     {
         $data = $this->parseRequest($request, $projectId);
         $data['pageTitle'] = 'Facebook';
-
+        $data['activeFb'] = 'class="uk-active"';
         return view('pages.project-fb', $data);
     }
 
@@ -104,22 +104,30 @@ class ProjectController extends Controller
     {
         $data = $this->parseRequest($request, $projectId);
         $data['pageTitle'] = 'Twitter';
-
+        $data['activeTw'] = 'class="uk-active"';
         return view('pages.project-tw', $data);
     }
 
     public function news(Request $request, $projectId)
     {
         $data = $this->parseRequest($request, $projectId);
-        $data['pageTitle'] = 'Online News';
-
+        $data['pageTitle'] = 'National News';
+        $data['activeNews'] = 'class="uk-active"';
         return view('pages.project-news', $data);
+    }
+    public function newsInt(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'International News';
+        $data['activeNews'] = 'class="uk-active"';
+        return view('pages.project-news-int', $data);
     }
 
     public function blog(Request $request, $projectId)
     {
         $data = $this->parseRequest($request, $projectId);
         $data['pageTitle'] = 'Blog';
+        $data['activeBlog'] = 'class="uk-active"';
         return view('pages.project-blog', $data);
     }
 
@@ -127,6 +135,7 @@ class ProjectController extends Controller
     {
         $data = $this->parseRequest($request, $projectId);
         $data['pageTitle'] = 'Forum';
+        $data['activeForum'] = 'class="uk-active"';
         return view('pages.project-forum', $data);
     }
 
@@ -134,6 +143,7 @@ class ProjectController extends Controller
     {
         $data = $this->parseRequest($request, $projectId);
         $data['pageTitle'] = 'Video';
+        $data['activeVid'] = 'class="uk-active"';
         return view('pages.project-yt', $data);
     }
 
@@ -141,6 +151,7 @@ class ProjectController extends Controller
     {
         $data = $this->parseRequest($request, $projectId);
         $data['pageTitle'] = 'Instagram';
+        $data['activeIg'] = 'class="uk-active"';
         return view('pages.project-ig', $data);
     }
 }
