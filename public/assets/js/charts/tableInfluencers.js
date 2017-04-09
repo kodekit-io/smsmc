@@ -59,7 +59,7 @@ function tableInfluencers(domId, url, chartApiData, influencers, name) {
 function top10LikeStatus(id,result) {
 	$data = result.chartData.top10LikeStatus.data;
 	$groupName = result.chartData.top10LikeStatus.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -88,20 +88,15 @@ function top10LikeStatus(id,result) {
 					}
 				},
 			],
-			/*columnDefs: [{
-				visible: false,
-				targets: [3]
-			}],*/
 			order: [[ 1, "desc" ]]
 		});
-		$('#' + id + '_wrapper .bottom-row').hide();
 	}
 }
 
 function top10ByReachTW(id,result) {
 	$data = result.chartData.top10ByReach.data;
 	$groupName = result.chartData.top10ByReach.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -119,7 +114,7 @@ function top10ByReachTW(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				//{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				//{ title: "Link" },
 				{
@@ -143,7 +138,7 @@ function top10ByReachTW(id,result) {
 function top10ByNumberTW(id,result) {
 	$data = result.chartData.top10ByNumber.data;
 	$groupName = result.chartData.top10ByNumber.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -161,7 +156,7 @@ function top10ByNumberTW(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				//{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				//{ title: "Link" },
 				{
@@ -185,7 +180,7 @@ function top10ByNumberTW(id,result) {
 function top10ByImpactTW(id,result) {
 	$data = result.chartData.top10ByImpact.data;
 	$groupName = result.chartData.top10ByImpact.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -203,7 +198,7 @@ function top10ByImpactTW(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				//{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
 				//{ title: "Link" },
 				{
@@ -227,7 +222,7 @@ function top10ByImpactTW(id,result) {
 function top10News(id,result) {
 	$data = result.chartData.top10LikeStatus.data;
 	$groupName = result.chartData.top10LikeStatus.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -246,9 +241,9 @@ function top10News(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Media", },
-				{ title: "Rank", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Rank", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				//{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "Popularity", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Popularity", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -266,7 +261,7 @@ function top10News(id,result) {
 function top10Blog(id,result) {
 	$data = result.chartData.top10LikeStatus.data;
 	$groupName = result.chartData.top10LikeStatus.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -285,9 +280,9 @@ function top10Blog(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Blog", },
-				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Rank", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				//{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "Popularity", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Popularity", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -306,7 +301,7 @@ function topLikeVid(id,result) {
 	// console.log(result);
 	$data = result.chartData.top10LikeStatus.data;
 	$groupName = result.chartData.top10LikeStatus.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 
 	// console.log($data);
 	if ($data.length === 0) {
@@ -327,7 +322,7 @@ function topLikeVid(id,result) {
 			columns: [
 				{ title: "Author" },
 				//{ title: "Title" },
-				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -344,7 +339,7 @@ function topLikeVid(id,result) {
 function topRateVid(id,result) {
 	$data = result.chartData.video_rating.data;
 	$groupName = result.chartData.video_rating.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -364,7 +359,7 @@ function topRateVid(id,result) {
 			columns: [
 				{ title: "Author" },
 				//{ title: "Title" },
-				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -382,7 +377,7 @@ function topRateVid(id,result) {
 function top10Forum(id,result) {
 	$data = result.chartData.top10LikeStatus.data;
 	$groupName = result.chartData.top10LikeStatus.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -401,9 +396,9 @@ function top10Forum(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Forum", },
-				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Score", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				//{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "Popularity", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Popularity", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -421,7 +416,7 @@ function top10Forum(id,result) {
 function topCommentIG(id,result) {
 	$data = result.chartData['top Comment'].data;
 	$groupName = result.chartData['top Comment'].groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
 	} else {
@@ -438,7 +433,7 @@ function topCommentIG(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -455,7 +450,7 @@ function topCommentIG(id,result) {
 function topLoveIG(id,result) {
 	$data = result.chartData['top Love'].data;
 	$groupName = result.chartData['top Love'].groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
 	} else {
@@ -472,7 +467,7 @@ function topLoveIG(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -489,7 +484,7 @@ function topLoveIG(id,result) {
 function topViewIG(id,result) {
 	$data = result.chartData['top View'].data;
 	$groupName = result.chartData['top View'].groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
 	} else {
@@ -506,7 +501,7 @@ function topViewIG(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -527,7 +522,7 @@ function topStatusFB(id,result) {
 	$comment = result.chartData.status.data.comment;
 	$like = result.chartData.status.data.like;
 	$groupName = result.chartData.status.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
 	} else {
@@ -556,9 +551,9 @@ function topStatusFB(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
+				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
+				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -578,7 +573,7 @@ function topLinkFB(id,result) {
 	$comment = result.chartData.link.data.comment;
 	$like = result.chartData.link.data.like;
 	$groupName = result.chartData.link.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	//console.log($data);
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -608,9 +603,9 @@ function topLinkFB(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
+				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
+				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -630,7 +625,7 @@ function topPhotoFB(id,result) {
 	$comment = result.chartData.photo.data.comment;
 	$like = result.chartData.photo.data.like;
 	$groupName = result.chartData.photo.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -660,9 +655,9 @@ function topPhotoFB(id,result) {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
 				{ title: "Name" },
-				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
-				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ) },
+				{ title: "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
+				{ title: "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
+				{ title: "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
 				{
 					data: null,
 					render: function ( data ) {
@@ -682,7 +677,7 @@ function topVideoFB(id,result) {
 	$comment = result.chartData.video.data.comment;
 	$like = result.chartData.video.data.like;
 	$groupName = result.chartData.video.groupName;
-	$('#' + id).parent('div').prepend('<span class="sm-text-bold">'+$groupName+'</span>');
+	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
