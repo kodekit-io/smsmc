@@ -1,7 +1,7 @@
 function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
     var idMedia = chartApiData.idMedia;
     if (idMediaParam != '') {
-        idMedia = idMediaParam;
+        chartApiData.idMedia = idMediaParam;
     }
     switch (idMedia) {
         case 1:

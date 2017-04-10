@@ -230,11 +230,11 @@ class ChartController extends Controller
             'positive' => '1'
         ];
 
-        $idMedia = $request->idMedia;
-        $reportType = $request->reportType;
+        $idMedia = $request->input('idMedia');
+        $reportType = $request->input('reportType');
         $draw = $request->input('draw');
         $length = $request->input('length');
-        // Log::warning('length ==> ' . $length);
+        // Log::warning('idMedia ==> ' . $idMedia.' and reportType ==> ' . $reportType);
 
         // Log::warning(\GuzzleHttp\json_encode($request->all()));
         // sentiment filter
