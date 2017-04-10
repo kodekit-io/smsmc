@@ -40,14 +40,14 @@
                         </div>
                         <div class="uk-card-body">
                             <ul class="uk-child-width-expand" uk-tab>
-                                <li class="uk-active"><a href="#">Facebook</a></li>
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Int. News</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Forum</a></li>
-                                <li><a href="#">Video</a></li>
-                                <li><a href="#">Instagram</a></li>
+                                <li class="uk-active"><a>Facebook</a></li>
+                                <li><a>Twitter</a></li>
+                                <li><a>News</a></li>
+                                <li><a>Int. News</a></li>
+                                <li><a>Blog</a></li>
+                                <li><a>Forum</a></li>
+                                <li><a>Video</a></li>
+                                <li><a>Instagram</a></li>
                             </ul>
                             <ul class="uk-switcher uk-margin">
                                 <li>
@@ -162,16 +162,16 @@
             chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
             chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
-            
+
             // $('.uk-switcher').on('show.uk.switcher', function(){
-            	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
-                tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
-                tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
-                tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
-                tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3);
-                tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
-                tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
-                tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
+        	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
+            tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
+            tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
+            tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
+            tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3);
+            tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
+            tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
+            tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
             // });
 
         });
