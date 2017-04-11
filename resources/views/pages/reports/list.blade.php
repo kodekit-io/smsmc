@@ -17,7 +17,8 @@
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
-
+    
+    <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/report-view.js') !!}"></script>
     <script>
     $(document).ready(function() {

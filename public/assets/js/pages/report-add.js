@@ -1,5 +1,37 @@
 (function ($, window, document) {
     $(function () {
+        $('input.reportTime').datetimepicker({
+            // format:	'd/m/y H:i'
+            format:'d/m/Y H:i',
+        });
+
+        $('#report_add').validate({
+            rules: {
+                title: {
+                    required: true
+                },
+                description: {
+                    required: true
+                },
+				startDate: {
+                    required: true
+                },
+				endDate: {
+                    required: true
+                },
+				reportType: {
+                    required: true
+                }
+            },
+            // errorElement: 'span',
+			// errorPlacement: function(error, element) {
+			//     if (element.attr('name') == 'username')
+			//         $('#username').parent().append(error);
+			//     else if  (element.attr('name') == 'password')
+			//         $('#password').parent().append(error);
+			// }
+        });
+
         $("#project-selector").chained("#type-selector");
         $("#key-acc-selector").chained("#project-selector");
         $("#media-selector").chained("#type-selector");
@@ -25,7 +57,7 @@
         });
 
         var projectSummary = [
-            '401','305','113','101','102','106','104','201','202','204','211','303','306','308','402','403','405'
+            '401','305','113','101','102','106','104','201','202','204','211','303','306','308','402','403'
         ];
         var projectFacebook = [
             '113','101','201','203','207','210','305','303','308','402','403','404','405'

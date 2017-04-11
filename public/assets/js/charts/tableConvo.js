@@ -57,36 +57,34 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
             '<input type="hidden" name="postDate" value="'+ postDate +'"> ' +
             '<input type="hidden" name="idMedia" value="' + chartApiData.idMedia + '" >' +
             '<input type="hidden" name="sentiment" value="' + sentiment + '" >' +
-            '<div class="uk-modal-body">' +
-            '<h5>Open New Ticket</h5>' +
-            '<div class="uk-margin">' +
-            '<label>To</label>' +
-            $toSelect +
-            '</div>' +
-            '<div class="uk-margin">' +
-            '<label>CC</label>' +
-            $toCcSelect +
-            '</div>' +
-            '<div class="uk-margin">' +
-            '<div class="uk-inline">' +
-            '<a class="uk-button uk-button-default uk-button-small">Ticket Type <span uk-icon="icon: chevron-down"></span></a>' +
-            '<div class="sm-dropdown">' +
-            '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">' +
-            ticketType +
-            '</ul>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '<div class="uk-margin">' +
-            '<textarea class="uk-textarea" rows="3" placeholder="Additional message" name="message"></textarea>' +
             '<input type="hidden" name="postId" value="' + postId + '">' +
-            '</div>' +
+            '<div class="uk-modal-body">' +
+                '<h5>Open New Ticket</h5>' +
+                '<div class="uk-margin">' +
+                    '<label>To</label>' +
+                    $toSelect +
+                '</div>' +
+                '<div class="uk-margin">' +
+                    '<label>CC</label>' +
+                    $toCcSelect +
+                '</div>' +
+                '<div class="uk-margin">' +
+                    '<div class="uk-inline">' +
+                        '<label class="uk-margin-small-right">Ticket Type</label>' +
+                        '<ul class="uk-subnav uk-margin-remove-top uk-margin-remove-bottom">' +
+                            ticketType +
+                        '</ul>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="uk-margin">' +
+                    '<textarea class="uk-textarea" rows="3" placeholder="Additional message" name="message"></textarea>' +
+                '</div>' +
             '</div>' +
             '<div class="uk-modal-footer uk-clearfix">' +
-            '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>' +
-            '<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
+                '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>' +
+                '<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
             '</div>' +
-            '</form>';
+        '</form>';
         var uikitModal = UIkit.modal.dialog(modal);
 
         $("#to_select").select2();
