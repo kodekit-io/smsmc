@@ -7,7 +7,7 @@
 @section('content')
 
     <section class="sm-main sm-nosubnav uk-container uk-container-expand">
-        <form id="report_add">
+        <form id="report_add" action="{!! url('report/create') !!}" method="post">
             {!! csrf_field() !!}
             <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                 <div class="uk-card-header uk-clearfix">
@@ -19,13 +19,13 @@
                             <div class="uk-margin">
                                 <label class="uk-form-label" for="title">Report Title</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="title" type="text" placeholder="Some text...">
+                                    <input class="uk-input" id="title" name="title" type="text" placeholder="Some text...">
                                 </div>
                             </div>
                             <div class="uk-margin">
                                 <label class="uk-form-label" for="objective">Report Descriptions</label>
                                 <div class="uk-form-controls">
-                                    <textarea class="uk-textarea" rows="4" placeholder="Some text..."></textarea>
+                                    <textarea class="uk-textarea" name="description" rows="4" placeholder="Some text..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -47,17 +47,17 @@
                                 <label class="uk-form-label" for="report">Report Type</label>
                                 <div class="uk-child-width-1-2@m uk-grid-small" uk-grid>
                                     <div>
-                                        <select class="uk-select" id="type-selector">
+                                        <select class="uk-select" id="type-selector" name="reportType">
                                             <option value="">Choose Type</option>
                                             <option value="project">Project Report</option>
                                             <option value="socmed">Social Media Report</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <select class="uk-select" id="project-selector">
-                                            <option value="pid1" class="project">Project 1</option>
-                                            <option value="pid2" class="project">Project 2</option>
-                                            <option value="pid3" class="project">Project 3</option>
+                                        <select class="uk-select" id="project-selector" name="project">
+                                            @foreach($projectList as $id => $project)
+                                                <option value="{!! $id !!}" class="project">{!! $project['name'] !!}</option>
+                                            @endforeach
                                             <option value="0" class="socmed">Choose Social Media</option>
                                             <option value="socmed-facebook" class="socmed">Facebook</option>
                                             <option value="socmed-twitter" class="socmed">Twitter</option>
@@ -66,9 +66,15 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <select class="uk-select" id="key-acc-selector">
-                                            <option value="all1" class="pid1">All Keyword</option>
-                                            <option value="key1" class="pid1">Keyword 1</option>
+                                        <select class="uk-select" id="key-acc-selector" name="keyword">
+                                            <option value="0" class="pid1">All Keyword</option>
+                                            @foreach($projectList as $id => $project)
+                                                @foreach($project['detail']->keywordList as $keywordList)
+                                                    @php $keyword = $keywordList->keyword; @endphp
+                                                    <option value="{!! $keyword->keywordId !!}" class="{!! $id !!}">{!! $keyword->keywordName !!}</option>
+                                                @endforeach
+                                            @endforeach
+
                                             <option value="key2" class="pid1">Keyword 2</option>
                                             <option value="key3" class="pid1">Keyword 3</option>
                                             <option value="all2" class="pid2">All Keyword</option>
@@ -84,15 +90,15 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <select class="uk-select" id="media-selector">
-                                            <option value="project-summary" class="project">Summary Page</option>
-                                            <option value="project-facebook" class="project">Facebook</option>
-                                            <option value="project-twitter" class="project">Twitter</option>
-                                            <option value="project-news" class="project">Online News</option>
-                                            <option value="project-forum" class="project">Forum</option>
-                                            <option value="project-blog" class="project">Blog</option>
-                                            <option value="project-video" class="project">Video</option>
-                                            <option value="project-instagram" class="project">Instagram</option>
+                                        <select class="uk-select" id="media-selector" name="media">
+                                            <option value="8" class="project">Summary Page</option>
+                                            <option value="1" class="project">Facebook</option>
+                                            <option value="2" class="project">Twitter</option>
+                                            <option value="4" class="project">Online News</option>
+                                            <option value="6" class="project">Forum</option>
+                                            <option value="3" class="project">Blog</option>
+                                            <option value="5" class="project">Video</option>
+                                            <option value="7" class="project">Instagram</option>
                                         </select>
                                     </div>
                                 </div>
@@ -100,14 +106,14 @@
                         </div>
                     </div>
 
-                    <div id="project-summary" class="sm-media uk-margin"></div>
-                    <div id="project-facebook" class="sm-media uk-margin"></div>
-                    <div id="project-twitter" class="sm-media uk-margin"></div>
-                    <div id="project-news" class="sm-media uk-margin"></div>
-                    <div id="project-forum" class="sm-media uk-margin"></div>
-                    <div id="project-blog" class="sm-media uk-margin"></div>
-                    <div id="project-video" class="sm-media uk-margin"></div>
-                    <div id="project-instagram" class="sm-media uk-margin"></div>
+                    <div id="8" class="sm-media uk-margin"></div>
+                    <div id="1" class="sm-media uk-margin"></div>
+                    <div id="2" class="sm-media uk-margin"></div>
+                    <div id="4" class="sm-media uk-margin"></div>
+                    <div id="6" class="sm-media uk-margin"></div>
+                    <div id="3" class="sm-media uk-margin"></div>
+                    <div id="5" class="sm-media uk-margin"></div>
+                    <div id="7" class="sm-media uk-margin"></div>
 
                     <div id="socmed-facebook" class="sm-media uk-margin"></div>
                     <div id="socmed-twitter" class="sm-media uk-margin"></div>

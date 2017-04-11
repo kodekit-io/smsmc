@@ -62,7 +62,7 @@ class Project
             'pid' => $projectId
         ];
 
-        $projectDetail = $this->smsmc->post('project/get', $params, true, true, false);
+        $projectDetail = $this->smsmc->post('project/get', $params);
         if ($projectDetail->status == 200) {
             return $projectDetail->result;
         }

@@ -1,4 +1,4 @@
-function reportView(div) {
+function reportView(div, url) {
     var card = '<div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small"> \
         <div class="uk-card-header uk-clearfix"> \
             <h5 class="uk-card-title uk-float-left">Report List</h5> \
@@ -11,24 +11,24 @@ function reportView(div) {
 
     var theTable = $('#reportTable').DataTable( {
         ajax: {
-            "url": "json/reportlist.json",
+            "url": url,
         },
         columns: [
             { "data": null, "width": "2.5%" },
-            {
-                "data": null,"title": "Report Created","width": "12.5%",
-                "render": function ( data ) {
-                    var date = data["reportDate"];
-                    var now = new Date();
-                    var offset = now.getTimezoneOffset() / 60;
-                    var newdate = new Date(date);
-                    var timezoneDif = offset * 60 + newdate.getTimezoneOffset();
-                    var localtime = newdate;
-                    return localtime;
-                }
-            },
-            { "data": "reportName", "title": "Title", "width": "17.5%" },
-            { "data": "reportDesc", "title": "Descriptions", "width": "25%" },
+            // {
+            //     "data": null,"title": "Report Created","width": "12.5%",
+            //     "render": function ( data ) {
+            //         var date = data["reportDate"];
+            //         var now = new Date();
+            //         var offset = now.getTimezoneOffset() / 60;
+            //         var newdate = new Date(date);
+            //         var timezoneDif = offset * 60 + newdate.getTimezoneOffset();
+            //         var localtime = newdate;
+            //         return localtime;
+            //     }
+            // },
+            { "data": "name", "title": "Title", "width": "17.5%" },
+            { "data": "summary", "title": "Descriptions", "width": "25%" },
             {
                 "data": null,"title": "Start Report","width": "12.5%",
                 "render": function ( data ) {
@@ -54,7 +54,7 @@ function reportView(div) {
                 }
             },
             {
-                "data": "reportLink", "orderable": false, "width": "17.5%", "class": "uk-text-right",
+                "data": "excel", "orderable": false, "width": "17.5%", "class": "uk-text-right",
                 "render": function ( cellData ) {
                     var link = cellData;
                     var del = ""

@@ -112,6 +112,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('setting/group/{groupId}/update', 'SettingController@groupUpdate');
     Route::get('setting/group/{groupId}/delete', 'SettingController@groupDelete');
 
+    Route::get('report', 'ReportController@index');
+    Route::get('report/list', 'ReportController@reportList');
+    Route::get('report/add', 'ReportController@add');
+    Route::post('report/create', 'ReportController@create');
+    Route::get('report/delete/{id}', 'ReportController@delete');
+
     Route::get('/socmed-accounts', 'FrontendController@socmedAccounts');
     Route::post('/socmed-accounts/save', 'FrontendController@socmedAccountsSave');
 });

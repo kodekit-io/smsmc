@@ -21,7 +21,8 @@
     <script src="{!! asset('assets/js/pages/report-view.js') !!}"></script>
     <script>
     $(document).ready(function() {
-        reportView('01');
+        var $reportUrl = "{!! url('report/list') !!}";
+        reportView('01', $reportUrl);
     });
     </script>
 @endsection

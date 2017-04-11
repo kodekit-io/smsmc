@@ -49,17 +49,6 @@ class FrontEndController extends Controller
         return view('pages.engagement-timeline', $data);
     }
 
-    public function reportView()
-    {
-        $data['pageTitle'] = 'View Report';
-        return view('pages.report-view', $data);
-    }
-    public function reportAdd()
-    {
-        $data['pageTitle'] = 'Create Report';
-        return view('pages.report-add', $data);
-    }
-
     public function account()
     {
         $data['pageTitle'] = 'My Account';
