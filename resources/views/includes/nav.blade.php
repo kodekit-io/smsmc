@@ -2,7 +2,7 @@
     <nav class="uk-navbar-container sm-nav-main" uk-navbar>
         <div class="uk-navbar-left">
             <a href="{!! url('/home') !!}" class="sm-logo" title="Sinarmas Social Media Center" uk-tooltip="pos: bottom-left">
-                <img src="{!! asset('assets/img/logo.png') !!}" alt="Sinarmas">
+                <img src="{!! asset('assets/img/logo-big.png') !!}" alt="Sinarmas">
                 <div class="sm-logo-round"></div>
             </a>
             <h1 class="sm-title-page">{!! $pageTitle !!}</h1>
