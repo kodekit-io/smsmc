@@ -75,7 +75,7 @@
         chartreport('socmed-instagram',socmedInstagram);
     });
     function chartreport(domId,reportlist) {
-        var page = '<h5 class="uk-card-title uk-margin-bottom">'+domId.split('-').join(' ')+' chart</h5>'
+        var page = '<h5 class="uk-card-title uk-margin-bottom"><span class="media-'+domId.split('-').join(' ')+'"></span> Chart</h5>'
         + '<div class="uk-child-width-1-2@s uk-child-width-1-5@m uk-grid-small" id="select-'+domId+'" uk-grid>'
             + '<div>'
                 + '<label><input class="uk-checkbox select-all-'+domId+'" type="checkbox"> Select All</label>'

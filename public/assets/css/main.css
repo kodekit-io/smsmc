@@ -600,6 +600,9 @@ div.sm-dropdown li {
 .media-7:before {
 	content: "Instagram";
 }
+.media-8:before {
+	content: "Summary (All Media)";
+}
 
 /* select2 */
 .select2-container--default .select2-selection--multiple {

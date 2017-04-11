@@ -25,7 +25,7 @@
                             <div class="uk-margin">
                                 <label class="uk-form-label" for="objective">Report Descriptions</label>
                                 <div class="uk-form-controls">
-                                    <textarea class="uk-textarea" name="description" rows="4" placeholder="Some text..."></textarea>
+                                    <textarea class="uk-textarea" name="description" rows="5" placeholder="Some text..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -44,9 +44,10 @@
                                 </div>
                             </div>
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="report">Report Type</label>
+
                                 <div class="uk-child-width-1-2@m uk-grid-small" uk-grid>
                                     <div>
+                                        <label class="uk-form-label" for="type-selector">Report Type</label>
                                         <select class="uk-select" id="type-selector" name="reportType">
                                             <option value="">Choose Type</option>
                                             <option value="project">Project Report</option>
@@ -54,6 +55,7 @@
                                         </select>
                                     </div>
                                     <div>
+                                        <label class="uk-form-label" for="project-selector">Project / Social Media</label>
                                         <select class="uk-select" id="project-selector" name="project">
                                             @foreach($projectList as $id => $project)
                                                 <option value="{!! $id !!}" class="project">{!! $project['name'] !!}</option>
@@ -66,6 +68,7 @@
                                         </select>
                                     </div>
                                     <div>
+                                        <label class="uk-form-label" for="key-acc-selector">Keyword / Account</label>
                                         <select class="uk-select" id="key-acc-selector" name="keyword">
                                             <option value="0" class="pid1">All Keyword</option>
                                             @foreach($projectList as $id => $project)
@@ -90,6 +93,7 @@
                                         </select>
                                     </div>
                                     <div>
+                                        <label class="uk-form-label" for="report">Page</label>
                                         <select class="uk-select" id="media-selector" name="media">
                                             <option value="8" class="project">Summary Page</option>
                                             <option value="1" class="project">Facebook</option>
