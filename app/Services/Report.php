@@ -74,4 +74,16 @@ class Report
 
         return false;
     }
+
+    public function delete($id)
+    {
+        $params = [
+            'id' => $id
+        ];
+        $response = $this->smsmc->post('report/delete', $params);
+        if ($response->status == '200') {
+            return true;
+        }
+        return false;
+    }
 }

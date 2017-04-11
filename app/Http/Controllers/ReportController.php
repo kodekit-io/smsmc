@@ -44,14 +44,14 @@ class ReportController extends Controller
             $detail = $this->project->getProject($project->pid);
             $projectList[$project->pid]['detail'] = $detail->projectInfo;
         }
-//        dd($projectList);
+        // dd($projectList);
         $data['projectList'] = $projectList;
         $data['pageTitle'] = 'Create Report';
         return view('pages.reports.add', $data);
     }
 
     public function create(Request $request) {
-        dd($request->all());
+        // dd($request->all());
         if ($this->report->store($request)) {
             return redirect('report');
         }
@@ -59,7 +59,10 @@ class ReportController extends Controller
     }
 
     public function delete($id) {
-
+        if ($this->report->delete($id)) {
+            return redirect('report');
+        }
+        return redirect('report')->withErrors(['error' => 'Error.']);
     }
 
 }
