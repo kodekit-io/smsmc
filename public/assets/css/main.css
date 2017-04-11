@@ -16,7 +16,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'GothamPro-Medium' !important;
 }
-
+hr {
+    border-color: #afadad;
+}
 a.fa {
     text-decoration: none;
 }
@@ -92,7 +94,12 @@ a.fa {
 .uk-form-controls {
     position: relative;
 }
-
+.uk-button, button {
+    border-radius: 3px;
+}
+.uk-table th {
+    color: inherit;
+}
 .sm-text-bold {
     font-family: 'GothamPro-Bold' !important;
 }
@@ -274,7 +281,7 @@ li:hover .sm-nav-round {
 .sm-card-toolbar {
     padding-top: 20px !important;
     padding-bottom: 18px !important;
-    border-bottom: 1px solid #e5e5e5 !important;
+    border-bottom: 1px solid #afadad !important;
 }
 .sm-chartcover {
     min-height: 100px;
@@ -565,11 +572,11 @@ div.sm-dropdown li {
     font-size: .875rem;
 }
 .sm-thread .uk-accordion-content {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #afadad;
     padding-top: 1rem;
 }
 .sm-thread li {
-    border: 1px solid #e5e5e5;
+    border: 1px solid #afadad;
     padding: 1rem;
 }
 .media-1:before {

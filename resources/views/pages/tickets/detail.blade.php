@@ -111,8 +111,7 @@
                     @endforeach
                 </ul>
                 @endif
-                <h5 class="uk-card-title">Respond</h5>
-                <hr class="uk-margin-small-top">
+                <h5 class="uk-card-title uk-margin-small-top uk-margin-small-bottom">Respond</h5>
                 <form action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
                     {!! csrf_field() !!}
                     <fieldset class="uk-fieldset">
@@ -124,7 +123,6 @@
                             {{--<label class="uk-form-label" for="img">Post with Image</label>--}}
                             {{--<input type="file" id="img">--}}
                         {{--</div>--}}
-                        <hr>
                         <div class="uk-clearfix">
                             {{--<span><i uk-icon="icon: clock"></i> SCHEDULE POST: </span><input id="schedule" class="uk-input uk-form-width-medium" type="date"></input><a id="clear" class="uk-button uk-button-default uk-hidden" uk-icon="icon: close" style="width:40px;padding:0;" title="Clear date" uk-tooltip></a>--}}
 

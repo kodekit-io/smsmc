@@ -131,7 +131,7 @@ Route::get('/engagement-timeline', 'FrontendController@engagementTimeline');
 Route::get('/report-view', 'FrontendController@reportView');
 Route::get('/report-add', 'FrontendController@reportAdd');
 
-Route::get('/account', 'FrontendController@account');
+Route::get('setting/account', 'FrontendController@account');
 
 Route::get('/notifications', 'FrontendController@notif');
 Route::get('/page-help', 'FrontendController@pageHelp');
