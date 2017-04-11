@@ -10,7 +10,7 @@
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-card uk-card-hover uk-card-default uk-card-small">
             <div class="uk-card-header">
-                <h5 class="uk-card-title">Create New Account</h5>
+                <h5 class="uk-card-title">Edit Account</h5>
             </div>
             <div class="uk-card-body">
                 <hr>
