@@ -1,4 +1,4 @@
-function reportView(div) {
+function reportView(div, url) {
     var card = '<div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small"> \
         <div class="uk-card-header uk-clearfix"> \
             <h5 class="uk-card-title uk-float-left">Report List</h5> \
@@ -11,7 +11,7 @@ function reportView(div) {
 
     var theTable = $('#reportTable').DataTable( {
         ajax: {
-            "url": "json/reportlist.json",
+            "url": url,
         },
         columns: [
             { "data": null, "width": "2.5%" },

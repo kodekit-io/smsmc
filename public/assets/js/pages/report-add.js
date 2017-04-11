@@ -48,14 +48,14 @@
         var projectInstagram = [
             '113','101','103','108','105','201','208','305','303','308','403','402','404','405'
         ];
-        chartreport('project-summary',projectSummary);
-        chartreport('project-facebook',projectFacebook);
-        chartreport('project-twitter',projectTwitter);
-        chartreport('project-news',projectNews);
-        chartreport('project-forum',projectForum);
-        chartreport('project-blog',projectBlog);
-        chartreport('project-video',projectVideo);
-        chartreport('project-instagram',projectInstagram);
+        chartreport('8',projectSummary);
+        chartreport('1',projectFacebook);
+        chartreport('2',projectTwitter);
+        chartreport('4',projectNews);
+        chartreport('6',projectForum);
+        chartreport('3',projectBlog);
+        chartreport('5',projectVideo);
+        chartreport('7',projectInstagram);
 
         var socmedFacebook = [
             '113','101','110','201','203','207','210','305','303','403','404','405'
@@ -111,7 +111,7 @@
                                     //console.log(chartId[i]);
                                     var xlist = '<div>'
                                         + '<label>'
-                                            + '<input value="'+chartId[i]+'" class="uk-checkbox" type="checkbox"> '
+                                            + '<input value="'+chartId[i]+'" name="charts[]" class="uk-checkbox" type="checkbox"> '
                                             + chartName[i]
                                         + '</label>'
                                     + '</div>';
