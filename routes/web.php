@@ -96,6 +96,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('ticket/{ticketId}/change-status', 'TicketController@changeStatus');
     Route::post('convo/create-ticket', 'TicketController@createTicketFromConvo');
 
+    Route::get('setting/account', 'SettingController@account');
+    Route::post('setting/account/update', 'SettingController@update');
+
     Route::get('setting/user', 'SettingController@user');
     Route::get('setting/user/list', 'SettingController@userList');
     Route::get('setting/user/add', 'SettingController@userAdd');
@@ -136,8 +139,6 @@ Route::get('/engagement-timeline', 'FrontendController@engagementTimeline');
 
 Route::get('/report-view', 'FrontendController@reportView');
 Route::get('/report-add', 'FrontendController@reportAdd');
-
-Route::get('setting/account', 'FrontendController@account');
 
 Route::get('/notifications', 'FrontendController@notif');
 Route::get('/page-help', 'FrontendController@pageHelp');

@@ -49,11 +49,6 @@ class FrontEndController extends Controller
         return view('pages.engagement-timeline', $data);
     }
 
-    public function account()
-    {
-        $data['pageTitle'] = 'My Account';
-        return view('pages.account', $data);
-    }
     public function admin()
     {
         $data['pageTitle'] = 'Manage Accounts';

@@ -26,6 +26,29 @@ class SettingController extends Controller
         $this->group = $group;
     }
 
+    /****************** ACCOUNT *****************/
+    public function account()
+    {
+        $data['pageTitle'] = 'My Account';
+        $userId = \Auth::id();
+        $response = $this->user->getUserById($userId);
+        $data['user'] = $response->user;
+        return view('pages.account', $data);
+    }
+
+    public function update(Request $request)
+    {
+        $id = \Auth::id();
+        $response = $this->user->update($request->except(['_token']), $id);
+        if ($response->status == '200') {
+            return redirect('setting/account');
+        }
+
+        return redirect('setting/account')->with(['error' => 'Error.']);
+    }
+
+
+    /****************** USER ******************/
     public function user()
     {
         $data['pageTitle'] = 'Manage Accounts';
