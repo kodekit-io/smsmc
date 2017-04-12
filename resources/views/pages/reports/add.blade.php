@@ -35,18 +35,18 @@
                                 <div class="uk-form-controls">
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                        <input type="text" class="datetimepicker uk-input uk-width-small" name="startDate" aria-describedby="option-startDate">
+                                        <input type="text" class="reportTime uk-input uk-width-small" name="startDate">
                                     </div>
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                        <input type="text" class="datetimepicker uk-input uk-width-small" name="endDate" aria-describedby="option-endDate">
+                                        <input type="text" class="reportTime uk-input uk-width-small" name="endDate">
                                     </div>
                                 </div>
                             </div>
                             <div class="uk-margin">
 
                                 <div class="uk-child-width-1-2@m uk-grid-small" uk-grid>
-                                    <div>
+                                    <div class="uk-position-relative">
                                         <label class="uk-form-label" for="type-selector">Report Type</label>
                                         <select class="uk-select" id="type-selector" name="reportType">
                                             <option value="">Choose Type</option>
@@ -54,7 +54,7 @@
                                             <option value="socmed">Social Media Report</option>
                                         </select>
                                     </div>
-                                    <div>
+                                    <div class="uk-position-relative">
                                         <label class="uk-form-label" for="project-selector">Project / Social Media</label>
                                         <select class="uk-select" id="project-selector" name="project">
                                             @foreach($projectList as $id => $project)
@@ -67,7 +67,7 @@
                                             <option value="socmed-instagram" class="socmed">Instagram</option>
                                         </select>
                                     </div>
-                                    <div>
+                                    <div class="uk-position-relative">
                                         <label class="uk-form-label" for="key-acc-selector">Keyword / Account</label>
                                         <select class="uk-select" id="key-acc-selector" name="keyword">
                                             <option value="0" class="pid1">All Keyword</option>
@@ -92,7 +92,7 @@
                                             <option value="tw3" class="socmed-twitter">Twitter Account 3</option>
                                         </select>
                                     </div>
-                                    <div>
+                                    <div class="uk-position-relative">
                                         <label class="uk-form-label" for="report">Page</label>
                                         <select class="uk-select" id="media-selector" name="media">
                                             <option value="8" class="project">Summary Page</option>
@@ -137,5 +137,6 @@
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.chained.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/report-add.js') !!}"></script>
 @endsection

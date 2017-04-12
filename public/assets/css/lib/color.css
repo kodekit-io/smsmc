@@ -40,7 +40,12 @@
 .color-text-blog {
     color: #f57d00 !important;
 }
-
+.color-th-large, .color-dashboard {
+    background-color: #000 !important;
+}
+.color-text-th-large, .color-text-dashboard {
+    color: #000 !important;
+}
 .red {
     background-color: #F44336 !important;
 }
