@@ -85,7 +85,8 @@ class Project
 
         $params = [
             'uid' => \Auth::user()->id,
-            'pname' => $title
+            'pname' => $title,
+            //'pgroup' => $group
         ];
 
         if ($advKeywords[1][1] != '') {
@@ -215,6 +216,19 @@ class Project
         $response = $this->smsmc->post('project/delete', $params);
 
         return $response;
+    }
+
+    public function getPilars()
+    {
+        $params = [
+            'uid' => \Auth::id()
+        ];
+        $response = $this->smsmc->post('pilar/list', $params);
+        if ($response->status == '200') {
+            return $response->result;
+        }
+
+        return [];
     }
 
     private function generateWords($keyword)

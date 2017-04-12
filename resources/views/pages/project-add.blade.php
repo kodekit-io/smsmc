@@ -26,8 +26,9 @@
                                     <label class="uk-form-label" for="field_group">Project Group</label>
                                     <div class="uk-form-controls">
                                         <select class="uk-select" id="field_group" name="field_group" required>
-                                            <option value="1">Group 01</option>
-                                            <option value="2">Group 02</option>
+                                            @foreach($pilars as $pilar)
+                                            <option value="{!! $pilar->id !!}">{!! $pilar->pilarName !!}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

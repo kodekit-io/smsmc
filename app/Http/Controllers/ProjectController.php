@@ -37,6 +37,8 @@ class ProjectController extends Controller
 
     public function add()
     {
+        $pilarResponse = $this->projectService->getPilars();
+        $data['pilars'] = $pilarResponse->group;
         $data['pageTitle'] = 'Create Project';
         return view('pages.project-add', $data);
     }
