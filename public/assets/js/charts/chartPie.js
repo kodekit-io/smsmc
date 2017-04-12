@@ -10,6 +10,7 @@ function chartPie(domId, url, chartApiData, name) {
             $('.cardloader').remove();
         },
         success: function(result){
+            // console.log(result);
             if (result[0]===undefined) {
                 $('#'+domId).html(cardEmpty);
             }
@@ -40,7 +41,7 @@ function chartPie(domId, url, chartApiData, name) {
                 + '</div>'
             + '</div>';
             $('#'+domId).append(card);
-            
+
             if (chartData.length > 0) {
                 var serie=[], key=[], color=[], value=[];
                 for (var i = 0; i < chartData.length; i++) {

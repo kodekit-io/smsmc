@@ -10,7 +10,7 @@ function chartTrend(domId, url, chartApiData, title) {
             $('.cardloader').remove();
         },
         success: function(result){
-            // console.log(result[0]);
+            // console.log(result);
             if (result[0]===undefined) {
                 $('#'+domId).html(cardEmpty);
             }

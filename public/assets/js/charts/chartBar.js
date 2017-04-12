@@ -10,6 +10,7 @@ function chartBar(domId, url, chartApiData, name) {
             $('.cardloader').remove();
         },
         success: function(result){
+            // console.log(result);
             var result = jQuery.parseJSON(result);
             if (result.length === 0) {
                 $('#'+domId).html(cardEmpty);
@@ -195,6 +196,7 @@ function chartBarStack(domId, url, chartApiData, name) {
             $('.cardloader').remove();
         },
         success: function(result){
+            // console.log(result);
             var result = jQuery.parseJSON(result);
             // console.log(result);
             if (result.length === 0) {

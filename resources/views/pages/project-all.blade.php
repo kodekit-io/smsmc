@@ -163,7 +163,6 @@
             chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
 
-            // $('.uk-switcher').on('show.uk.switcher', function(){
         	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
             tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
             tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
@@ -172,7 +171,6 @@
             tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
             tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
             tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
-            // });
 
         });
     </script>
