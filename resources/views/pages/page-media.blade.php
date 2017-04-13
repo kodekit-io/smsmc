@@ -10,7 +10,7 @@
         <div class="uk-card uk-card-hover uk-card-default uk-card-small uk-width-1-1 uk-card-body">
             <div uk-grid>
                 <div class="uk-width-1-3">
-                    <h5 class="uk-card-title">Media</h5>
+                    <h5 class="uk-card-title">News</h5>
                     <table id="medialist" class="uk-table uk-table-condensed uk-width-1-1 sm-table uk-margin-remove"></table>
                 </div>
                 <div class="uk-width-1-3">
@@ -58,7 +58,7 @@
                             break;
                         }
 
-                        console.log(data);
+                        // console.log(data);
                         var content = [];
                 		for (i = 0; i < data.length; i++) {
                 			id= data[i].id;
