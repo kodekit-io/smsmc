@@ -55,7 +55,33 @@ class TestController extends Controller
         $pdfFileName = 'report.pdf';
         $pdf->save(public_path($pdfFileName));
     }
-    
+    public function medialist()
+    {
+        $params = [
+            'uid' => Auth::user()->id,
+        ];
+        $result = $this->smsmc->post('medialist', $params);
+        return \GuzzleHttp\json_encode($result->result);
+        // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+    }
+    public function forumlist()
+    {
+        $params = [
+            'uid' => Auth::user()->id,
+        ];
+        $result = $this->smsmc->post('forumlist', $params);
+        return \GuzzleHttp\json_encode($result->result);
+        // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+    }
+    public function bloglist()
+    {
+        $params = [
+            'uid' => Auth::user()->id,
+        ];
+        $result = $this->smsmc->post('bloglist', $params);
+        return \GuzzleHttp\json_encode($result->result);
+        // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+    }
 
     //
 	// public function plist($page,$row)

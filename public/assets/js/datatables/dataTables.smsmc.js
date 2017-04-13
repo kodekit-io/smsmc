@@ -90,25 +90,25 @@ DataTable.ext.renderer.pageButton.uikit = function ( settings, host, idx, button
 						break;
 
 					case 'first':
-						btnDisplay = '<i class="fa fa-angle-double-left"></i> ' + lang.sFirst;
+						btnDisplay = '<i class="fa fa-angle-double-left"></i> '; // + lang.sFirst;
 						btnClass = (page > 0 ?
 							'' : ' uk-disabled disabled');
 						break;
 
 					case 'previous':
-						btnDisplay = '<i class="fa fa-angle-left"></i> ' + lang.sPrevious;
+						btnDisplay = '<i class="fa fa-angle-left"></i> '; // + lang.sPrevious;
 						btnClass = (page > 0 ?
 							'' : 'uk-disabled disabled');
 						break;
 
 					case 'next':
-						btnDisplay = lang.sNext + ' <i class="fa fa-angle-right"></i>';
+						btnDisplay = ' <i class="fa fa-angle-right"></i>';
 						btnClass = (page < pages-1 ?
 							'' : 'uk-disabled disabled');
 						break;
 
 					case 'last':
-						btnDisplay = lang.sLast + ' <i class="fa fa-angle-double-right"></i>';
+						btnDisplay = ' <i class="fa fa-angle-double-right"></i>';
 						btnClass = (page < pages-1 ?
 							'' : ' uk-disabled disabled');
 						break;
