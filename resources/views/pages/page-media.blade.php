@@ -1,6 +1,10 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <style>
+    div.dataTables_filter { text-align: left !important;}
+    table.dataTable td { font-size: 14px; padding: 3px 10px; border: none !important;}
+    </style>
 @endsection
 @section('page-level-nav')
 @endsection
@@ -79,7 +83,6 @@
                             ],
                             order: [[ 0, "asc" ]]
                         });
-                        $('div.dataTables_filter').css('text-align','left');
                     }
                 });
             }
