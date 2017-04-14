@@ -3,6 +3,18 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         chartApiData.idMedia = idMediaParam;
     }
     var idMedia = chartApiData.idMedia;
+
+    $('#download_excel').hide();
+    $.ajax({
+        url: baseUrl + "/charts/download-convo",
+        method: "POST",
+        data: chartApiData
+    }).done(function (downloadLink) {
+        $('#download_excel').attr('href', downloadLink);
+        $('#download_excel').attr('target', '_blank');
+        $('#download_excel').show();
+    });
+
     switch (idMedia) {
         case 1:
             var theTable = tableFacebook(chartId, url, chartApiData);
@@ -26,6 +38,8 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
             var theTable = tableInstagram(chartId, url, chartApiData);
             break;
     }
+
+
 
     // Send Ticket
     $('#' + chartId).on('click', '.sm-btn-openticket', function(e) {

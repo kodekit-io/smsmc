@@ -36,7 +36,7 @@
                             </ul>
                         </div>
                         <div class="uk-card-body">
-                            <a class="uk-button uk-button-small green darken-2 white-text" href="">Download EXCEL</a>
+                            <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel">Download EXCEL</a>
                             <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                         </div>
                     </div>
@@ -100,20 +100,20 @@
                 'users': '{!! $users !!}'
             };
 
-            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
-            chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
-            chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
-            chartTrend('04', baseUrl + '/charts/trend-reach', $chartData);
-            chartPie('05', baseUrl + '/charts/pie-buzz', $chartData);
-            chartPie('06', baseUrl + '/charts/pie-interaction', $chartData);
-            chartPie('07', baseUrl + '/charts/pie-viral-reach', $chartData);
-            chartPie('08', baseUrl + '/charts/pie-potential-reach', $chartData);
-            chartBarStack('09', baseUrl + '/charts/bar-sentiment', $chartData);
-            chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
-            chartBarStack('11', baseUrl + '/charts/bar-topic-distribution', $chartData);
-            wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
-            chartOntology('13', baseUrl + '/charts/ontologi', $chartData);
-            tableInfluencers('14', baseUrl + '/charts/influencer', $chartData, influencers);
+//            chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
+//            chartTrend('02', baseUrl + '/charts/trend-buzz', $chartData);
+//            chartTrend('03', baseUrl + '/charts/trend-user', $chartData);
+//            chartTrend('04', baseUrl + '/charts/trend-reach', $chartData);
+//            chartPie('05', baseUrl + '/charts/pie-buzz', $chartData);
+//            chartPie('06', baseUrl + '/charts/pie-interaction', $chartData);
+//            chartPie('07', baseUrl + '/charts/pie-viral-reach', $chartData);
+//            chartPie('08', baseUrl + '/charts/pie-potential-reach', $chartData);
+//            chartBarStack('09', baseUrl + '/charts/bar-sentiment', $chartData);
+//            chartBar('10', baseUrl + '/charts/bar-interaction-rate', $chartData);
+//            chartBarStack('11', baseUrl + '/charts/bar-topic-distribution', $chartData);
+//            wordcloud('12', baseUrl + '/charts/wordcloud', $chartData);
+//            chartOntology('13', baseUrl + '/charts/ontologi', $chartData);
+//            tableInfluencers('14', baseUrl + '/charts/influencer', $chartData, influencers);
             tableConvo('convoTable', baseUrl + '/charts/paging-convo', $chartData);
         });
     </script>

@@ -261,7 +261,7 @@ class ChartController extends Controller
 
         $params['StartDate'] = $request->startDate;
         $params['EndDate'] = $request->endDate;
-        $params['brandID'] = $request->keywords;;
+        $params['brandID'] = $request->keywords;
         $params['row'] = $length;
 
         // Log::warning('params => ' . \GuzzleHttp\json_encode($params));
@@ -272,6 +272,26 @@ class ChartController extends Controller
         $dtResult->setDraw($draw);
         $dtResult->setData($data);
         return \GuzzleHttp\json_encode($dtResult);
+    }
+
+    public function downloadConvo(Request $request)
+    {
+        $idMedia = $request->input('idMedia');
+        $reportType = $request->input('reportType');
+        $params['pid'] = $request->input('projectId');
+        $params['StartDate'] = $request->input('startDate');
+        $params['EndDate'] = $request->input('endDate');
+        $params['brandID'] = $request->input('keywords');
+        $params['sentiment'] = $request->input('sentiment');
+        $params['chartList'] = $reportType . $idMedia . '405';
+
+        $apiUrl = 'project/' . $reportType . '/' . $idMedia . '/convoexcel';
+        $response = $this->smsmc->post($apiUrl, $params);
+        if ($response->status == 200) {
+            return $response->result->excel;
+        }
+
+        return '#';
     }
 
     public function influencer(Request $request)

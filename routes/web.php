@@ -86,6 +86,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('charts/convo', 'ChartController@convo');
     Route::any('charts/paging-convo', 'ChartController@pagingConvo');
     Route::post('change-sentiment', 'ChartController@changeSentiment');
+    Route::any('charts/download-convo', 'ChartController@downloadConvo');
 
     Route::get('ticket', 'TicketController@index');
     Route::get('view-ticket', 'TicketController@ticketList');
