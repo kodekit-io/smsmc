@@ -1,20 +1,27 @@
-function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
+function tableConvo(chartId, url, chartApiData, idMediaParam = '', downloadDOMId = '') {
     if (idMediaParam != '') {
         chartApiData.idMedia = idMediaParam;
     }
-    var idMedia = chartApiData.idMedia;
 
-    $('#download_excel').hide();
+    $downloadDOM = 'download_excel';
+    if (downloadDOMId != '') {
+        $downloadDOM = downloadDOMId;
+    }
+    //console.log($downloadDOM);
+    var $downloadExcel = $('#' + $downloadDOM);
+    // $downloadExcel.hide();
     $.ajax({
         url: baseUrl + "/charts/download-convo",
         method: "POST",
         data: chartApiData
     }).done(function (downloadLink) {
-        $('#download_excel').attr('href', downloadLink);
-        $('#download_excel').attr('target', '_blank');
-        $('#download_excel').show();
+        console.log($downloadExcel);
+        $downloadExcel.attr('href', downloadLink);
+        $downloadExcel.attr('target', '_blank');
+        // $downloadExcel.show();
     });
 
+    var idMedia = chartApiData.idMedia;
     switch (idMedia) {
         case 1:
             var theTable = tableFacebook(chartId, url, chartApiData);
