@@ -278,7 +278,14 @@ class ChartController extends Controller
     {
         $idMedia = $request->input('idMedia');
         $reportType = $request->input('reportType');
-        $params['pid'] = $request->input('projectId');
+        if ($reportType == 1) {
+            $params['pid'] = $request->input('projectId');
+        }
+        if ($reportType == 2) {
+            $params['uid'] = \Auth::id();
+        }
+        // $params['pid'] = $request->input('projectId');
+
         $params['StartDate'] = $request->input('startDate');
         $params['EndDate'] = $request->input('endDate');
         $params['brandID'] = $request->input('keywords');

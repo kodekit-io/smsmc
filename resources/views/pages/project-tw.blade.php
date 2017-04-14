@@ -36,7 +36,7 @@
                             </ul>
                         </div>
                         <div class="uk-card-body">
-                            <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel">Download EXCEL</a>
+                            {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel">Download EXCEL</a> --}}
                             <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                         </div>
                     </div>

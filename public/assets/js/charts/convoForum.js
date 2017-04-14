@@ -82,7 +82,7 @@ function tableForum(chartId, url, chartApiData) {
 				"data": "sentiment",
 				"createdCell": function(td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					console.log(id);
+					// console.log(id);
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text').attr('data-id', id);

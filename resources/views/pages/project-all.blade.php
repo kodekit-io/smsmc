@@ -51,35 +51,35 @@
                             </ul>
                             <ul class="uk-switcher uk-margin">
                                 <li>
-                                    <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_facebook">Download EXCEL</a>
+                                    {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_facebook">Download EXCEL</a> --}}
                                     <table id="convoFacebook" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                                 </li>
                                 <li>
-                                    <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_twitter">Download EXCEL</a>
+                                    {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_twitter">Download EXCEL</a> --}}
                                     <table id="convoTwitter" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                                 </li>
                                 <li>
-                                    <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_news">Download EXCEL</a>
+                                    {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_news">Download EXCEL</a> --}}
                                     <table id="convoNews" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                                 </li>
                                 <li>
-                                    <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_international">Download EXCEL</a>
+                                    {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_international">Download EXCEL</a> --}}
                                     <table id="convoNewsInt" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                                 </li>
                                 <li>
-                                    <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_blog">Download EXCEL</a>
+                                    {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_blog">Download EXCEL</a> --}}
                                     <table id="convoBlog" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                                 </li>
                                 <li>
-                                    <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_forum">Download EXCEL</a>
+                                    {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_forum">Download EXCEL</a> --}}
                                     <table id="convoForum" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                                 </li>
                                 <li>
-                                    <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_video">Download EXCEL</a>
+                                    {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_video">Download EXCEL</a> --}}
                                     <table id="convoVideo" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                                 </li>
                                 <li>
-                                    <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_instagram">Download EXCEL</a>
+                                    {{-- <a class="uk-button uk-button-small green darken-2 white-text" href="#" id="download_excel_instagram">Download EXCEL</a> --}}
                                     <table id="convoInstagram" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
                                 </li>
                             </ul>
@@ -171,14 +171,14 @@
             chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
 
-        	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1, downloadDOMId = 'download_excel_facebook');
-            tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2, downloadDOMId = 'download_excel_twitter');
-            tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4, downloadDOMId = 'download_excel_news');
-            tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4, downloadDOMId = 'download_excel_international');
-            tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3, downloadDOMId = 'download_excel_blog');
-            tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6, downloadDOMId = 'download_excel_forum');
-            tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5, downloadDOMId = 'download_excel_video');
-            tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7, downloadDOMId = 'download_excel_instagram');
+        	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
+            tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
+            tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
+            tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 9);
+            tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3);
+            tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
+            tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
+            tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
 
         });
     </script>

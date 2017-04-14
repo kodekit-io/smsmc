@@ -1,25 +1,7 @@
-function tableConvo(chartId, url, chartApiData, idMediaParam = '', downloadDOMId = '') {
+function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
     if (idMediaParam != '') {
         chartApiData.idMedia = idMediaParam;
     }
-
-    $downloadDOM = 'download_excel';
-    if (downloadDOMId != '') {
-        $downloadDOM = downloadDOMId;
-    }
-    //console.log($downloadDOM);
-    var $downloadExcel = $('#' + $downloadDOM);
-    // $downloadExcel.hide();
-    $.ajax({
-        url: baseUrl + "/charts/download-convo",
-        method: "POST",
-        data: chartApiData
-    }).done(function (downloadLink) {
-        console.log($downloadExcel);
-        $downloadExcel.attr('href', downloadLink);
-        $downloadExcel.attr('target', '_blank');
-        // $downloadExcel.show();
-    });
 
     var idMedia = chartApiData.idMedia;
     switch (idMedia) {
@@ -44,9 +26,39 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '', downloadDOMId
         case 7:
             var theTable = tableInstagram(chartId, url, chartApiData);
             break;
+        case 9:
+            var theTable = tableNews(chartId, url, chartApiData);
+            break;
     }
 
+    // $downloadDOM = 'download_excel';
+    // if (downloadDOMId != '') {
+    //     $downloadDOM = downloadDOMId;
+    // }
+    // //console.log($downloadDOM);
+    // var $downloadExcel = $('#' + $downloadDOM);
+    // // $downloadExcel.hide();
+    // $.ajax({
+    //     url: baseUrl + "/charts/download-convo",
+    //     method: "POST",
+    //     data: chartApiData
+    // }).done(function (downloadLink) {
+    //     console.log($downloadExcel);
+    //     $downloadExcel.attr('href', downloadLink);
+    //     $downloadExcel.attr('target', '_blank');
+    //     // $downloadExcel.show();
+    // });
 
+    $.ajax({
+        url: baseUrl + "/charts/download-convo",
+        method: "POST",
+        data: chartApiData
+    }).done(function (downloadLink) {
+        var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel_'+idMedia+'">Download EXCEL</a>';
+        console.log(btnExcel);
+        // console.log(chartApiData);
+        $('#'+chartId+'_wrapper').find('div.uk-inline.B').append(btnExcel);
+    });
 
     // Send Ticket
     $('#' + chartId).on('click', '.sm-btn-openticket', function(e) {
