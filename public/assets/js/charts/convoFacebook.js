@@ -17,18 +17,18 @@ function tableFacebook(chartId, url, chartApiData) {
             }
         },
         pageLength: 25,
-		buttons: {
-			buttons: [
-				{
-					extend: 'excelHtml5',
-					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
-				},
-				{
-					extend: 'csvHtml5',
-					className: 'uk-button uk-button-small teal white-text uk-margin-small-left'
-				}
-			]
-		},
+		// buttons: {
+		// 	buttons: [
+		// 		{
+		// 			extend: 'excelHtml5',
+		// 			className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
+		// 		},
+		// 		{
+		// 			extend: 'csvHtml5',
+		// 			className: 'uk-button uk-button-small teal white-text uk-margin-small-left'
+		// 		}
+		// 	]
+		// },
 		columns: [
 			{
 				"data": "Date",
