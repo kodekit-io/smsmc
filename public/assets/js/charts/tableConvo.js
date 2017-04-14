@@ -54,7 +54,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         method: "POST",
         data: chartApiData
     }).done(function (downloadLink) {
-        var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel_'+idMedia+'">Download EXCEL</a>';
+        var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel_'+idMedia+'" target="_blank">Download EXCEL</a>';
         console.log(btnExcel);
         // console.log(chartApiData);
         $('#'+chartId+'_wrapper').find('div.uk-inline.B').append(btnExcel);
