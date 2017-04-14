@@ -65,7 +65,7 @@ class Report
             'description' => $desc,
             'mediaId' => $mediaId,
             'name' => $title,
-            'reportType' => $reportType,
+            'reportType' => $reportTypeId,
             'chartList' => $chartList
         ];
 

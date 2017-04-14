@@ -88,7 +88,7 @@
                 "topics": $topics,
                 "sentiments": $sentiments,
                 "text": $text,
-                "idMedia": 4,
+                "idMedia": 9,
                 "reportType": 1,
                 "createTicketUrl": '{!! url('convo/create-ticket') !!}',
                 "changeSentimentUrl": '{!! url('change-sentiment') !!}',

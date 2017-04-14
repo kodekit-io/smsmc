@@ -149,10 +149,13 @@ Route::get('tests/echarts', 'TestController@echarts');
 Route::post('tests/echarts/post', 'TestController@echartsPost');
 Route::get('tests/summary', 'TestController@summary');
 
-Route::get('plist/{page}/{row}', 'TestController@plist');
+Route::get('medialist', 'TestController@medialist');
+Route::get('forumlist', 'TestController@forumlist');
+Route::get('bloglist', 'TestController@bloglist');
 
-Route::get('api1/{x}/{a}', 'TestController@api1');
-Route::get('api2/{x}/{a}/{b}', 'TestController@api2');
-Route::get('api3/{x}/{a}/{b}/{c}', 'TestController@api3');
-Route::get('api4/{x}/{a}/{b}/{c}/{d}', 'TestController@api4');
-Route::get('api5/{x}/{a}/{b}/{c}/{d}/[e]', 'TestController@api5');
+//
+// Route::get('api1/{x}/{a}', 'TestController@api1');
+// Route::get('api2/{x}/{a}/{b}', 'TestController@api2');
+// Route::get('api3/{x}/{a}/{b}/{c}', 'TestController@api3');
+// Route::get('api4/{x}/{a}/{b}/{c}/{d}', 'TestController@api4');
+// Route::get('api5/{x}/{a}/{b}/{c}/{d}/[e]', 'TestController@api5');
