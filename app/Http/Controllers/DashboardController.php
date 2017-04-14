@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service\Project;
 use App\Service\Smsmc;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -33,20 +31,15 @@ class DashboardController extends Controller
     {
         $data['pageTitle'] = 'Dashboard';
 
-        $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 0;
-        $currentPage = LengthAwarePaginator::resolveCurrentPage() == 0 ? 0 : LengthAwarePaginator::resolveCurrentPage() - 1;
-        $perPage = 6;
-        $projectResponse = $this->projectService->projectList($currentPage, $perPage, $totalPage);
-        // dd($projectResponse);
-        $projects = $projectResponse->projectList;
-        $totalRow = $projectResponse->totalProject;
-        $collection = new Collection($projects);
-        $currentPageSearchResults = $collection->all();
-        $totalPage = $projectResponse->totalPage;
-        $paginatedSearchResults= new LengthAwarePaginator($currentPageSearchResults, $totalRow, $perPage);
-        $data['projects'] = $paginatedSearchResults
-            ->appends(['totalPage' => $totalPage])
-            ->withPath('home');
+        // projects
+        $paginatedSearchResults = $this->projectService->getPaginatedProjects($request, 'home');
+
+        // groups
+        $pilarResponse = $this->projectService->getPilars();
+        $pilars = $pilarResponse->group;
+
+        $data['groups'] = $pilars;
+        $data['projects'] = $paginatedSearchResults;
         return view('pages.home', $data);
     }
 

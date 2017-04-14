@@ -3,6 +3,8 @@
 namespace App\Service;
 
 
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
@@ -289,6 +291,23 @@ class Project
         }
 
         return $x;
+    }
+
+    public function getPaginatedProjects($request, $path)
+    {
+        $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 0;
+        $currentPage = LengthAwarePaginator::resolveCurrentPage() == 0 ? 0 : LengthAwarePaginator::resolveCurrentPage() - 1;
+        $perPage = 6;
+        $projectResponse = $this->projectList($currentPage, $perPage, $totalPage);
+        $projects = $projectResponse->projectList;
+        $totalRow = $projectResponse->totalProject;
+        $collection = new Collection($projects);
+        $currentPageSearchResults = $collection->all();
+        $totalPage = $projectResponse->totalPage;
+        $paginatedSearchResults= new LengthAwarePaginator($currentPageSearchResults, $totalRow, $perPage);
+        return $paginatedSearchResults
+            ->appends(['totalPage' => $totalPage])
+            ->withPath($path);
     }
 
 

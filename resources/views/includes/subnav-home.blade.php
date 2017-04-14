@@ -6,8 +6,9 @@
                 <div uk-dropdown="offset: 0">
                     <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
                         <li><label><input class="uk-checkbox" type="checkbox" id="select-group" checked> All Group</label></li>
-                        <li><label><input class="uk-checkbox" type="checkbox" checked> Group PO</label></li>
-                        <li><label><input class="uk-checkbox" type="checkbox" checked> Group APP</label></li>
+                        @foreach($groups as $group)
+                            <li><label><input class="uk-checkbox" type="checkbox" value="{!! $group->id !!}"> {!! $group->pilarName !!}</label></li>
+                        @endforeach
                     </ul>
                 </div>
             </li>
