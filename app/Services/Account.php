@@ -21,7 +21,7 @@ class Account
     public function getSocialAccounts()
     {
         $params = [
-            'id_login' => \Auth::user()->id
+            'id_login' => \Auth::id()
         ];
 
         $request = $this->smsmc->post('project/getprofile', $params);

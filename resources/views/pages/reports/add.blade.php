@@ -60,11 +60,14 @@
                                             @foreach($projectList as $id => $project)
                                                 <option value="{!! $id !!}" class="project">{!! $project['name'] !!}</option>
                                             @endforeach
-                                            <option value="0" class="socmed">Choose Social Media</option>
-                                            <option value="socmed-facebook" class="socmed">Facebook</option>
-                                            <option value="socmed-twitter" class="socmed">Twitter</option>
-                                            <option value="socmed-youtube" class="socmed">Youtube</option>
-                                            <option value="socmed-instagram" class="socmed">Instagram</option>
+                                            {{--<option value="0" class="socmed">Choose Social Media</option>--}}
+                                            @php $lastSocmed = ''; @endphp
+                                            @foreach($socmedAccounts as $socmed => $account)
+                                                @if($socmed != $lastSocmed)
+                                                    <option value="socmed-{!! $socmed !!}" class="socmed">{!! strtoupper($socmed) !!}</option>
+                                                    @php $lastSocmed = $socmed; @endphp
+                                                @endif
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="uk-position-relative">
@@ -77,19 +80,11 @@
                                                     <option value="{!! $keyword->keywordId !!}" class="{!! $id !!}">{!! $keyword->keywordName !!}</option>
                                                 @endforeach
                                             @endforeach
-
-                                            <option value="key2" class="pid1">Keyword 2</option>
-                                            <option value="key3" class="pid1">Keyword 3</option>
-                                            <option value="all2" class="pid2">All Keyword</option>
-                                            <option value="keyA" class="pid2">Keyword A</option>
-                                            <option value="keyB" class="pid2">Keyword B</option>
-                                            <option value="keyC" class="pid2">Keyword C</option>
-                                            <option value="fb1" class="socmed-facebook">Facebook Account 1</option>
-                                            <option value="fb2" class="socmed-facebook">Facebook Account 2</option>
-                                            <option value="fb3" class="socmed-facebook">Facebook Account 3</option>
-                                            <option value="tw1" class="socmed-twitter">Twitter Account 1</option>
-                                            <option value="tw2" class="socmed-twitter">Twitter Account 2</option>
-                                            <option value="tw3" class="socmed-twitter">Twitter Account 3</option>
+                                            @foreach($socmedAccounts as $socmed => $accounts)
+                                                @foreach($accounts as $account)
+                                                <option value="{!! $account->id !!}" class="socmed-{!! $socmed !!}">{!! $account->name !!}</option>
+                                                @endforeach
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="uk-position-relative">

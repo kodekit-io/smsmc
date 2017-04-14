@@ -34,6 +34,7 @@ class Report
 
     public function store($request)
     {
+        dd($request->all());
         $title = $request->input('title');
         $desc = $request->input('description');
         $startDate = $request->input('startDate');

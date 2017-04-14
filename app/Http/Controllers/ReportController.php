@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\Account;
 use App\Service\Project;
 use App\Service\Report;
 use Illuminate\Http\Request;
@@ -16,14 +17,19 @@ class ReportController extends Controller
      * @var Project
      */
     private $project;
+    /**
+     * @var Account
+     */
+    private $account;
 
     /**
      * ReportController constructor.
      */
-    public function __construct(Report $report, Project $project)
+    public function __construct(Report $report, Project $project, Account $account)
     {
         $this->report = $report;
         $this->project = $project;
+        $this->account = $account;
     }
 
     public function index() {
@@ -36,6 +42,7 @@ class ReportController extends Controller
     }
 
     public function add() {
+        // project
         $projectResponse = $this->project->projectList(0, 100);
         $projects = $projectResponse->projectList;
         $projectList = [];
@@ -44,8 +51,12 @@ class ReportController extends Controller
             $detail = $this->project->getProject($project->pid);
             $projectList[$project->pid]['detail'] = $detail->projectInfo;
         }
-        // dd($projectList);
+        // socmed
+        $socmedAccounts = count($this->account->getSocialAccounts()) > 0 ? $this->account->getSocialAccounts()[0] : [];
+
+        //dd($socmedAccounts);
         $data['projectList'] = $projectList;
+        $data['socmedAccounts'] = $socmedAccounts;
         $data['pageTitle'] = 'Create Report';
         return view('pages.reports.add', $data);
     }
