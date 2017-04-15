@@ -38,7 +38,7 @@
                     <div class="uk-card-body">
                         <div uk-grid class="uk-grid-collapse">
                             <div class="uk-width-2-5">Date Create</div>
-                            <div class="uk-width-3-5">: {!! $project->pdate !!}</div>
+                            <div class="uk-width-3-5">: <span class="pdate"></span></div>
                             <div class="uk-width-2-5">Project Group</div>
                             <div class="uk-width-3-5">: {!! $project->pgroup !!}</div>
                         </div>
@@ -72,16 +72,16 @@
     <script src="{!! asset('assets/js/echarts/echarts.js') !!}"></script>
     <script src="{!! asset('assets/js/echarts/echarts.theme.js') !!}"></script>
     {{-- <script src="{!! asset('assets/js/pages/home_new.js') !!}"></script> --}}
+    <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/home.js') !!}"></script>
     <script>
         $(document).ready(function() {
             @foreach($projects as $project)
-                imgCover('{!! $project->pid !!}');
+                var pid = '{!! $project->pid !!}';
+                var pdate = moment.parseZone('{!! $project->pdate !!}').format('lll');
+                imgCover(pid);
+                $('#'+pid).find('.pdate').text(pdate);
             @endforeach
-
-            $('#select-group').checkAll(
-                { container: $('ul'), showIndeterminate: true }
-            );
         });
     </script>
 @endsection
