@@ -14,7 +14,7 @@ function tableInstagram(chartId, url, chartApiData) {
 		            var info = data.responseJSON.chartInfo;
 					$('.convo-title').html(title);
                     $('.convo-info').attr('title', info);
-					// console.log(data);
+					console.log(data);
                 }
             }
         },
@@ -31,6 +31,7 @@ function tableInstagram(chartId, url, chartApiData) {
 		// 		}
 		// 	]
 		// },
+		// Author,Comments,Date,Likes,Post,Type,Url,id,sentiment,status,
 		columns: [{
 				"data": "Date",
 				"visible": false
@@ -51,44 +52,39 @@ function tableInstagram(chartId, url, chartApiData) {
 			{
 				"data": "Author",
 				"title": "Author",
-				"width": "20%"
+				"width": "15%"
 			},
 			{
-				"title": "Video",
+				"title": "Post",
 				"width": "30%",
 				"data": function(data) {
-					var title = data["Title"];
-					var post = data["Summary"];
+					var post = data["Post"];
 					var postrim = post.substring(0, 100) + "...";
 					var plink = data["Url"];
-					var img = data["Thumbnail"];
-					return '<div class="thumb-wrap" data-uk-tooltip="{pos:\'top-left\'}" title="' + postrim + '">' +
-						'<a href="' + plink + '" target="_blank" class="thumb-img"><span style="background-image:url(' + img + ');"></span></a>' +
-						'<a href="' + plink + '" target="_blank" class="thumb-txt">' + post + '</a>' +
-						'</div>';
+					return '<a href="' + plink + '" target="_blank" title="' + postrim + '" uk-tooltip>' + post + '</a>';
 				}
 			},
 			{
 				"data": "Comments",
 				"title": "Comments",
 				"class": "uk-text-right",
-				"width": "7.5%"
+				"width": "10%"
 			},
 			{
-				"data": "view",
-				"title": "View",
+				"data": "Likes",
+				"title": "Likes",
 				"class": "uk-text-right",
-				"width": "7.5%"
+				"width": "10%"
 			},
 			{
 				"title": "",
 				"width": "10%",
 				"orderable": false,
 				"class": "sentiment uk-text-center",
-				"data": "Sentiment",
+				"data": "sentiment",
 				"createdCell": function(td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					// console.log(id);
+					console.log(id);
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text').attr('data-id', id);

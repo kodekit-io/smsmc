@@ -1,5 +1,7 @@
 (function ($, window, document) {
     $(function () {
+        $('ul.pagination').addClass('uk-pagination uk-flex-center');
+
         $('.uk-card').on('click', '.sm-edit-project', function(e) {
             e.preventDefault();
             $(this).blur();
@@ -35,8 +37,8 @@ function imgCover(pid) {
     var defUrl = baseUrl+"/images/default.jpg";
     $.get(baseUrl+"/images/"+pid+".jpg")
     .done(function() {
-        $('#'+pid).find('.sm-cover').prepend('<img src="'+url+'" uk-cover>');
+        $('#'+pid).find('.sm-cover').prepend('<img class="uk-animation-fade" src="'+url+'" uk-cover>');
     }).fail(function() {
-        $('#'+pid).find('.sm-cover').prepend('<img src="'+defUrl+'" uk-cover>');
+        $('#'+pid).find('.sm-cover').prepend('<img class="uk-animation-fade" src="'+defUrl+'" uk-cover>');
     })
 }

@@ -239,7 +239,7 @@ a.fa {
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 .sm-cover {
-    height: calc(100vh - 635px);
+    height: calc((100vh - 150px - 30px - 30px - 62px - 48px - 62px - 48px - 40px - 22px) / 2);
 }
 .sm-cover-overlay {
     height: 100%;
