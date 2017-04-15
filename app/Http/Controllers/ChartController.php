@@ -315,12 +315,23 @@ class ChartController extends Controller
         $projectId = $request->input('projectId');
         $sentiment = $request->input('sentiment');
         $date = Carbon::now()->format('Y-m-d\TH:i:s\Z');
-        $params = [
-            'pid' => $projectId,
-            'date' => $date,
-            'postId' => $postId,
-            'sentiment' => $sentiment
-        ];
+
+        if ($reportType == 1) {
+            $params = [
+                'pid' => $projectId,
+                'date' => $date,
+                'postId' => $postId,
+                'sentiment' => $sentiment
+            ];
+        }
+        if ($reportType == 2) {
+            $params = [
+                'uid' => \Auth::id(),
+                'date' => $date,
+                'postId' => $postId,
+                'sentiment' => $sentiment
+            ];
+        }
         $url = 'project/' . $reportType . '/' . $idMedia . '/sentiment/update';
         $response = $this->smsmc->post($url, $params);
         if ($response->status == '200') {
