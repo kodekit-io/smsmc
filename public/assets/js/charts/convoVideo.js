@@ -14,7 +14,7 @@ function tableVideo(chartId, url, chartApiData) {
 		            var info = data.responseJSON.chartInfo;
 					$('.convo-title').html(title);
                     $('.convo-info').attr('title', info);
-					// console.log(data);
+					console.log(data);
                 }
             }
         },
@@ -49,7 +49,7 @@ function tableVideo(chartId, url, chartApiData) {
 				}
 			},
 			{
-				"data": "Author",
+				"data": "author",
 				"title": "Author",
 				"width": "20%"
 			},
