@@ -230,7 +230,24 @@ a.fa {
     -webkit-justify-content: left;
     justify-content: left;
 }
-
+.sm-title-cover {
+    position: absolute;
+    margin: 0;
+    padding: 20px;
+    z-index: 10;
+    bottom: 0;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.sm-cover {
+    height: calc(100vh - 635px);
+}
+.sm-cover-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 .sm-footer {
     color: #535455;
     background: #ccc;

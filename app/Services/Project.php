@@ -297,7 +297,7 @@ class Project
     {
         $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 0;
         $currentPage = LengthAwarePaginator::resolveCurrentPage() == 0 ? 0 : LengthAwarePaginator::resolveCurrentPage() - 1;
-        $perPage = 6;
+        $perPage = 8;
         $projectResponse = $this->projectList($currentPage, $perPage, $totalPage);
         $projects = $projectResponse->projectList;
         $totalRow = $projectResponse->totalProject;

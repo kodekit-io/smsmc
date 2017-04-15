@@ -8,19 +8,35 @@
 @endsection
 
 @section('content')
-    <section class="sm-main uk-container uk-container-expand">
-        <div id="projectGrid" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-4@xl" uk-grid>
+    <section class="sm-main sm-dashboard uk-container uk-container-expand">
+        <div id="projectGrid" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-4@m" uk-grid>
             @foreach($projects as $project)
             <div id="{!! $project->pid !!}">
                 <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                    <div class="uk-card-header">
+                    {{-- <div class="uk-card-header">
                         <h5 class="uk-card-title uk-text-truncate">{!! $project->pname !!}</h5>
                     </div>
                     <div class="uk-card-body">
                         <div uk-grid class="uk-grid-collapse">
                             <div class="uk-width-1-1">
                                 <div id="chartCover{!! $project->pid !!}" class="sm-chartcover"></div>
+                                <div class="sm-chartcover uk-cover-container">
+                                    <img src="{!! asset('assets/img/login.jpg') !!}" alt="{!! $project->pid !!}" uk-cover>
+                                    <div class="uk-overlay uk-overlay-default">Tes</div>
+                                </div>
                             </div>
+                            <div class="uk-width-2-5">Date Create</div>
+                            <div class="uk-width-3-5">: {!! $project->pdate !!}</div>
+                            <div class="uk-width-2-5">Project Group</div>
+                            <div class="uk-width-3-5">: {!! $project->pgroup !!}</div>
+                        </div>
+                    </div> --}}
+                    <div class="uk-card-media-top uk-cover-container sm-cover">
+                        <div class="sm-cover-overlay"></div>
+                        <h4 class="white-text sm-title-cover">{!! $project->pname !!}</h4>
+                    </div>
+                    <div class="uk-card-body">
+                        <div uk-grid class="uk-grid-collapse">
                             <div class="uk-width-2-5">Date Create</div>
                             <div class="uk-width-3-5">: {!! $project->pdate !!}</div>
                             <div class="uk-width-2-5">Project Group</div>
@@ -41,16 +57,6 @@
             </div>
             @endforeach
         </div>
-
-        {{--<ul class="uk-pagination uk-flex-center" uk-margin>--}}
-            {{--<li class="uk-disabled"><a href="#"><span uk-pagination-previous></span></a></li>--}}
-            {{--<li class="uk-active"><span>1</span></li>--}}
-            {{--<li><a href="#">2</a></li>--}}
-            {{--<li><a href="#">3</a></li>--}}
-            {{--<li><a href="#">4</a></li>--}}
-            {{--<li><a href="#">5</a></li>--}}
-            {{--<li><a href="#"><span uk-pagination-next></span></a></li>--}}
-        {{--</ul>--}}
         {{ $projects->links() }}
     </section>
 
@@ -63,13 +69,14 @@
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/echarts/echarts.js') !!}"></script>
     <script src="{!! asset('assets/js/echarts/echarts.theme.js') !!}"></script>
-    <script src="{!! asset('assets/js/pages/home_new.js') !!}"></script>
-{{--    <script src="{!! asset('assets/js/pages/home.js') !!}"></script>--}}
+    {{-- <script src="{!! asset('assets/js/pages/home_new.js') !!}"></script> --}}
+    <script src="{!! asset('assets/js/pages/home.js') !!}"></script>
     <script>
         $(document).ready(function() {
             @foreach($projects as $project)
-            chartCover('{!! $project->pid !!}');
+                imgCover('{!! $project->pid !!}');
             @endforeach
+
             $('#select-group').checkAll(
                 { container: $('ul'), showIndeterminate: true }
             );
