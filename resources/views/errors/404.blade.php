@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" media="screen" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>404 Page Not Found - Sinarmas Social Media Center</title>
+
+    <link href="{!! asset('assets/img/favicon.png') !!}" rel="shortcut icon">
+
+    <link rel="stylesheet" href="{!! asset('assets/css/lib/uikit.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/main.css') !!}" />
+	@section('page-level-styles')
+    @show
+    <script src="{!! asset('assets/js/lib/jquery.min.js') !!}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="{!! asset('assets/js/lib/uikit.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/uikit-icons.js') !!}"></script>
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <style>
         * {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box}html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,caption,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent}article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {display: block}html {font-size: 16px;line-height: 24px;width: 100%;height: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;overflow-y: scroll;overflow-x: hidden}img {vertical-align: middle;max-width: 100%;height: auto;border: 0;-ms-interpolation-mode: bicubic}body {min-height: 100%;-webkit-font-smoothing: subpixel-antialiased}.clearfix {clear: both;zoom: 1}.clearfix:before,.clearfix:after {content: &quot;0020&quot;;display: block;height: 0;visibility: hidden}.clearfix:after {clear: both}
     </style>
     <style>
         .sign.error-page-wrapper {
-            font-family: 'Source Sans Pro', sans-serif;
-            background-color: #179eca;
+            font-family: 'GothamPro-Medium' !important;
             position: relative;
         }
 
@@ -90,8 +105,7 @@
         .sign.error-page-wrapper .sign-container .pane .context {
             transition: color .5s linear;
             color: #ffba00;
-            font-size: 24px;
-            line-height: 32px;
+            font-size: 21px;
         }
 
         @media screen and (max-width: 500px) {
@@ -308,18 +322,9 @@
             </div>
         </div>
     </div>
-    <div class="text-container">
-        <div class="headline secondary-text-color">
-            404
-        </div>
-        <div class="context primary-text-color">
-            <p>
-                You may want to head back to dashboard.<br> If you think something is broken, report a problem.
-            </p>
-        </div>
-        <div class="buttons-container">
-            <a class="border-button" href="{!! url('/') !!}"><span class="fa fa-home"></span> Dashboard</a>
-        </div>
+    <div class="uk-margin-large-top uk-text-center">
+        <p class="white-text">You may want to head back to dashboard page.</p>
+        <a class="uk-button uk-button-secondary" href="{!! url('/') !!}"><span class="fa fa-home"></span> Dashboard</a>
     </div>
 
     <script>
