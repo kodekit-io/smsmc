@@ -1,5 +1,5 @@
 // Table convo Video
-function tableVideo(chartId, url, chartApiData) {
+function tableVideo(chartId, url, chartApiData, idMedia) {
 
 	var theTable = $('#' + chartId).DataTable({
 		processing: true,
@@ -14,7 +14,6 @@ function tableVideo(chartId, url, chartApiData) {
 		            var info = data.responseJSON.chartInfo;
 					$('.convo-title').html(title);
                     $('.convo-info').attr('title', info);
-					console.log(data);
                 }
             }
         },
@@ -88,16 +87,18 @@ function tableVideo(chartId, url, chartApiData) {
 				"data": "Sentiment",
 				"createdCell": function(td, cellData, rowData, row, col) {
 					var id = rowData['id'];
+                    $(td).attr('data-id', id);
+                    $(td).attr('data-id-media', idMedia);
 					// console.log(id);
 					switch (cellData) {
 						case 'positive':
-							$(td).addClass('sm-sentiment green-text').attr('data-id', id);
+							$(td).addClass('sm-sentiment green-text');
 							break;
 						case 'neutral':
-							$(td).addClass('sm-sentiment grey-text').attr('data-id', id);
+							$(td).addClass('sm-sentiment grey-text');
 							break;
 						case 'negative':
-							$(td).addClass('sm-sentiment red-text').attr('data-id', id);
+							$(td).addClass('sm-sentiment red-text');
 							break;
 					}
 				}

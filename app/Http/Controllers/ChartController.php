@@ -234,9 +234,7 @@ class ChartController extends Controller
         $reportType = $request->input('reportType');
         $draw = $request->input('draw');
         $length = $request->input('length');
-        // Log::warning('idMedia ==> ' . $idMedia.' and reportType ==> ' . $reportType);
 
-        // Log::warning(\GuzzleHttp\json_encode($request->all()));
         // sentiment filter
         if (isset($request->input('columns')[9]['search']['value'])) {
             $sentimentValue = $request->input('columns')[9]['search']['value'];
@@ -264,7 +262,6 @@ class ChartController extends Controller
         $params['brandID'] = $request->keywords;
         $params['row'] = $length;
 
-        // Log::warning('params => ' . \GuzzleHttp\json_encode($params));
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
 
         $data = $this->smsmc->post($convoUrl, $params);
@@ -284,7 +281,6 @@ class ChartController extends Controller
         if ($reportType == 2) {
             $params['uid'] = \Auth::id();
         }
-        // $params['pid'] = $request->input('projectId');
 
         $params['StartDate'] = $request->input('startDate');
         $params['EndDate'] = $request->input('endDate');
@@ -313,6 +309,7 @@ class ChartController extends Controller
 
     public function changeSentiment(Request $request)
     {
+        // Log::warning('change sentiment requests ==> ' . \GuzzleHttp\json_encode($request->all()));
         $reportType = $request->input('reportType');
         $idMedia = $request->input('idMedia');
         $postId = $request->input('id');
@@ -337,6 +334,8 @@ class ChartController extends Controller
             ];
         }
         $url = 'project/' . $reportType . '/' . $idMedia . '/sentiment/update';
+//        Log::warning("change sentiment param ==> " . \GuzzleHttp\json_encode($params));
+//        Log::warning("change sentiment url ==> " . $url);
         $response = $this->smsmc->post($url, $params);
         if ($response->status == '200') {
             return 1;

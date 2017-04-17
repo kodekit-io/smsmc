@@ -1,5 +1,5 @@
 // Table convo twitter
-function tableTwitter(chartId, url, chartApiData) {
+function tableTwitter(chartId, url, chartApiData, idMedia) {
 	var theTable = $('#' + chartId).DataTable({
 		processing: true,
         serverSide: true,
@@ -96,15 +96,17 @@ function tableTwitter(chartId, url, chartApiData) {
 				"createdCell": function(td, cellData, rowData, row, col) {
 					var id = rowData['id'];
 					// console.log(id);
+                    $(td).attr('data-id', id);
+                    $(td).attr('data-id-media', idMedia);
 					switch (cellData) {
 						case 'positive':
-							$(td).addClass('sm-sentiment green-text').attr('data-id', id);
+							$(td).addClass('sm-sentiment green-text');
 							break;
 						case 'neutral':
-							$(td).addClass('sm-sentiment grey-text').attr('data-id', id);
+							$(td).addClass('sm-sentiment grey-text');
 							break;
 						case 'negative':
-							$(td).addClass('sm-sentiment red-text').attr('data-id', id);
+							$(td).addClass('sm-sentiment red-text');
 							break;
 					}
 				}

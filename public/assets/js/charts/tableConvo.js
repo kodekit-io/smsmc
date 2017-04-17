@@ -1,53 +1,36 @@
 function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
+    var idMedia = chartApiData.idMedia;
     if (idMediaParam != '') {
-        chartApiData.idMedia = idMediaParam;
+        idMedia = idMediaParam;
+        chartApiData.idMedia = idMedia;
     }
 
-    var idMedia = chartApiData.idMedia;
     switch (idMedia) {
         case 1:
-            var theTable = tableFacebook(chartId, url, chartApiData);
+            var theTable = tableFacebook(chartId, url, chartApiData, idMedia);
             break;
         case 2:
-            var theTable = tableTwitter(chartId, url, chartApiData);
+            var theTable = tableTwitter(chartId, url, chartApiData, idMedia);
             break;
         case 3:
-            var theTable = tableBlog(chartId, url, chartApiData);
+            var theTable = tableBlog(chartId, url, chartApiData, idMedia);
             break;
         case 4:
-            var theTable = tableNews(chartId, url, chartApiData);
+            var theTable = tableNews(chartId, url, chartApiData, idMedia);
             break;
         case 5:
-            var theTable = tableVideo(chartId, url, chartApiData);
+            var theTable = tableVideo(chartId, url, chartApiData, idMedia);
             break;
         case 6:
-            var theTable = tableForum(chartId, url, chartApiData);
+            var theTable = tableForum(chartId, url, chartApiData, idMedia);
             break;
         case 7:
-            var theTable = tableInstagram(chartId, url, chartApiData);
+            var theTable = tableInstagram(chartId, url, chartApiData, idMedia);
             break;
         case 9:
-            var theTable = tableNews(chartId, url, chartApiData);
+            var theTable = tableNews(chartId, url, chartApiData, idMedia);
             break;
     }
-
-    // $downloadDOM = 'download_excel';
-    // if (downloadDOMId != '') {
-    //     $downloadDOM = downloadDOMId;
-    // }
-    // //console.log($downloadDOM);
-    // var $downloadExcel = $('#' + $downloadDOM);
-    // // $downloadExcel.hide();
-    // $.ajax({
-    //     url: baseUrl + "/charts/download-convo",
-    //     method: "POST",
-    //     data: chartApiData
-    // }).done(function (downloadLink) {
-    //     console.log($downloadExcel);
-    //     $downloadExcel.attr('href', downloadLink);
-    //     $downloadExcel.attr('target', '_blank');
-    //     // $downloadExcel.show();
-    // });
 
     $.ajax({
         url: baseUrl + "/charts/download-convo",
@@ -55,8 +38,6 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         data: chartApiData
     }).done(function (downloadLink) {
         var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel_'+idMedia+'" target="_blank">EXCEL</a>';
-        // console.log(btnExcel);
-        // console.log(chartApiData);
         $('#'+chartId+'_wrapper').find('div.uk-inline.B').append(btnExcel);
     });
 
@@ -141,20 +122,21 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
     });
 
     // Edit Sentiment
-    $('#' + chartId).on('click', '.sm-sentiment', function(e) {
+    var sentimentClass = ".sm-sentiment";
+    $('#' + chartId).on('click', sentimentClass, function(e) {
+        console.log(chartApiData);
         e.preventDefault();
         $(this).blur();
         var id = $(this).attr('data-id');
-        var postDate = $(this).attr('data-date');
+        var idMedia = $(this).attr('data-id-media');
         var modal = '<form id="changeSentiment" class="change-sentiment" action="' + chartApiData.changeSentimentUrl + '">' +
             '<div class="uk-modal-body">' +
             '<h5>Edit Sentiment</h5>' +
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'">' +
             '<input type="hidden" name="reportType" value="'+ chartApiData.reportType +'">' +
-            '<input type="hidden" name="idMedia" value="'+ chartApiData.idMedia +'">' +
+            '<input type="hidden" name="idMedia" value="'+ idMedia +'">' +
             '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'">' +
             '<input type="hidden" name="id" value="' + id + '" >' +
-            '<input type="hidden" name="postDate" value="' + postDate + '" >' +
             '<div class="uk-margin">' +
             '<select name="sentiment" class="uk-select">' +
             '<option value="1">Positive</option>' +
