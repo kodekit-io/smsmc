@@ -34,7 +34,6 @@ class Report
 
     public function store($request)
     {
-        dd($request->all());
         $title = $request->input('title');
         $desc = $request->input('description');
         $startDate = $request->input('startDate');
@@ -55,8 +54,6 @@ class Report
         $chartList = implode(',', $chartList);
 
         $params = [
-            'uid' => \Auth::id(),
-            'pid' => $projectId,
             'StartDate' => $startDateTz,
             'EndDate' => $endDateTz,
             'brandId' => $keyword,
@@ -68,6 +65,12 @@ class Report
             'reportType' => $reportTypeId,
             'chartList' => $chartList
         ];
+
+        if ($reportTypeId == 1) {
+            $params['pid'] = $projectId;
+        } else {
+            $params['uid'] = \Auth::id();
+        }
 
         $response = $this->smsmc->post('report/create', $params);
         if ($response->status == '200') {
