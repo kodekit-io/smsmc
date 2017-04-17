@@ -288,9 +288,13 @@ class ChartController extends Controller
 
         $params['StartDate'] = $request->input('startDate');
         $params['EndDate'] = $request->input('endDate');
-        $params['brandID'] = $request->input('keywords');
-        $params['sentiment'] = $request->input('sentiment');
         $params['chartList'] = $reportType . $idMedia . '405';
+        if ($request->has('keywords')) {
+            $params['brandID'] = $request->input('keywords');
+        }
+        if ($request->has('sentiments')) {
+            $params['sentiment'] = $request->input('sentiments');
+        }
 
         $apiUrl = 'project/' . $reportType . '/' . $idMedia . '/convoexcel';
         $response = $this->smsmc->post($apiUrl, $params);

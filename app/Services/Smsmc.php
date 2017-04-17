@@ -81,7 +81,10 @@ class Smsmc
             }
         }
 
-        // Log::warning($apiUrl . '===> ' . \GuzzleHttp\json_encode($params) . '===> ' . \GuzzleHttp\json_encode($parsedResponse));
+        if ($apiUrl == 'http://103.16.199.58:8821/api_3.02_sm/project/1/2/convoexcel/sinarmas'){
+            Log::warning($apiUrl . '===> ' . \GuzzleHttp\json_encode($params));
+//            . '===> ' . \GuzzleHttp\json_encode($parsedResponse));
+        }
 
         return $parsedResponse;
 
