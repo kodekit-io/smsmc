@@ -18,9 +18,9 @@
     <script src="{!! asset('assets/js/lib/numeral.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.datetimepicker.full.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.checkall.js') !!}"></script>
-
+    <script src="{!! asset('assets/js/main.js') !!}"></script>
     @section('page-level-scripts')
     @show
-    <script src="{!! asset('assets/js/main.js') !!}"></script>
+
     </body>
 </html>

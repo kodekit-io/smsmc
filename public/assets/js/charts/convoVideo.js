@@ -14,23 +14,23 @@ function tableVideo(chartId, url, chartApiData) {
 		            var info = data.responseJSON.chartInfo;
 					$('.convo-title').html(title);
                     $('.convo-info').attr('title', info);
-					// console.log(data);
+					console.log(data);
                 }
             }
         },
         pageLength: 25,
-		buttons: {
-			buttons: [
-				{
-					extend: 'excelHtml5',
-					className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
-				},
-				{
-					extend: 'csvHtml5',
-					className: 'uk-button uk-button-small teal white-text uk-margin-small-left'
-				}
-			]
-		},
+		// buttons: {
+		// 	buttons: [
+		// 		{
+		// 			extend: 'excelHtml5',
+		// 			className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left'
+		// 		},
+		// 		{
+		// 			extend: 'csvHtml5',
+		// 			className: 'uk-button uk-button-small teal white-text uk-margin-small-left'
+		// 		}
+		// 	]
+		// },
 		columns: [{
 				"data": "Date",
 				"visible": false
@@ -49,7 +49,7 @@ function tableVideo(chartId, url, chartApiData) {
 				}
 			},
 			{
-				"data": "Author",
+				"data": "author",
 				"title": "Author",
 				"width": "20%"
 			},

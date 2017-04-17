@@ -16,24 +16,25 @@ function reportView(div, url) {
         complete : function(xhr, status) {
         },
         success : function(result) {
-            console.log(result);
+            // console.log(result);
             var theTable = $('#reportTable').DataTable( {
                 // ajax: {
                 //     "url": url,
                 // },
                 data : result.data,
                 columns: [
-                    { "data": null, "width": "2.5%" },
-                    // {
-                    //     "title": "Report Created","width": "12.5%",
-                    //     "data": function ( data ) {
-                    //         // var date = data["reportDate"];
-                    //         var localtime = moment.parseZone(data["reportDate"]).format('llll');
-                    //         return localtime;
-                    //     }
-                    // },
-                    { "data": "name", "title": "Title", "width": "20%" },
-                    { "data": "summary", "title": "Descriptions", "width": "30%" },
+                    { "data": null, "width": "5%" },
+                    { "data": "reportDate", "visible": false },
+                    {
+                        "title": "Report Created","width": "15%", "orderable": false,
+                        "data": function ( data ) {
+                            // var date = data["reportDate"];
+                            var localtime = moment.parseZone(data["reportDate"]).format('llll');
+                            return localtime;
+                        }
+                    },
+                    { "data": "name", "title": "Title", "width": "15%" },
+                    { "data": "summary", "title": "Descriptions", "width": "20%" },
                     {
                         "title": "Start Report","width": "10%",
                         "data": function ( data ) {
@@ -52,42 +53,54 @@ function reportView(div, url) {
                         "title": 'Page', "class": 'uk-text-center',  "width": '10%',
                         "data": function ( data ) {
                             var channel = data["mediaID"];
-                            var icon = '';
+                            var icon = '', color = '';
                             switch (channel) {
                     			case "1":
                     				icon = 'facebook';
+                                    color = 'facebook';
                     				break;
                     			case "2":
                     				icon = 'twitter';
+                                    color = 'twitter';
                     				break;
                     			case "5":
                     				icon = 'youtube';
+                                    color = 'youtube';
                     				break;
                     			case "7":
                     				icon = 'instagram';
+                                    color = 'instagram';
                     				break;
                     			case "4":
                     				icon = 'globe';
+                                    color = 'news';
                     				break;
                     			case "3":
                     				icon = 'rss';
+                                    color = 'blog';
                     				break;
                     			case "6":
                     				icon = 'comments';
+                                    color = 'forum';
                     				break;
                                 case "8":
                     				icon = 'th-large';
+                                    color = 'allmedia';
+                                    break;
+                                case "9":
+                    				icon = 'globe';
+                                    color = 'news';
                     				break;
                     		}
-                            return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+icon+'</span></span>';
+                            return '<span class="uk-icon-button white-text color-'+color+'" title="'+color+'" uk-tooltip><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+icon+'</span></span>';
                         }
                     },
                     {
-                        "orderable": false, "width": "17.5%", "class": "uk-text-right",
+                        "orderable": false, "width": "15%", "class": "uk-text-right",
                         "data": function ( data ) {
                             var excel = data["excel"];
                             var id = data["id"];
-                            var unduh = '<a href="'+excel+'" class="uk-button uk-button-small uk-button-primary uk-margin-small-right" title="Download Report" uk-tooltip><i class="fa fa-download fa-fw"></i></a>';
+                            var unduh = '<a href="'+excel+'" class="uk-button uk-button-small uk-button-primary uk-margin-small-right" title="Download Report" uk-tooltip target="_blank"><i class="fa fa-download fa-fw"></i></a>';
                             var hapus = '<a data-id="'+id+'" class="uk-button uk-button-small uk-button-danger sm-delete-report" title="Delete Report" uk-tooltip><i class="fa fa-close fa-fw"></i></a>';
                             if (excel != "") {
                                 return unduh + hapus;

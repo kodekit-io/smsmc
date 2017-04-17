@@ -49,35 +49,81 @@ function ticketList(div) {
 				}
 			},
             { data: 'content', title: 'Message', width: '10%' },
+            // {
+            //     data: 'media', title: 'Channel', class: 'uk-text-center',  width: '5%',
+            //     render: function ( cellData ) {
+            //         var channel = cellData;
+            //         var icon = '';
+            //         switch (channel) {
+            // 			case 1:
+            // 				icon = 'facebook';
+            // 				break;
+            // 			case 2:
+            // 				icon = 'twitter';
+            // 				break;
+            // 			case 5:
+            // 				icon = 'youtube';
+            // 				break;
+            // 			case 7:
+            // 				icon = 'instagram';
+            // 				break;
+            // 			case 4:
+            // 				icon = 'globe';
+            // 				break;
+            // 			case 3:
+            // 				icon = 'rss';
+            // 				break;
+            // 			case 6:
+            // 				icon = 'comments';
+            // 				break;
+            // 		}
+            //         return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+icon+'</span></span>';
+            //     }
+            // },
             {
-                data: 'media', title: 'Channel', class: 'uk-text-center',  width: '5%',
-                render: function ( cellData ) {
-                    var channel = cellData;
-                    var icon = '';
+                "title": 'Media', "class": 'uk-text-center',  "width": '5%',
+                "data": function ( data ) {
+                    var channel = data["media"];
+                    var icon = '', color = '';
                     switch (channel) {
-            			case 1:
-            				icon = 'facebook';
-            				break;
-            			case 2:
-            				icon = 'twitter';
-            				break;
-            			case 5:
-            				icon = 'youtube';
-            				break;
-            			case 7:
-            				icon = 'instagram';
-            				break;
-            			case 4:
-            				icon = 'globe';
-            				break;
-            			case 3:
-            				icon = 'rss';
-            				break;
-            			case 6:
-            				icon = 'comments';
-            				break;
-            		}
-                    return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+icon+'</span></span>';
+                        case 1:
+                            icon = 'facebook';
+                            color = 'facebook';
+                            break;
+                        case 2:
+                            icon = 'twitter';
+                            color = 'twitter';
+                            break;
+                        case 5:
+                            icon = 'youtube';
+                            color = 'youtube';
+                            break;
+                        case 7:
+                            icon = 'instagram';
+                            color = 'instagram';
+                            break;
+                        case 4:
+                            icon = 'globe';
+                            color = 'news';
+                            break;
+                        case 3:
+                            icon = 'rss';
+                            color = 'blog';
+                            break;
+                        case 6:
+                            icon = 'comments';
+                            color = 'forum';
+                            break;
+                        case 8:
+                            icon = 'th-large';
+                            color = 'allmedia';
+                            break;
+                        case 9:
+                            icon = 'globe';
+                            color = 'news';
+                            break;
+                    }
+                    return '<span class="uk-icon-button white-text color-'+color+'" title="'+color+'" uk-tooltip><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+icon+'</span></span>';
                 }
             },
             {
@@ -121,10 +167,10 @@ function ticketList(div) {
                     var ticketId = data['ticketId'];
                     var ticketStatus = data['status'];
                     var btn = '';
-                    if (ticketStatus === 'open') {
-                        btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/detail" class="uk-button uk-button-small uk-button-secondary red white-text" title="Ticket Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>'
+                    if (ticketStatus === 'close') {
+                        btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/detail" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>';
                     } else {
-                        btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/reopen" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>'
+                        btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/detail" class="uk-button uk-button-small uk-button-secondary white-text" title="Ticket Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>';
                     }
                     return btn;
                 }

@@ -12,30 +12,60 @@
             </div>
         	<div class="uk-card-body">
                 <dl class="uk-description-list">
-                    <hr><dt>Net Sentiment (NS)</dt>
-                    <dd><p>Net Sentiment (NS) adalah nilai bersih sentiment, yaitu pendapat atau perasaan dari konsumen yang dinyatakan di media sosial, terhadap suatu brand didalam dunia media sosial. Ada 2 (dua) cara penghitungan Net Sentiment (NS), yaitu:</p>
-        			<blockquote class="uk-text-small"><strong>NS 1</strong> = Total mention yang positif + Total mention yang netral - Total mention yang negative <strong>NS 2</strong> = Total mention yang positif - Total mention yang negatif</blockquote>
-        			<p>Dengan demikian, angka untuk NS1 tentunya lebih besar daripada NS2. Pilihan cara penghitungan tergantung dari kebutuhan brand dalam mengukur Net Sentiment (NS). Setelah ditentukan metoda NS1 atau NS2, kemudian dibuatlah grafik yang menunjukan perubahan Net Sentiment (NS) tersebut dalam kurun waktu tertentu.</p></dd>
-        			<hr><dt>Net Brand Reputation (NBR)</dt>
-        			<dd><p> Net Brand Reputation (NBR) adalah nilah bersih dari bilangan reputasi brand didalam media sosial. Nilai ini kurang lebih sama dengan Net Promoter Score (NPS). Cara penghitungan Net Brand Reputation (NBR) adalah sebagai berikut:</p>
-        			<blockquote class="uk-text-small"><strong>NBR</strong> = % Total mention yang positif - % Total mention yang negatif</blockquote>
-        			<p>Penghitungan Net Brand Reputation (NBR) bertujuan untuk menyederhanakan metoda pengukuran loyalitas konsumen terhadap suatu brand. Dengan adanya index ini maka kita bisa fokus kepada menaikan mention yang positif (disebut "promoter") dan mengurangi mention yang negative (disebut "detractors").</p></dd>
-        			<hr><dt>Brand Talkable Favourability (BTF)</dt>
-        			<dd><p> Brand Talkable Favourability (BTF) adalah pengukuran percakapan suatu brand yang dianggap positif, netral dan negative. Beda antara Brand Talkable Favourability (BTF) dan Net Brand Reputation (NBR) adalah bahwa mention yang netral dianggap baik, karena ikut membicarakan brand. Rumus dari Brand Talkable Favourability (BTF) adalah sebagai berikut:</p>
-        			<blockquote class="uk-text-small"><strong>BTF</strong> = (% Total mention yang positif + % Total mention yang netral) - % Total mention yang negatif</blockquote></dd>
-
-        			<hr><dt>Earned Media Share of voice by Sentiment (EMSS)</dt>
-        			<dd><p> Earned Media Share of Voice by Sentiment (EMSS) konsepnya sama dengan Brand Talkable Favourability (BTF), tetapi diukur dalam konteks kategori suatu produk. Jadi, denominatornya tidak terbatas kepada percakapan satu brand saja, melainkan percakapan dari semua brand yang ada dalam kategori produk tersebut. Rumus dari Earned Media Share of Voice by Sentiment (EMSS) adalah sebagai berikut:</p>
-        			<blockquote class="uk-text-small"><strong>EMSS</strong> = (% Total mention yang positif dari brand / % Total mention positif dari kategori) = (% Total mention yang netral dari brand / % Total mention yang netral dari kategori) - (% Total mention yang negatif dari brand / % Total mention yang negatif dari kategori)</blockquote></dd>
-        			<hr><dt>Social Influence Marketing (SIM)</dt>
-        			<dd><p>Social Influence Marketing (SIM) adalah suatu index yang mengukur pengaruh dari suatu brand dalam media sosial. Rumus dari Social Influence Marketing (SIM) adalah sebagai berikut:</p>
-        			<blockquote class="uk-text-small"><strong>SIM SCORE</strong> = (% Total mention yang positif dari brand / % Total mention dari kategori) + (% Total mention yang netral dari brand / % Total mention dari kategori) - (% Total mention yang negatif dari brand / % Total mention dari kategori)</blockquote></dd>
-        			<hr><dt>Buzz (BZ)</dt>
-        			<dd><p>Buzz adalah percakapan yang terjadi atas suatu brand di media sosial</p></dd>
-        			<hr><dt>Unique User (UU)</dt>
-        			<dd><p>Unique User adalah jumlah orang yang mempercakapkan tentang brand di media sosial, tetapi bukan jumlah percakapannya. Jadi, seseorang yang sama bisa membicarakan brand yang berbeda atau brand yang sama, beberapa kali. Dengan perhitungan ini maka kita bisa menghitung jumlah orang yang mempercakapkan brand atau dikenal dalam media tradisional sebagai "reach".</p></dd>
-        			<hr><dt>Sentiment Index (SI)</dt>
-        			<dd><p>Sentiment Index adalah suatu indeks yang mengukur margin perbandingan antara sentimen tiap kandidat dibandingkan dengan keseluruhan kandidat. Sentimen indeks bertujuan mengetahui persepsi langsung konsumen atau konstituen kepada setiap kandidat.</p></dd>
+                    <hr><dt>Brand Equity:</dt>
+                    <dd>Menjelaskan perbandingan antara Net Sentiment &mp; Sim Score yang juga menunjukan posisi brand dibandingkan dengan kompetitor.</dd>
+                    <hr><dt>Net Sentiment:</dt>
+                    <dd>Jumlah percakapan dengan sentimen positif ditambah jumlah percakapan dengan sentimen netral dikurangi jumlah percakapan dengan sentimen negatif.</dd>
+                    <hr><dt>Earned Media Share of Voice (EMS):</dt>
+                    <dd>Konsepnya hampir sama dengan Brand Talkable Favourability (BTF). Yaitu mengukur jumlah buzz dibandingkan dengan setiap channel media berbanding dengan kompetitornya.</dd>
+                    <hr><dt>Buzz:</dt>
+                    <dd>Jumlah total keseluruhan percakapan dalam keyword yang telah tertangkap oleh system.</dd>
+                    <hr><dt>Share of Voice:</dt>
+                    <dd>Perbandingan jumlah mention suatu brand di media sosial dengan kompetitornya.</dd>
+                    <hr><dt>Unique User:</dt>
+                    <dd>Jumlah akun yang ikut dalam percakapan.</dd>
+                    <hr><dt>Potential Reach:</dt>
+                    <dd>Jumlah akun yang tertangkap dalam tagar atau topik percakapan tersebut.</dd>
+                    <hr><dt>Interaction :</dt>
+                    <dd>Merupakan jumlah interaksi / impact dari percakapan tersebut.</dd>
+                    <hr><dt>Viral Reach :</dt>
+                    <dd>Jumlah followers dari akun yang ber-interaksi terhadap topik.</dd>
+                    <hr><dt>View Count :</dt>
+                    <dd>Jumlah total view dari video yang telah tertangkap berdasarkan keyword oleh sistem.</dd>
+                    <hr><dt>Love : Jumlah akun yang menyukai (like) percakapan tersebut</dd>
+                    <hr><dt>Influencer :</dt>
+                    <dd>Akun yang menjadi sorotan karena telah menyebarkan percakapan.</dd>
+                    <hr><dt>Share of Media:</dt>
+                    <dd>Diagram menunjukan jumlah buzz dari suatu brand yang didapatkan dari setiap media channel (Twitter, FB, Online News, Forum, Blog, Video &amp; Instagram)</dd>
+                    <hr><dt>Topic Distribution :</dt>
+                    <dd>Pengelompokkan percakapan yang telah ditangkap dengan keyword tertentu menjadi topik yang akan dianalisa.</dd>
+                    <hr><dt>Post Trend:</dt>
+                    <dd>Grafik yang menunjukan jumlah tren jumlah posting percakapan berdasarkan jumlah posting dalam periode waktu tertentu.</dd>
+                    <hr><dt>Sentiment Trend:</dt>
+                    <dd>Grafik yang menunjukan jumlah tren percakapan berdasarkan jumlah sentiment dalam periode waktu tertentu</dd>
+                    <hr><dt>Buzz Trend:</dt>
+                    <dd>Grafik yang menunjukan jumlah tren total percakapan termasuk dengan jumalh interaksi dalam periode waktu tertentu</dd>
+                    <hr><dt>Reach Trend:</dt>
+                    <dd>Grafik yang menunjukan jumlah akun percakapan yang telah tertangkap dalam periode waktu tertentu</dd>
+                    <hr><dt>Interaction Trend:</dt>
+                    <dd>Grafik yang menunjukan jumlah tren interaksi dari percakapan dalam periode waktu tertentu.</dd>
+                    <hr><dt>Comment Trend :</dt>
+                    <dd>Grafik yang menunjukan jumlah trend komentar dari percakapan dalam periode waktu tertentu.</dd>
+                    <hr><dt>View Trend :</dt>
+                    <dd>Grafik yang menunjukan jumlah trend view atau video tersebut ditonton dalam periode waktu tertentu.</dd>
+                    <hr><dt>Love Trend :</dt>
+                    <dd>Grafik yang menunjukkan jumlah trend akun yang menyukai percakapan.</dd>
+                    <hr><dt>Potential Reach Trend :</dt>
+                    <dd>Grafik yang menunjukkan jumlah trend jumlah fans dari akun.</dd>
+                    <hr><dt>Sentiment Distributions:</dt>
+                    <dd>Diagram yang menunjukkan jumlah percakapan yang telah dibagi dalam 3 reaksi sentimen yaitu positif, netral dan negatif.</dd>
+                    <hr><dt>Interaction Rate :</dt>
+                    <dd>Jumlah rata – rata dari jumlah posting percakapan dibanding dengan jumlah interaksi yang terjadi.</dd>
+                    <hr><dt>Ontology :</dt>
+                    <dd>Merupakan sebuah diagram yang menggambarkan akun – akun yang terlibat dalam suatu topik / isu tertentu.</dd>
+                    <hr><dt>Wordcloud :</dt>
+                    <dd>Kumpulan dari keyword – keyword yang terbentuk dari keseluruhan percakapan yang telah ditangkap berdasarkan jumlah yang sering muncul. Keyword yang paling sering muncul ditunjukkan dengan ukurannya yang lebih besar dan lebih tebal.</dd>
+                    <hr>
         		</dl>
         	</div>
         </div>
