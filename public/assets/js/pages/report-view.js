@@ -23,17 +23,18 @@ function reportView(div, url) {
                 // },
                 data : result.data,
                 columns: [
-                    { "data": null, "width": "2.5%" },
+                    { "data": null, "width": "5%" },
+                    { "data": "reportDate", "visible": false },
                     {
-                        "title": "Report Created","width": "10%",
+                        "title": "Report Created","width": "15%", "orderable": false,
                         "data": function ( data ) {
                             // var date = data["reportDate"];
                             var localtime = moment.parseZone(data["reportDate"]).format('llll');
                             return localtime;
                         }
                     },
-                    { "data": "name", "title": "Title", "width": "20%" },
-                    { "data": "summary", "title": "Descriptions", "width": "27.5%" },
+                    { "data": "name", "title": "Title", "width": "15%" },
+                    { "data": "summary", "title": "Descriptions", "width": "20%" },
                     {
                         "title": "Start Report","width": "10%",
                         "data": function ( data ) {
@@ -49,7 +50,7 @@ function reportView(div, url) {
                         }
                     },
                     {
-                        "title": 'Page', "class": 'uk-text-center',  "width": '5%',
+                        "title": 'Page', "class": 'uk-text-center',  "width": '10%',
                         "data": function ( data ) {
                             var channel = data["mediaID"];
                             var icon = '', color = '';
@@ -99,7 +100,7 @@ function reportView(div, url) {
                         "data": function ( data ) {
                             var excel = data["excel"];
                             var id = data["id"];
-                            var unduh = '<a href="'+excel+'" class="uk-button uk-button-small uk-button-primary uk-margin-small-right" title="Download Report" uk-tooltip><i class="fa fa-download fa-fw"></i></a>';
+                            var unduh = '<a href="'+excel+'" class="uk-button uk-button-small uk-button-primary uk-margin-small-right" title="Download Report" uk-tooltip target="_blank"><i class="fa fa-download fa-fw"></i></a>';
                             var hapus = '<a data-id="'+id+'" class="uk-button uk-button-small uk-button-danger sm-delete-report" title="Delete Report" uk-tooltip><i class="fa fa-close fa-fw"></i></a>';
                             if (excel != "") {
                                 return unduh + hapus;
