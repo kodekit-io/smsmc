@@ -170,7 +170,7 @@ function ticketList(div) {
                     if (ticketStatus === 'open') {
                         btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/detail" class="uk-button uk-button-small uk-button-secondary white-text" title="Ticket Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>'
                     } else {
-                        btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/reopen" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>'
+                        btn = '<a href="' + baseUrl + '/ticket/' + ticketId + '/detail" class="uk-button uk-button-small uk-button-secondary" title="Re-open Ticket" uk-tooltip><i class="fa fa-fw fa-envelope-open-o"></i> Re-open</a>'
                     }
                     return btn;
                 }
