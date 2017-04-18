@@ -4,7 +4,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('page-level-nav')
-    @include('includes.subnav-engagement-ticket')
+    @include('includes.subnav-engagement-ticket-details')
 @endsection
 @section('content')
 
@@ -14,49 +14,48 @@
                 <h5 class="uk-card-title">Create New Ticket</h5>
             </div>
             <div class="uk-card-body">
-                <hr>
-                <form class="open-ticket" method="post" action="{!! url('ticket/create') !!}">
+                <form class="open-ticket uk-form-horizontal" method="post" action="{!! url('ticket/create') !!}">
                     {!! csrf_field() !!}
-                    <div class="uk-margin">
-                        <label>To</label>
-                        <select name="to[]" id="to_select" class="uk-input" multiple>
-                        @foreach($users as $to)
-                            <option value="{!! $to->idLogin !!}">{!! $to->name !!}</option>
-                        @endforeach
-                        </select>
-                    </div>
-                    <div class="uk-margin">
-                        <label>CC</label>
-                        <select name="to_cc[]" id="to_cc_select" class="uk-input" multiple>
-                            @foreach($users as $toCc)
-                                <option value="{!! $toCc->idLogin !!}">{!! $toCc->name !!}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="uk-margin">
-                        <div class="uk-flex uk-flex-middle">
-                            <label class="uk-margin-small-right">Ticket Type</label>
-                            <ul class="uk-subnav uk-margin-remove">
-                                @if(count($ticketTypes) > 0)
-                                @foreach($ticketTypes as $ticketType)
-                                    <li>
-                                        <label>
-                                            <input class="uk-checkbox type" type="checkbox" name="types[]" value="{!! $ticketType->id !!}">
-                                            {!! strtoupper($ticketType->name) !!}
-                                        </label>
-                                    </li>
-                                @endforeach
-                                @endif
-                            </ul>
+                    <div uk-grid>
+                        <div class="uk-width-1-2">
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="to_select">Send to</label>
+                                <div class="uk-form-controls">
+                                    <select name="to[]" id="to_select" class="uk-input uk-width-1-1" multiple>
+                                    @foreach($users as $to)
+                                        <option value="{!! $to->idLogin !!}">{!! $to->name !!}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label">Ticket Type</label>
+                                <div class="uk-form-controls" style="padding-top:7px;">
+                                    <ul class="uk-subnav">
+                                        @if(count($ticketTypes) > 0)
+                                        @foreach($ticketTypes as $ticketType)
+                                            <li>
+                                                <label>
+                                                    <input class="uk-checkbox type" type="checkbox" name="types[]" value="{!! $ticketType->id !!}">
+                                                    {!! strtoupper($ticketType->name) !!}
+                                                </label>
+                                            </li>
+                                        @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="message">Message</label>
+                                <div class="uk-form-controls">
+                                    <textarea class="uk-textarea uk-width-1-1" name="message" rows="5" placeholder="What's up?"></textarea>
+                                </div>
+                            </div>
+                            <div class="uk-margin uk-flex uk-flex-right">
+                                <a class="uk-modal-close uk-button grey white-text uk-margin-right" href="{!! url('ticket') !!}">CANCEL</a>
+                                <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SEND" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="uk-margin">
-                        <label>Message</label>
-                        <textarea class="uk-textarea" name="message" rows="3" placeholder="What's up?"></textarea>
-                    </div>
-                    <div class="uk-flex uk-flex-between">
-                        <a class="uk-modal-close uk-button grey white-text" href="{!! url('ticket') !!}">CANCEL</a>
-                        <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SEND" />
                     </div>
                 </form>
             </div>

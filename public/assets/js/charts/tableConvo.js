@@ -56,14 +56,14 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
             ticketType += '<li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="'+ theType.id +'"> '+ theType.name +'</label></li>';
         }
         var $toSelect = '<select id="to_select" name="to[]" class="uk-input" multiple >';
-        var $toCcSelect = '<select id="to_cc_select" name="to_cc[]" class="uk-input" multiple >';
+        // var $toCcSelect = '<select id="to_cc_select" name="to_cc[]" class="uk-input" multiple >';
         for (i=0; i < $users.length; i++) {
             var theUser = $users[i];
             $toSelect += '<option value="'+ theUser.idLogin +'"> '+ theUser.name +'</option>';
-            $toCcSelect += '<option value="'+ theUser.idLogin +'"> '+ theUser.name +'</option>';
+            // $toCcSelect += '<option value="'+ theUser.idLogin +'"> '+ theUser.name +'</option>';
         }
         $toSelect += '</select>';
-        $toCcSelect += '</select>';
+        // $toCcSelect += '</select>';
 
         var modal = '<form class="open-ticket" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
@@ -78,10 +78,10 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                     '<label>To</label>' +
                     $toSelect +
                 '</div>' +
-                '<div class="uk-margin">' +
-                    '<label>CC</label>' +
-                    $toCcSelect +
-                '</div>' +
+                // '<div class="uk-margin">' +
+                //     '<label>CC</label>' +
+                //     $toCcSelect +
+                // '</div>' +
                 '<div class="uk-margin">' +
                     '<div class="uk-inline">' +
                         '<label class="uk-margin-small-right">Ticket Type</label>' +
