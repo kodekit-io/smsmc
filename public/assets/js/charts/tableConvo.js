@@ -65,38 +65,39 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         $toSelect += '</select>';
         // $toCcSelect += '</select>';
 
-        var modal = '<form class="open-ticket" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
+        var modal = '<form class="open-ticket uk-form-horizontal" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
             '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'"> ' +
             '<input type="hidden" name="postDate" value="'+ postDate +'"> ' +
             '<input type="hidden" name="idMedia" value="' + chartApiData.idMedia + '" >' +
             '<input type="hidden" name="sentiment" value="' + sentiment + '" >' +
             '<input type="hidden" name="postId" value="' + postId + '">' +
-            '<div class="uk-modal-body">' +
+            '<div  class="uk-modal-body">' +
                 '<h5>Open New Ticket</h5>' +
                 '<div class="uk-margin">' +
-                    '<label>To</label>' +
-                    $toSelect +
+                    '<label class="uk-form-label" for="to_select">Send to</label>' +
+                    '<div class="uk-form-controls">' +
+                        $toSelect +
+                    '</div>' +
                 '</div>' +
-                // '<div class="uk-margin">' +
-                //     '<label>CC</label>' +
-                //     $toCcSelect +
-                // '</div>' +
                 '<div class="uk-margin">' +
-                    '<div class="uk-inline">' +
-                        '<label class="uk-margin-small-right">Ticket Type</label>' +
-                        '<ul class="uk-subnav uk-margin-remove-top uk-margin-remove-bottom">' +
+                    '<label class="uk-form-label">Ticket Type</label>' +
+                    '<div class="uk-form-controls" style="padding-top:7px;">' +
+                        '<ul class="uk-subnav">' +
                             ticketType +
                         '</ul>' +
                     '</div>' +
                 '</div>' +
                 '<div class="uk-margin">' +
-                    '<textarea class="uk-textarea" rows="3" placeholder="Additional message" name="message"></textarea>' +
+                    '<label class="uk-form-label" for="message">Message</label>' +
+                    '<div class="uk-form-controls">' +
+                        '<textarea class="uk-textarea" rows="3" placeholder="Additional message" name="message"></textarea>' +
+                    '</div>' +
                 '</div>' +
-            '</div>' +
-            '<div class="uk-modal-footer uk-clearfix">' +
-                '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>' +
-                '<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
+                '<div class="uk-margin uk-flex uk-flex-right">' +
+                    '<a class="uk-modal-close uk-button grey white-text uk-margin-small-right">CANCEL</a>' +
+                    '<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
+                '</div>' +
             '</div>' +
         '</form>';
         var uikitModal = UIkit.modal.dialog(modal);
@@ -131,25 +132,25 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         var idMedia = $(this).attr('data-id-media');
         var modal = '<form id="changeSentiment" class="change-sentiment" action="' + chartApiData.changeSentimentUrl + '">' +
             '<div class="uk-modal-body">' +
-            '<h5>Edit Sentiment</h5>' +
-            '<input type="hidden" name="_token" value="'+ chartApiData._token +'">' +
-            '<input type="hidden" name="reportType" value="'+ chartApiData.reportType +'">' +
-            '<input type="hidden" name="idMedia" value="'+ idMedia +'">' +
-            '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'">' +
-            '<input type="hidden" name="id" value="' + id + '" >' +
-            '<div class="uk-margin">' +
-            '<select name="sentiment" class="uk-select">' +
-            '<option value="1">Positive</option>' +
-            '<option value="0">Neutral</option>' +
-            '<option value="-1">Negative</option>' +
-            '</select>' +
-            '</div>' +
+                '<h5>Edit Sentiment</h5>' +
+                '<input type="hidden" name="_token" value="'+ chartApiData._token +'">' +
+                '<input type="hidden" name="reportType" value="'+ chartApiData.reportType +'">' +
+                '<input type="hidden" name="idMedia" value="'+ idMedia +'">' +
+                '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'">' +
+                '<input type="hidden" name="id" value="' + id + '" >' +
+                '<div class="uk-margin">' +
+                    '<select name="sentiment" class="uk-select">' +
+                        '<option value="1">Positive</option>' +
+                        '<option value="0">Neutral</option>' +
+                        '<option value="-1">Negative</option>' +
+                    '</select>' +
+                '</div>' +
             '</div>' +
             '<div class="uk-modal-footer uk-clearfix">' +
-            '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>' +
-            '<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
+                '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>' +
+                '<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
             '</div>' +
-            '</form>';
+        '</form>';
         var uikitModal = UIkit.modal.dialog(modal);
 
         $( "#changeSentiment" ).on( "submit", function( event ) {
