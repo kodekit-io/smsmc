@@ -10,6 +10,7 @@
 @section('content')
     <section class="sm-main sm-dashboard uk-container uk-container-expand">
         <div id="projectGrid" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-4@m" uk-grid>
+
             @foreach($projects as $project)
             <div id="{!! $project->pid !!}">
                 <div class="uk-card uk-card-hover uk-card-default uk-card-small">
@@ -58,6 +59,10 @@
                 </div>
             </div>
             @endforeach
+
+            {{-- <div class="uk-position-center uk-text-center uk-card uk-card-default uk-card-body uk-width-auto@m">
+                <a href="{{ url('/project/add') }}" class="red-text"><i class="fa fa-plus fa-3x"></i><br>Create Your First Project</a>
+            </div> --}}
         </div>
         {{ $projects->links() }}
     </section>
