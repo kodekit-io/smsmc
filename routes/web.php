@@ -154,6 +154,8 @@ Route::get('medialist', 'TestController@medialist');
 Route::get('forumlist', 'TestController@forumlist');
 Route::get('bloglist', 'TestController@bloglist');
 
+Route::get('alert/view', 'TestController@alertView');
+
 //
 // Route::get('api1/{x}/{a}', 'TestController@api1');
 // Route::get('api2/{x}/{a}/{b}', 'TestController@api2');

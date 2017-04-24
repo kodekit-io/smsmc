@@ -83,6 +83,17 @@ class TestController extends Controller
         // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
 
+    public function alertView()
+    {
+        $params = [
+            'uid' => Auth::user()->id,
+            'idAlert' => '1'
+        ];
+        $result = $this->smsmc->post('alert/view', $params);
+        return \GuzzleHttp\json_encode($result->result);
+        // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+    }
+
     //
 	// public function plist($page,$row)
 	// {
