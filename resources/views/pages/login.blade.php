@@ -7,13 +7,13 @@
         <div class="uk-position-center">
             <div class="uk-card uk-card-hover uk-card-default uk-grid-collapse uk-child-width-1-2@m" uk-grid>
                 <div class="uk-card-media-left uk-cover-container">
-                    <img src="{!! asset('assets/img/login.jpg') !!}" alt="Sinarmas" uk-cover>
+                    <img src="{!! asset('assets/img/login.jpg') !!}" alt="Sinar Mas" uk-cover>
                     <canvas width="400" height="340"></canvas>
-                    <h1 class="white-text sm-title-login sm-text-lite uk-text-uppercase">Sinarmas Social Media Center</h1>
+                    <h1 class="white-text sm-title-login sm-text-lite uk-text-uppercase">Sinar Mas Social Media Center</h1>
                 </div>
                 <div>
                     <div class="uk-card-body">
-                        <h3 class="uk-card-title uk-margin-bottom">SINARMAS LOGIN</h3>
+                        <h3 class="uk-card-title uk-margin-bottom">SINAR MAS LOGIN</h3>
                         @foreach($errors->all() as $error)
                             <div class="uk-alert-danger" uk-alert>
                                 {!! $error !!}

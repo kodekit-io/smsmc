@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>404 Page Not Found - Sinarmas Social Media Center</title>
+    <title>404 Page Not Found - Sinar Mas Social Media Center</title>
 
     <link href="{!! asset('assets/img/favicon.png') !!}" rel="shortcut icon">
 

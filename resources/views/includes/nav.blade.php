@@ -1,8 +1,8 @@
 <header id="header" uk-sticky>
     <nav class="uk-navbar-container sm-nav-main" uk-navbar>
         <div class="uk-navbar-left">
-            <a href="{!! url('/home') !!}" class="sm-logo" title="Sinarmas Social Media Center" uk-tooltip="pos: bottom-left">
-                <img src="{!! asset('assets/img/logo-big.png') !!}" alt="Sinarmas">
+            <a href="{!! url('/home') !!}" class="sm-logo" title="Sinar Mas Social Media Center" uk-tooltip="pos: bottom-left">
+                <img src="{!! asset('assets/img/logo-big.png') !!}" alt="Sinar Mas">
                 <div class="sm-logo-round"></div>
             </a>
             <h1 class="sm-title-page">{!! $pageTitle !!}</h1>

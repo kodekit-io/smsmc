@@ -156,4 +156,11 @@ class ProjectController extends Controller
         $data['activeIg'] = 'class="uk-active"';
         return view('pages.project-ig', $data);
     }
+
+    public function ontologiTest(Request $request, $projectId)
+    {
+        $data = $this->parseRequest($request, $projectId);
+        $data['pageTitle'] = 'Ontology Test';
+        return view('pages.ontologi-test', $data);
+    }
 }
