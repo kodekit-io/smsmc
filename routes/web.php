@@ -98,6 +98,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('ticket/{ticketId}/reply', 'TicketController@reply');
     Route::post('ticket/{ticketId}/change-status', 'TicketController@changeStatus');
     Route::post('convo/create-ticket', 'TicketController@createTicketFromConvo');
+    Route::get('/notifications', 'TicketController@notif');
+    Route::get('/notification/list', 'TicketController@notifList');
 
     Route::get('setting/account', 'SettingController@account');
     Route::post('setting/account/update', 'SettingController@update');
@@ -117,6 +119,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('setting/group/{groupId}/edit', 'SettingController@groupEdit');
     Route::post('setting/group/{groupId}/update', 'SettingController@groupUpdate');
     Route::get('setting/group/{groupId}/delete', 'SettingController@groupDelete');
+
+    Route::get('setting/role', 'SettingController@role');
+    Route::get('setting/role/list', 'SettingController@roleList');
+//    Route::get('setting/role/add', 'SettingController@roleAdd');
+//    Route::post('setting/role/store', 'SettingController@roleStore');
+    Route::get('setting/role/{roleId}/edit', 'SettingController@roleEdit');
+    Route::post('setting/role/{roleId}/update', 'SettingController@roleUpdate');
+//    Route::get('setting/role/{roleId}/delete', 'SettingController@roleDelete');
 
     Route::get('report', 'ReportController@index');
     Route::get('report/list', 'ReportController@reportList');
@@ -143,7 +153,6 @@ Route::get('/engagement-timeline', 'FrontendController@engagementTimeline');
 Route::get('/report-view', 'FrontendController@reportView');
 Route::get('/report-add', 'FrontendController@reportAdd');
 
-Route::get('/notifications', 'FrontendController@notif');
 Route::get('/page-help', 'FrontendController@pageHelp');
 Route::get('/page-media', 'FrontendController@media');
 

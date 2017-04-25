@@ -75,12 +75,6 @@ class FrontEndController extends Controller
         return view('pages.admin-notif', $data);
     }
 
-    public function notif()
-    {
-        $data['pageTitle'] = 'Notifications';
-        return view('pages.notifications', $data);
-    }
-
     public function pageHelp()
     {
         $data['pageTitle'] = 'Glossary';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\Notification;
 use App\Service\Ticket;
 use App\Service\User;
 use Illuminate\Http\Request;
@@ -17,14 +18,19 @@ class TicketController extends Controller
      * @var User
      */
     protected $userService;
+    /**
+     * @var Notification
+     */
+    private $notification;
 
     /**
      * TicketController constructor.
      */
-    public function __construct(Ticket $ticket, User $userService)
+    public function __construct(Ticket $ticket, User $userService, Notification $notification)
     {
         $this->ticket = $ticket;
         $this->userService = $userService;
+        $this->notification = $notification;
     }
 
     public function index()
@@ -92,5 +98,17 @@ class TicketController extends Controller
             return 1;
         }
         return 0;
+    }
+
+    public function notif()
+    {
+        $data['pageTitle'] = 'Notifications';
+        return view('pages.notifications', $data);
+    }
+
+    public function notifList()
+    {
+        $notif = $this->notification->getNotifications();
+        return \GuzzleHttp\json_encode($notif->detail);
     }
 }

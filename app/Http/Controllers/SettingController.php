@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service\Group;
+use App\Service\Role;
 use App\Service\User;
 use Illuminate\Http\Request;
 
@@ -16,14 +17,19 @@ class SettingController extends Controller
      * @var Group
      */
     private $group;
+    /**
+     * @var Role
+     */
+    private $role;
 
     /**
      * SettingController constructor.
      */
-    public function __construct(User $user, Group $group)
+    public function __construct(User $user, Group $group, Role $role)
     {
         $this->user = $user;
         $this->group = $group;
+        $this->role = $role;
     }
 
     /****************** ACCOUNT *****************/
@@ -166,6 +172,55 @@ class SettingController extends Controller
         } else {
             return redirect('setting/group')->withErrors(['error' => $response->result]);
         }
+
+    }
+
+
+    /*********** ROLE **********/
+    public function role()
+    {
+        $data['pageTitle'] = 'Manage Role';
+
+        return view('pages.roles.list', $data);
+    }
+
+    public function roleList()
+    {
+        $data = $this->role->getRoles();
+        return \GuzzleHttp\json_encode($data);
+    }
+
+    public function roleAdd()
+    {
+
+    }
+
+    public function roleStore(Request $request)
+    {
+
+    }
+
+    public function roleEdit($id)
+    {
+        $response = $this->role->getRoleById($id);
+        $permissions = $this->role->getAvailablePermissions();
+        $data['pageTitle'] = 'Edit Group';
+        $data['id'] = $id;
+        $data['permissions'] = $permissions;
+        $data['role'] = $response->data[0];
+
+        return view('pages.roles.edit', $data);
+
+    }
+
+    public function roleUpdate(Request $request, $id)
+    {
+        $updateResponse = $this->role->update($request, $id);
+        dd($request->all());
+    }
+
+    public function roleDelete($id)
+    {
 
     }
 

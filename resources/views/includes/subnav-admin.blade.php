@@ -8,6 +8,9 @@
             <li>
                 <a href="{!! url('setting/group') !!}"> Manage Groups</a>
             </li>
+            <li>
+                <a href="{!! url('setting/role') !!}"> Manage Roles</a>
+            </li>
             {{-- <li>
                 <a href="{!! url('setting/notification') !!}"> Notifications Setting</a>
             </li> --}}
