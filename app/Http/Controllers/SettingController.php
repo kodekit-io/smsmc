@@ -216,7 +216,10 @@ class SettingController extends Controller
     public function roleUpdate(Request $request, $id)
     {
         $updateResponse = $this->role->update($request, $id);
-        dd($request->all());
+        if ($updateResponse->status == 200) {
+            return redirect('setting/role');
+        }
+        return redirect('setting/role/' . $id . '/edit');
     }
 
     public function roleDelete($id)

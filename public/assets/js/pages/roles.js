@@ -26,7 +26,7 @@
                             "title": "",
                             "class": "uk-text-right",
                             "data": function ( data ) {
-                                var id = data["id_role"];
+                                var id = data["idRole"];
                                 var url = '/setting/role/' + id + '/';
                                 return '<a href="' + url + 'edit" title="Edit Group" class="uk-button uk-button-small uk-button-default">Edit</a>';
                             }

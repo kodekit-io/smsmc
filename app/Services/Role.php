@@ -62,8 +62,6 @@ class Role
             }
         }
 
-        return 1;
-
         $response = $this->smsmc->post('role/edit', $params);
 
         return $response;
@@ -99,30 +97,30 @@ class Role
     public function getAvailablePermissions()
     {
         return [
-            'project_create' => 'Create Project',
-            'project_update' => 'Update Project',
-            'project_read' => 'View Project',
-            'project_delete' => 'Delete Project',
-            'engagment_create' => 'Create Engagement',
-            'engagment_update' => 'Update Engagement',
-            'engagment_read' => 'View Engagement',
-            'enggagment_delete' => 'Delete Engagement',
-            'register_create' => 'Create Social Media Account',
-            'register_update' => 'Update Social Media Account',
-            'register_read' => 'View Social Media Account',
-            'register_delete' => 'Delete Social Media Account',
-            'user_create' => 'Create User',
-            'user_update' => 'Update User',
-            'user_read' => 'View User',
-            'user_delete' => 'Delete User',
-            'group_create' => 'Create Group',
-            'group_update' => 'Update Group',
-            'group_read' => 'View Group',
-            'group_delete' => 'Delete Group',
-            'role_create' => 'Create Role',
-            'role_update' => 'Update Role',
-            'role_read' => 'View Role',
-            'role_delete' => 'Delete Role',
+            'projectCreate' => 'Create Project',
+            'projectUpdate' => 'Update Project',
+            'projectRead' => 'View Project',
+            'projectDelete' => 'Delete Project',
+            'engagmentCreate' => 'Create Engagement',
+            'engagmentUpdate' => 'Update Engagement',
+            'engagmentRead' => 'View Engagement',
+            'enggagmentDelete' => 'Delete Engagement',
+            'registerCreate' => 'Create Social Media Account',
+            'registerUpdate' => 'Update Social Media Account',
+            'registerRead' => 'View Social Media Account',
+            'registerDelete' => 'Delete Social Media Account',
+            'userCreate' => 'Create User',
+            'userUpdate' => 'Update User',
+            'userRead' => 'View User',
+            'userDelete' => 'Delete User',
+            'groupCreate' => 'Create Group',
+            'groupUpdate' => 'Update Group',
+            'groupRead' => 'View Group',
+            'groupDelete' => 'Delete Group',
+            'roleCreate' => 'Create Role',
+            'roleUpdate' => 'Update Role',
+            'roleRead' => 'View Role',
+            'roleDelete' => 'Delete Role',
         ];
     }
 }
