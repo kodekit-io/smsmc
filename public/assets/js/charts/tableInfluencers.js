@@ -414,8 +414,8 @@ function top10Forum(id,result) {
 }
 
 function topCommentIG(id,result) {
-	$data = result.chartData['top Comment'].data;
-	$groupName = result.chartData['top Comment'].groupName;
+	$data = result.chartData['topComment'].data;
+	$groupName = result.chartData['topComment'].groupName;
 	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -448,8 +448,8 @@ function topCommentIG(id,result) {
 	}
 }
 function topLoveIG(id,result) {
-	$data = result.chartData['top Love'].data;
-	$groupName = result.chartData['top Love'].groupName;
+	$data = result.chartData['topLove'].data;
+	$groupName = result.chartData['topLove'].groupName;
 	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
@@ -482,8 +482,8 @@ function topLoveIG(id,result) {
 	}
 }
 function topViewIG(id,result) {
-	$data = result.chartData['top View'].data;
-	$groupName = result.chartData['top View'].groupName;
+	$data = result.chartData['topView'].data;
+	$groupName = result.chartData['topView'].groupName;
 	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
 	if ($data.length === 0) {
 		$('#' + id).html('<div class="uk-position-center">No data chart</div>');
