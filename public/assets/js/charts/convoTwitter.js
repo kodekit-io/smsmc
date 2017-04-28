@@ -41,7 +41,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			},
 			{
 				"title": "Date",
-				"width": "12.5%",
+				"width": "15%",
 				"data": function(data) {
 					var localtime = moment.parseZone(data['Date']).local().format('llll');
 					return localtime;
@@ -50,11 +50,11 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			{
 				"data": "Author",
 				"title": "Author",
-				"width": "15%"
+				"width": "12.5%"
 			},
 			{
 				"title": "Post",
-				"width": "30%",
+				"width": "40%",
 				"data": function(data) {
 					// console.log(data);
 					var post = data["Post"];
@@ -63,30 +63,30 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 					return '<a href="' + plink + '" target="_blank" data-uk-tooltip title="' + post + '" class="uk-link">' + postrim + '</a>';
 				}
 			},
-			{
-				"data": "Interactions",
-				"title": "Interactions",
-				"class": "uk-text-right",
-				"width": "5%"
-			},
+			// {
+			// 	"data": "Interactions",
+			// 	"title": "Interactions",
+			// 	"class": "uk-text-right",
+			// 	"width": "5%"
+			// },
 			{
 				"data": "Original Reach",
 				"title": "Original Reach",
 				"class": "uk-text-right",
-				"width": "5%"
+				"width": "10%"
 			},
-			{
-				"data": "Viral Reach",
-				"title": "Viral Reach",
-				"class": "uk-text-right",
-				"width": "5%"
-			},
-			{
-				"data": "Viral Score",
-				"title": "Viral Score",
-				"class": "uk-text-right",
-				"width": "5%"
-			},
+			// {
+			// 	"data": "Viral Reach",
+			// 	"title": "Viral Reach",
+			// 	"class": "uk-text-right",
+			// 	"width": "5%"
+			// },
+			// {
+			// 	"data": "Viral Score",
+			// 	"title": "Viral Score",
+			// 	"class": "uk-text-right",
+			// 	"width": "5%"
+			// },
 			{
 				"title": "",
 				"width": "10%",
@@ -150,7 +150,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 		initComplete: function() {
 			this.api().columns().every(function() {
 				var column = this;
-				if (column[0][0] == 9) {
+				if (column[0][0] == 6) {
 					var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
 						.appendTo($(column.header()).empty())
 						.on('change', function() {

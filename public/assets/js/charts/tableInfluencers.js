@@ -298,7 +298,7 @@ function top10Blog(id,result) {
 }
 
 function topLikeVid(id,result) {
-	// console.log(result);
+	console.log(result);
 	$data = result.chartData.top10LikeStatus.data;
 	$groupName = result.chartData.top10LikeStatus.groupName;
 	$('#' + id).parent('div').prepend('<span class="sm-text-bold uk-text-capitalize">'+$groupName+'</span>');
@@ -320,15 +320,15 @@ function topLikeVid(id,result) {
 		$('#' + id).DataTable( {
 			data: $content, pageLength: 10,  dom: 't',
 			columns: [
-				{ title: "Author" },
+				{ title: "Author", width: "60%" },
 				//{ title: "Title" },
-				{ title: "Value", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), "class": "uk-text-right" },
+				{ title: "Value", width: "20%", "render": $.fn.dataTable.render.number( '\.', '', 0, '' ), class: "uk-text-right" },
 				{
-					data: null,
-					render: function ( data ) {
-						var postlink = data[3];
-						return '<a href="'+postlink+'" target="_blank" data-uk-tooltip title="See Details" class="uk-button uk-button-small">See Video</a>';
-					}
+					data: function ( data ) {
+						var postlink = data[2];
+						return '<a href="'+postlink+'" target="_blank" data-uk-tooltip title="See Video" class="red-text"><i class="fa fa-youtube-play fa-3x"></i> See Video</a>';
+					},
+					width: "20%", class: "uk-text-center"
 				},
 			],
 			order: [[ 0, "desc" ]]
