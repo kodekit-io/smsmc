@@ -19,12 +19,8 @@
             <div class="uk-card-body">
                 <div uk-grid>
                     <div class="uk-width-1-2">
-                        <table class="uk-table uk-table-small">
-                            <thead>
-                                    <tr>
-                                        <th colspan="2">Ticket Details</th>
-                                    </tr>
-                            </thead>
+                        <h6 class="uk-margin-small-bottom uk-text-uppercase">Ticket Details</h6>
+                        <table class="">
                             <tbody>
                                 <tr>
                                     <td width="25%">Create Date</td>
@@ -38,29 +34,25 @@
                                     <td>To</td>
                                     <td>{!! $ticket->sendName !!} ({!! $ticket->sendGroup !!})</td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     <td>CC</td>
                                     <td>-</td>
-                                </tr>
+                                </tr> --}}
                                 <tr>
                                     <td>Type</td>
-                                    <td>{!! strtoupper($ticket->type) !!}</td>
+                                    <td>{!! $ticket->type !!}</td>
                                 </tr>
                                 <tr>
 									<td>Message</td>
-                                    <td>{!! strtoupper($ticket->content) !!}</td>
+                                    <td>{!! $ticket->content !!}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="uk-width-1-2">
                         @if(count((array)$ticket->post) > 0)
-                        <table class="uk-table uk-table-small">
-                            <thead>
-                                    <tr>
-                                        <th colspan="2">Related Post</th>
-                                    </tr>
-                            </thead>
+                        <h6 class="uk-margin-small-bottom uk-text-uppercase">Related Post</h6>
+                        <table class="">
                             <tbody>
                                 <tr>
                                     <td width="25%">Channel</td>
@@ -94,46 +86,78 @@
 
         {{--Thread--}}
 
-        <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-margin">
-            <div class="uk-card-header sm-card-toolbar">
-                <h5 class="uk-card-title">Ticket Thread</h5>
-            </div>
-            <div class="uk-card-body">
-                @if(count($threads) > 0)
-                <ul class="sm-thread" uk-accordion="multiple: true">
-                    @foreach($threads as $thread)
-                    <li>
-                        <h6 class="uk-accordion-title">Reply from {!! $thread->sender !!} on {{ Carbon\Carbon::parse($thread->date)->toDayDateTimeString() }}</h6>
-                        <div class="uk-accordion-content">
-                            <p>{!! $thread->content !!}</p>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-                @endif
-                <h5 class="uk-card-title uk-margin-small-top uk-margin-small-bottom">Respond</h5>
-                <form action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
-                    {!! csrf_field() !!}
-                    <fieldset class="uk-fieldset">
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="post">Your Post</label>
-                            <textarea class="uk-textarea" id="post" rows="4" placeholder="What's up?" name="reply_content"></textarea>
-                        </div>
-                        {{--<div class="uk-margin">--}}
-                            {{--<label class="uk-form-label" for="img">Post with Image</label>--}}
-                            {{--<input type="file" id="img">--}}
-                        {{--</div>--}}
-                        <div class="uk-clearfix">
-                            {{--<span><i uk-icon="icon: clock"></i> SCHEDULE POST: </span><input id="schedule" class="uk-input uk-form-width-medium" type="date"></input><a id="clear" class="uk-button uk-button-default uk-hidden" uk-icon="icon: close" style="width:40px;padding:0;" title="Clear date" uk-tooltip></a>--}}
-
-                            {{--<button id="postsave" class="uk-button uk-button-primary uk-hidden uk-float-right" type="submit">Save Post</button>--}}
-
-                            <button id="postnow" class="uk-button uk-button-danger red uk-float-right" type="submit">Post Now</button>
-                        </div>
-                    </fieldset>
-                </form>
-
-            </div>
+        <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-card-body uk-margin">
+            <ul uk-tab>
+                <li class="uk-active"><a href="#">Reply Ticket</a></li>
+                <li><a href="#">Social Media Post</a></li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <li>
+                    @if(count($threads) > 0)
+                        {{-- <h5 class="uk-card-title">Ticket Thread</h5> --}}
+                        <ul class="sm-thread" uk-accordion="multiple: true">
+                            @foreach($threads as $thread)
+                            <li class="uk-open">
+                                <h6 class="uk-accordion-title">Reply from {!! $thread->sender !!} on {{ Carbon\Carbon::parse($thread->date)->toDayDateTimeString() }}</h6>
+                                <div class="uk-accordion-content">
+                                    <p>{!! $thread->content !!}</p>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                    <h6 class="uk-margin-small-bottom">Your Reply</h6>
+                    <form action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
+                        {!! csrf_field() !!}
+                        <fieldset class="uk-fieldset">
+                            <div class="uk-margin">
+                                <textarea class="uk-textarea" id="post" rows="4" placeholder="What's up?" name="reply_content"></textarea>
+                            </div>
+                            <div class="uk-flex uk-flex-right">
+                                <button id="postnow" class="uk-button uk-button-danger red" type="submit">Post Now</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </li>
+                <li>
+                    <form class="uk-form-horizontal" action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
+                        {!! csrf_field() !!}
+                        <fieldset class="uk-fieldset">
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="post-to">Post to</label>
+                                <div class="uk-form-controls">
+                                    <select class="uk-select uk-width-medium" id="post-to">
+                                        <option>Facebook</option>
+                                        <option>Twitter</option>
+                                        <option>Youtube</option>
+                                        <option>Instagram</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="postSocmed">Content</label>
+                                <div class="uk-form-controls">
+                                    <textarea class="uk-textarea" id="postSocmed" rows="4" placeholder="What's up?" name="socmed_content"></textarea>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="img">Image</label>
+                                <div class="uk-form-controls">
+                                    <input type="file" id="img">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="uk-flex uk-flex-middle uk-flex-between">
+                                <div>
+                                    <span><i uk-icon="icon: clock"></i> SCHEDULE POST: </span><input id="schedule" class="uk-input uk-form-width-medium uk-margin-small-left" type="date"></input><a id="clear" class="uk-button uk-button-default uk-hidden" uk-icon="icon: close" style="width:40px;padding:0;" title="Clear date" uk-tooltip></a>
+                                </div>
+                                <button id="postsave" class="uk-button uk-button-primary uk-hidden" type="submit">Save Post</button>
+                                <button id="postnowsocmed" class="uk-button uk-button-danger red" type="submit">Post Now</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </li>
+            </ul>
         </div>
         {{--end of threads--}}
 
@@ -170,10 +194,10 @@
         $('#schedule').blur(function () {
             if ($(this).val()) {
                 $('#postsave').removeClass('uk-hidden');
-                $('#postnow').addClass('uk-hidden');
+                $('#postnowsocmed').addClass('uk-hidden');
                 $('#clear').removeClass('uk-hidden');
             } else {
-                $('#postnow').removeClass('uk-hidden');
+                $('#postnowsocmed').removeClass('uk-hidden');
                 $('#postsave').addClass('uk-hidden');
                 $('#clear').addClass('uk-hidden');
             }
@@ -181,7 +205,7 @@
         $('#clear').click(function(){
             $(this).addClass('uk-hidden');
             $('#schedule').val('');
-            $('#postnow').removeClass('uk-hidden');
+            $('#postnowsocmed').removeClass('uk-hidden');
             $('#postsave').addClass('uk-hidden');
         });
     });
