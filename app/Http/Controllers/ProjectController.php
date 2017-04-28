@@ -38,14 +38,16 @@ class ProjectController extends Controller
     public function add()
     {
         $pilarResponse = $this->projectService->getPilars();
+        $userResponse = $this->userService->getUsers();
         $data['pilars'] = $pilarResponse->group;
+        $data['users'] = $userResponse->user;
         $data['pageTitle'] = 'Create Project';
         return view('pages.project-add', $data);
     }
 
     public function create(Request $request)
     {
-        $response = $this->projectService->create($request->except(['_token']));
+        $response = $this->projectService->create($request);
         if ($response->status == '200') {
             return redirect('home');
         }

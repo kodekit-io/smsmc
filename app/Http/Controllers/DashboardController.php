@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service\Project;
 use App\Service\Smsmc;
+use App\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -27,7 +28,7 @@ class DashboardController extends Controller
         $this->smsmc = $smsmc;
     }
 
-    public function dashboard(Request $request)
+    public function dashboard(Request $request, User $user)
     {
         $data['pageTitle'] = 'Dashboard';
 

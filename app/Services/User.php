@@ -81,12 +81,16 @@ class User
         return $response;
     }
 
-    public function getUserById($id)
+    public function getUserById($id, $userId = '')
     {
         $params = [
-            'uid' => \Auth::user()->id,
             'userId' => $id
         ];
+        if ($userId == '') {
+            $params['uid'] = \Auth::user()->id;
+        } else {
+            $params['uid'] = $userId;
+        }
         $response = $this->smsmc->post('user/get', $params);
         if ($response->status == '200') {
             return $response->result;

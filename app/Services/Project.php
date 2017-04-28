@@ -72,8 +72,26 @@ class Project
         return [];
     }
 
-    public function create($data)
+    public function create($request)
     {
+        $data = $request->except(['_token']);
+
+        $fileFieldName = 'project_image';
+        $fileUrl = '';
+
+        if ($request->hasFile($fileFieldName)) {
+            if ($request->file($fileFieldName)->isValid()) {
+                $fileName = str_slug($data['field_title']) . '.' . $request->file($fileFieldName)->getClientOriginalExtension();
+                $fileUrl = url('project-images/' . $fileName);
+                //Log::warning('file url image project ==> ' . $fileUrl);
+                $dirPath = public_path('project-images');
+                if (! is_dir($dirPath)) {
+                    mkdir($dirPath, 0777, true);
+                }
+                $request->file($fileFieldName)->move($dirPath, $fileName);
+            }
+        }
+
         $mode = 'simple';
         $title = $data['field_title'];
         $group = $data['field_group'];
@@ -84,11 +102,14 @@ class Project
         $advKeywords = $data['field_adv_keyword'];
         $advTopics = $data['field_adv_topic'];
         $advNoises = $data['field_adv_noise'];
+        $userId = $data['user_id'];
 
         $params = [
-            'uid' => \Auth::user()->id,
+            'uid' => $userId,
             'pname' => $title,
-            //'pgroup' => $group
+            'description' => $objective,
+            'pgroup' => $group,
+            'project_image' => $fileUrl,
         ];
 
         if ($advKeywords[1][1] != '') {

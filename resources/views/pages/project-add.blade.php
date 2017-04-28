@@ -1,15 +1,19 @@
 @extends('layouts.default')
 @section('page-level-styles')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('page-level-nav')
 @endsection
 @section('content')
 
     <section class="sm-main sm-nosubnav uk-container uk-container-expand">
-        <form id="project_add" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl" uk-grid method="post" action="{!! url('project/create') !!}">
+        <form id="project_add" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl" uk-grid method="post" action="{!! url('project/create') !!}" enctype="multipart/form-data">
             {!! csrf_field() !!}
             <div class="uk-width-1-1">
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
+                    @foreach($errors->all() as $message)
+                        <h4 class="uk-text-warning">{!! $message !!}</h4>
+                    @endforeach
                     <div class="uk-card-header uk-clearfix">
                         <h5 class="uk-card-title">Project Information</h5>
                     </div>
@@ -30,6 +34,22 @@
                                             <option value="{!! $pilar->id !!}">{!! $pilar->pilarName !!}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="field_group">Users</label>
+                                    <div class="uk-form-controls">
+                                        <select name="user_id" id="user_select" class="uk-select uk-width-1-1">
+                                            @foreach($users as $user)
+                                                <option value="{!! $user->idLogin !!}">{!! $user->name !!}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="field_group">Image</label>
+                                    <div class="uk-form-controls">
+                                        <input type="file" name="project_image" />
                                     </div>
                                 </div>
                             </div>
@@ -100,6 +120,11 @@
 @endsection
 
 @section('page-level-scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/project-add.js') !!}"></script>
+
+    <script>
+        $("#user_select").select2();
+    </script>
 @endsection

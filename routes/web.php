@@ -24,22 +24,24 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('home', 'DashboardController@dashboard');
     Route::get('get-project-list', 'DashboardController@getProjectList');
     Route::get('get-brand-equity/{projectId}', 'DashboardController@getBrandEquity');
+});
 
-    Route::get('project/add', 'ProjectController@add');
-    Route::post('project/create', 'ProjectController@create');
-    Route::get('project/{id}/edit', 'ProjectController@edit');
-    Route::post('project/{id}/update', 'ProjectController@update');
-    Route::get('project/{id}/delete', 'ProjectController@delete');
+Route::group(['middleware' => ['auth', 'role']], function () {
+    Route::get('project/add', 'ProjectController@add')->name('projectCreate');
+    Route::post('project/create', 'ProjectController@create')->name('projectCreate');
+    Route::get('project/{id}/edit', 'ProjectController@edit')->name('projectUpdate');
+    Route::post('project/{id}/update', 'ProjectController@update')->name('projectUpdate');
+    Route::get('project/{id}/delete', 'ProjectController@delete')->name('projectDelete');
 
-    Route::any('project/all/{projectId}', 'ProjectController@allMedia');
-    Route::any('project/facebook/{projectId}', 'ProjectController@facebook');
-    Route::any('project/twitter/{projectId}', 'ProjectController@twitter');
-    Route::any('project/news/{projectId}', 'ProjectController@news');
-    Route::any('project/news-int/{projectId}', 'ProjectController@newsInt');
-    Route::any('project/blog/{projectId}', 'ProjectController@blog');
-    Route::any('project/forum/{projectId}', 'ProjectController@forum');
-    Route::any('project/youtube/{projectId}', 'ProjectController@youtube');
-    Route::any('project/instagram/{projectId}', 'ProjectController@instagram');
+    Route::any('project/all/{projectId}', 'ProjectController@allMedia')->name('projectRead');
+    Route::any('project/facebook/{projectId}', 'ProjectController@facebook')->name('projectRead');
+    Route::any('project/twitter/{projectId}', 'ProjectController@twitter')->name('projectRead');
+    Route::any('project/news/{projectId}', 'ProjectController@news')->name('projectRead');
+    Route::any('project/news-int/{projectId}', 'ProjectController@newsInt')->name('projectRead');
+    Route::any('project/blog/{projectId}', 'ProjectController@blog')->name('projectRead');
+    Route::any('project/forum/{projectId}', 'ProjectController@forum')->name('projectRead');
+    Route::any('project/youtube/{projectId}', 'ProjectController@youtube')->name('projectRead');
+    Route::any('project/instagram/{projectId}', 'ProjectController@instagram')->name('projectRead');
 
     Route::any('project/ontologi-test/{projectId}', 'ProjectController@ontologiTest');
 
@@ -104,28 +106,28 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('setting/account', 'SettingController@account');
     Route::post('setting/account/update', 'SettingController@update');
 
-    Route::get('setting/user', 'SettingController@user');
-    Route::get('setting/user/list', 'SettingController@userList');
-    Route::get('setting/user/add', 'SettingController@userAdd');
-    Route::post('setting/user/store', 'SettingController@userStore');
-    Route::get('setting/user/{userId}/edit', 'SettingController@userEdit');
-    Route::post('setting/user/{userId}/update', 'SettingController@userUpdate');
-    Route::get('setting/user/{userId}/delete', 'SettingController@userDelete');
+    Route::get('setting/user', 'SettingController@user')->name('userRead');
+    Route::get('setting/user/list', 'SettingController@userList')->name('userRead');
+    Route::get('setting/user/add', 'SettingController@userAdd')->name('userCreate');
+    Route::post('setting/user/store', 'SettingController@userStore')->name('userCreate');
+    Route::get('setting/user/{userId}/edit', 'SettingController@userEdit')->name('userUpdate');
+    Route::post('setting/user/{userId}/update', 'SettingController@userUpdate')->name('userUpdate');
+    Route::get('setting/user/{userId}/delete', 'SettingController@userDelete')->name('userDelete');
 
-    Route::get('setting/group', 'SettingController@group');
-    Route::get('setting/group/list', 'SettingController@groupList');
-    Route::get('setting/group/add', 'SettingController@groupAdd');
-    Route::post('setting/group/store', 'SettingController@groupStore');
-    Route::get('setting/group/{groupId}/edit', 'SettingController@groupEdit');
-    Route::post('setting/group/{groupId}/update', 'SettingController@groupUpdate');
-    Route::get('setting/group/{groupId}/delete', 'SettingController@groupDelete');
+    Route::get('setting/group', 'SettingController@group')->name('groupRead');
+    Route::get('setting/group/list', 'SettingController@groupList')->name('groupRead');
+    Route::get('setting/group/add', 'SettingController@groupAdd')->name('groupCreate');
+    Route::post('setting/group/store', 'SettingController@groupStore')->name('groupCreate');
+    Route::get('setting/group/{groupId}/edit', 'SettingController@groupEdit')->name('groupUpdate');
+    Route::post('setting/group/{groupId}/update', 'SettingController@groupUpdate')->name('groupUpdate');
+    Route::get('setting/group/{groupId}/delete', 'SettingController@groupDelete')->name('groupDelete');
 
-    Route::get('setting/role', 'SettingController@role');
-    Route::get('setting/role/list', 'SettingController@roleList');
+    Route::get('setting/role', 'SettingController@role')->name('roleRead');
+    Route::get('setting/role/list', 'SettingController@roleList')->name('roleRead');
 //    Route::get('setting/role/add', 'SettingController@roleAdd');
 //    Route::post('setting/role/store', 'SettingController@roleStore');
-    Route::get('setting/role/{roleId}/edit', 'SettingController@roleEdit');
-    Route::post('setting/role/{roleId}/update', 'SettingController@roleUpdate');
+    Route::get('setting/role/{roleId}/edit', 'SettingController@roleEdit')->name('roleUpdate');
+    Route::post('setting/role/{roleId}/update', 'SettingController@roleUpdate')->name('roleUpdate');
 //    Route::get('setting/role/{roleId}/delete', 'SettingController@roleDelete');
 
     Route::get('report', 'ReportController@index');
@@ -134,7 +136,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('report/create', 'ReportController@create');
     Route::get('report/delete/{id}', 'ReportController@delete');
 
-    Route::get('/socmed-accounts', 'FrontendController@socmedAccounts');
+    Route::get('/socmed-accounts', 'FrontendController@socmedAccounts')->name('registerRead');
     Route::post('/socmed-accounts/save', 'FrontendController@socmedAccountsSave');
 });
 

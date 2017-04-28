@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\Role;
 use App\Service\Smsmc;
+use App\Service\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -10,16 +12,26 @@ use Illuminate\Support\Facades\Log;
 class ApiAuthController extends Controller
 {
     protected $smsmc;
+    /**
+     * @var User
+     */
+    private $user;
+    /**
+     * @var Role
+     */
+    private $role;
 
     /**
      * Create a new controller instance.
      *
      * @param Sikd $sikd
      */
-    public function __construct(Smsmc $smsmc)
+    public function __construct(Smsmc $smsmc, User $user, Role $role)
     {
         $this->middleware('guest', ['except' => 'logout']);
         $this->smsmc = $smsmc;
+        $this->user = $user;
+        $this->role = $role;
     }
 
     public function getLogin(Request $request)
@@ -45,12 +57,19 @@ class ApiAuthController extends Controller
     protected function signIn($apiLoginResult, $password)
     {
         $token = $apiLoginResult->result->token;
+        $userId = $apiLoginResult->result->user->userId;
+        $user = $this->user->getUserById($userId, $userId)->user;
+        $roleId = $user->idRole;
+        $role = $this->role->getRoleById($roleId, $userId);
+        $permissions = $role->data[0];
+
         $attributes = [
-            'id'        => $apiLoginResult->result->user->userId,
+            'id'        => $userId,
             'password'  => $password,
             'email'     => $apiLoginResult->result->user->userName,
             'name'      => $apiLoginResult->result->user->userName,
-            'remember_token' => ''
+            'remember_token' => '',
+            'permissions' => $permissions
         ];
 
         session(['userAttributes' => $attributes]);

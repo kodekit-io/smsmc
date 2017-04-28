@@ -78,12 +78,16 @@ class Role
         return $response;
     }
 
-    public function getRoleById($id)
+    public function getRoleById($id, $userId = '')
     {
         $params = [
-            'uid' => \Auth::user()->id,
             'idRole' => $id
         ];
+        if ($userId == '') {
+            $params['uid'] = \Auth::user()->id;
+        } else {
+            $params['uid'] = $userId;
+        }
 
         $response = $this->smsmc->post('role/view', $params);
 
