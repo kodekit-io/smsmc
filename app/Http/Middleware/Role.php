@@ -38,8 +38,6 @@ class Role
      */
     public function handle($request, Closure $next)
     {
-        $userId = \Auth::id();
-
         $availablePermissions = $this->role->getAvailablePermissions();
         $currentRouteName = Route::currentRouteName();
 
@@ -48,7 +46,7 @@ class Role
         if (! is_null($currentRouteName)) {
             $allowed = false;
             $permissionName = $availablePermissions[$currentRouteName];
-            if ($permissions->{$currentRouteName}) {
+            if (in_array($currentRouteName, $permissions)) {
                 $allowed = true;
             }
 

@@ -58,10 +58,7 @@ class ApiAuthController extends Controller
     {
         $token = $apiLoginResult->result->token;
         $userId = $apiLoginResult->result->user->userId;
-        $user = $this->user->getUserById($userId, $userId)->user;
-        $roleId = $user->idRole;
-        $role = $this->role->getRoleById($roleId, $userId);
-        $permissions = $role->data[0];
+        $permissions = $apiLoginResult->result->user->permissions;
 
         $attributes = [
             'id'        => $userId,

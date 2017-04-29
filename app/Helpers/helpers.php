@@ -1,15 +1,11 @@
 <?php
 
 
-if (! function_exists('authorized_to')) {
-    function authorized_to($permissions) {
+if (! function_exists('is_authorized_to')) {
+    function is_authorized_to($permission) {
         $userPermissions = session('userAttributes')['permissions'];
-        if (is_array($permissions)) {
-
-        } else {
-            if ($userPermissions->{$permissions}) {
-                return true;
-            }
+        if (in_array($permission, $userPermissions)) {
+            return true;
         }
         return false;
     }

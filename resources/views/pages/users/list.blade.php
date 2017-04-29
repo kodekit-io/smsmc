@@ -11,7 +11,9 @@
         <div class="uk-animation-fade uk-card no-header uk-card-hover uk-card-default uk-card-small">
             <div class="uk-card-header uk-clearfix">
                 <h5 class="uk-card-title uk-float-left">Manage Accounts</h5>
-                <a href="{!! url('setting/user/add') !!}" title="Add User" class="uk-button red white-text uk-float-right">Add User</a>
+                @if (is_authorized_to('userRead'))
+                    <a href="{!! url('setting/user/add') !!}" title="Add User" class="uk-button red white-text uk-float-right">Add User</a>
+                @endif
             </div>
             <div class="uk-card-body">
                 <table id="users" class="uk-table uk-table-striped"></table>
@@ -22,6 +24,10 @@
 @endsection
 
 @section('page-level-scripts')
+    <script>
+        var $canEdit = '{!! is_authorized_to('userUpdate') !!}';
+        var $canDelete = '{!! is_authorized_to('userDelete') !!}';
+    </script>
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/users.js') !!}"></script>

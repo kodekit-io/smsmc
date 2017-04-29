@@ -13,10 +13,10 @@
                     <a href="{!! url('/home') !!}"><i class="material-icons md-18">work</i> Project</a>
                     <div uk-dropdown="offset: 0" class="uk-overflow-auto uk-height-medium uk-max-height-medium uk-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav" id="projectList">
-                            <?php //if (admin) { ?>
+                            @if (is_authorized_to('projectCreate'))
                             <li><a href="{!! url('project/add') !!}"><i class="fa fa-plus fa-fw"></i> Add New Project</a></li>
                             <li class="uk-nav-divider"></li>
-                            <?php //} ?>
+                            @endif
                         </ul>
                     </div>
                 </li>
@@ -68,10 +68,12 @@
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <li><a href="{!! url('setting/account') !!}"><i class="fa fa-user fa-fw"></i> My Account</a></li>
                             <li class="uk-nav-divider"></li>
-                            <?php //if (admin) { ?>
+                            @if (is_authorized_to('userRead') ||
+                                is_authorized_to('groupRead') ||
+                                is_authorized_to('roleRead'))
                             <li><a href="{!! url('setting/user') !!}" title="Only show to Admin" uk-tooltip><i class="fa fa-cogs fa-fw"></i> Setting</a></li>
                             <li class="uk-nav-divider"></li>
-                            <?php //} ?>
+                            @endif
                             <li><a href="{!! url('/logout') !!}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                         </ul>
                     </div>
