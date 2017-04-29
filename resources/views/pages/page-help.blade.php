@@ -73,8 +73,8 @@
                         <dd>Merupakan satuan jumlah user yang membagikan kembali posting percakapan dari keseluruhan data yang telah ditangkap.</dd>
                         <dt>G.	Sentiment :</dt>
                         <dd>Penggolongan percakapan yang menggambarkan reaksi user pada saat melakukan percakapan. Sentiment dibagi dengan 3 reaksi yaitu Positif, Negatif dan Netral.</dd>
-                        <dt>H.	Sentiment Trend:</dt>
-                        <dd>Grafik yang menunjukan jumlah tren percakapan berdasarkan jumlah sentiment dalam periode waktu tertentu.</dd>
+                        <dt>H.	Interaction Rate:</dt>
+                        <dd>Jumlah rata-rata dari jumlah posting percakapan dibanding dengan jumlah interaksi yang tersedia.</dd>
                         <dt>I.	Topic Distribution :</dt>
                         <dd>Pengelompokkan percakapan yang telah ditangkap dengan keyword tertentu menjadi topik yang akan dianalisa.</dd>
                         <dt>J.	Ontology :</dt>

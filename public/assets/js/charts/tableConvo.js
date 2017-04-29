@@ -69,9 +69,9 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
             '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'"> ' +
             '<input type="hidden" name="postDate" value="'+ postDate +'"> ' +
-            '<input type="hidden" name="idMedia" value="' + chartApiData.idMedia + '" >' +
-            '<input type="hidden" name="sentiment" value="' + sentiment + '" >' +
-            '<input type="hidden" name="postId" value="' + postId + '">' +
+            '<input type="hidden" name="idMedia" value="'+ chartApiData.idMedia +'" >' +
+            '<input type="hidden" name="sentiment" value="'+ sentiment +'" >' +
+            '<input type="hidden" name="postId" value="'+ postId +'">' +
             '<div  class="uk-modal-body">' +
                 '<h5>Open New Ticket</h5>' +
                 '<div class="uk-margin">' +
