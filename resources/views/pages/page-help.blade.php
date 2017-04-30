@@ -18,7 +18,7 @@
                         <dd>Menjelaskan perbandingan antara Net Sentiment & Sim Score yang juga menunjukan posisi brand dibandingkan dengan kompetitor.<br>
                             <ul class="uk-list uk-list-bullet">
                                 <li>Net Sentiment = Jumlah percakapan dengan sentimen positif ditambah jumlah percakapan dengan sentimen netral dikurangi jumlah percakapan dengan sentimen negatif.</li>
-                                <li>Earned Media Share of Voice (EMS) = Konsepnya hampir sama dengan Brand Talkable Favourability (BTF). Yaitu mengukur jumlah buzz dibandingkan dengan setiap channel media berbanding dengan kompetitornya.</li>
+                                <li>Earned Media Share (EMS) = Konsepnya hampir sama dengan Brand Talkable Favourability (BTF). Yaitu mengukur jumlah buzz dibandingkan dengan setiap channel media berbanding dengan kompetitornya.</li>
                             </li>
                         </dd>
                         <dt>B.	Sentiment :</dt>
