@@ -42,7 +42,7 @@ class User
             'email' => $data['email'],
             'name' => $data['name'],
             'idBussiness' => 2,
-            'idRole' => 2
+            'idRole' => $data['role']
         ];
         $response = $this->smsmc->post('user/add', $params);
 

@@ -36,6 +36,14 @@
                         <label>Re-type your password</label>
                         <input class="uk-input" type="password" name="password2">
                     </div>
+                    <div class="uk-margin">
+                        <label>Role</label>
+                        <select name="role" class="uk-select">
+                            @foreach($roles as $role)
+                            <option value="{!! $role->idRole !!}">{!! $role->name !!}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="uk-flex uk-flex-between">
                         <a class="uk-modal-close uk-button grey white-text" href="{!! url('setting/user') !!}">CANCEL</a>
                         <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SEND" />

@@ -71,7 +71,8 @@ class SettingController extends Controller
     public function userAdd()
     {
         $data['pageTitle'] = 'Add Account';
-
+        $roles = $this->role->getRoles();
+        $data['roles'] = $roles->data;
         return view('pages.users.add', $data);
     }
 

@@ -10,6 +10,15 @@
 @section('content')
     <section class="sm-main sm-dashboard uk-container uk-container-expand">
         <div id="projectGrid" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-4@m" uk-grid>
+            @if (count($errors) > 0)
+                <div class="uk-alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             @if (count($projects) > 0)
                 @foreach($projects as $project)
                 <div id="{!! $project->pid !!}">

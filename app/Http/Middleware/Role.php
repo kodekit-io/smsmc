@@ -51,7 +51,7 @@ class Role
             }
 
             if(! $allowed) {
-                return [true, redirect('home')->withErrors(['error' => 'You dont have ' . $permissionName . ' access.'])];
+                return redirect('home')->withErrors(['error' => 'You dont have ' . $permissionName . ' access.']);
             }
         }
 
