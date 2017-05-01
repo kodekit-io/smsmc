@@ -17,7 +17,7 @@
                         <h5 class="uk-card-title">Project Information</h5>
                     </div>
                     <div class="uk-card-body">
-                        <div class="uk-child-width-1-2 uk-grid-medium" uk-grid>
+                        <div class="uk-child-width-1-3 uk-grid-medium" uk-grid>
                             <div>
                                 <div class="uk-margin">
                                     <label class="uk-form-label" for="field_title">Project Title</label>
@@ -32,6 +32,24 @@
                                             <option value="1">Group 01</option>
                                             <option value="2">Group 02</option>
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="user_select">Project User</label>
+                                    <div class="uk-form-controls">
+                                        <select name="user_id" id="user_select" class="uk-input uk-width-1-1">
+                                            {{-- @foreach($users as $user)
+                                                <option value="{!! $user->idLogin !!}">{!! $user->name !!}</option>
+                                            @endforeach --}}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label class="uk-form-label" for="project_image">Cover Image</label>
+                                    <div class="uk-form-controls">
+                                        <input type="file" id="project_image" name="project_image" />
                                     </div>
                                 </div>
                             </div>
