@@ -23,34 +23,21 @@
                 @foreach($projects as $project)
                 <div id="{!! $project->pid !!}">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                        {{-- <div class="uk-card-header">
-                            <h5 class="uk-card-title uk-text-truncate">{!! $project->pname !!}</h5>
-                        </div>
-                        <div class="uk-card-body">
-                            <div uk-grid class="uk-grid-collapse">
-                                <div class="uk-width-1-1">
-                                    <div id="chartCover{!! $project->pid !!}" class="sm-chartcover"></div>
-                                    <div class="sm-chartcover uk-cover-container">
-                                        <img src="{!! asset('assets/img/login.jpg') !!}" alt="{!! $project->pid !!}" uk-cover>
-                                        <div class="uk-overlay uk-overlay-default">Tes</div>
-                                    </div>
-                                </div>
-                                <div class="uk-width-2-5">Date Create</div>
-                                <div class="uk-width-3-5">: {!! $project->pdate !!}</div>
-                                <div class="uk-width-2-5">Project Group</div>
-                                <div class="uk-width-3-5">: {!! $project->pgroup !!}</div>
-                            </div>
-                        </div> --}}
                         <div class="uk-card-media-top uk-cover-container sm-cover">
+                            @if($project->pmage != 'null')
+                                <img class="uk-animation-fade" src="{!! $project->pmage !!}" uk-cover>
+                            @else
+                                <img class="uk-animation-fade" src="{!! asset('images/default.jpg') !!}" uk-cover>
+                            @endif
                             <div class="sm-cover-overlay"></div>
                             <h4 class="white-text sm-title-cover">{!! $project->pname !!}</h4>
                         </div>
                         <div class="uk-card-body">
                             <div uk-grid class="uk-grid-collapse">
-                                <div class="uk-width-2-5">Date Create</div>
-                                <div class="uk-width-3-5">: <span class="pdate"></span></div>
-                                <div class="uk-width-2-5">Project Group</div>
-                                <div class="uk-width-3-5">: {!! $project->pgroup !!}</div>
+                                <div class="uk-width-2-5">Date Create : </div>
+                                <div class="uk-width-3-5"><span class="pdate"></span></div>
+                                <div class="uk-width-2-5">Project Group : </div>
+                                <div class="uk-width-3-5">{!! $project->pgroup !!}</div>
                             </div>
                         </div>
                         <div class="uk-card-footer uk-clearfix">
@@ -69,9 +56,16 @@
                 </div>
                 @endforeach
             @else
-                <div class="uk-position-center uk-text-center uk-card uk-card-default uk-card-body uk-width-auto@m">
-                    <a href="{{ url('/project/add') }}" class="red-text"><i class="fa fa-plus fa-3x"></i><br>Create Your First Project</a>
-                </div>
+                @if (is_authorized_to('projectCreate'))
+                    <div class="uk-position-center uk-text-center uk-card uk-card-default uk-card-body uk-width-auto@m">
+                        <a href="{{ url('/project/add') }}" class="red-text"><i class="fa fa-plus fa-3x"></i><br>Create Your First Project</a>
+                    </div>
+                @else
+                    <div class="uk-position-center uk-text-center uk-card uk-card-default uk-card-body uk-width-auto@m">
+                        You don't have any project yet.<br>
+                        Please contact your administrator.
+                    </div>
+                @endif
             @endif
         </div>
         @if (count($projects) > 0)
@@ -96,10 +90,10 @@
     <script>
         $(document).ready(function() {
             @foreach($projects as $project)
-                var pid = '{!! $project->pid !!}';
+                // var pid = '{!! $project->pid !!}';
                 var pdate = moment.parseZone('{!! $project->pdate !!}').format('lll');
-                imgCover(pid);
-                $('#'+pid).find('.pdate').text(pdate);
+                // imgCover(pid);
+                // $('#'+pid).find('.pdate').text(pdate);
             @endforeach
         });
     </script>

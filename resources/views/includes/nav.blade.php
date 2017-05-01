@@ -35,7 +35,7 @@
                         </ul>
                     </div>
                 </li>
-                <?php //if (usercanpost) { ?>
+                @if (is_authorized_to('engagementRead') || is_authorized_to('engagementPost') || is_authorized_to('engagementCreate') || is_authorized_to('engagementUpdate') || is_authorized_to('engagementDelete'))
                 <li>
                     <a href="{!! url('ticket') !!}"><i class="material-icons md-18">mode_comment</i> Engagement</a>
                     <div uk-dropdown="offset: 0">
@@ -50,7 +50,7 @@
                         </ul>
                     </div>
                 </li>
-                <?php //} ?>
+                @endif
                 <?php //if (admin) { ?>
                 <li>
                     <a href="{!! url('report') !!}"><i class="material-icons md-18">assignment</i> Report</a>

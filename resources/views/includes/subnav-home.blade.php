@@ -1,4 +1,5 @@
 <nav class="uk-navbar-container sm-nav-sub" uk-navbar>
+    @if (is_authorized_to('viewAllProject'))
     <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
             <li>
@@ -14,6 +15,7 @@
             </li>
         </ul>
     </div>
+    @endif
     <div class="uk-navbar-right">
         <form class="uk-navbar-item">
             <div class="uk-inline">
