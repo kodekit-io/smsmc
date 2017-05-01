@@ -73,9 +73,7 @@
                             <li class="uk-nav-divider"></li>
                             <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> My Ticket</a></li>
                             <li class="uk-nav-divider"></li>
-                            @if (is_authorized_to('userRead') ||
-                                is_authorized_to('groupRead') ||
-                                is_authorized_to('roleRead'))
+                            @if (is_authorized_to('userRead') || is_authorized_to('groupRead') || is_authorized_to('roleRead'))
                             <li><a href="{!! url('setting/user') !!}" title="Setting" uk-tooltip><i class="fa fa-cogs fa-fw"></i> Setting</a></li>
                             <li class="uk-nav-divider"></li>
                             @endif

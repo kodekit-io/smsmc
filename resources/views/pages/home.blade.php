@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="uk-card-footer uk-clearfix">
-                            {{-- @if (role=='admin') --}}
+                            @if (is_authorized_to('projectEdit') || is_authorized_to('projectDelete'))
                             <div class="uk-inline">
                                 <a class="grey-text" uk-icon="icon: more-vertical"></a>
                                 <div class="sm-card-action" uk-drop="pos: right-center">
@@ -62,7 +62,7 @@
                                     <a class="sm-delete-project uk-icon-button red white-text" uk-icon="icon: trash" title="Delete Project" uk-tooltip data-id="{!! $project->pid !!}" data-name="{!! $project->pname !!}"></a>
                                 </div>
                             </div>
-                            {{-- @endif --}}
+                            @endif
                             <a href="{!! url('project/all/' . $project->pid) !!}" class="uk-button uk-button-text uk-float-right red-text" title="Project {!! $project->pname !!}" uk-tooltip>View Project</a>
                         </div>
                     </div>
