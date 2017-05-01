@@ -44,7 +44,7 @@
                             <li><a href="{!! url('/engagement-accounts') !!}"><i class="fa fa-cog fa-fw"></i> Manage Accounts</a></li>
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
-                            <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> Ticket</a></li>
+                            {{-- <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> Ticket</a></li> --}}
                             <li><a href="{!! url('/engagement-calendar') !!}"><i class="fa fa-calendar fa-fw"></i> Calendar</a></li>
                             <li><a href="{!! url('/engagement-timeline') !!}"><i class="fa fa-hashtag fa-fw"></i> Timeline</a></li>
                         </ul>
@@ -63,15 +63,20 @@
                 </li>
                 <?php //} ?>
                 <li>
-                    <a href="{!! url('setting/account') !!}"><i class="material-icons md-18">account_circle</i> Profile</a>
-                    <div uk-dropdown="offset: 0">
+                    <a href="{!! url('setting/account') !!}" class="sm-nav-round" title="Account" uk-tooltip="pos:left">
+                        <span class="fa fa-user"></span>
+                    </a>
+                    {{-- <a href="{!! url('setting/account') !!}"><i class="material-icons md-18">account_circle</i> Profile</a> --}}
+                    <div uk-dropdown>
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <li><a href="{!! url('setting/account') !!}"><i class="fa fa-user fa-fw"></i> My Account</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> My Ticket</a></li>
                             <li class="uk-nav-divider"></li>
                             @if (is_authorized_to('userRead') ||
                                 is_authorized_to('groupRead') ||
                                 is_authorized_to('roleRead'))
-                            <li><a href="{!! url('setting/user') !!}" title="Only show to Admin" uk-tooltip><i class="fa fa-cogs fa-fw"></i> Setting</a></li>
+                            <li><a href="{!! url('setting/user') !!}" title="Setting" uk-tooltip><i class="fa fa-cogs fa-fw"></i> Setting</a></li>
                             <li class="uk-nav-divider"></li>
                             @endif
                             <li><a href="{!! url('/logout') !!}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
