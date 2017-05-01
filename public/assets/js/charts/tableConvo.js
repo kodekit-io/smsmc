@@ -125,7 +125,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
     // Edit Sentiment
     var sentimentClass = ".sm-sentiment";
     $('#' + chartId).on('click', sentimentClass, function(e) {
-        console.log(chartApiData);
+        // console.log(chartApiData);
         e.preventDefault();
         $(this).blur();
         var id = $(this).attr('data-id');
