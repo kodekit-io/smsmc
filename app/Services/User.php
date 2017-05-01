@@ -41,7 +41,7 @@ class User
             'conPassWord' => $data['password2'],
             'email' => $data['email'],
             'name' => $data['name'],
-            'idBussiness' => 2,
+            'idBussiness' => $data['id_business'],
             'idRole' => $data['role']
         ];
         $response = $this->smsmc->post('user/add', $params);
@@ -92,6 +92,19 @@ class User
             $params['uid'] = $userId;
         }
         $response = $this->smsmc->post('user/get', $params);
+        if ($response->status == '200') {
+            return $response->result;
+        }
+
+        return [];
+    }
+
+    public function getPilars()
+    {
+        $params = [
+            'uid' => \Auth::id()
+        ];
+        $response = $this->smsmc->post('pilar/list', $params);
         if ($response->status == '200') {
             return $response->result;
         }

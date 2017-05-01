@@ -72,7 +72,9 @@ class SettingController extends Controller
     {
         $data['pageTitle'] = 'Add Account';
         $roles = $this->role->getRoles();
+        $pilars = $this->user->getPilars();
         $data['roles'] = $roles->data;
+        $data['pilars'] = $pilars->group;
         return view('pages.users.add', $data);
     }
 

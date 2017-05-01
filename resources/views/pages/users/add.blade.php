@@ -37,6 +37,14 @@
                         <input class="uk-input" type="password" name="password2">
                     </div>
                     <div class="uk-margin">
+                        <label>Id Business</label>
+                        <select name="id_business" class="uk-select">
+                            @foreach($pilars as $pilar)
+                                <option value="{!! $pilar->id !!}">{!! $pilar->pilarName !!}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="uk-margin">
                         <label>Role</label>
                         <select name="role" class="uk-select">
                             @foreach($roles as $role)
