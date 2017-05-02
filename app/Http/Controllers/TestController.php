@@ -83,13 +83,12 @@ class TestController extends Controller
         // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
 
-    public function alertView()
+    public function calendar()
     {
         $params = [
-            'uid' => Auth::user()->id,
-            'idAlert' => '1'
+            'uid' => Auth::user()->id
         ];
-        $result = $this->smsmc->post('alert/view', $params);
+        $result = $this->smsmc->post('engagement/calendar', $params);
         return \GuzzleHttp\json_encode($result->result);
         // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
