@@ -87,37 +87,39 @@
         {{--Thread--}}
 
         <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-card-body uk-margin">
+            @if(count($threads) > 0)
+                {{-- <h5 class="uk-card-title">Ticket Thread</h5> --}}
+                <ul class="sm-thread" uk-accordion="multiple: true">
+                    @foreach($threads as $thread)
+                    <li class="uk-open">
+                        <h6 class="uk-accordion-title">Reply from {!! $thread->sender !!} on {{ Carbon\Carbon::parse($thread->date)->toDayDateTimeString() }}</h6>
+                        <div class="uk-accordion-content">
+                            <p>{!! $thread->content !!}</p>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+            @endif
+            <h6 class="uk-margin-small-bottom">Your Reply</h6>
+            <form action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
+                {!! csrf_field() !!}
+                <fieldset class="uk-fieldset">
+                    <div class="uk-margin">
+                        <textarea class="uk-textarea" id="post" rows="4" placeholder="What's up?" name="reply_content"></textarea>
+                    </div>
+                    <div class="uk-flex uk-flex-right">
+                        <button id="postnow" class="uk-button uk-button-danger red" type="submit">Post Reply</button>
+                    </div>
+                </fieldset>
+            </form>
+            {{--
             <ul uk-tab>
                 <li class="uk-active"><a href="#">Reply Ticket</a></li>
                 <li><a href="#">Social Media Post</a></li>
             </ul>
             <ul class="uk-switcher uk-margin">
                 <li>
-                    @if(count($threads) > 0)
-                        {{-- <h5 class="uk-card-title">Ticket Thread</h5> --}}
-                        <ul class="sm-thread" uk-accordion="multiple: true">
-                            @foreach($threads as $thread)
-                            <li class="uk-open">
-                                <h6 class="uk-accordion-title">Reply from {!! $thread->sender !!} on {{ Carbon\Carbon::parse($thread->date)->toDayDateTimeString() }}</h6>
-                                <div class="uk-accordion-content">
-                                    <p>{!! $thread->content !!}</p>
-                                </div>
-                            </li>
-                            @endforeach
-                        </ul>
-                    @endif
-                    <h6 class="uk-margin-small-bottom">Your Reply</h6>
-                    <form action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
-                        {!! csrf_field() !!}
-                        <fieldset class="uk-fieldset">
-                            <div class="uk-margin">
-                                <textarea class="uk-textarea" id="post" rows="4" placeholder="What's up?" name="reply_content"></textarea>
-                            </div>
-                            <div class="uk-flex uk-flex-right">
-                                <button id="postnow" class="uk-button uk-button-danger red" type="submit">Post Now</button>
-                            </div>
-                        </fieldset>
-                    </form>
+
                 </li>
                 <li>
                     <form class="uk-form-horizontal" action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
@@ -157,7 +159,7 @@
                         </fieldset>
                     </form>
                 </li>
-            </ul>
+            </ul> --}}
         </div>
         {{--end of threads--}}
 
