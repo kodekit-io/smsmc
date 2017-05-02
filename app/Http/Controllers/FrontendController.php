@@ -33,11 +33,6 @@ class FrontEndController extends Controller
         return redirect('socmed-accounts');
     }
 
-    public function engagementAccounts()
-    {
-        $data['pageTitle'] = 'Engagement Accounts';
-        return view('pages.engagement-accounts', $data);
-    }
     public function engagementCalendar()
     {
         $data['pageTitle'] = 'Scheduled Calendar';

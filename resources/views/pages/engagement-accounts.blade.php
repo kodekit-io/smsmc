@@ -13,21 +13,29 @@
                         <h5 class="uk-card-title color-text-facebook"><i class="fa fa-facebook fa-fw"></i> Facebook Login</h5>
                     </div>
                     <div class="uk-card-body">
-                        <form class="uk-form-stacked">
+                        @if(! isset($socmedAttribute[1]))
+                        <form class="uk-form-stacked" method="post" action="{!! url('engagement/account-login/1') !!}">
+                            {!! csrf_field() !!}
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="yt-email">Email</label>
+                                <label class="uk-form-label" for="username">Username</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="ig-email" type="email" placeholder="email@address">
+                                    <input class="uk-input" id="username" name="username"  >
                                 </div>
                             </div>
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="ig-email">Password</label>
+                                <label class="uk-form-label" for="password">Password</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="ig-pwd" type="password">
+                                    <input class="uk-input" id="password" name="password" type="password">
                                 </div>
                             </div>
-                            <button class="uk-button color-facebook white-text">LOGIN</button>
+                            <button class="uk-button color-facebook white-text" type="submit">LOGIN</button>
                         </form>
+                        @else
+                        <form class="uk-form-stacked" method="post" action="{!! url('engagement/account-logout/1') !!}">
+                            {!! csrf_field() !!}
+                            <button class="uk-button color-facebook white-text" type="submit">LOGOUT</button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -37,21 +45,29 @@
                         <h5 class="uk-card-title color-text-twitter"><i class="fa fa-twitter fa-fw"></i> Twitter Login</h5>
                     </div>
                     <div class="uk-card-body">
-                        <form class="uk-form-stacked">
+                        @if(! isset($socmedAttribute[2]))
+                        <form class="uk-form-stacked" method="post" action="{!! url('engagement/account-login/2') !!}">
+                            {!! csrf_field() !!}
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="tw-email">Email</label>
+                                <label class="uk-form-label" for="username">Username</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="tw-email" type="email" placeholder="email@address">
+                                    <input class="uk-input" id="username" name="username"  >
                                 </div>
                             </div>
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="tw-email">Password</label>
+                                <label class="uk-form-label" for="password">Password</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="tw-pwd" type="password">
+                                    <input class="uk-input" id="password" name="password" type="password">
                                 </div>
                             </div>
-                            <button class="uk-button color-twitter white-text">LOGIN</button>
+                            <button class="uk-button color-twitter white-text" type="submit">LOGIN</button>
                         </form>
+                        @else
+                        <form class="uk-form-stacked" method="post" action="{!! url('engagement/account-logout/2') !!}">
+                            {!! csrf_field() !!}
+                            <button class="uk-button color-twitter white-text" type="submit">LOGOUT</button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -61,21 +77,29 @@
                         <h5 class="uk-card-title color-text-youtube"><i class="fa fa-youtube fa-fw"></i> Youtube Login</h5>
                     </div>
                     <div class="uk-card-body">
-                        <form class="uk-form-stacked">
+                        @if(! isset($socmedAttribute[5]))
+                        <form class="uk-form-stacked" method="post" action="{!! url('engagement/account-login/5') !!}">
+                            {!! csrf_field() !!}
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="yt-email">Email</label>
+                                <label class="uk-form-label" for="username">Username</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="yt-email" type="email" placeholder="email@address">
+                                    <input class="uk-input" id="username" name="username"  >
                                 </div>
                             </div>
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="yt-email">Password</label>
+                                <label class="uk-form-label" for="password">Password</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="yt-pwd" type="password">
+                                    <input class="uk-input" id="password" name="password" type="password">
                                 </div>
                             </div>
-                            <button class="uk-button color-youtube white-text">LOGIN</button>
+                            <button class="uk-button color-youtube white-text" type="submit">LOGIN</button>
                         </form>
+                        @else
+                        <form class="uk-form-stacked" method="post" action="{!! url('engagement/account-logout/5') !!}">
+                            {!! csrf_field() !!}
+                            <button class="uk-button color-youtube white-text" type="submit">LOGOUT</button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -85,21 +109,29 @@
                         <h5 class="uk-card-title color-text-instagram"><i class="fa fa-instagram fa-fw"></i> Instagram Login</h5>
                     </div>
                     <div class="uk-card-body">
-                        <form class="uk-form-stacked">
+                        @if(! isset($socmedAttribute[7]))
+                        <form class="uk-form-stacked" method="post" action="{!! url('engagement/account-login/7') !!}">
+                            {!! csrf_field() !!}
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="ig-email">Email</label>
+                                <label class="uk-form-label" for="username">Username</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="ig-email" type="email" placeholder="email@address">
+                                    <input class="uk-input" id="username" name="username"  >
                                 </div>
                             </div>
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="ig-email">Password</label>
+                                <label class="uk-form-label" for="password">Password</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" id="ig-pwd" type="password">
+                                    <input class="uk-input" id="password" name="password" type="password">
                                 </div>
                             </div>
-                            <button class="uk-button color-instagram white-text">LOGIN</button>
+                            <button class="uk-button color-instagram white-text" type="submit">LOGIN</button>
                         </form>
+                        @else
+                            <form class="uk-form-stacked" method="post" action="{!! url('engagement/account-logout/7') !!}">
+                                {!! csrf_field() !!}
+                                <button class="uk-button color-instagram white-text" type="submit">LOGOUT</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>

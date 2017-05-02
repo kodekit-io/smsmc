@@ -138,6 +138,10 @@ Route::group(['middleware' => ['auth', 'role']], function () {
 
     Route::get('/socmed-accounts', 'FrontendController@socmedAccounts')->name('registerRead');
     Route::post('/socmed-accounts/save', 'FrontendController@socmedAccountsSave');
+
+    Route::get('/engagement-accounts', 'EngagementController@accounts');
+    Route::post('/engagement/account-login/{idMedia}', 'EngagementController@login');
+    Route::post('/engagement/account-logout/{idMedia}', 'EngagementController@logout');
 });
 
 Route::get('/project-edit', 'FrontendController@projectEdit');
@@ -148,7 +152,6 @@ Route::get('/socmed-tw', 'FrontendController@socmedTW');
 Route::get('/socmed-yt', 'FrontendController@socmedYT');
 Route::get('/socmed-ig', 'FrontendController@socmedIG');
 
-Route::get('/engagement-accounts', 'FrontendController@engagementAccounts');
 Route::get('/engagement-calendar', 'FrontendController@engagementCalendar');
 Route::get('/engagement-timeline', 'FrontendController@engagementTimeline');
 

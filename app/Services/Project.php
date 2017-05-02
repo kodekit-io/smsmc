@@ -226,7 +226,7 @@ class Project
             }
         }
 
-        Log::warning("update project ==> project/edit ==> " . \GuzzleHttp\json_encode($params));
+        //Log::warning("update project ==> project/edit ==> " . \GuzzleHttp\json_encode($params));
 
         return $this->smsmc->post('project/edit', $params);
     }
