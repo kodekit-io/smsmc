@@ -40,6 +40,9 @@
                             @if(count($g_accounts->instagram) > 0)
                             <li><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
                             @endif
+                            @if((count($g_accounts->instagram) == 0) && (count($g_accounts->facebook) == 0) && (count($g_accounts->twitter) == 0) && (count($g_accounts->youtube) == 0))
+                            <li class="uk-text-center">No account found.<br>Please contact<br>your administrator.</li>
+                            @endif
                         </ul>
                     </div>
                 </li>

@@ -24,10 +24,10 @@
                 <div id="{!! $project->pid !!}">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                         <div class="uk-card-media-top uk-cover-container sm-cover">
-                            @if($project->pmage != 'null')
-                                <img class="uk-animation-fade" src="{!! $project->pmage !!}" uk-cover>
-                            @else
+                            @if(($project->pmage == 'null') || ($project->pmage == ''))
                                 <img class="uk-animation-fade" src="{!! asset('images/default.jpg') !!}" uk-cover>
+                            @else
+                                <img class="uk-animation-fade" src="{!! $project->pmage !!}" uk-cover>
                             @endif
                             <div class="sm-cover-overlay"></div>
                             <h4 class="white-text sm-title-cover">{!! $project->pname !!}</h4>
