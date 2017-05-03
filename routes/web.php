@@ -20,13 +20,13 @@ Route::post('/login', 'ApiAuthController@postLogin');
 Route::post('/logout', 'ApiAuthController@logout');
 Route::get('/logout', 'ApiAuthController@logout');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','socmedAccount']], function () {
     Route::get('home', 'DashboardController@dashboard');
     Route::get('get-project-list', 'DashboardController@getProjectList');
     Route::get('get-brand-equity/{projectId}', 'DashboardController@getBrandEquity');
 });
 
-Route::group(['middleware' => ['auth', 'role']], function () {
+Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::get('project/add', 'ProjectController@add')->name('projectCreate');
     Route::post('project/create', 'ProjectController@create')->name('projectCreate');
     Route::get('project/{id}/edit', 'ProjectController@edit')->name('projectUpdate');
@@ -49,48 +49,6 @@ Route::group(['middleware' => ['auth', 'role']], function () {
     Route::any('socmed/twitter', 'SocmedController@twitter');
     Route::any('socmed/youtube', 'SocmedController@youtube');
     Route::any('socmed/instagram', 'SocmedController@instagram');
-
-    // Charts
-    Route::post('charts/brand-equity', 'ChartController@brandEquity');
-    Route::post('charts/bar-sentiment', 'ChartController@barSentiment');
-
-    Route::post('charts/trend-sentiment', 'ChartController@trendSentiment');
-    Route::post('charts/trend-post', 'ChartController@trendPost');
-    Route::post('charts/trend-buzz', 'ChartController@trendBuzz');
-    Route::post('charts/trend-reach', 'ChartController@trendReach');
-    Route::post('charts/trend-interaction', 'ChartController@trendInteraction');
-    Route::post('charts/trend-user', 'ChartController@trendUser');
-    Route::post('charts/trend-comment', 'ChartController@trendComment');
-    Route::post('charts/trend-view', 'ChartController@trendView');
-    Route::post('charts/trend-potential-reach', 'ChartController@trendPotentialReach');
-    Route::post('charts/trend-love', 'ChartController@trendLove');
-    Route::post('charts/trend-fans', 'ChartController@trendFans');
-
-    Route::post('charts/pie-post', 'ChartController@piePost');
-    Route::post('charts/pie-buzz', 'ChartController@pieBuzz');
-    Route::post('charts/pie-interaction', 'ChartController@pieInteraction');
-    Route::post('charts/pie-unique-user', 'ChartController@pieUniqueUser');
-    Route::post('charts/pie-comment', 'ChartController@pieComment');
-    Route::post('charts/pie-like', 'ChartController@pieLike');
-    Route::post('charts/pie-share', 'ChartController@pieShare');
-    Route::post('charts/pie-viral-reach', 'ChartController@pieViralReach');
-    Route::post('charts/pie-potential-reach', 'ChartController@piePotentialReach');
-    Route::post('charts/pie-reach', 'ChartController@pieReach');
-    Route::post('charts/pie-view', 'ChartController@pieView');
-    Route::post('charts/pie-rating', 'ChartController@pieRating');
-    Route::post('charts/pie-love', 'ChartController@pieLove');
-
-    Route::post('charts/bar-interaction-rate', 'ChartController@barInteractionRate');
-    Route::post('charts/bar-media-share', 'ChartController@barMediaShare');
-    Route::post('charts/bar-topic-distribution', 'ChartController@barTopicDistribution');
-
-    Route::post('charts/ontologi', 'ChartController@ontologi');
-    Route::post('charts/wordcloud', 'ChartController@wordcloud');
-    Route::post('charts/influencer', 'ChartController@influencer');
-    Route::post('charts/convo', 'ChartController@convo');
-    Route::any('charts/paging-convo', 'ChartController@pagingConvo');
-    Route::post('change-sentiment', 'ChartController@changeSentiment');
-    Route::any('charts/download-convo', 'ChartController@downloadConvo');
 
     Route::get('ticket', 'TicketController@index');
     Route::get('view-ticket', 'TicketController@ticketList');
@@ -142,6 +100,50 @@ Route::group(['middleware' => ['auth', 'role']], function () {
     Route::get('/engagement-accounts', 'EngagementController@accounts');
     Route::post('/engagement/account-login/{idMedia}', 'EngagementController@login');
     Route::post('/engagement/account-logout/{idMedia}', 'EngagementController@logout');
+});
+
+Route::group(['middleware' => ['auth','role']], function() {
+    // Charts
+    Route::post('charts/brand-equity', 'ChartController@brandEquity');
+    Route::post('charts/bar-sentiment', 'ChartController@barSentiment');
+
+    Route::post('charts/trend-sentiment', 'ChartController@trendSentiment');
+    Route::post('charts/trend-post', 'ChartController@trendPost');
+    Route::post('charts/trend-buzz', 'ChartController@trendBuzz');
+    Route::post('charts/trend-reach', 'ChartController@trendReach');
+    Route::post('charts/trend-interaction', 'ChartController@trendInteraction');
+    Route::post('charts/trend-user', 'ChartController@trendUser');
+    Route::post('charts/trend-comment', 'ChartController@trendComment');
+    Route::post('charts/trend-view', 'ChartController@trendView');
+    Route::post('charts/trend-potential-reach', 'ChartController@trendPotentialReach');
+    Route::post('charts/trend-love', 'ChartController@trendLove');
+    Route::post('charts/trend-fans', 'ChartController@trendFans');
+
+    Route::post('charts/pie-post', 'ChartController@piePost');
+    Route::post('charts/pie-buzz', 'ChartController@pieBuzz');
+    Route::post('charts/pie-interaction', 'ChartController@pieInteraction');
+    Route::post('charts/pie-unique-user', 'ChartController@pieUniqueUser');
+    Route::post('charts/pie-comment', 'ChartController@pieComment');
+    Route::post('charts/pie-like', 'ChartController@pieLike');
+    Route::post('charts/pie-share', 'ChartController@pieShare');
+    Route::post('charts/pie-viral-reach', 'ChartController@pieViralReach');
+    Route::post('charts/pie-potential-reach', 'ChartController@piePotentialReach');
+    Route::post('charts/pie-reach', 'ChartController@pieReach');
+    Route::post('charts/pie-view', 'ChartController@pieView');
+    Route::post('charts/pie-rating', 'ChartController@pieRating');
+    Route::post('charts/pie-love', 'ChartController@pieLove');
+
+    Route::post('charts/bar-interaction-rate', 'ChartController@barInteractionRate');
+    Route::post('charts/bar-media-share', 'ChartController@barMediaShare');
+    Route::post('charts/bar-topic-distribution', 'ChartController@barTopicDistribution');
+
+    Route::post('charts/ontologi', 'ChartController@ontologi');
+    Route::post('charts/wordcloud', 'ChartController@wordcloud');
+    Route::post('charts/influencer', 'ChartController@influencer');
+    Route::post('charts/convo', 'ChartController@convo');
+    Route::any('charts/paging-convo', 'ChartController@pagingConvo');
+    Route::post('change-sentiment', 'ChartController@changeSentiment');
+    Route::any('charts/download-convo', 'ChartController@downloadConvo');
 });
 
 Route::get('/project-edit', 'FrontendController@projectEdit');

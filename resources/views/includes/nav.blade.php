@@ -28,18 +28,18 @@
                             <li><a href="{!! url('/socmed-accounts') !!}"><i class="fa fa-user-plus fa-fw"></i> Manage Accounts</a></li>
                             <li class="uk-nav-divider"></li>
                             @endif
-                            {{-- @if(count($socmed->facebook) > 0) --}}
+                            @if(count($g_accounts->facebook) > 0)
                             <li><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
-                            {{-- @endif --}}
-                            {{-- @if(count($socmed->twitter) > 0) --}}
+                            @endif
+                            @if(count($g_accounts->twitter) > 0)
                             <li><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
-                            {{-- @endif --}}
-                            {{-- @if(count($socmed->youtube) > 0) --}}
+                            @endif
+                            @if(count($g_accounts->youtube) > 0)
                             <li><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
-                            {{-- @endif --}}
-                            {{-- @if(count($socmed->instagram) > 0) --}}
+                            @endif
+                            @if(count($g_accounts->instagram) > 0)
                             <li><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
-                            {{-- @endif --}}
+                            @endif
                         </ul>
                     </div>
                 </li>
