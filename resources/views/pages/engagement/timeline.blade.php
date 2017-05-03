@@ -4,7 +4,7 @@
     <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
 @endsection
 @section('page-level-nav')
-    @include('includes.subnav-engagement-timeline')
+    @include('includes.subnav-engagement')
 @endsection
 @section('content')
 

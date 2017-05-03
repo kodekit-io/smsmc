@@ -6354,7 +6354,7 @@ DayGrid.mixin({
 		tooltipText = htmlEscape(event.title);
 		return '<a title="'+tooltipText+'" uk-tooltip class="color-text-'+ htmlEscape(event.channel) +' ' + classes.join(' ') + '"' +
 				(event.url ?
-					' href="'+ baseUrl +'/engagement-post?' + htmlEscape(event.url) + '"' :
+					' href="'+ baseUrl +'/engagement/detail/' + htmlEscape(event.url) + '"' :
 					''
 					) +
 				(skinCss ?
@@ -7735,7 +7735,7 @@ TimeGrid.mixin({
 
 		return '<a class="color-text-' + classes.join(' ') + '"' +
 			(event.url ?
-				' href="'+ baseUrl +'/engagement-post?' + htmlEscape(event.url) + '"' :
+				' href="'+ baseUrl +'/engagement/detail/' + htmlEscape(event.url) + '"' :
 				''
 				) +
 			(skinCss ?

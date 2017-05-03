@@ -37,7 +37,7 @@
                 </li>
                 @if (is_authorized_to('engagementRead') || is_authorized_to('engagementPost') || is_authorized_to('engagementCreate') || is_authorized_to('engagementUpdate') || is_authorized_to('engagementDelete'))
                 <li>
-                    <a href="{!! url('ticket') !!}"><i class="material-icons md-18">mode_comment</i> Engagement</a>
+                    <a href="{!! url('/engagement/list') !!}"><i class="material-icons md-18">mode_comment</i> Engagement</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <?php //if (admin) { ?>
@@ -45,8 +45,9 @@
                             <li class="uk-nav-divider"></li>
                             <?php //} ?>
                             {{-- <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> Ticket</a></li> --}}
-                            <li><a href="{!! url('/engagement-calendar') !!}"><i class="fa fa-calendar fa-fw"></i> Calendar</a></li>
-                            <li><a href="{!! url('/engagement-timeline') !!}"><i class="fa fa-hashtag fa-fw"></i> Timeline</a></li>
+                            <li><a href="{!! url('/engagement/list') !!}"><i class="fa fa-file fa-fw"></i> All Engagement</a></li>
+                            <li><a href="{!! url('/engagement/calendar') !!}"><i class="fa fa-calendar fa-fw"></i> Calendar</a></li>
+                            <li><a href="{!! url('/engagement/timeline') !!}"><i class="fa fa-hashtag fa-fw"></i> Timeline</a></li>
                         </ul>
                     </div>
                 </li>

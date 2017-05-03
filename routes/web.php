@@ -149,8 +149,12 @@ Route::get('/socmed-yt', 'FrontendController@socmedYT');
 Route::get('/socmed-ig', 'FrontendController@socmedIG');
 
 Route::get('/engagement-accounts', 'FrontendController@engagementAccounts');
-Route::get('/engagement-calendar', 'FrontendController@engagementCalendar');
-Route::get('/engagement-timeline', 'FrontendController@engagementTimeline');
+Route::get('/engagement/calendar', 'FrontendController@engagementCalendar');
+Route::get('/engagement/timeline', 'FrontendController@engagementTimeline');
+Route::get('/engagement/add', 'FrontendController@engagementAdd');
+Route::get('/engagement/reply', 'FrontendController@engagementReply');
+Route::get('/engagement/detail/{id}', 'FrontendController@engagementDetail');
+Route::get('/engagement/list', 'FrontendController@engagementList');
 
 Route::get('/report-view', 'FrontendController@reportView');
 Route::get('/report-add', 'FrontendController@reportAdd');

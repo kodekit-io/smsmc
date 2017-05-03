@@ -2,7 +2,7 @@ function calendar(div) {
     var now = new Date();
 
     $.ajax({
-        url: 'json/calendar.json',
+        url: baseUrl+'/json/calendar.json',
         //dataType: 'jsonp',
         success: function(result){
             var data = result.data;
