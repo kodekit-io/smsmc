@@ -33,11 +33,11 @@
                             <h4 class="white-text sm-title-cover">{!! $project->pname !!}</h4>
                         </div>
                         <div class="uk-card-body">
-                            <div uk-grid class="uk-grid-collapse">
-                                <div class="uk-width-2-5">Date Create : </div>
-                                <div class="uk-width-3-5"><span class="pdate"></span></div>
-                                <div class="uk-width-2-5">Project Group : </div>
-                                <div class="uk-width-3-5">{!! $project->pgroup !!}</div>
+                            <div uk-grid class="uk-grid-collapse uk-text-small">
+                                <div class="uk-width-2-5">Date Create</div>
+                                <div class="uk-width-3-5 sm-text-bold"><span class="pdate"></span></div>
+                                <div class="uk-width-2-5">Project Group</div>
+                                <div class="uk-width-3-5 sm-text-bold">{!! $project->pgroup !!}</div>
                             </div>
                         </div>
                         <div class="uk-card-footer uk-clearfix">
@@ -90,10 +90,10 @@
     <script>
         $(document).ready(function() {
             @foreach($projects as $project)
-                // var pid = '{!! $project->pid !!}';
+                var pid = '{!! $project->pid !!}';
                 var pdate = moment.parseZone('{!! $project->pdate !!}').format('lll');
                 // imgCover(pid);
-                // $('#'+pid).find('.pdate').text(pdate);
+                $('#'+pid).find('.pdate').text(pdate);
             @endforeach
         });
     </script>

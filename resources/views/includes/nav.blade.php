@@ -21,30 +21,37 @@
                     </div>
                 </li>
                 <li>
-                    <a href="{!! url('socmed/facebook') !!}"><i class="material-icons md-18">donut_large</i> Social Media</a>
+                    <a><i class="material-icons md-18">donut_large</i> Social Media</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <?php //if (admin) { ?>
+                            @if (is_authorized_to('projectCreate'))
                             <li><a href="{!! url('/socmed-accounts') !!}"><i class="fa fa-user-plus fa-fw"></i> Manage Accounts</a></li>
                             <li class="uk-nav-divider"></li>
-                            <?php //} ?>
+                            @endif
+                            {{-- @if(count($socmed->facebook) > 0) --}}
                             <li><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
+                            {{-- @endif --}}
+                            {{-- @if(count($socmed->twitter) > 0) --}}
                             <li><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+                            {{-- @endif --}}
+                            {{-- @if(count($socmed->youtube) > 0) --}}
                             <li><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
+                            {{-- @endif --}}
+                            {{-- @if(count($socmed->instagram) > 0) --}}
                             <li><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
+                            {{-- @endif --}}
                         </ul>
                     </div>
                 </li>
-                @if (is_authorized_to('engagementRead') || is_authorized_to('engagementPost') || is_authorized_to('engagementCreate') || is_authorized_to('engagementUpdate') || is_authorized_to('engagementDelete'))
+                @if (is_authorized_to('engagementRead'))
                 <li>
                     <a href="{!! url('/engagement/list') !!}"><i class="material-icons md-18">mode_comment</i> Engagement</a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <?php //if (admin) { ?>
+                            @if (is_authorized_to('engagementCreate'))
                             <li><a href="{!! url('/engagement-accounts') !!}"><i class="fa fa-cog fa-fw"></i> Manage Accounts</a></li>
                             <li class="uk-nav-divider"></li>
-                            <?php //} ?>
-                            {{-- <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> Ticket</a></li> --}}
+                            @endif
                             <li><a href="{!! url('/engagement/list') !!}"><i class="fa fa-file fa-fw"></i> All Engagement</a></li>
                             <li><a href="{!! url('/engagement/calendar') !!}"><i class="fa fa-calendar fa-fw"></i> Calendar</a></li>
                             <li><a href="{!! url('/engagement/timeline') !!}"><i class="fa fa-hashtag fa-fw"></i> Timeline</a></li>
@@ -52,7 +59,7 @@
                     </div>
                 </li>
                 @endif
-                <?php //if (admin) { ?>
+                @if (is_authorized_to('projectCreate'))
                 <li>
                     <a href="{!! url('report') !!}"><i class="material-icons md-18">assignment</i> Report</a>
                     <div uk-dropdown="offset: 0">
@@ -62,7 +69,7 @@
                         </ul>
                     </div>
                 </li>
-                <?php //} ?>
+                @endif
                 <li>
                     <a href="{!! url('setting/account') !!}" class="sm-nav-round" title="Account" uk-tooltip="pos:left">
                         <span class="fa fa-user"></span>

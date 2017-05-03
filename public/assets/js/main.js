@@ -43,7 +43,7 @@
                 var data = result.projectList;
 
                 if (data.length === 0) {
-                    $('#'+dom).append('<div class="uk-position-center uk-text-center">No Data!</div>');
+                    $('#'+dom).append('<div class="uk-position-center uk-text-center">You don\'t have any project yet.<br>Please contact your administrator.</div>');
                 } else {
                     for (var i = 0; i < data.length; i++) {
                         pid = data[i].pid;
