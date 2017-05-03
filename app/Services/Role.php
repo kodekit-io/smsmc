@@ -108,7 +108,7 @@ class Role
             'engagementCreate' => 'Create Engagement',
             'engagementUpdate' => 'Update Engagement',
             'engagementRead' => 'View Engagement',
-            'enggagmentDelete' => 'Delete Engagement',
+            'engagementDelete' => 'Delete Engagement',
             'registerCreate' => 'Create Social Media Account',
             'registerUpdate' => 'Update Social Media Account',
             'registerRead' => 'View Social Media Account',
