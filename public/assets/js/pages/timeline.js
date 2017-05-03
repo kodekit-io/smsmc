@@ -61,6 +61,7 @@ function timeline(div,type) {
                                 vid = '<video class="video-js sm-timeline-vid" controls preload="auto" data-setup=\'{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "'+postVid+'"}] }\' ></video>';
                             }
                             var postUrl = data['postUrl'];
+                            var replyUrl = baseUrl+'/engagement-post';
                             var timeline =  '<div class="uk-grid-small" uk-grid>'
                                                 + '<div class="uk-width-auto">'
                                                     + '<a href="'+userUrl+'" target="_blank" title="'+userName+'"><img class="uk-border-rounded" src="'+userImg+'" width="32" height="32" alt="'+userName+'"></a>'
@@ -73,7 +74,7 @@ function timeline(div,type) {
                                                     + '<div title="'+postText+'" uk-tooltip>' +postTrim+ '</div>'
                                                     + '<ul class="uk-iconnav">'
                                                         + '<li><a href="'+postUrl+'" class="fa fa-link" target="_blank" title="Open link" uk-tooltip></a></li>'
-                                                        + '<li><a href="" class="fa fa-comment" title="Reply" uk-tooltip></a></li>'
+                                                        + '<li><a href="'+replyUrl+'" class="fa fa-comment" title="Reply" uk-tooltip></a></li>'
                                                     + '</div>'
                                                 + '</div>'
                                             + '</div>';
