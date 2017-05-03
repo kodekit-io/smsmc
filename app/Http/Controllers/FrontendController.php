@@ -35,13 +35,33 @@ class FrontEndController extends Controller
 
     public function engagementCalendar()
     {
-        $data['pageTitle'] = 'Scheduled Calendar';
-        return view('pages.engagement-calendar', $data);
+        $data['pageTitle'] = 'Scheduled Posts';
+        return view('pages.engagement.calendar', $data);
     }
     public function engagementTimeline()
     {
         $data['pageTitle'] = 'Timeline';
-        return view('pages.engagement-timeline', $data);
+        return view('pages.engagement.timeline', $data);
+    }
+    public function engagementAdd()
+    {
+        $data['pageTitle'] = 'New Engagement';
+        return view('pages.engagement.add', $data);
+    }
+    public function engagementReply()
+    {
+        $data['pageTitle'] = 'Reply Engagement';
+        return view('pages.engagement.reply', $data);
+    }
+    public function engagementDetail()
+    {
+        $data['pageTitle'] = 'Engagement Detail';
+        return view('pages.engagement.detail', $data);
+    }
+    public function engagementList()
+    {
+        $data['pageTitle'] = 'All Engagement';
+        return view('pages.engagement.list', $data);
     }
 
     public function admin()

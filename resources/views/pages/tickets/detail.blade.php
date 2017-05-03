@@ -186,34 +186,5 @@
 
 @section('page-level-scripts')
     {{--<script src="{!! asset('assets/js/pages/ticket-details.js') !!}"></script>--}}
-    <script>
-    $(document).ready(function() {
-        var dt = new Date();
-        $('#schedule').datetimepicker({
-            'format': 'd-m-y H:i',
-            'minDate': 0,
-            'minDateTime': dt,
-            'closeOnDateSelect' : true,
-            'validateOnBlur' : true,
-        });
-        $('#schedule').blur(function () {
-            if ($(this).val()) {
-                $('#postsave').removeClass('uk-hidden');
-                $('#postnowsocmed').addClass('uk-hidden');
-                $('#clear').removeClass('uk-hidden');
-            } else {
-                $('#postnowsocmed').removeClass('uk-hidden');
-                $('#postsave').addClass('uk-hidden');
-                $('#clear').addClass('uk-hidden');
-            }
-        });
-        $('#clear').click(function(){
-            $(this).addClass('uk-hidden');
-            $('#schedule').val('');
-            $('#postnowsocmed').removeClass('uk-hidden');
-            $('#postsave').addClass('uk-hidden');
-        });
-    });
-    </script>
 
 @endsection

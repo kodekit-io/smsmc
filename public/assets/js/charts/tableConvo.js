@@ -2,33 +2,38 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
     var idMedia = chartApiData.idMedia;
     if (idMediaParam != '') {
         idMedia = idMediaParam;
-        chartApiData.idMedia = idMedia;
+        var apiData = {
+            'idMediaInAll': idMediaParam
+        };
+        $.extend( apiData, chartApiData );
+    } else {
+        apiData = chartApiData;
     }
 
     switch (idMedia) {
         case 1:
-            var theTable = tableFacebook(chartId, url, chartApiData, idMedia);
+            var theTable = tableFacebook(chartId, url, apiData, idMedia);
             break;
         case 2:
-            var theTable = tableTwitter(chartId, url, chartApiData, idMedia);
+            var theTable = tableTwitter(chartId, url, apiData, idMedia);
             break;
         case 3:
-            var theTable = tableBlog(chartId, url, chartApiData, idMedia);
+            var theTable = tableBlog(chartId, url, apiData, idMedia);
             break;
         case 4:
-            var theTable = tableNews(chartId, url, chartApiData, idMedia);
+            var theTable = tableNews(chartId, url, apiData, idMedia);
             break;
         case 5:
-            var theTable = tableVideo(chartId, url, chartApiData, idMedia);
+            var theTable = tableVideo(chartId, url, apiData, idMedia);
             break;
         case 6:
-            var theTable = tableForum(chartId, url, chartApiData, idMedia);
+            var theTable = tableForum(chartId, url, apiData, idMedia);
             break;
         case 7:
-            var theTable = tableInstagram(chartId, url, chartApiData, idMedia);
+            var theTable = tableInstagram(chartId, url, apiData, idMedia);
             break;
         case 9:
-            var theTable = tableNews(chartId, url, chartApiData, idMedia);
+            var theTable = tableNews(chartId, url, apiData, idMedia);
             break;
     }
 
@@ -46,8 +51,9 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         e.preventDefault();
         $(this).blur();
         var postId = $(this).attr('data-id');
-        var postDate = $(this).attr('data-date');
+        var postDate = $(this).attr('data-post-date');
         var sentiment = $(this).attr('data-sentiment');
+        var idMedia = $(this).attr('data-id-media');
         var $ticketTypes = jQuery.parseJSON(chartApiData.ticketTypes);
         var $users = jQuery.parseJSON(chartApiData.users);
         var ticketType = '';
@@ -68,8 +74,8 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         var modal = '<form class="open-ticket uk-form-horizontal" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
             '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'"> ' +
+            '<input type="hidden" name="idMedia" value="'+ idMedia +'" >' +
             '<input type="hidden" name="postDate" value="'+ postDate +'"> ' +
-            '<input type="hidden" name="idMedia" value="'+ chartApiData.idMedia +'" >' +
             '<input type="hidden" name="sentiment" value="'+ sentiment +'" >' +
             '<input type="hidden" name="postId" value="'+ postId +'">' +
             '<div  class="uk-modal-body">' +

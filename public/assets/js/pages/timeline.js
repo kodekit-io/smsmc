@@ -1,5 +1,5 @@
 function timeline(div,type) {
-    var url = 'json/timeline-'+type+'.json'
+    var url = baseUrl+'/json/timeline-'+type+'.json'
     $.ajax({
         url: url,
         //dataType: 'jsonp',
@@ -61,7 +61,7 @@ function timeline(div,type) {
                                 vid = '<video class="video-js sm-timeline-vid" controls preload="auto" data-setup=\'{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "'+postVid+'"}] }\' ></video>';
                             }
                             var postUrl = data['postUrl'];
-                            var replyUrl = baseUrl+'/engagement-post';
+                            var replyUrl = baseUrl+'/engagement/reply';
                             var timeline =  '<div class="uk-grid-small" uk-grid>'
                                                 + '<div class="uk-width-auto">'
                                                     + '<a href="'+userUrl+'" target="_blank" title="'+userName+'"><img class="uk-border-rounded" src="'+userImg+'" width="32" height="32" alt="'+userName+'"></a>'

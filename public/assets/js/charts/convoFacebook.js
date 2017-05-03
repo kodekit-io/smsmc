@@ -1,5 +1,6 @@
 // Table convo Facebook
 function tableFacebook(chartId, url, chartApiData, idMedia) {
+    console.log(chartApiData);
 	var theTable = $('#' + chartId).DataTable({
 		processing: true,
         serverSide: true,
@@ -120,7 +121,7 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 					switch (cellData) {
 						case 'new':
 						case 'New':
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">' + cellData + '</span></a>';
+							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '" data-id-media="'+idMedia+'" data-post-date="'+data['Date']+'" data-sentiment="'+data['Sentiment']+'"><span class="nothover">' + cellData + '</span></a>';
 							break;
 						case 'closed':
 						case 'Closed':

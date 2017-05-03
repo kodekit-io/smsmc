@@ -43,6 +43,7 @@ class Ticket
         $types = $request->has('types') ? count($request->input('types')) > 0 ? implode(',', $request->input('types')) : '' : '';
         $from = \Auth::user()->id;
         $idMedia = $request->has('idMedia') ? $request->input('idMedia') : '';
+        $postId = $request->has('postId') ? $request->input('postId') : '';
         $to = $request->has('to') ? count($request->input('to')) > 0 ? implode(',', $request->input('to')) : '' : '';
         // $to = 561;
         // $toCc = $request->has('to_cc') ? count($request->input('to_cc')) > 0 ? implode(',', $request->input('to_cc')) : '' : '';
@@ -52,7 +53,7 @@ class Ticket
         $params = [
             'uid' => $to,
             'text' => $message,
-            'postId' => '',
+            'postId' => $postId,
             'tipeId' => $types,
             'from' => $from,
             'send' => $to,
@@ -61,13 +62,11 @@ class Ticket
             'sentiment' => $sentiment
         ];
 
-        if (isset($data['postId'])) {
-            $params['postId'] = $data['postId'];
+        if ($request->has('projectId')) {
+            $params['pid'] = $request->input('projectId');
         }
 
-        if (isset($data['projectId'])) {
-            $params['pid'] = $data['projectId'];
-        }
+        // Log::warning("Ticket from datatable params => " . \GuzzleHttp\json_encode($params));
 
         $response = $this->smsmc->post('ticket/send', $params);
         if ($response->status == '200') {

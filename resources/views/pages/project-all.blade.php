@@ -119,8 +119,6 @@
     <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoFacebook.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoFacebook.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoNews.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoBlog.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/convoForum.js') !!}"></script>

@@ -230,10 +230,12 @@ class ChartController extends Controller
             'positive' => '1'
         ];
 
-        $idMedia = $request->input('idMedia');
+        $idMedia = $request->has('idMediaInAll') ? $request->input('idMediaInAll') : $request->input('idMedia');
         $reportType = $request->input('reportType');
         $draw = $request->input('draw');
         $length = $request->input('length');
+        $start = $request->input('start');
+        $page = $start/$length;
 
         // sentiment filter
         if (isset($request->input('columns')[9]['search']['value'])) {
@@ -261,8 +263,13 @@ class ChartController extends Controller
         $params['EndDate'] = $request->endDate;
         $params['brandID'] = $request->keywords;
         $params['row'] = $length;
+        $params['page'] = $page;
 
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
+
+//        Log::warning('convo paging params ==> ' . \GuzzleHttp\json_encode($request->all()));
+//        Log::warning("convo paging url ==> " . $convoUrl);
+//        Log::warning("convo paging param ==> " . \GuzzleHttp\json_encode($params));
 
         $data = $this->smsmc->post($convoUrl, $params);
         $dtResult = new DatatableResult();

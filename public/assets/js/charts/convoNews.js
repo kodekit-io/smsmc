@@ -109,7 +109,7 @@ function tableNews(chartId, url, chartApiData, idMedia) {
 					var btn = '';
 					switch (cellData) {
 						case 'new':
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '"><span class="nothover">' + cellData + '</span></a>';
+							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '" data-id-media="'+idMedia+'" data-post-date="'+data['Date']+'" data-sentiment="'+data['Sentiment']+'"><span class="nothover">' + cellData + '</span></a>';
 							break;
 						case 'closed':
 							btn = '<span class="black-text" title="Responded and closed" uk-tooltip>' + cellData + '</span>';

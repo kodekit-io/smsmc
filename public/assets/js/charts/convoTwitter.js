@@ -119,13 +119,11 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 				"data": function(data) {
 					var cellData = data['status'];
 					var id = data['id'];
-					var postDate = data['Date'];
-					var sentiment = data['sentiment'];
 					var btn = '';
                     switch (cellData) {
 						case 'new':
 						case 'New':
-							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '" data-date="' + postDate + '" data-sentiment="' + sentiment + '"><span class="nothover">' + cellData + '</span></a>';
+							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '" data-id-media="'+idMedia+'" data-post-date="'+data['Date']+'" data-sentiment="'+data['Sentiment']+'"><span class="nothover">' + cellData + '</span></a>';
 							break;
 						case 'closed':
 						case 'Closed':

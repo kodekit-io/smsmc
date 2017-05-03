@@ -2,11 +2,15 @@
     <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
             {{-- <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> Ticket</a></li> --}}
-            <li><a href="{!! url('/') !!}/engagement-calendar"><i class="fa fa-calendar fa-fw"></i> Calendar</a></li>
-            <li><a href="{!! url('/') !!}/engagement-timeline"><i class="fa fa-hashtag fa-fw"></i> Timeline</a></li>
+            <li><a href="{!! url('/engagement-list') !!}"><i class="fa fa-file fa-fw"></i> All Engagement</a></li>
+            <li><a href="{!! url('/engagement-calendar') !!}"><i class="fa fa-calendar fa-fw"></i> Calendar</a></li>
+            <li><a href="{!! url('/engagement/timeline') !!}"><i class="fa fa-hashtag fa-fw"></i> Timeline</a></li>
         </ul>
     </div>
     <div class="uk-navbar-right">
+        <a href="{!! url('/engagement-add') !!}" class="uk-navbar-item uk-button grey darken-3 white-text">NEW ENGAGEMENT</a>
+    </div>
+    {{-- <div class="uk-navbar-right">
         <a class="uk-navbar-item uk-button grey darken-3 white-text">FILTER <span uk-icon="icon: chevron-down" class="uk-margin-small-left"></span></a>
         <div uk-dropdown="mode: click; offset: 0;" class="uk-width-1-1 dropdown-stack">
             <div class="uk-grid-small" uk-grid>
@@ -32,5 +36,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </nav>
