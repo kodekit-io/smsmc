@@ -76,7 +76,7 @@
                                         <div class="uk-margin">{!! $ticket->post->post !!}</div>
                                         <div class="uk-flex uk-flex-middle">
                                             <a href="{!! $ticket->post->url !!}" class="uk-button uk-button-small uk-text-capitalize green white-text uk-margin-small-right" target="_blank">See original post</a>
-                                            <a href="{!! url('/engagement-post') !!}" class="uk-button uk-button-small uk-text-capitalize blue white-text">Respond to this post</a>
+                                            <a href="{!! url('/engagement/reply') !!}" class="uk-button uk-button-small uk-text-capitalize blue white-text">Respond to this post</a>
                                         </div>
                                     </td>
                                 </tr>
