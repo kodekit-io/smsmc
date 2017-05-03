@@ -20,18 +20,18 @@
                 <div uk-grid>
                     <div class="uk-width-1-2">
                         <h6 class="uk-margin-small-bottom uk-text-uppercase">Ticket Details</h6>
-                        <table class="">
+                        <table class="uk-width-1-1">
                             <tbody>
                                 <tr>
-                                    <td width="25%">Create Date</td>
+                                    <td width="25%" class="uk-text-bold">Create Date</td>
                                     <td>{{ Carbon\Carbon::parse($ticket->date)->toDayDateTimeString() }}</td>
                                 </tr>
                                 <tr>
-                                    <td>From</td>
+                                    <td class="uk-text-bold">From</td>
                                     <td>{!! $ticket->fromName !!} ({!! $ticket->fromGroup !!})</td>
                                 </tr>
                                 <tr>
-                                    <td>To</td>
+                                    <td class="uk-text-bold">To</td>
                                     <td>{!! $ticket->sendName !!} ({!! $ticket->sendGroup !!})</td>
                                 </tr>
                                 {{-- <tr>
@@ -39,11 +39,11 @@
                                     <td>-</td>
                                 </tr> --}}
                                 <tr>
-                                    <td>Type</td>
+                                    <td class="uk-text-bold">Type</td>
                                     <td>{!! $ticket->type !!}</td>
                                 </tr>
                                 <tr>
-									<td>Message</td>
+									<td class="uk-text-bold">Message</td>
                                     <td>{!! $ticket->content !!}</td>
                                 </tr>
                             </tbody>
@@ -52,28 +52,32 @@
                     <div class="uk-width-1-2">
                         @if(count((array)$ticket->post) > 0)
                         <h6 class="uk-margin-small-bottom uk-text-uppercase">Related Post</h6>
-                        <table class="">
+                        <table class="uk-width-1-1">
                             <tbody>
                                 <tr>
-                                    <td width="25%">Channel</td>
+                                    <td width="25%" class="uk-text-bold">Channel</td>
                                     <td><span class="media-{!! $ticket->media !!}"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>Author</td>
+                                    <td class="uk-text-bold">Author</td>
                                     <td>{!! $ticket->post->author !!}</td>
                                 </tr>
                                 <tr>
-                                    <td>Post Date</td>
-                                    <td>{{ Carbon\Carbon::parse($ticket->post->date)->toDayDateTimeString() }}</td>
+                                    <td class="uk-text-bold">Post Date</td>
+                                    <td>{!! Carbon\Carbon::parse($ticket->post->date)->toDayDateTimeString() !!}</td>
                                 </tr>
                                 <tr>
-                                    <td>Sentiment</td>
+                                    <td class="uk-text-bold">Sentiment</td>
                                     <td>{!! $ticket->post->sentiment !!}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <p>Post Details:</p>
-                                        <div>{!! $ticket->post->post !!}</div>
+                                        <p class="uk-text-bold">Post Details</p>
+                                        <div class="uk-margin">{!! $ticket->post->post !!}</div>
+                                        <div class="uk-flex uk-flex-middle">
+                                            <a href="{!! $ticket->post->url !!}" class="uk-button uk-button-small uk-text-capitalize green white-text uk-margin-small-right" target="_blank">See original post</a>
+                                            <a href="{!! url('/engagement-post') !!}" class="uk-button uk-button-small uk-text-capitalize blue white-text">Respond to this post</a>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -85,7 +89,6 @@
         </div>
 
         {{--Thread--}}
-
         <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-card-body uk-margin">
             @if(count($threads) > 0)
                 {{-- <h5 class="uk-card-title">Ticket Thread</h5> --}}

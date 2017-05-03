@@ -14,7 +14,6 @@
             <div id="02"></div>
             <div id="03"></div>
             <div id="04"></div>
-
         </div>
     </section>
 
@@ -34,6 +33,5 @@
         timeline('03','youtube');
         timeline('04','instagram');
     });
-
     </script>
 @endsection
