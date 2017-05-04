@@ -23,7 +23,7 @@ class Project
         $this->smsmc = $smsmc;
     }
 
-    public function projectList($page = 0, $row = 4, $totalPage = 0)
+    public function projectList($page = 0, $row = 4, $totalPage = 0, $pgroup = 0, $text = '')
     {
         $params['uid'] =Auth::user()->id;
         if ($page != 0) {
@@ -34,6 +34,12 @@ class Project
         }
         if ($totalPage != 0) {
             $params['totalPage'] = $totalPage;
+        }
+        if ($pgroup != 0) {
+            $params['pgroup'] = $pgroup;
+        }
+        if ($text != '') {
+            $params['text'] = $text;
         }
         // Log::warning(\GuzzleHttp\json_encode($params));
         $projectList = $this->smsmc->post('project/list', $params);
@@ -316,10 +322,12 @@ class Project
 
     public function getPaginatedProjects($request, $path)
     {
+        $pgroup = $request->has('pgroup') ? $request->get('pgroup') : 0;
+        $text = $request->has('text') ? $request->get('text') : '';
         $totalPage = $request->has('totalPage') ? $request->get('totalPage') : 0;
         $currentPage = LengthAwarePaginator::resolveCurrentPage() == 0 ? 0 : LengthAwarePaginator::resolveCurrentPage() - 1;
         $perPage = 8;
-        $projectResponse = $this->projectList($currentPage, $perPage, $totalPage);
+        $projectResponse = $this->projectList($currentPage, $perPage, $totalPage, $pgroup, $text);
         $projects = $projectResponse->projectList;
         $totalRow = $projectResponse->totalProject;
         $collection = new Collection($projects);

@@ -21,7 +21,7 @@ Route::post('/logout', 'ApiAuthController@logout');
 Route::get('/logout', 'ApiAuthController@logout');
 
 Route::group(['middleware' => ['auth','socmedAccount']], function () {
-    Route::get('home', 'DashboardController@dashboard');
+    Route::any('home', 'DashboardController@dashboard');
     Route::get('get-project-list', 'DashboardController@getProjectList');
     Route::get('get-brand-equity/{projectId}', 'DashboardController@getBrandEquity');
 });

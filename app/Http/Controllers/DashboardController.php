@@ -31,9 +31,22 @@ class DashboardController extends Controller
     public function dashboard(Request $request, User $user)
     {
         $data['pageTitle'] = 'Dashboard';
+        $queryString = '';
+        $text = '';
+        $pgroup = '0';
+        if ($request->has('text')) {
+            $text = $request->input('text');
+            $queryString .= '?text='.$text;
+        }
+        if ($request->has('pgroup')) {
+            $pgroup = $request->input('pgroup');
+            $queryString .= $queryString == '' ? '?' : '&';
+            $queryString .= 'pgroup='.$pgroup;
+        }
 
         // projects
-        $paginatedSearchResults = $this->projectService->getPaginatedProjects($request, 'home');
+        $path = 'home' . $queryString;
+        $paginatedSearchResults = $this->projectService->getPaginatedProjects($request, $path);
 
         // groups
         $pilarResponse = $this->projectService->getPilars();
@@ -41,6 +54,8 @@ class DashboardController extends Controller
 
         $data['groups'] = $pilars;
         $data['projects'] = $paginatedSearchResults;
+        $data['pgroup'] = $pgroup;
+        $data['text'] = $text;
         return view('pages.home', $data);
     }
 

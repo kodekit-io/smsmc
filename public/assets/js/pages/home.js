@@ -34,7 +34,19 @@
         });
     });
 
+    $('#searchtext').keypress(function(event ) {
+        if ( event.which == 13 ) {
+            $('#searchform').submit();
+        }
+    });
+
 }(window.jQuery, window, document));
+
+function submitThisForm(cb) {
+    if(cb.checked) {
+        $('#searchform').submit();
+    }
+}
 
 // function imgCover(pid) {
 //     var url = baseUrl+"/images/"+pid+".jpg";
