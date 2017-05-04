@@ -35,11 +35,11 @@
                                 <div class="uk-form-controls">
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                        <input type="text" class="reportTime uk-input uk-width-small" name="startDate">
+                                        <input type="text" class="reportTime uk-input uk-width-small" name="startDate" id="startDate">
                                     </div>
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                        <input type="text" class="reportTime uk-input uk-width-small" name="endDate">
+                                        <input type="text" class="reportTime uk-input uk-width-small" name="endDate" id="endDate">
                                     </div>
                                 </div>
                             </div>

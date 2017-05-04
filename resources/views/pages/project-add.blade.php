@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" for="project_image">Cover Image</label>
+                                    <label class="uk-form-label" for="project_image">Cover Image <span class="uk-text-small">(allowed: JPG or PNG, < 1MB)</span></label>
                                     <div class="uk-form-controls">
                                         <input type="file" id="project_image" name="project_image" />
                                     </div>
@@ -57,7 +57,7 @@
                             </div>
                             <div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" for="objective">Project Objective</label>
+                                    <label class="uk-form-label" for="objective">Project Description</label>
                                     <div class="uk-form-controls">
                                         <textarea class="uk-textarea" rows="5" placeholder="Your objective about this project" style="height:122px;"  id="field_objective" name="field_objective"></textarea>
                                     </div>
@@ -124,6 +124,7 @@
 @section('page-level-scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script src="{!! asset('assets/js/pages/project-add.js') !!}"></script>
 
     <script>

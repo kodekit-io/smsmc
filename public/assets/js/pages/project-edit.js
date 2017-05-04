@@ -5,12 +5,17 @@
                 field_title: {
                     required: true
                 },
+                project_image: {
+                    // accept: "image/*",
+                    extension: "png|jpe?g",
+                    filesize: 1024000
+                }
                 errorPlacement: function(error, element) {
                     if (element.attr('name') == 'field_title') {
                         $('#field_title').parent().append(error);
                     }
                 }
-            }
+            },
             // submitHandler: function(form) {
             //     // do other things for a valid form
             //     form.submit();
