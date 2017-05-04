@@ -58,6 +58,10 @@ class ProjectController extends Controller
     public function edit(Request $request, $id)
     {
         $projectInfo = $this->projectService->getProjectById($id);
+        $pilarResponse = $this->projectService->getPilars();
+        $userResponse = $this->userService->getUsers();
+        $data['pilars'] = $pilarResponse->group;
+        $data['users'] = $userResponse->user;
         $data['projectId'] = $id;
         $data['project'] = $projectInfo->project;
         $data['keywords'] = $projectInfo->projectInfo->keywordList;
@@ -70,7 +74,7 @@ class ProjectController extends Controller
 
     public function update(Request $request, $id)
     {
-        $response = $this->projectService->update($request->except(['_token']), $id);
+        $response = $this->projectService->update($request, $id);
         if ($response->status == '200') {
             return redirect('home');
         }

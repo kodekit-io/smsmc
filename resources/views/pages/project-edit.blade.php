@@ -6,7 +6,7 @@
 @section('content')
 
     <section class="sm-main sm-nosubnav uk-container uk-container-expand">
-        <form id="project_add" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl" uk-grid method="post" action="{!! url('project/' . $projectId . '/update') !!}">
+        <form id="project_add" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl" uk-grid method="post" action="{!! url('project/' . $projectId . '/update') !!}" enctype="multipart/form-data">
             {!! csrf_field() !!}
             <input type="hidden" name="keywords_number" value="{!! count($keywords) !!}">
             <input type="hidden" name="topics_number" value="{!! count($topics) !!}">
@@ -40,15 +40,21 @@
                                     <label class="uk-form-label" for="user_select">Project User</label>
                                     <div class="uk-form-controls">
                                         <select name="user_id" id="user_select" class="uk-input uk-width-1-1">
-                                            {{-- @foreach($users as $user)
-                                                <option value="{!! $user->idLogin !!}">{!! $user->name !!}</option>
-                                            @endforeach --}}
+                                            @foreach($users as $user)
+                                                <option value="{!! $user->idLogin !!}"
+                                                    @if($user->userName == $project->puser) selected @endif>
+                                                    {!! $user->name !!}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="uk-margin">
                                     <label class="uk-form-label" for="project_image">Cover Image</label>
                                     <div class="uk-form-controls">
+                                        @if(isset($project->pmage))
+                                            <img src="{!! $project->pmage !!}" />
+                                        @endif
                                         <input type="file" id="project_image" name="project_image" />
                                     </div>
                                 </div>

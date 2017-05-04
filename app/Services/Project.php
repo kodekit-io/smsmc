@@ -172,8 +172,9 @@ class Project
         return $response->result;
     }
 
-    public function update(array $inputs, $projectId)
+    public function update($request, $projectId)
     {
+        $inputs = $request->except(['_token']);
         $oriKeywordsNumber = $inputs['keywords_number'];
         $oriTopicsNumber = $inputs['topics_number'];
         $oriExcludesNumber = $inputs['excludes_number'];
@@ -186,8 +187,30 @@ class Project
         $topics = $inputs['field_adv_topic'];
         $excludes = $inputs['field_adv_noise'];
 
+        $userId = $inputs['user_id'];
+        $group = $inputs['field_group'];
+
+        $fileFieldName = 'project_image';
+        $fileUrl = '';
+
+        if ($request->hasFile($fileFieldName)) {
+            if ($request->file($fileFieldName)->isValid()) {
+                $fileName = str_slug($inputs['field_title']) . '.' . $request->file($fileFieldName)->getClientOriginalExtension();
+                $fileUrl = url('project-images/' . $fileName);
+                //Log::warning('file url image project ==> ' . $fileUrl);
+                $dirPath = public_path('project-images');
+                if (! is_dir($dirPath)) {
+                    mkdir($dirPath, 0777, true);
+                }
+                $request->file($fileFieldName)->move($dirPath, $fileName);
+            }
+        }
+
+        $params['uid'] = $userId;
         $params['pname'] = $inputs['field_title'];
         $params['pid'] = $projectId;
+        $params['pgroup'] = $group;
+        $params['project_image'] = $fileUrl;
 
         if ($oriKeywordsNumber >= $keywordNumber) {
             for ($x = 1; $x <= $oriKeywordsNumber; $x++) {
