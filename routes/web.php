@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::get('view-ticket', 'TicketController@ticketList');
     Route::get('ticket/add', 'TicketController@add');
     Route::post('ticket/create', 'TicketController@create');
-    Route::get('ticket/{ticketId}/detail', 'TicketController@detail');
+    Route::get('ticket/{ticketId}/detail/{isNotif?}', 'TicketController@detail');
     Route::post('ticket/{ticketId}/reply', 'TicketController@reply');
     Route::post('ticket/{ticketId}/change-status', 'TicketController@changeStatus');
     Route::post('convo/create-ticket', 'TicketController@createTicketFromConvo');
@@ -162,6 +162,7 @@ Route::group(['middleware' => ['auth','role']], function() {
 });
 
 Route::get('/delay/{time}/{next}', 'DashboardController@timerRedirect');
+Route::get('/get-notification', 'DashboardController@getNotification');
 
 
 

@@ -10,6 +10,35 @@
         <script type="text/javascript">
             var baseUrl = '{!! url('/') !!}';
             var token = '{!! csrf_token() !!}';
+
+            myVar = setInterval(alertFunc, 2500);
+            function alertFunc() {
+                $.ajax({
+                    url: baseUrl + '/get-notification'
+                }).done(function($res) {
+                    var $result = $.parseJSON($res);
+                    $('.notification-badge').append('<span class="uk-badge uk-badge-notification">'+$result.ticketNotification+'</span>');
+                    $('.notification-number').html($result.ticketNotification + ' New');
+                    $notifications = $result.detail;
+                    $('.notification-list').empty();
+                    for(i=0;i<$notifications.length;i++) {
+                        $('.notification-list').append('<li class="uk-grid-small" uk-grid> \
+                            <div class="uk-width-auto@s"> \
+                            <span class="fa fa-lg fa-exclamation-circle red-text"></span> \
+                            </div> \
+                            <div class="uk-width-expand@s"> \
+                            <span class="uk-article-meta"> \
+                            ' + $notifications[i].date + ' \
+                        </span><br> \
+                        <a href="' + baseUrl + '/ticket/' + $notifications[i].ticketId + '/detail"> \
+                            '+$notifications[i].message+' \
+                        <span class="fa fa-fw fa-arrow-right" title="See details" uk-tooltip></span> \
+                        </a> \
+                        </div> \
+                        </li>');
+                    }
+                });
+            }
         </script>
     @show
 

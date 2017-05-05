@@ -46,7 +46,7 @@ class TicketController extends Controller
         return \GuzzleHttp\json_encode($result);
     }
 
-    public function detail($ticketId)
+    public function detail($ticketId, $isNotif = 0)
     {
         $ticket = $this->ticket->getTicketById($ticketId);
         $data['ticket'] = $ticket->data->ticketDetail[0];
@@ -54,6 +54,10 @@ class TicketController extends Controller
         $data['threads'] = $ticket->data->threadDetail;
         $data['ticketId'] = $ticketId;
         $data['pageTitle'] = 'Ticket';
+
+        if ($isNotif) {
+            // set notif to read
+        }
 
         return view('pages.tickets.detail', $data);
     }

@@ -94,4 +94,17 @@ class DashboardController extends Controller
 
         return view('pages.timer-redirect', $data);
     }
+
+    public function getNotification()
+    {
+        $userId = \Auth::id();
+        $params = [
+            'uid' => $userId
+        ];
+        $response = $this->smsmc->post('ticket/notif', $params);
+        if ($response->status == 200) {
+            return \GuzzleHttp\json_encode($response->result);
+        }
+        return false;
+    }
 }
