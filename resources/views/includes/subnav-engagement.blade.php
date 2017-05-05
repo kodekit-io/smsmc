@@ -8,7 +8,7 @@
         </ul>
     </div>
     <div class="uk-navbar-right">
-        <a href="{!! url('/engagement/add') !!}" class="uk-navbar-item uk-button grey darken-3 white-text">NEW ENGAGEMENT</a>
+        <a href="{!! url('/engagement/add') !!}" class="uk-button uk-button-small uk-button-danger uk-margin-small-right red"><i class="fa fa-fw fa-pencil"></i> NEW ENGAGEMENT</a>
     </div>
     {{-- <div class="uk-navbar-right">
         <a class="uk-navbar-item uk-button grey darken-3 white-text">FILTER <span uk-icon="icon: chevron-down" class="uk-margin-small-left"></span></a>

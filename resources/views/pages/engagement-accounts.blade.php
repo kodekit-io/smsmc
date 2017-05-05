@@ -10,7 +10,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title color-text-facebook"><i class="fa fa-facebook fa-fw"></i> Facebook Login</h5>
+                        <h5 class="uk-card-title color-text-facebook"><i class="fa fa-facebook fa-fw"></i> Facebook Account</h5>
                     </div>
                     <div class="uk-card-body">
                         @if(! isset($socmedAttribute[1]))
@@ -42,7 +42,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title color-text-twitter"><i class="fa fa-twitter fa-fw"></i> Twitter Login</h5>
+                        <h5 class="uk-card-title color-text-twitter"><i class="fa fa-twitter fa-fw"></i> Twitter Account</h5>
                     </div>
                     <div class="uk-card-body">
                         @if(! isset($socmedAttribute[2]))
@@ -74,7 +74,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title color-text-youtube"><i class="fa fa-youtube fa-fw"></i> Youtube Login</h5>
+                        <h5 class="uk-card-title color-text-youtube"><i class="fa fa-youtube fa-fw"></i> Youtube Account</h5>
                     </div>
                     <div class="uk-card-body">
                         @if(! isset($socmedAttribute[5]))
@@ -106,7 +106,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
                     <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title color-text-instagram"><i class="fa fa-instagram fa-fw"></i> Instagram Login</h5>
+                        <h5 class="uk-card-title color-text-instagram"><i class="fa fa-instagram fa-fw"></i> Instagram Account</h5>
                     </div>
                     <div class="uk-card-body">
                         @if(! isset($socmedAttribute[7]))

@@ -89,7 +89,7 @@ function timeline(div,typeId) {
                             var postVid = data['postVid'];
                             var img = '';
                             if (postImg !=''){
-                                img = '<div class="sm-timeline-img uk-background-cover" style="background-image:url('+postImg+')"></div>';
+                                img = '<div class="uk-width-1-1 uk-height-small uk-background-cover" style="background-image:url('+postImg+')"></div>';
                             }
                             var vid = '';
                             if (postVid !='' && type == 'youtube'){
