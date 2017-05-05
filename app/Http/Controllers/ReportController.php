@@ -64,7 +64,7 @@ class ReportController extends Controller
     public function create(Request $request) {
         // dd($request->all());
         if ($this->report->store($request)) {
-            return redirect('report');
+            return redirect('/delay/5/reportlist');
         }
         return redirect('report/add')->withErrors(['error' => 'Error.']);
     }

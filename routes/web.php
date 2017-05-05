@@ -161,9 +161,11 @@ Route::group(['middleware' => ['auth','role']], function() {
     Route::any('charts/download-convo', 'ChartController@downloadConvo');
 });
 
+Route::get('/delay/{time}/{next}', 'DashboardController@timerRedirect');
 
 
-Route::get('tests/upload-file', 'TestController@uploadFile');
+
+// Route::get('tests/upload-file', 'TestController@uploadFile');
 // Route::get('/project-edit', 'FrontendController@projectEdit');
 //
 // Route::get('/socmed-fb', 'FrontendController@socmedFB');
