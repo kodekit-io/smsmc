@@ -93,6 +93,12 @@ class TestController extends Controller
         // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
 
+    public function uploadFile()
+    {
+        $response = $this->smsmc->postMultipart('http://103.16.199.58/sinarmas-plus/api/upload', [], false, false, true);
+        dd($response);
+    }
+
     //
 	// public function plist($page,$row)
 	// {

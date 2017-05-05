@@ -87,6 +87,39 @@ class Smsmc
 
     }
 
+    public function postSocmedFile($file, $idMedia)
+    {
+        $apiUrl = 'http://103.16.199.58/sinarmas-plus/api/upload';
+
+        $theparam = [
+            'multipart' => [
+                [
+                    'name'     => 'file',
+                    'contents' => fopen($file, 'r')
+                ],
+                [
+                    'name' => 'media_id',
+                    'contents' => $idMedia
+                ]
+            ]
+        ];
+
+        try {
+            $response = $this->client->post($apiUrl, $theparam);
+            $body = $response->getBody();
+            $code = $response->getStatusCode(); // 200
+            $reason = $response->getReasonPhrase(); // OK
+            if ($code == 200 && $reason == 'OK') {
+                $result = \GuzzleHttp\json_decode($body);
+                return new SimpleAPIResponse(200, $result->file);
+            }
+        } catch (\Exception $e) {
+            $parsedResponse = $this->proceedException($e, $apiUrl);
+        }
+
+        return $parsedResponse;
+    }
+
     private function parseResponse($response)
     {
         $body = $response->getBody();

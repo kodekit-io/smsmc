@@ -21,14 +21,11 @@
                             <label class="uk-form-label" for="post-to"><span uk-icon="icon: social"></span> Post to</label>
                             <div class="uk-form-controls">
                                 <select class="uk-select uk-width-medium" id="post-to" name="media_id">
-                                    <option>Facebook</option>
-                                    <option>Twitter</option>
-                                    <option>National News</option>
-                                    <option>International News</option>
-                                    <option>Blog</option>
-                                    <option>Forum</option>
-                                    <option>Youtube</option>
-                                    <option>Instagram</option>
+                                    @foreach($socmeds as $socmed => $name)
+                                        @if(isset($socmedAttributes[$socmed]))
+                                        <option value="{!! $socmed !!}">{!! $name !!}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                                 <p><em>* Note: News, Blog, Forum should be posted manually</em></p>
                             </div>

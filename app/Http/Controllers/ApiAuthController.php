@@ -71,6 +71,15 @@ class ApiAuthController extends Controller
 
         session(['userAttributes' => $attributes]);
 
+        $socmedAttribute = [];
+        if (Storage::exists('socmed.json')) {
+            $contents = Storage::get('socmed.json');
+        }
+        if ($contents) {
+            $socmedAttribute = \GuzzleHttp\json_decode($contents);
+        }
+        session(['socmedAttribute' => $socmedAttribute]);
+
         Auth::loginUsingId($apiLoginResult->result->user->userName);
 
         $this->saveApiAuthToken($token);

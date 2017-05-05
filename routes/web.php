@@ -103,7 +103,9 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
 
     Route::get('/engagement/calendar', 'FrontendController@engagementCalendar');
     Route::get('/engagement/timeline', 'FrontendController@engagementTimeline');
+    Route::get('/engagement/get-timeline/{idMedia}', 'EngagementController@getTimeline');
     Route::get('/engagement/add', 'EngagementController@add');
+    Route::post('/engagement/post', 'EngagementController@post');
     Route::get('/engagement/reply', 'FrontendController@engagementReply');
     Route::get('/engagement/detail/{id}', 'FrontendController@engagementDetail');
     Route::get('/engagement/list', 'FrontendController@engagementList');
@@ -161,6 +163,7 @@ Route::group(['middleware' => ['auth','role']], function() {
 
 
 
+Route::get('tests/upload-file', 'TestController@uploadFile');
 // Route::get('/project-edit', 'FrontendController@projectEdit');
 //
 // Route::get('/socmed-fb', 'FrontendController@socmedFB');

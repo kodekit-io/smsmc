@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service\Engagement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class EngagementController extends Controller
 {
@@ -49,8 +50,24 @@ class EngagementController extends Controller
 
     public function add()
     {
+        $socmedAttribute = session('socmedAttribute');
+        $data['socmeds'] = get_socmeds([4,9,3,6]);
+        $data['socmedAttributes'] = $socmedAttribute;
         $data['pageTitle'] = 'New Engagement';
         return view('pages.engagement.add', $data);
+    }
+
+    public function post(Request $request)
+    {
+        if ($this->engagement->post($request)) {
+            return redirect('engagement/list');
+        }
+        return redirect('engagement/add')->withInput()->withErrors(['error' => 'Error when save the data.']);
+    }
+
+    public function getTimeline($idMedia)
+    {
+        return \GuzzleHttp\json_encode($this->engagement->timeline($idMedia));
     }
 
     private function saveSocmedToken($result, $idMedia)
@@ -65,7 +82,9 @@ class EngagementController extends Controller
             'email' => $result->user->email,
             'userName' => $result->user->userName
         ];
+
         session(['socmedAttribute' => $socmedAttribute]);
+        Storage::put('socmed.json', \GuzzleHttp\json_encode($socmedAttribute));
     }
 
     private function removeSocmedToken($idMedia)
@@ -74,5 +93,6 @@ class EngagementController extends Controller
         array_pull($socmedAttribute, $idMedia);
         session()->forget('socmedAttribute');
         session(['socmedAttribute' => $socmedAttribute]);
+        Storage::put('socmed.json', \GuzzleHttp\json_encode($socmedAttribute));
     }
 }
