@@ -100,6 +100,19 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::get('/engagement-accounts', 'EngagementController@accounts');
     Route::post('/engagement/account-login/{idMedia}', 'EngagementController@login');
     Route::post('/engagement/account-logout/{idMedia}', 'EngagementController@logout');
+
+    Route::get('/engagement/calendar', 'FrontendController@engagementCalendar');
+    Route::get('/engagement/timeline', 'FrontendController@engagementTimeline');
+    Route::get('/engagement/add', 'EngagementController@add');
+    Route::get('/engagement/reply', 'FrontendController@engagementReply');
+    Route::get('/engagement/detail/{id}', 'FrontendController@engagementDetail');
+    Route::get('/engagement/list', 'FrontendController@engagementList');
+
+    Route::get('medialist', 'TestController@medialist');
+    Route::get('forumlist', 'TestController@forumlist');
+    Route::get('bloglist', 'TestController@bloglist');
+    Route::get('/page-help', 'FrontendController@pageHelp');
+    Route::get('/page-media', 'FrontendController@media');
 });
 
 Route::group(['middleware' => ['auth','role']], function() {
@@ -146,44 +159,24 @@ Route::group(['middleware' => ['auth','role']], function() {
     Route::any('charts/download-convo', 'ChartController@downloadConvo');
 });
 
-// timer
-Route::get('/timer-and-redirect/{time}/{nextPage}', 'DashboardController@timerRedirect');
 
 
+// Route::get('/project-edit', 'FrontendController@projectEdit');
+//
+// Route::get('/socmed-fb', 'FrontendController@socmedFB');
+// Route::get('/socmed-tw', 'FrontendController@socmedTW');
+// Route::get('/socmed-yt', 'FrontendController@socmedYT');
+// Route::get('/socmed-ig', 'FrontendController@socmedIG');
 
+// Route::get('/report-view', 'FrontendController@reportView');
+// Route::get('/report-add', 'FrontendController@reportAdd');
 
-Route::get('/project-edit', 'FrontendController@projectEdit');
+// Route::get('tests/googlechart', 'TestController@googlechart');
+// Route::get('tests/echarts', 'TestController@echarts');
+// Route::post('tests/echarts/post', 'TestController@echartsPost');
+// Route::get('tests/summary', 'TestController@summary');
 
-
-Route::get('/socmed-fb', 'FrontendController@socmedFB');
-Route::get('/socmed-tw', 'FrontendController@socmedTW');
-Route::get('/socmed-yt', 'FrontendController@socmedYT');
-Route::get('/socmed-ig', 'FrontendController@socmedIG');
-
-Route::get('/engagement/calendar', 'FrontendController@engagementCalendar');
-Route::get('/engagement/timeline', 'FrontendController@engagementTimeline');
-Route::get('/engagement/add', 'FrontendController@engagementAdd');
-Route::get('/engagement/reply', 'FrontendController@engagementReply');
-Route::get('/engagement/detail/{id}', 'FrontendController@engagementDetail');
-Route::get('/engagement/list', 'FrontendController@engagementList');
-
-Route::get('/report-view', 'FrontendController@reportView');
-Route::get('/report-add', 'FrontendController@reportAdd');
-
-Route::get('/page-help', 'FrontendController@pageHelp');
-Route::get('/page-media', 'FrontendController@media');
-
-Route::get('tests/googlechart', 'TestController@googlechart');
-Route::get('tests/echarts', 'TestController@echarts');
-Route::post('tests/echarts/post', 'TestController@echartsPost');
-Route::get('tests/summary', 'TestController@summary');
-
-Route::get('medialist', 'TestController@medialist');
-Route::get('forumlist', 'TestController@forumlist');
-Route::get('bloglist', 'TestController@bloglist');
-
-Route::get('calendar', 'TestController@calendar');
-
+// Route::get('calendar', 'TestController@calendar');
 //
 // Route::get('api1/{x}/{a}', 'TestController@api1');
 // Route::get('api2/{x}/{a}/{b}', 'TestController@api2');

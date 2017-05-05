@@ -2,10 +2,11 @@
     $(function () {
         $('ul.pagination').addClass('uk-pagination uk-flex-center');
 
-        $('#select-group').checkAll(
-            { container: $('ul'), showIndeterminate: true }
-        );
+        // $('#select-group').checkAll(
+        //     { container: $('ul'), showIndeterminate: true }
+        // );
 
+        // Edit Project
         $('.uk-card').on('click', '.sm-edit-project', function(e) {
             e.preventDefault();
             $(this).blur();

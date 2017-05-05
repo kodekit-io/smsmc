@@ -14,13 +14,13 @@
             </div>
             <div class="uk-card-body">
                 <hr>
-                <form class="uk-form-horizontal" action="" method="post">
+                <form class="uk-form-horizontal" action="{!! url('engagement/post') !!}" method="post" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <fieldset class="uk-fieldset">
                         <div class="uk-margin">
                             <label class="uk-form-label" for="post-to"><span uk-icon="icon: social"></span> Post to</label>
                             <div class="uk-form-controls">
-                                <select class="uk-select uk-width-medium" id="post-to">
+                                <select class="uk-select uk-width-medium" id="post-to" name="media_id">
                                     <option>Facebook</option>
                                     <option>Twitter</option>
                                     <option>National News</option>
@@ -36,13 +36,13 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="postSocmed"><span uk-icon="icon: file-edit"></span> Content</label>
                             <div class="uk-form-controls">
-                                <textarea class="uk-textarea" id="postSocmed" rows="8" placeholder="What's up?" name="socmed_content"></textarea>
+                                <textarea class="uk-textarea" id="postSocmed" rows="8" placeholder="What's up?" name="content"></textarea>
                             </div>
                         </div>
                         <div class="uk-margin">
                             <label class="uk-form-label" for="img"><span uk-icon="icon: image"></span> Image</label>
                             <div class="uk-form-controls">
-                                <input type="file" id="img">
+                                <input type="file" id="img" name="image">
                             </div>
                         </div>
                         <div class="uk-margin">
@@ -50,7 +50,7 @@
                             <div class="uk-form-controls">
                                 <div class="uk-inline">
                                     <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                    <input id="schedule" class="uk-input uk-form-width-medium" type="date">
+                                    <input id="schedule" class="uk-input uk-form-width-medium" type="text" name="post_date" />
                                 </div>
                                 <a id="clear" class="uk-icon-button uk-hidden" uk-icon="icon: close" title="Clear date" uk-tooltip></a>
                             </div>

@@ -1,10 +1,23 @@
+
 (function ($, window, document) {
     $(function () {
+        jQuery.validator.setDefaults({
+            debug: true,
+            success: "valid"
+        });
+        $.validator.addMethod('filesize', function (value, element, param) {
+            return this.optional(element) || (element.files[0].size <= param)
+        }, 'File size must be less than 1MB');
         $('#project_add').validate({
             rules: {
                 field_title: {
                     required: true
                 },
+                project_image: {
+                    // accept: "image/*",
+                    extension: "png|jpe?g",
+                    filesize: 1024000
+                }
                 errorPlacement: function(error, element) {
                     if (element.attr('name') == 'field_title') {
                         $('#field_title').parent().append(error);

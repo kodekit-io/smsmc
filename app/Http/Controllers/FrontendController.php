@@ -43,11 +43,7 @@ class FrontEndController extends Controller
         $data['pageTitle'] = 'Timeline';
         return view('pages.engagement.timeline', $data);
     }
-    public function engagementAdd()
-    {
-        $data['pageTitle'] = 'New Engagement';
-        return view('pages.engagement.add', $data);
-    }
+
     public function engagementReply()
     {
         $data['pageTitle'] = 'Reply Engagement';

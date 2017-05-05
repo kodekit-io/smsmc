@@ -47,6 +47,12 @@ class EngagementController extends Controller
         return redirect('engagement-accounts');
     }
 
+    public function add()
+    {
+        $data['pageTitle'] = 'New Engagement';
+        return view('pages.engagement.add', $data);
+    }
+
     private function saveSocmedToken($result, $idMedia)
     {
         $socmedAttribute = [];
