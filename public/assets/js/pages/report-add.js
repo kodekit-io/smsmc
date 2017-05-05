@@ -1,23 +1,3 @@
-// jQuery(function(){
-//  jQuery('#date_timepicker_start').datetimepicker({
-//   format:'Y/m/d',
-//   onShow:function( ct ){
-//    this.setOptions({
-//     maxDate:jQuery('#date_timepicker_end').val()?jQuery('#date_timepicker_end').val():false
-//    })
-//   },
-//   timepicker:false
-//  });
-//  jQuery('#date_timepicker_end').datetimepicker({
-//   format:'Y/m/d',
-//   onShow:function( ct ){
-//    this.setOptions({
-//     minDate:jQuery('#date_timepicker_start').val()?jQuery('#date_timepicker_start').val():false
-//    })
-//   },
-//   timepicker:false
-//  });
-// });
 (function ($, window, document) {
     $(function () {
         $('#startDate').datetimepicker({
@@ -70,6 +50,8 @@
         $("#key-acc-selector").chained("#project-selector");
         $("#media-selector").chained("#type-selector");
 
+        $("#key-acc-selector").select2();
+
         $('#media-selector').change(function(){
             $('.sm-media').hide();
             $('#' + $(this).val()).show();
@@ -102,6 +84,9 @@
         var projectNews = [
             '113','101','103','201','203','206','305','308','403','402','404','405'
         ];
+        var projectNewsInt = [
+            '113','101','103','201','203','206','305','308','403','402','404','405'
+        ];
         var projectForum = [
             '113','101','103','305','308','403','402','404','405'
         ];
@@ -118,6 +103,7 @@
         chartreport('1',projectFacebook);
         chartreport('2',projectTwitter);
         chartreport('4',projectNews);
+        chartreport('9',projectNewsInt);
         chartreport('6',projectForum);
         chartreport('3',projectBlog);
         chartreport('5',projectVideo);

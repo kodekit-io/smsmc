@@ -616,7 +616,10 @@ div.sm-dropdown li {
 	content: "Blog";
 }
 .media-4:before {
-	content: "Online News";
+	content: "National News";
+}
+.media-9:before {
+	content: "International News";
 }
 .media-5:before {
 	content: "Youtube";
@@ -642,7 +645,7 @@ div.sm-dropdown li {
     line-height: 38px !important;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 38px !important;   
+    height: 38px !important;
 }
 .select2-container--default.select2-container--focus .select2-selection--multiple,
 .select2-container--default.select2-container--focus .select2-selection--single {
