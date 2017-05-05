@@ -25,6 +25,7 @@ class EngagementController extends Controller
     public function accounts()
     {
         $socmedAttribute = session('socmedAttribute');
+
         $data['socmedAttribute'] = $socmedAttribute;
         $data['pageTitle'] = 'Engagement Accounts';
         return view('pages.engagement-accounts', $data);
