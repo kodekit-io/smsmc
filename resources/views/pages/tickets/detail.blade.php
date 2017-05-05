@@ -154,7 +154,7 @@
                             <hr>
                             <div class="uk-flex uk-flex-middle uk-flex-between">
                                 <div>
-                                    <span><i uk-icon="icon: clock"></i> SCHEDULE POST: </span><input id="schedule" class="uk-input uk-form-width-medium uk-margin-small-left" type="date"></input><a id="clear" class="uk-button uk-button-default uk-hidden" uk-icon="icon: close" style="width:40px;padding:0;" title="Clear date" uk-tooltip></a>
+                                    <span><i uk-icon="icon: clock"></i> SCHEDULE POST: </span><input id="schedule" class="uk-input uk-form-width-medium uk-margin-small-left" type="text"></input><a id="clear" class="uk-button uk-button-default uk-hidden" uk-icon="icon: close" style="width:40px;padding:0;" title="Clear date" uk-tooltip></a>
                                 </div>
                                 <button id="postsave" class="uk-button uk-button-primary uk-hidden" type="submit">Save Post</button>
                                 <button id="postnowsocmed" class="uk-button uk-button-danger red" type="submit">Post Now</button>
