@@ -8,7 +8,7 @@
 
     <section class="sm-main sm-nosubnav uk-container uk-container-expand">
         <div class="uk-grid-medium uk-child-width-1-1@m" uk-grid>
-            <div id="01"></div>
+            <div id="notif"></div>
         </div>
     </section>
 
@@ -23,7 +23,7 @@
 
     <script>
     $(document).ready(function() {
-        notifications('01');
+        notifications('notif');
     });
 
     </script>

@@ -9,104 +9,60 @@ function notifications(div) {
     </div>';
     $('#'+div).append(card);
 
-    var theTable = $('#notifications').DataTable( {
-        ajax: {
-            "url": "json/notifications.json",
-        },
-        paging: true,
-        searching: false,
-        info: false,
-        processing: true,
-        dom: "<'sm-timeline-wrap't><'uk-grid uk-grid-collapse sm-timeline-foot'<'uk-width-1-2'l><'uk-width-1-2'p>>",
-        language: {
-            "lengthMenu": "Show _MENU_"
-        },
-        columns: [
-            {
-                "data": "notifDate",
-                "render": function ( a, b, c, d ) {
-                    var date = moment(c.notifDate);
-                    var statclass = c.notifStatus.toLowerCase();
-                    var ago = date.fromNow();
-                    var type = c.notifType;
-                    var icon = '';
-                    switch (type) {
-                        case 'ticket':
-                            icon = '<span class="fa fa-lg fa-ticket red-text"></span>'
-                        break;
+    var url = baseUrl + '/get-notification';
+    $.ajax({
+        url: url,
+        success: function(result){
+            console.log(result);
+            var theTable = $('#notifications').DataTable( {
+                ajax: {
+                    url: url,
+                    dataSrc: 'detail'
+                },
+                paging: true,
+                pageLength: 25,
+                searching: false,
+                info: false,
+                processing: true,
+                dom: "<'sm-timeline-wrap't><'uk-grid uk-grid-collapse sm-timeline-foot'<'uk-width-1-2'l><'uk-width-1-2'p>>",
+                language: {
+                    "lengthMenu": "Show _MENU_",
+                    "emptyTable": "Loading..."
+                },
+                columns: [
+                    { data: "date", visible : false },
+                    {
+                        width: "100%",
+                        data: function(data) {
+                            var tanggal = moment(data['date']);
+                            var ago = tanggal.fromNow();
+                            var id = data['ticketId'];
+                            var msg = data['message'];
+                            // if (msg != '' || msg != null) {
+                            //     msg = 'with message: ' + data['message'];
+                            // }
+                            var icon = '<span class="fa fa-lg fa-ticket red-text"></span>';
+
+                            var notif = '<div class="uk-animation-slide-left-small uk-grid-small" uk-grid>'
+                                + '<div class="uk-width-auto@s">'+icon+'</div>'
+                                + '<div class="uk-width-expand@s">'
+                                    + '<div class="sm-text-bold uk-margin-remove">"'+msg+'"</div>'
+                                    + '<i class="fa fa-clock-o"></i> ' + ago
+                                + '</div>'
+                                + '<div class="uk-width-auto@s">'
+                                    + '<a class="uk-button uk-button-text uk-margin-left" href="' + baseUrl + '/ticket/' +id + '/detail">'
+                                        + 'See details <i class="fa fa-arrow-right"></i>'
+                                    + '</a>'
+                                + '</div>'
+                            + '</div>';
+
+                            return notif;
+                        }
                     }
-                    var stat = '';
-                    switch (statclass) {
-                        case 'unread':
-                            stat = '<a title="Mark as Read" uk-tooltip class="fa fa-eye-slash red-text"></a>'
-                        break;
-                        case 'read':
-                            stat = '<span title="Read" uk-tooltip class="fa fa-eye grey-text"></span>'
-                        break;
-                    }
-                    var msg = '';
-                    if (c.notifMessage!=''){
-                        msg = ' and said: <em class="grey-text">"'+c.notifMessage+'"</em>';
-                    }
-                    var notif = '<div class="uk-animation-slide-left-small uk-grid-small '+statclass+'" uk-grid>'
-                        + '<div class="uk-width-auto@s">'+icon+'</div>'
-                        + '<div class="uk-width-expand@s">'
-                            + '<a class="black-text" href="'+baseUrl+'/engagement-ticket-details?ticketId='+c.notifLink+'">'
-                                + '<span class="sm-text-bold">' +c.notifFrom+ '</span> sent you a ' +type+ '' +msg
-                            + '</a><br>'
-                            + ago
-                        +'</div>'
-                        + '<div class="uk-width-auto@s">'+stat+'</div>'
-                    + '</div>';
-                    $('.unread').closest('td').addClass('unread');
-                    return notif;
-                }
-            }
-            //
-            // {
-            //     "data": "notifType",
-            //     "render": function ( cellData ) {
-            //         var status = cellData;
-            //         var btn = "";
-            //         switch (status) {
-            //             case 'ticket':
-            //                 btn = '<span class="fa fa-lg fa-ticket red-text"></span>'
-            //             break;
-            //         }
-            //
-            //         return btn;
-            //     }
-            // },
-            // {
-            //     "data": null,
-            //     "render": function ( data ) {
-            //         var date = moment(data['notifDate']);
-            //         var ago = date.fromNow();
-            //         var type = data['notifType'];
-            //         var from = data['notifFrom'];
-            //         var to = data['notifTo'];
-            //         var msg = '';
-            //         if (data['notifMessage']!=''){
-            //             msg = ' and said: <em class="grey-text">"'+data['notifMessage']+'"</em>';
-            //         }
-            //         var notif = '<span class="sm-text-bold">'+from+'</span> sent you a '+type+''+msg+'<br>'+ago;
-            //         return notif;
-            //     }
-            // },
-            // {
-            //     "data": null,
-            //     "render": function ( data ) {
-            //         var status = data['notifStatus'];
-            //         var show = data['notifShow'];
-            //         if (status=='Unread') {
-            //             var action = '<a title="Mark as Read" uk-tooltip class="fa fa-eye-slash"></a>';
-            //         } else {
-            //             var action = '<span title="Read" uk-tooltip class="fa fa-eye grey-text"></span>';
-            //         }
-            //         return action;
-            //     }
-            // }
-        ],
-        order: [[ 0, "desc" ]]
+                ],
+                order: [[ 0, "desc" ]]
+            });
+            theTable.columns.adjust().draw();
+        }
     });
 }

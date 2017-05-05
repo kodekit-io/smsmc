@@ -119,7 +119,7 @@
                                 </ul>
                             </div>
                             <div class="uk-card-footer uk-text-center">
-                                <a href="{!! url('/notifications') !!}" class="sm-text-bold grey-text" title="All Notifications" uk-tooltip>See All</a>
+                                <a href="{!! url('/notifications') !!}" class="uk-button uk-button-small uk-button-danger" title="All Notifications" uk-tooltip>See All</a>
                             </div>
                         </div>
                     </div>
