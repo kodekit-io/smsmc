@@ -189,6 +189,7 @@ class Project
 
         $userId = $inputs['user_id'];
         $group = $inputs['field_group'];
+        $objective = $inputs['field_objective'];
 
         $fileFieldName = 'project_image';
         $fileUrl = '';
@@ -211,6 +212,7 @@ class Project
         $params['pid'] = $projectId;
         $params['pgroup'] = $group;
         $params['project_image'] = $fileUrl;
+        $params['description'] = $objective;
 
         if ($oriKeywordsNumber >= $keywordNumber) {
             for ($x = 1; $x <= $oriKeywordsNumber; $x++) {

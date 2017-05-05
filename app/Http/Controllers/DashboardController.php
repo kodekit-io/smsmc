@@ -80,4 +80,18 @@ class DashboardController extends Controller
         $result = $this->smsmc->post('project/brandequity', $params);
         return \GuzzleHttp\json_encode($result->result);
     }
+
+    public function timerRedirect($time, $next)
+    {
+        $data['timeOut'] = $time * 1000;
+        $nextUrl = url('/');
+        switch ($next) {
+            case 'reportlist':
+                $nextUrl = url('/report');
+                break;
+        }
+        $data['nextUrl'] = $nextUrl;
+
+        return view('pages.timer-redirect', $data);
+    }
 }

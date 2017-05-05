@@ -146,6 +146,12 @@ Route::group(['middleware' => ['auth','role']], function() {
     Route::any('charts/download-convo', 'ChartController@downloadConvo');
 });
 
+// timer
+Route::get('/timer-and-redirect/{time}/{nextPage}', 'DashboardController@timerRedirect');
+
+
+
+
 Route::get('/project-edit', 'FrontendController@projectEdit');
 
 

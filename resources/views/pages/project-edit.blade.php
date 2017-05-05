@@ -29,8 +29,10 @@
                                     <label class="uk-form-label" for="field_group">Project Group</label>
                                     <div class="uk-form-controls">
                                         <select class="uk-select" id="field_group" name="field_group" required>
-                                            <option value="1">Group 01</option>
-                                            <option value="2">Group 02</option>
+                                            @foreach($pilars as $pilar)
+                                            <option value="{!! $pilar->id !!}"
+                                                @if($pilar->id == $project->groupId) selected @endif>{!! $pilar->pilarName !!}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -42,7 +44,7 @@
                                         <select name="user_id" id="user_select" class="uk-input uk-width-1-1">
                                             @foreach($users as $user)
                                                 <option value="{!! $user->idLogin !!}"
-                                                    @if($user->userName == $project->puser) selected @endif>
+                                                    @if($user->idLogin == $project->userId) selected @endif>
                                                     {!! $user->name !!}
                                                 </option>
                                             @endforeach
@@ -63,7 +65,7 @@
                                 <div class="uk-margin">
                                     <label class="uk-form-label" for="objective">Project Objective</label>
                                     <div class="uk-form-controls">
-                                        <textarea class="uk-textarea" rows="5" placeholder="Your objective about this project" style="height:122px;"  id="field_objective" name="field_objective"></textarea>
+                                        <textarea class="uk-textarea" rows="5" placeholder="Your objective about this project" style="height:122px;"  id="field_objective" name="field_objective">{!! $project->description !!}</textarea>
                                     </div>
                                 </div>
                             </div>
