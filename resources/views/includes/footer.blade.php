@@ -11,7 +11,10 @@
             var baseUrl = '{!! url('/') !!}';
             var token = '{!! csrf_token() !!}';
 
-            myVar = setInterval(alertFunc, 2500);
+            // load notif for the 1st time
+            alertFunc();
+
+            myVar = setInterval(alertFunc, 10000);
             function alertFunc() {
                 $.ajax({
                     url: baseUrl + '/get-notification'
