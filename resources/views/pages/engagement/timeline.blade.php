@@ -1,7 +1,6 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.timeline.css') !!}" />
-    <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
 @endsection
 @section('page-level-nav')
     @include('includes.subnav-engagement')
@@ -22,16 +21,14 @@
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
-    <script src="//vjs.zencdn.net/5.11/video.min.js"></script>
-    <script src="{!! asset('assets/js/lib/youtube.min.js') !!}"></script>
 
     <script src="{!! asset('assets/js/pages/timeline.js') !!}"></script>
     <script>
     $(document).ready(function() {
-        timeline('01','facebook');
-        timeline('02','twitter');
-        timeline('03','youtube');
-        timeline('04','instagram');
+        timeline('01',1);
+        timeline('02',2);
+        timeline('03',5);
+        timeline('04',7);
     });
     </script>
 @endsection

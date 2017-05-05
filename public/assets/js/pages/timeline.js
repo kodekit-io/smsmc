@@ -1,15 +1,38 @@
-function timeline(div,type) {
-    var url = baseUrl+'/json/timeline-'+type+'.json'
+function timeline(div,typeId) {
+    // var url = baseUrl+'/json/timeline-'+type+'.json'
+    var url = baseUrl+'/engagement/get-timeline/'+typeId;
+    switch (typeId) {
+        case 1:
+            var type = 'facebook';
+            break;
+        case 2:
+            var type = 'twitter';
+            break;
+        case 5:
+            var type = 'youtube';
+            break;
+        case 7:
+            var type = 'instagram';
+            break;
+    }
+
     $.ajax({
         url: url,
         //dataType: 'jsonp',
         success: function(result){
+            // console.log(result);
             var name = result.name;
             var desc = result.desc;
+            if(name === undefined) {
+                name = type;
+            }
+            if(desc === undefined) {
+                desc = 'Timeline '+name;
+            }
 
             var card = '<div class="uk-animation-fade uk-card sm-chart-container uk-card-hover uk-card-default uk-card-small"> \
                 <div class="uk-card-header uk-clearfix"> \
-                    <h5 class="uk-card-title uk-float-left color-text-'+type+'"><i class="fa fa-'+type+'"></i> '+name+'</h5> \
+                    <h5 class="uk-card-title uk-float-left color-text-'+type+' uk-text-uppercase"><i class="fa fa-'+type+'"></i> '+name+'</h5> \
                     <ul class="uk-float-right uk-subnav uk-margin-remove"> \
                         <li><a class="grey-text fa fa-info-circle" title="'+desc+'" uk-tooltip></a></li> \
                         <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li> \
@@ -33,7 +56,8 @@ function timeline(div,type) {
                     "paginate": {
                         "previous": "<i class='fa fa-chevron-left'></i>",
                         "next": "<i class='fa fa-chevron-right'></i>"
-                    }
+                    },
+                    "emptyTable": "searching..."
                 },
                 ajax: {
                     "url": url,
@@ -45,22 +69,34 @@ function timeline(div,type) {
                         render: function ( data ) {
                             var d = data['postDate'];
                             var postDate = moment.parseZone(d).local().format('llll');
+                            if (d == '' || postDate == 'Invalid date') {
+                                postDate = d;
+                            }
                             var userName = data['userName'];
                             var userImg = data['userImg'];
+                            if (userImg == null || userImg == '') {
+                                userImg = baseUrl+'/assets/img/favicon.png';
+                            }
                             var userUrl = data['userUrl'];
                             var postText = data['postText'];
-                            var postTrim = postText.substring(0,150);
+                            if (postText == null || postText == '') {
+                                var postTrim = postText;
+                            } else {
+                                var postTrim = postText.substr(0,150);
+                            }
+                            var postUrl = data['postUrl'];
                             var postImg = data['postImg'];
                             var postVid = data['postVid'];
                             var img = '';
                             if (postImg !=''){
-                                img = '<div class="sm-timeline-img" style="background-image:url('+postImg+')"></div>';
+                                img = '<div class="sm-timeline-img uk-background-cover" style="background-image:url('+postImg+')"></div>';
                             }
                             var vid = '';
-                            if (postVid !=''){
-                                vid = '<video class="video-js sm-timeline-vid" controls preload="auto" data-setup=\'{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "'+postVid+'"}] }\' ></video>';
+                            if (postVid !='' && type == 'youtube'){
+                                yid = YouTubeGetID(postUrl);
+                                vid = '<iframe src="https://www.youtube.com/embed/'+yid+'?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;wmode=transparent" class="uk-width-1-1 uk-height-small"></iframe>';
                             }
-                            var postUrl = data['postUrl'];
+
                             var replyUrl = baseUrl+'/engagement/reply';
                             var timeline =  '<div class="uk-grid-small" uk-grid>'
                                                 + '<div class="uk-width-auto">'
@@ -73,8 +109,8 @@ function timeline(div,type) {
                                                     + vid
                                                     + '<div title="'+postText+'" uk-tooltip>' +postTrim+ '</div>'
                                                     + '<ul class="uk-iconnav">'
-                                                        + '<li><a href="'+postUrl+'" class="fa fa-link" target="_blank" title="Open link" uk-tooltip></a></li>'
-                                                        + '<li><a href="'+replyUrl+'" class="fa fa-comment" title="Reply" uk-tooltip></a></li>'
+                                                        + '<li><a href="'+postUrl+'" class="fa fa-link green-text" target="_blank" title="Open link" uk-tooltip></a></li>'
+                                                        + '<li><a href="'+replyUrl+'" class="fa fa-comment blue-text" title="Reply" uk-tooltip></a></li>'
                                                     + '</div>'
                                                 + '</div>'
                                             + '</div>';
