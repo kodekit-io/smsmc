@@ -43,7 +43,7 @@
                                 <div class="uk-form-controls">
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                        <input id="schedule" class="uk-input uk-form-width-medium" type="date">
+                                        <input id="schedule" class="uk-input uk-form-width-medium" type="text">
                                     </div>
                                     <a id="clear" class="uk-icon-button uk-hidden" uk-icon="icon: close" title="Clear date" uk-tooltip></a>
                                 </div>

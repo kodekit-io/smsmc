@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('page-level-nav')
 @endsection
@@ -72,8 +73,8 @@
                                     </div>
                                     <div class="uk-position-relative">
                                         <label class="uk-form-label" for="key-acc-selector">Keyword / Account</label>
-                                        <select class="uk-select" id="key-acc-selector" name="keyword">
-                                            <option value="0" class="pid1">All Keyword</option>
+                                        <select class="uk-select" id="key-acc-selector" name="keyword" multiple>
+                                            {{-- <option value="0" class="pid1">All Keyword</option> --}}
                                             @foreach($projectList as $id => $project)
                                                 @foreach($project['detail']->keywordList as $keywordList)
                                                     @php $keyword = $keywordList->keyword; @endphp
@@ -82,7 +83,7 @@
                                             @endforeach
                                             @foreach($socmedAccounts as $socmed => $accounts)
                                                 @foreach($accounts as $account)
-                                                <option value="{!! $account->id !!}" class="socmed-{!! $socmed !!}">{!! $account->name !!}</option>
+                                                    <option value="{!! $account->id !!}" class="socmed-{!! $socmed !!}">{!! $account->name !!}</option>
                                                 @endforeach
                                             @endforeach
                                         </select>
@@ -93,7 +94,8 @@
                                             <option value="8" class="project">Summary Page</option>
                                             <option value="1" class="project">Facebook</option>
                                             <option value="2" class="project">Twitter</option>
-                                            <option value="4" class="project">Online News</option>
+                                            <option value="4" class="project">National News</option>
+                                            <option value="9" class="project">International News</option>
                                             <option value="6" class="project">Forum</option>
                                             <option value="3" class="project">Blog</option>
                                             <option value="5" class="project">Video</option>
@@ -109,6 +111,7 @@
                     <div id="1" class="sm-media uk-margin"></div>
                     <div id="2" class="sm-media uk-margin"></div>
                     <div id="4" class="sm-media uk-margin"></div>
+                    <div id="9" class="sm-media uk-margin"></div>
                     <div id="6" class="sm-media uk-margin"></div>
                     <div id="3" class="sm-media uk-margin"></div>
                     <div id="5" class="sm-media uk-margin"></div>
@@ -129,6 +132,7 @@
 @endsection
 
 @section('page-level-scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.chained.js') !!}"></script>
