@@ -14,7 +14,7 @@
             </div>
             <div class="uk-card-body">
                 <hr>
-                <form class="uk-form-horizontal" action="{!! url('engagement/post') !!}" method="post" enctype="multipart/form-data">
+                <form id="engagementPost" class="uk-form-horizontal" action="{!! url('engagement/post') !!}" method="post" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <fieldset class="uk-fieldset">
                         <div class="uk-margin">
@@ -27,13 +27,13 @@
                                         @endif
                                     @endforeach
                                 </select>
-                                <p><em>* Note: News, Blog, Forum should be posted manually</em></p>
+                                {{-- <p><em>* Note: News, Blog, Forum should be posted manually</em></p> --}}
                             </div>
                         </div>
                         <div class="uk-margin">
                             <label class="uk-form-label" for="postSocmed"><span uk-icon="icon: file-edit"></span> Content</label>
                             <div class="uk-form-controls">
-                                <textarea class="uk-textarea" id="postSocmed" rows="8" placeholder="What's up?" name="content"></textarea>
+                                <textarea class="uk-textarea" id="postSocmed" rows="8" placeholder="What's up?" name="content" required></textarea>
                             </div>
                         </div>
                         <div class="uk-margin">
@@ -70,34 +70,5 @@
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
-
-    <script>
-    $(document).ready(function() {
-        var dt = new Date();
-        $('#schedule').datetimepicker({
-            'format': 'd-m-y H:i',
-            'minDate': 0,
-            'minDateTime': dt,
-            'closeOnDateSelect' : true,
-            'validateOnBlur' : true,
-        });
-        $('#schedule').blur(function () {
-            if ($(this).val()) {
-                $('#postsave').removeClass('uk-hidden');
-                $('#postnowsocmed').addClass('uk-hidden');
-                $('#clear').removeClass('uk-hidden');
-            } else {
-                $('#postnowsocmed').removeClass('uk-hidden');
-                $('#postsave').addClass('uk-hidden');
-                $('#clear').addClass('uk-hidden');
-            }
-        });
-        $('#clear').click(function(){
-            $(this).addClass('uk-hidden');
-            $('#schedule').val('');
-            $('#postnowsocmed').removeClass('uk-hidden');
-            $('#postsave').addClass('uk-hidden');
-        });
-    });
-    </script>
+    <script src="{!! asset('assets/js/pages/engagement-add.js') !!}"></script>
 @endsection
