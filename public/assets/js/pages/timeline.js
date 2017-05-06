@@ -65,8 +65,8 @@ function timeline(div,typeId) {
                 },
                 columns: [
                     { data: "postDate", visible: false },
-                    {   data: null, width: "100%",
-                        render: function ( data ) {
+                    {   width: "100%",
+                        data: function ( data ) {
                             var d = data['postDate'];
                             var postDate = moment.parseZone(d).local().format('llll');
                             if (d == '' || postDate == 'Invalid date') {
