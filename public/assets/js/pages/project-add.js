@@ -17,7 +17,7 @@
                     // accept: "image/*",
                     extension: "png|jpe?g",
                     filesize: 1024000
-                }
+                },
                 errorPlacement: function(error, element) {
                     if (element.attr('name') == 'field_title') {
                         $('#field_title').parent().append(error);
