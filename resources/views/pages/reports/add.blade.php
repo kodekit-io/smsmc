@@ -33,11 +33,12 @@
                         <div>
                             <div class="uk-margin">
                                 <label class="uk-form-label" for="objective">Report Period</label>
-                                <div class="uk-form-controls">
+                                <div class="uk-form-controls uk-flex uk-flex-middle">
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
                                         <input type="text" class="reportTime uk-input uk-width-small" name="startDate" id="startDate">
                                     </div>
+                                    <span class="uk-margin-small-left uk-margin-small-right"> - </span>
                                     <div class="uk-inline">
                                         <span class="uk-form-icon" uk-icon="icon: calendar"></span>
                                         <input type="text" class="reportTime uk-input uk-width-small" name="endDate" id="endDate">
@@ -65,7 +66,7 @@
                                             @php $lastSocmed = ''; @endphp
                                             @foreach($socmedAccounts as $socmed => $account)
                                                 @if($socmed != $lastSocmed)
-                                                    <option value="socmed-{!! $socmed !!}" class="socmed">{!! strtoupper($socmed) !!}</option>
+                                                    <option value="socmed-{!! $socmed !!}" class="socmed">{!! ucwords($socmed) !!}</option>
                                                     @php $lastSocmed = $socmed; @endphp
                                                 @endif
                                             @endforeach
@@ -135,6 +136,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.chained.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
     <script src="{!! asset('assets/js/pages/report-add.js') !!}"></script>

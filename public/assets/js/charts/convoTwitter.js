@@ -54,7 +54,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			},
 			{
 				"title": "Post",
-				"width": "40%",
+				"width": "30%",
 				"data": function(data) {
 					// console.log(data);
 					var post = data["Post"];
@@ -114,7 +114,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "10%",
+				"width": "20%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];

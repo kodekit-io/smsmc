@@ -50,11 +50,11 @@ function tableVideo(chartId, url, chartApiData, idMedia) {
 			{
 				"data": "author",
 				"title": "Author",
-				"width": "20%"
+				"width": "15%"
 			},
 			{
 				"title": "Video",
-				"width": "30%",
+				"width": "25%",
 				"data": function(data) {
 					var title = data["Title"];
 					var post = data["Summary"];
@@ -106,7 +106,7 @@ function tableVideo(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "10%",
+				"width": "20%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];

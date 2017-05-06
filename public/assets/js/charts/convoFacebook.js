@@ -55,7 +55,7 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 			},
 			{
 				"title": "Post",
-				"width": "35%",
+				"width": "25%",
 				"data": function(data) {
 					var post = data["Post"];
 					var postrim = post.substring(0, 100) + "...";
@@ -112,7 +112,7 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "10%",
+				"width": "20%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];

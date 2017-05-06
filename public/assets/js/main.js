@@ -2,11 +2,30 @@
     $(function () {
         setTimeout(function() { $(".sm-alert a.uk-alert-close").click(); }, 10000);
 
-        $('input.datetimepicker[name=startDate]').datetimepicker({
-            format:	'd/m/y H:i'
+        // $('input.datetimepicker[name=startDate]').datetimepicker({
+        //     format:	'd/m/y H:i'
+        // });
+        // $('input.datetimepicker[name=endDate]').datetimepicker({
+        //     format:	'd/m/y H:i'
+        // });
+        jQuery('input[name=startDate]').datetimepicker({
+            format:	'd/m/y H:i',
+            onShow:function( ct ){
+                this.setOptions({
+                    maxDate:jQuery('input[name=endDate]').val()?jQuery('input[name=endDate]').val():false
+                })
+            },
+            // timepicker:false
         });
-        $('input.datetimepicker[name=endDate]').datetimepicker({
-            format:	'd/m/y H:i'
+        jQuery('input[name=endDate]').datetimepicker({
+            format:	'd/m/y H:i',
+            onShow:function( ct ){
+                this.setOptions({
+                    // minDate:jQuery('input[name=startDate]').val()?jQuery('input[name=startDate]').val():false,
+                    maxDate:'0'
+                })
+            },
+            // timepicker:false
         });
         $('.select-all-keyword').checkAll(
             { container: $('#select-keyword'), showIndeterminate: true }
