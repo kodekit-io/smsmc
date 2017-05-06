@@ -124,7 +124,7 @@ function tableBlog(chartId, url, chartApiData, idMedia) {
 		initComplete: function() {
 			this.api().columns().every(function() {
 				var column = this;
-				if (column[0][0] == 6) {
+				if (column[0][0] == 5) {
 					var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
 						.appendTo($(column.header()).empty())
 						.on('change', function() {
