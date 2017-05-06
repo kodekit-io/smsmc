@@ -104,7 +104,7 @@ function timeline(div,typeId) {
                             var vid = '';
                             if (postVid !='' && type == 'youtube'){
                                 yid = YouTubeGetID(postUrl);
-                                vid = '<iframe src="https://www.youtube.com/embed/'+yid+'?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;wmode=transparent" class="uk-width-1-1 uk-height-small sm-timeline-vid"></iframe>';
+                                vid = '<iframe src="//www.youtube.com/embed/'+yid+'?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;wmode=transparent" class="uk-width-1-1 uk-height-small sm-timeline-vid"></iframe>';
                             }
 
                             var replyUrl = baseUrl+'/engagement/reply';
