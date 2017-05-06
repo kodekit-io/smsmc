@@ -64,7 +64,17 @@ function timeline(div,typeId) {
                     "data" : "data"
                 },
                 columns: [
-                    { data: "postDate", visible: false },
+                    {
+                        visible: false,
+                        data: function ( data ) {
+                            var d = data['postDate'];
+                            var date = moment.parseZone(d).utc().format();
+                            if (d == '' || date == 'Invalid date') {
+                                date = d;
+                            }
+                            return date;
+                        }
+                    },
                     {   width: "100%",
                         data: function ( data ) {
                             var d = data['postDate'];
