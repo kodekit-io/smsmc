@@ -1,6 +1,6 @@
 // Table convo Facebook
 function tableFacebook(chartId, url, chartApiData, idMedia) {
-    console.log(chartApiData);
+    // console.log(chartApiData);
 	var theTable = $('#' + chartId).DataTable({
 		processing: true,
         serverSide: true,
