@@ -168,7 +168,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 		}
 	});
 	theTable.on('order.dt search.dt draw.dt', function() {
-        var info = theTable.page.info();
+		var info = theTable.page.info();
 		theTable.column(1, {
 			search: 'applied',
 			order: 'applied'
@@ -176,7 +176,9 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
-	theTable.columns.adjust().draw();
-
+	$('.uk-switcher').on('show.uk.switcher', function(){
+		$(window).trigger('resize');
+		theTable.columns.adjust().draw();
+	});
 	return theTable;
 }

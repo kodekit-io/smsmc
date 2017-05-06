@@ -160,7 +160,9 @@ function tableNews(chartId, url, chartApiData, idMedia) {
 			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
-	theTable.columns.adjust().draw();
-
+	$('.uk-switcher').on('show.uk.switcher', function(){
+		$(window).trigger('resize');
+		theTable.columns.adjust().draw();
+	});
 	return theTable;
 }
