@@ -99,12 +99,12 @@ function timeline(div,typeId) {
                             var postVid = data['postVid'];
                             var img = '';
                             if (postImg !=''){
-                                img = '<div class="uk-width-1-1 uk-height-small uk-background-cover" style="background-image:url('+postImg+')"></div>';
+                                img = '<div class="uk-width-1-1 uk-height-small uk-background-cover sm-timeline-img" style="background-image:url('+postImg+')"></div>';
                             }
                             var vid = '';
                             if (postVid !='' && type == 'youtube'){
                                 yid = YouTubeGetID(postUrl);
-                                vid = '<iframe src="https://www.youtube.com/embed/'+yid+'?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;wmode=transparent" class="uk-width-1-1 uk-height-small"></iframe>';
+                                vid = '<iframe src="https://www.youtube.com/embed/'+yid+'?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;wmode=transparent" class="uk-width-1-1 uk-height-small sm-timeline-vid"></iframe>';
                             }
 
                             var replyUrl = baseUrl+'/engagement/reply';
