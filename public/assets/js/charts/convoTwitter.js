@@ -54,7 +54,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			},
 			{
 				"title": "Post",
-				"width": "40%",
+				"width": "30%",
 				"data": function(data) {
 					// console.log(data);
 					var post = data["Post"];
@@ -114,7 +114,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "10%",
+				"width": "20%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];
@@ -167,7 +167,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 		}
 	});
 	theTable.on('order.dt search.dt draw.dt', function() {
-        var info = theTable.page.info();
+		var info = theTable.page.info();
 		theTable.column(1, {
 			search: 'applied',
 			order: 'applied'
@@ -175,7 +175,9 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
-	theTable.columns.adjust().draw();
-
+	$('.uk-switcher').on('show.uk.switcher', function(){
+		$(window).trigger('resize');
+		theTable.columns.adjust().draw();
+	});
 	return theTable;
 }

@@ -52,10 +52,12 @@
                                     </div>
                                 </div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" for="project_image">Cover Image</label>
-                                    <div class="uk-form-controls">
+                                    <label class="uk-form-label" for="project_image">Cover Image <span class="uk-text-small">(allowed: JPG or PNG, < 1MB)</span></label>
+                                    <div class="uk-form-controls uk-flex uk-flex-inline">
                                         @if(isset($project->pmage))
-                                            <img src="{!! $project->pmage !!}" />
+                                            <div class="uk-cover-container uk-margin-small-right" style="width:40px;height:40px;">
+                                                <img src="{!! $project->pmage !!}" uk-cover>
+                                            </div>
                                         @endif
                                         <input type="file" id="project_image" name="project_image" />
                                     </div>
@@ -63,10 +65,10 @@
                             </div>
                             <div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" for="objective">Project Objective</label>
+                                    <label class="uk-form-label" for="objective">Project Description</label>
                                     <div class="uk-form-controls">
                                         <textarea class="uk-textarea" rows="5" placeholder="Your objective about this project" style="height:122px;"  id="field_objective" name="field_objective">{!! $project->description !!}</textarea>
-                                    </div>
+                                     </div>
                                 </div>
                             </div>
                         </div>

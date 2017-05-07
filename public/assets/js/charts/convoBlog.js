@@ -57,7 +57,7 @@ function tableBlog(chartId, url, chartApiData, idMedia) {
 			},
 			{
 				"title": "Post",
-				"width": "45%",
+				"width": "35%",
 				"data": function(data) {
 					var title = data["Title"];
 					var post = data["Summary"];
@@ -93,7 +93,7 @@ function tableBlog(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "10%",
+				"width": "20%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];
@@ -124,7 +124,7 @@ function tableBlog(chartId, url, chartApiData, idMedia) {
 		initComplete: function() {
 			this.api().columns().every(function() {
 				var column = this;
-				if (column[0][0] == 6) {
+				if (column[0][0] == 5) {
 					var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
 						.appendTo($(column.header()).empty())
 						.on('change', function() {
@@ -151,7 +151,10 @@ function tableBlog(chartId, url, chartApiData, idMedia) {
 			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
-	theTable.columns.adjust().draw();
+	$('.uk-switcher').on('show.uk.switcher', function(){
+		$(window).trigger('resize');
+		theTable.columns.adjust().draw();
+	});
 
 	return theTable;
 }

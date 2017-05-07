@@ -1,5 +1,8 @@
 (function ($, window, document) {
     $(function () {
+        $.validator.addMethod('filesize', function (value, element, param) {
+            return this.optional(element) || (element.files[0].size <= param)
+        }, 'File size must be less than 1MB');
         $('#project_add').validate({
             rules: {
                 field_title: {
@@ -10,18 +13,8 @@
                     extension: "png|jpe?g",
                     filesize: 1024000
                 }
-                errorPlacement: function(error, element) {
-                    if (element.attr('name') == 'field_title') {
-                        $('#field_title').parent().append(error);
-                    }
-                }
             },
-            // submitHandler: function(form) {
-            //     // do other things for a valid form
-            //     form.submit();
-            // }
         });
-
     });
 
 }(window.jQuery, window, document));

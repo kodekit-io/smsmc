@@ -1,6 +1,6 @@
 // Table convo Facebook
 function tableFacebook(chartId, url, chartApiData, idMedia) {
-    console.log(chartApiData);
+    // console.log(chartApiData);
 	var theTable = $('#' + chartId).DataTable({
 		processing: true,
         serverSide: true,
@@ -55,7 +55,7 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 			},
 			{
 				"title": "Post",
-				"width": "35%",
+				"width": "25%",
 				"data": function(data) {
 					var post = data["Post"];
 					var postrim = post.substring(0, 100) + "...";
@@ -112,7 +112,7 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "10%",
+				"width": "20%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];
@@ -173,7 +173,9 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
-	theTable.columns.adjust().draw();
-
+	$('.uk-switcher').on('show.uk.switcher', function(){
+		$(window).trigger('resize');
+		theTable.columns.adjust().draw();
+	});
 	return theTable;
 }

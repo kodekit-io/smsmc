@@ -49,11 +49,11 @@ function tableNews(chartId, url, chartApiData, idMedia) {
 			{
 				"data": "Media",
 				"title": "Media",
-				"width": "20%"
+				"width": "15%"
 			},
 			{
 				"title": "Post",
-				"width": "30%",
+				"width": "25%",
 				"data": function(data) {
 					var title = data["Title"];
 					var post = data["Summary"];
@@ -101,7 +101,7 @@ function tableNews(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "10%",
+				"width": "20%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];
@@ -162,7 +162,9 @@ function tableNews(chartId, url, chartApiData, idMedia) {
 			cell.innerHTML = info.start + i + 1;
 		});
 	}).draw();
-	theTable.columns.adjust().draw();
-
+	$('.uk-switcher').on('show.uk.switcher', function(){
+		$(window).trigger('resize');
+		theTable.columns.adjust().draw();
+	});
 	return theTable;
 }

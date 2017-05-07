@@ -75,6 +75,7 @@ class Report
         $response = $this->smsmc->post('report/create', $params);
         if ($response->status == '200') {
             return true;
+            // dd($params);
         }
 
         return false;

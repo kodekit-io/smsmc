@@ -4,7 +4,7 @@
 @import "fonts/GothamPro-Medium/styles.css";
 @import "fonts/GothamPro-Bold/styles.css";
 @import "fonts/GothamPro-Light/styles.css";
-@import "lib/jquery.datetimepicker.min.css";
+@import "lib/jquery.datetimepicker.css";
 @import "lib/color.css";
 body {
     font-family: 'GothamPro';
@@ -103,6 +103,9 @@ a.fa {
 }
 .uk-button, button {
     border-radius: 3px;
+}
+.uk-navbar-item.uk-button {
+    border-radius: 0;
 }
 .uk-table th {
     color: inherit;
