@@ -230,6 +230,8 @@ class ChartController extends Controller
             'positive' => '1'
         ];
 
+        // Log::warning(\GuzzleHttp\json_encode($request->all()));
+
         $idMedia = $request->has('idMediaInAll') ? $request->input('idMediaInAll') : $request->input('idMedia');
         $reportType = $request->input('reportType');
         $draw = $request->input('draw');
@@ -238,10 +240,54 @@ class ChartController extends Controller
         $page = $start/$length;
 
         // sentiment filter
+        if (isset($request->input('columns')[5]['search']['value'])) {
+            $sentimentValue = $request->input('columns')[5]['search']['value'];
+            if ($sentimentValue != 'null') {
+                $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
+                $sentiment = $sentimentValue->sentiment;
+                $idMedia = $sentimentValue->idMedia;
+                Log::warning('pagin convo idMedia ===> ' . $idMedia);
+                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+            }
+        }
+        if (isset($request->input('columns')[6]['search']['value'])) {
+            $sentimentValue = $request->input('columns')[6]['search']['value'];
+            if ($sentimentValue != 'null') {
+                $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
+                $sentiment = $sentimentValue->sentiment;
+                $idMedia = $sentimentValue->idMedia;
+                Log::warning('pagin convo idMedia ===> ' . $idMedia);
+                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+            }
+        }
+        if (isset($request->input('columns')[7]['search']['value'])) {
+            $sentimentValue = $request->input('columns')[7]['search']['value'];
+            if ($sentimentValue != 'null') {
+                $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
+                $sentiment = $sentimentValue->sentiment;
+                $idMedia = $sentimentValue->idMedia;
+                Log::warning('pagin convo idMedia ===> ' . $idMedia);
+                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+            }
+        }
+        if (isset($request->input('columns')[8]['search']['value'])) {
+            $sentimentValue = $request->input('columns')[8]['search']['value'];
+            if ($sentimentValue != 'null') {
+                $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
+                $sentiment = $sentimentValue->sentiment;
+                $idMedia = $sentimentValue->idMedia;
+                Log::warning('pagin convo idMedia ===> ' . $idMedia);
+                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+            }
+        }
         if (isset($request->input('columns')[9]['search']['value'])) {
             $sentimentValue = $request->input('columns')[9]['search']['value'];
             if ($sentimentValue != 'null') {
-                $params['sentiment'] = $arrSentimentByValue[$sentimentValue];
+                $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
+                $sentiment = $sentimentValue->sentiment;
+                $idMedia = $sentimentValue->idMedia;
+                Log::warning('pagin convo idMedia ===> ' . $idMedia);
+                $params['sentiment'] = $arrSentimentByValue[$sentiment];
             }
         }
 
@@ -268,13 +314,14 @@ class ChartController extends Controller
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
 
 //        Log::warning('convo paging params ==> ' . \GuzzleHttp\json_encode($request->all()));
-//        Log::warning("convo paging url ==> " . $convoUrl);
-//        Log::warning("convo paging param ==> " . \GuzzleHttp\json_encode($params));
+        Log::warning("convo paging url ==> " . $convoUrl);
+        Log::warning("convo paging param ==> " . \GuzzleHttp\json_encode($params));
 
         $data = $this->smsmc->post($convoUrl, $params);
         $dtResult = new DatatableResult();
         $dtResult->setDraw($draw);
         $dtResult->setData($data);
+        // Log::warning(\GuzzleHttp\json_encode($dtResult));
         return \GuzzleHttp\json_encode($dtResult);
     }
 

@@ -196,7 +196,9 @@ class Project
 
         if ($request->hasFile($fileFieldName)) {
             if ($request->file($fileFieldName)->isValid()) {
-                $fileName = str_slug($inputs['field_title']) . '.' . $request->file($fileFieldName)->getClientOriginalExtension();
+                $sluggedName = str_slug($inputs['field_title']);
+                $strtotime = strtotime(date('Y-m-d'));
+                $fileName = $sluggedName . '_' . $strtotime . '.' . $request->file($fileFieldName)->getClientOriginalExtension();
                 $fileUrl = url('project-images/' . $fileName);
                 //Log::warning('file url image project ==> ' . $fileUrl);
                 $dirPath = public_path('project-images');

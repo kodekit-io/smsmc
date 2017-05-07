@@ -141,11 +141,10 @@ function tableVideo(chartId, url, chartApiData, idMedia) {
 					var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
 						.appendTo($(column.header()).empty())
 						.on('change', function() {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
+                            var thisVal = $(this).val();
+                            var search = '{"sentiment":"'+thisVal+'", "idMedia": "'+idMedia+'"}';
 							column
-								.search($(this).val())
+								.search(search)
 								.draw();
 						});
 

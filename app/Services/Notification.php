@@ -24,7 +24,7 @@ class Notification
             'uid' => \Auth::id()
         ];
 
-        $response = $this->smsmc->post('/ticket/notif', $params);
+        $response = $this->smsmc->post('ticket/notif', $params);
         if ($response->status == '200') {
             return $response->result;
         }

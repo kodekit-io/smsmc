@@ -113,6 +113,6 @@ class TicketController extends Controller
     public function notifList()
     {
         $notif = $this->notification->getNotifications();
-        return \GuzzleHttp\json_encode($notif->detail);
+        return \GuzzleHttp\json_encode($notif);
     }
 }

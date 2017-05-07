@@ -3,6 +3,8 @@
 namespace App\Service;
 
 
+use stdClass;
+
 class Engagement
 {
     /**
@@ -113,17 +115,22 @@ class Engagement
 
     public function timeline($idMedia)
     {
-        $socmedAttribute = session('socmedAttribute')[$idMedia];
-        $params = [
-            'uid' => \Auth::id(),
-            'authTokenSocmed' => $socmedAttribute['token'],
-            'idMedia' => $idMedia,
-            'idSocmed' => $socmedAttribute['id']
-        ];
-        $response = $this->smsmc->post('engagement/timeline', $params);
-        if ($response->status == 200) {
-            return $response->result;
+        if (isset(session('socmedAttribute')[$idMedia])) {
+            $socmedAttribute = session('socmedAttribute')[$idMedia];
+            $params = [
+                'uid' => \Auth::id(),
+                'authTokenSocmed' => $socmedAttribute['token'],
+                'idMedia' => $idMedia,
+                'idSocmed' => $socmedAttribute['id']
+            ];
+            $response = $this->smsmc->post('engagement/timeline', $params);
+            if ($response->status == 200) {
+                return $response->result;
+            }
         }
-        return [];
+        $class = new StdClass();
+        $class->data = [];
+        $class->List = 'Timeline';
+        return $class;
     }
 }
