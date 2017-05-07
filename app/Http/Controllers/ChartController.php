@@ -246,8 +246,9 @@ class ChartController extends Controller
                 $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
                 $sentiment = $sentimentValue->sentiment;
                 $idMedia = $sentimentValue->idMedia;
-                Log::warning('pagin convo idMedia ===> ' . $idMedia);
-                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                if ($sentiment != '') {
+                    $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                }
             }
         }
         if (isset($request->input('columns')[6]['search']['value'])) {
@@ -256,8 +257,9 @@ class ChartController extends Controller
                 $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
                 $sentiment = $sentimentValue->sentiment;
                 $idMedia = $sentimentValue->idMedia;
-                Log::warning('pagin convo idMedia ===> ' . $idMedia);
-                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                if ($sentiment != '') {
+                    $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                }
             }
         }
         if (isset($request->input('columns')[7]['search']['value'])) {
@@ -266,8 +268,9 @@ class ChartController extends Controller
                 $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
                 $sentiment = $sentimentValue->sentiment;
                 $idMedia = $sentimentValue->idMedia;
-                Log::warning('pagin convo idMedia ===> ' . $idMedia);
-                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                if ($sentiment != '') {
+                    $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                }
             }
         }
         if (isset($request->input('columns')[8]['search']['value'])) {
@@ -276,8 +279,9 @@ class ChartController extends Controller
                 $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
                 $sentiment = $sentimentValue->sentiment;
                 $idMedia = $sentimentValue->idMedia;
-                Log::warning('pagin convo idMedia ===> ' . $idMedia);
-                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                if ($sentiment != '') {
+                    $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                }
             }
         }
         if (isset($request->input('columns')[9]['search']['value'])) {
@@ -286,8 +290,9 @@ class ChartController extends Controller
                 $sentimentValue = \GuzzleHttp\json_decode($sentimentValue);
                 $sentiment = $sentimentValue->sentiment;
                 $idMedia = $sentimentValue->idMedia;
-                Log::warning('pagin convo idMedia ===> ' . $idMedia);
-                $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                if ($sentiment != '') {
+                    $params['sentiment'] = $arrSentimentByValue[$sentiment];
+                }
             }
         }
 
