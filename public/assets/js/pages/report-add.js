@@ -1,25 +1,25 @@
 (function ($, window, document) {
     $(function () {
-        jQuery('#startDate').val(moment().startOf('month').local().format('DD/MM/YYYY'));
-        jQuery('#endDate').val(moment().local().format('DD/MM/YYYY'));
+        // jQuery('#startDate').val(moment().startOf('month').local().format('DD/MM/YYYY H:s'));
+        // jQuery('#endDate').val(moment().local().format('DD/MM/YYYY H:s'));
         jQuery('#startDate').datetimepicker({
-            format:'d/m/Y',
+            format:'d/m/Y H:i',
             onShow:function( ct ){
                 this.setOptions({
                     maxDate:jQuery('#endDate').val()?jQuery('#endDate').val():false
                 })
             },
-            timepicker:false
+            // timepicker:false
         });
         jQuery('#endDate').datetimepicker({
-            format:'d/m/Y',
+            format:'d/m/Y H:i',
             onShow:function( ct ){
                 this.setOptions({
                     // minDate:jQuery('#startDate').val()?jQuery('#startDate').val():false,
                     maxDate:'0'
                 })
             },
-            timepicker:false
+            // timepicker:false
         });
         $('#report_add').validate({
             rules: {

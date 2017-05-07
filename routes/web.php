@@ -159,6 +159,7 @@ Route::group(['middleware' => ['auth','role']], function() {
     Route::any('charts/paging-convo', 'ChartController@pagingConvo');
     Route::post('change-sentiment', 'ChartController@changeSentiment');
     Route::any('charts/download-convo', 'ChartController@downloadConvo');
+    Route::any('charts/download-convo-all', 'ChartController@downloadConvoAll');
 });
 
 Route::get('/delay/{time}/{next}', 'DashboardController@timerRedirect');

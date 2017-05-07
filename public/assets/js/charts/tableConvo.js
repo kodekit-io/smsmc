@@ -37,14 +37,16 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
             break;
     }
 
-    $.ajax({
-        url: baseUrl + "/charts/download-convo",
-        method: "POST",
-        data: chartApiData
-    }).done(function (downloadLink) {
-        var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel_'+idMedia+'" target="_blank">EXCEL</a>';
-        $('#'+chartId+'_wrapper').find('div.uk-inline.B').append(btnExcel);
-    });
+    if (idMediaParam == '') {
+        $.ajax({
+            url: baseUrl + "/charts/download-convo",
+            method: "POST",
+            data: chartApiData
+        }).done(function (downloadLink) {
+            var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel_'+idMedia+'" target="_blank">EXCEL</a>';
+            $('#'+chartId+'_wrapper').find('div.uk-inline.B').append(btnExcel);
+        });
+    }
 
     // Send Ticket
     $('#' + chartId).on('click', '.sm-btn-openticket', function(e) {
