@@ -354,6 +354,27 @@ class ChartController extends Controller
 
         return '#';
     }
+    public function downloadConvoAll(Request $request)
+    {
+        $params['pid'] = $request->input('projectId');
+        $params['StartDate'] = $request->input('startDate');
+        $params['EndDate'] = $request->input('endDate');
+        $params['chartList'] = '18405';
+        if ($request->has('keywords')) {
+            $params['brandID'] = $request->input('keywords');
+        }
+        if ($request->has('sentiments')) {
+            $params['sentiment'] = $request->input('sentiments');
+        }
+
+        $apiUrl = 'project/1/8/convoexcel';
+        $response = $this->smsmc->post($apiUrl, $params);
+        if ($response->status == 200) {
+            return $response->result->excel;
+        }
+
+        return '#';
+    }
 
     public function influencer(Request $request)
     {
