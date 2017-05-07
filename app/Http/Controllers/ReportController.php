@@ -6,6 +6,7 @@ use App\Service\Account;
 use App\Service\Project;
 use App\Service\Report;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ReportController extends Controller
 {
@@ -63,6 +64,7 @@ class ReportController extends Controller
 
     public function create(Request $request) {
         // dd($request->all());
+        // Log::debug("request ==> " . \GuzzleHttp\json_encode($request->all()));
         if ($this->report->store($request)) {
             return redirect('/delay/5/reportlist');
         }

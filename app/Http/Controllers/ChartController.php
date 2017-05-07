@@ -318,9 +318,9 @@ class ChartController extends Controller
 
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
 
-//        Log::warning('convo paging params ==> ' . \GuzzleHttp\json_encode($request->all()));
-        Log::warning("convo paging url ==> " . $convoUrl);
-        Log::warning("convo paging param ==> " . \GuzzleHttp\json_encode($params));
+        // Log::warning('convo paging params ==> ' . \GuzzleHttp\json_encode($request->all()));
+        // Log::warning("convo paging url ==> " . $convoUrl);
+        // Log::warning("convo paging param ==> " . \GuzzleHttp\json_encode($params));
 
         $data = $this->smsmc->post($convoUrl, $params);
         $dtResult = new DatatableResult();
@@ -374,6 +374,7 @@ class ChartController extends Controller
 
         $apiUrl = 'project/1/8/convoexcel';
         $response = $this->smsmc->post($apiUrl, $params);
+        Log::debug($apiUrl . " params ==> " . \GuzzleHttp\json_encode($params));
         if ($response->status == 200) {
             return $response->result->excel;
         }

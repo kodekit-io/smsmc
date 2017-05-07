@@ -4,6 +4,7 @@ namespace App\Service;
 
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class Report
 {
@@ -65,7 +66,7 @@ class Report
             'reportType' => $reportTypeId,
             'chartList' => $chartList
         ];
-
+        
         if ($reportTypeId == 1) {
             $params['pid'] = $projectId;
         } else {
@@ -73,6 +74,7 @@ class Report
         }
 
         $response = $this->smsmc->post('report/create', $params);
+        Log::debug("report/add params " . \GuzzleHttp\json_encode($params));
         if ($response->status == '200') {
             return true;
             // dd($params);

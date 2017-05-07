@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="uk-position-relative">
                                         <label class="uk-form-label" for="key-acc-selector">Keyword / Account</label>
-                                        <select class="uk-select" id="key-acc-selector" name="keyword" multiple>
+                                        <select class="uk-select" id="key-acc-selector" name="keyword[]" multiple>
                                             {{-- <option value="0" class="pid1">All Keyword</option> --}}
                                             @foreach($projectList as $id => $project)
                                                 @foreach($project['detail']->keywordList as $keywordList)
