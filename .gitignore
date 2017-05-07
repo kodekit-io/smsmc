@@ -1,7 +1,5 @@
 /node_modules
 /public/storage
-/public/project-images
-/public/socmed-images
 /storage/*.key
 /vendor
 /.idea
