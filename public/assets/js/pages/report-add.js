@@ -15,7 +15,7 @@
             format:'d/m/Y',
             onShow:function( ct ){
                 this.setOptions({
-                    minDate:jQuery('#startDate').val()?jQuery('#startDate').val():false,
+                    // minDate:jQuery('#startDate').val()?jQuery('#startDate').val():false,
                     maxDate:'0'
                 })
             },
