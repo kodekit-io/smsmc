@@ -56,7 +56,8 @@ function tableInstagram(chartId, url, chartApiData, idMedia) {
 			},
 			{
 				"title": "Post",
-				"width": "20%",
+				"width": "25%",
+				"class": "uk-text-break",
 				"data": function(data) {
 					var post = data["Post"];
 					var postrim = post.substring(0, 100) + "...";
@@ -103,7 +104,7 @@ function tableInstagram(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Status",
 				"orderable": false,
-				"width": "20%",
+				"width": "15%",
 				"class": "uk-text-center",
 				"data": function(data) {
 					var cellData = data['status'];

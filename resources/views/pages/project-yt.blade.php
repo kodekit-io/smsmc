@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                         <div class="uk-card-body">
-                            <table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                            <div class="uk-overflow-auto"><table id="convoTable" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table></div>
                         </div>
                     </div>
                 </div>
