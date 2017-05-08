@@ -15,7 +15,9 @@
                         <h5 class="uk-card-title uk-float-left">Engagement List</h5>
                     </div>
                     <div class="uk-card-body">
-                        <table id="theList" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table"></table>
+                        <div class="uk-overflow-auto">
+                            <table id="theList" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table"></table>
+                        </div>
                     </div>
                 </div>
             </div>

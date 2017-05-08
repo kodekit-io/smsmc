@@ -110,6 +110,8 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::get('/engagement/detail/{id}', 'FrontendController@engagementDetail');
     Route::get('/engagement/list', 'FrontendController@engagementList');
 
+    Route::get('/engagement/view', 'TestController@engagementView');
+
     Route::get('medialist', 'TestController@medialist');
     Route::get('forumlist', 'TestController@forumlist');
     Route::get('bloglist', 'TestController@bloglist');

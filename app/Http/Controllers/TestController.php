@@ -93,6 +93,16 @@ class TestController extends Controller
         // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
 
+    public function engagementView()
+    {
+        $params = [
+            'uid' => Auth::user()->id
+        ];
+        $result = $this->smsmc->post('engagement/view', $params);
+        return \GuzzleHttp\json_encode($result->result);
+        // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+    }
+
     public function uploadFile()
     {
         $response = $this->smsmc->postMultipart('http://103.16.199.58/sinarmas-plus/api/upload', [], false, false, true);
