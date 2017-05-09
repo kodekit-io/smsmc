@@ -61,9 +61,9 @@ class EngagementController extends Controller
     public function post(Request $request)
     {
         if ($this->engagement->post($request)) {
-            return redirect('engagement/list');
+            return redirect('engagement/list')->withInput()->withErrors(['error' => 'Your post has been sent successfully.']);
         }
-        return redirect('engagement/add')->withInput()->withErrors(['error' => 'Error when save the data.']);
+        return redirect('engagement/add')->withInput()->withErrors(['error' => 'A problem has been occured while submitting your post.']);
     }
 
     public function getTimeline($idMedia)
