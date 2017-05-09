@@ -42,7 +42,7 @@
 
         var dt = new Date();
         $('#schedule').datetimepicker({
-            'format': 'd-m-y H:i',
+            'format': 'd/m/Y H:i',
             'minDate': 0,
             'minDateTime': dt,
             'closeOnDateSelect' : true,
