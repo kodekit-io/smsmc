@@ -1,12 +1,27 @@
 (function ($, window, document) {
     $(function () {
+        $('#post-to').change(function(){
+            if ($(this).val()=='1') {
+                $('.sm-vid').show();
+                $('.sm-img').show();
+            } else if ($(this).val()=='2') {
+                $('.sm-vid').hide();
+                $('.sm-img').show();
+            } else if ($(this).val()=='5') {
+                $('.sm-vid').show();
+                $('.sm-img').hide();
+            } else if ($(this).val()=='7') {
+                $('.sm-vid').hide();
+                $('.sm-img').show();
+            }
+        });
         // jQuery.validator.setDefaults({
         //     debug: true,
         //     success: "valid"
         // });
         $.validator.addMethod('filesize', function (value, element, param) {
             return this.optional(element) || (element.files[0].size <= param)
-        }, 'File size must be less than 2MB');
+        }, 'Filesize is too big');
         $('#engagementPost').validate({
             rules: {
                 postSocmed: {
@@ -16,10 +31,15 @@
                     // accept: "image/*",
                     // extension: "png|jpe?g",
                     filesize: 204800
+                },
+                video: {
+                    // accept: "image/*",
+                    // extension: "png|jpe?g",
+                    filesize: 102400000
                 }
             }
         });
-        
+
         var dt = new Date();
         $('#schedule').datetimepicker({
             'format': 'd-m-y H:i',

@@ -101,16 +101,18 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::post('/engagement/account-login/{idMedia}', 'EngagementController@login');
     Route::post('/engagement/account-logout/{idMedia}', 'EngagementController@logout');
 
-    Route::get('/engagement/calendar', 'FrontendController@engagementCalendar');
-    Route::get('/engagement/timeline', 'FrontendController@engagementTimeline');
     Route::get('/engagement/get-timeline/{idMedia}', 'EngagementController@getTimeline');
     Route::get('/engagement/add', 'EngagementController@add');
     Route::post('/engagement/post', 'EngagementController@post');
-    Route::get('/engagement/reply', 'FrontendController@engagementReply');
-    Route::get('/engagement/detail/{id}', 'FrontendController@engagementDetail');
-    Route::get('/engagement/list', 'FrontendController@engagementList');
 
-    Route::get('/engagement/view', 'TestController@engagementView');
+    Route::get('/engagement/calendar', 'EngagementController@engagementCalendar');
+    Route::get('/engagement/timeline', 'EngagementController@engagementTimeline');
+    Route::get('/engagement/reply', 'EngagementController@engagementReply');
+    Route::get('/engagement/detail/{id}', 'EngagementController@engagementDetail');
+    Route::get('/engagement/list', 'EngagementController@engagementList');
+
+    Route::get('/engagement/get-list', 'TestController@engagementView');
+    Route::get('/engagement/get-calendar', 'TestController@engagementCalendar');
 
     Route::get('medialist', 'TestController@medialist');
     Route::get('forumlist', 'TestController@forumlist');

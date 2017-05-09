@@ -11,11 +11,14 @@
 
         <link rel="stylesheet" href="{!! asset('assets/css/lib/uikit.css') !!}" />
         <link rel="stylesheet" href="{!! asset('assets/css/main.css') !!}" />
+        {{-- <link rel="stylesheet" href="{!! asset('assets/css/lib/offline-theme-default.css') !!}" /> --}}
+        {{-- <link rel="stylesheet" href="{!! asset('assets/css/lib/offline-theme-default-indicator.css') !!}" /> --}}
 		@section('page-level-styles')
 	    @show
         <script src="{!! asset('assets/js/lib/jquery.min.js') !!}"></script>
         <script src="{!! asset('assets/js/lib/uikit.js') !!}"></script>
         <script src="{!! asset('assets/js/lib/uikit-icons.js') !!}"></script>
+        {{-- <script src="{!! asset('assets/js/lib/offline.min.js') !!}"></script> --}}
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

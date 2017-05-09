@@ -13,7 +13,7 @@ function theList(div) {
     var theTable = $('#'+div).DataTable( {
         ajax: {
             // url: baseUrl+'/json/engagement-list.json',
-			url : baseUrl + '/engagement/view'
+			url : baseUrl + '/engagement/get-list'
         },
         buttons: {
             buttons: [
