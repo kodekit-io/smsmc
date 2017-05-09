@@ -11,7 +11,7 @@
         <div class="uk-animation-fade uk-card no-header uk-card-hover uk-card-default uk-card-small">
             <div class="uk-card-header uk-clearfix">
                 <h5 class="uk-card-title uk-float-left">Manage Accounts</h5>
-                @if (is_authorized_to('userRead'))
+                @if (is_authorized_to('userCreate'))
                     <a href="{!! url('setting/user/add') !!}" title="Add User" class="uk-button red white-text uk-float-right">Add User</a>
                 @endif
             </div>
