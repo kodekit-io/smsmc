@@ -30,12 +30,12 @@
                 image: {
                     // accept: "image/*",
                     // extension: "png|jpe?g",
-                    filesize: 204800
+                    filesize: 2048000
                 },
                 video: {
                     // accept: "image/*",
                     // extension: "png|jpe?g",
-                    filesize: 102400000
+                    filesize: 1024000000
                 }
             }
         });
