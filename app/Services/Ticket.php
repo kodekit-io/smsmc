@@ -147,4 +147,17 @@ class Ticket
 
         return [];
     }
+
+    public function getSendToUsers()
+    {
+        $params = [
+            'uid' => \Auth::id()
+        ];
+        $response = $this->smsmc->post('ticket/sendto', $params);
+        if ($response->status == '200') {
+            return $response->result->data;
+        }
+
+        return [];
+    }
 }

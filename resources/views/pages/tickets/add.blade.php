@@ -23,7 +23,7 @@
                                 <div class="uk-form-controls">
                                     <select name="to[]" id="to_select" class="uk-input uk-width-1-1" multiple>
                                     @foreach($users as $to)
-                                        <option value="{!! $to->idLogin !!}">{!! $to->name !!}</option>
+                                        <option value="{!! $to->id !!}">{!! $to->name !!}</option>
                                     @endforeach
                                     </select>
                                 </div>

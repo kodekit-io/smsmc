@@ -84,8 +84,9 @@ trait ProjectRequestParser
         $data['ticketTypes'] = \GuzzleHttp\json_encode($ticketTypes);
 
         // get TO
-        $users = $this->userService->getUsers();
-        $data['users'] = \GuzzleHttp\json_encode($users->user);
+        // $users = $this->userService->getUsers();
+        $users = $this->ticketService->getSendToUsers();
+        $data['users'] = \GuzzleHttp\json_encode($users);
 
         $data['keywords'] = $keywords;
         $data['topics'] = $topics;

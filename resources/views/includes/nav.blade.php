@@ -28,19 +28,23 @@
                             <li><a href="{!! url('/socmed-accounts') !!}"><i class="fa fa-user-plus fa-fw"></i> Manage Accounts</a></li>
                             <li class="uk-nav-divider"></li>
                             @endif
-                            @if(count($g_accounts->facebook) > 0)
+                            @if(isset($g_accounts->facebook) && count($g_accounts->facebook) > 0)
                             <li><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
                             @endif
-                            @if(count($g_accounts->twitter) > 0)
+                            @if(isset($g_accounts->twitter) && count($g_accounts->twitter) > 0)
                             <li><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
                             @endif
-                            @if(count($g_accounts->youtube) > 0)
+                            @if(isset($g_accounts->youtube) && count($g_accounts->youtube) > 0)
                             <li><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
                             @endif
-                            @if(count($g_accounts->instagram) > 0)
+                            @if(isset($g_accounts->instagram) && count($g_accounts->instagram) > 0)
                             <li><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
                             @endif
-                            @if((count($g_accounts->instagram) == 0) && (count($g_accounts->facebook) == 0) && (count($g_accounts->twitter) == 0) && (count($g_accounts->youtube) == 0))
+                            @if(
+                            (isset($g_accounts->instagram) && count($g_accounts->instagram) == 0) &&
+                            (isset($g_accounts->facebook) && count($g_accounts->facebook) == 0) &&
+                            (isset($g_accounts->twitter) && count($g_accounts->twitter) == 0) &&
+                            (isset($g_accounts->youtube) && count($g_accounts->youtube) == 0))
                             <li class="uk-text-center">No account found.<br>Please contact<br>your administrator.</li>
                             @endif
                         </ul>

@@ -68,7 +68,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         // var $toCcSelect = '<select id="to_cc_select" name="to_cc[]" class="uk-input" multiple >';
         for (i=0; i < $users.length; i++) {
             var theUser = $users[i];
-            $toSelect += '<option value="'+ theUser.idLogin +'"> '+ theUser.name +'</option>';
+            $toSelect += '<option value="'+ theUser.id +'"> '+ theUser.name +'</option>';
             // $toCcSelect += '<option value="'+ theUser.idLogin +'"> '+ theUser.name +'</option>';
         }
         $toSelect += '</select>';
@@ -122,6 +122,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 data: $(this).serialize(),
                 success: function ($res) {
                     if ($res == '1') {
+                        theTable.ajax.reload();
                         uikitModal.hide();
                     } else {
                         alert('Error when updating the data.');

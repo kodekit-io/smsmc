@@ -30,9 +30,12 @@ class SocmedAccount
      */
     public function handle($request, Closure $next)
     {
-        $accounts = $this->account->getSocialAccounts()[0];
-        // share to all views
-        View::share('g_accounts', $accounts);
+        $accounts = $this->account->getSocialAccounts();
+        View::share('g_accounts', []);
+        if (isset($accounts[0])) {
+            // share to all views
+            View::share('g_accounts', $accounts[0]);
+        }
         return $next($request);
     }
 }
