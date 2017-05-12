@@ -104,6 +104,30 @@ class Engagement
                 $params['postAttachment'] = $socmedFile;
             }
 
+            $videoFieldName = 'video';
+            $socmedVideo = '';
+
+            if ($request->hasFile($videoFieldName)) {
+                if ($request->file($videoFieldName)->isValid()) {
+                    $videoName = 'socmed_' . $idMedia . '_' . strtotime(date('Y-m-d H:i:s')) . '.' . $request->file($videoFieldName)->getClientOriginalExtension();
+                    $vidPath = public_path('socmed-videos');
+                    if (! is_dir($vidPath)) {
+                        mkdir($vidPath, 0777, true);
+                    }
+                    $request->file($videoFieldName)->move($vidPath, $videoName);
+                    $fullVidPath = public_path('socmed-videos/' . $videoName);
+
+                    $uploadResponse = $this->smsmc->postSocmedFile($fullVidPath, $idMedia);
+                    if ($uploadResponse->status == 200) {
+                        $socmedVideo = $uploadResponse->result->file_path;
+                    }
+                }
+            }
+
+            if ($socmedVideo != '') {
+                $params['postVideoAttachment'] = $socmedVideo;
+            }
+
             $response = $this->smsmc->post('engagement/post', $params);
             if ($response->status == 200) {
                 return true;

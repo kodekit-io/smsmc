@@ -2,13 +2,15 @@ function calendar(div) {
     var now = new Date();
 
     $.ajax({
-        url: baseUrl+'/json/calendar.json',
-        //dataType: 'jsonp',
+        // url: baseUrl+'/json/calendar.json',
+        url: baseUrl+'/engagement/get-calendar',
+        dataType: 'json',
         success: function(result){
+            console.log(result);
             var data = result.data;
-            if (data.length === 0) {
-                $('#'+div).html("<div class='center'>No Data</div>");
-            } else {
+            // if (data.length === 0) {
+                // $('#'+div).html("<div class='center'>No Data</div>");
+            // } else {
                 $('#'+div).fullCalendar({
                     header: {
                         left: 'prev,next today',
@@ -21,7 +23,7 @@ function calendar(div) {
                     eventLimit: true, // allow "more" link when too many
                     events: data
                 });
-            }
+            // }
         }
     });
 }

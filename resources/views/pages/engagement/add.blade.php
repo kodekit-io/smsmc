@@ -6,7 +6,15 @@
     @include('includes.subnav-engagement')
 @endsection
 @section('content')
-
+    
+    @if (count($errors) > 0)
+        @foreach ($errors->all() as $error)
+            <div class="uk-alert-danger sm-alert uk-animation-slide-top-small" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>{{ $error }}</p>
+            </div>
+        @endforeach
+    @endif
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-card uk-card-hover uk-card-default uk-card-small">
             <div class="uk-card-header">
@@ -36,10 +44,18 @@
                                 <textarea class="uk-textarea" id="postSocmed" rows="8" placeholder="What's up?" name="content" required></textarea>
                             </div>
                         </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="img"><span uk-icon="icon: image"></span> Image</label>
+                        <div class="uk-margin sm-img">
+                            <label class="uk-form-label" for="img"><span uk-icon="icon: image"></span> Image </label>
                             <div class="uk-form-controls">
-                                <input type="file" id="img" name="image">
+                                <input type="file" id="img" name="image"><br>
+                                (max filesize allowed 2MB)
+                            </div>
+                        </div>
+                        <div class="uk-margin sm-vid">
+                            <label class="uk-form-label" for="vid"><span uk-icon="icon: play-circle"></span> Video</label>
+                            <div class="uk-form-controls">
+                                <input type="file" id="vid" name="video"><br>
+                                (max filesize allowed 1GB)
                             </div>
                         </div>
                         <div class="uk-margin">

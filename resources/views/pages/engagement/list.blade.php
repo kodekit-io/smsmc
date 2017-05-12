@@ -7,6 +7,14 @@
 @endsection
 @section('content')
 
+    @if (count($errors) > 0)
+        @foreach ($errors->all() as $error)
+            <div class="uk-alert-success sm-alert uk-animation-slide-top-small" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>{{ $error }}</p>
+            </div>
+        @endforeach
+    @endif
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-grid-medium uk-child-width-1-1@m" uk-grid>
             <div id="01">

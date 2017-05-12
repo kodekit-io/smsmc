@@ -61,9 +61,9 @@ class EngagementController extends Controller
     public function post(Request $request)
     {
         if ($this->engagement->post($request)) {
-            return redirect('engagement/list');
+            return redirect('engagement/list')->withInput()->withErrors(['error' => 'Your post has been sent successfully.']);
         }
-        return redirect('engagement/add')->withInput()->withErrors(['error' => 'Error when save the data.']);
+        return redirect('engagement/add')->withInput()->withErrors(['error' => 'A problem has been occured while submitting your post.']);
     }
 
     public function getTimeline($idMedia)
@@ -95,5 +95,32 @@ class EngagementController extends Controller
         session()->forget('socmedAttribute');
         session(['socmedAttribute' => $socmedAttribute]);
         Storage::put('socmed.json', \GuzzleHttp\json_encode($socmedAttribute));
+    }
+
+    public function engagementCalendar()
+    {
+        $data['pageTitle'] = 'Scheduled Posts';
+        return view('pages.engagement.calendar', $data);
+    }
+    public function engagementTimeline()
+    {
+        $data['pageTitle'] = 'Timeline';
+        return view('pages.engagement.timeline', $data);
+    }
+
+    public function engagementReply()
+    {
+        $data['pageTitle'] = 'Reply Engagement';
+        return view('pages.engagement.reply', $data);
+    }
+    public function engagementDetail()
+    {
+        $data['pageTitle'] = 'Engagement Detail';
+        return view('pages.engagement.detail', $data);
+    }
+    public function engagementList()
+    {
+        $data['pageTitle'] = 'All Engagement';
+        return view('pages.engagement.list', $data);
     }
 }

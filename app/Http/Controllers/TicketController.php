@@ -91,9 +91,9 @@ class TicketController extends Controller
     public function create(Request $request)
     {
         if ($this->ticket->create($request)) {
-            return redirect('ticket');
+            return redirect('ticket')->withInput()->withErrors(['error' => 'Your ticket has been sent successfully.']);
         }
-        return redirect('ticket/add')->withInput();
+        return redirect('ticket/add')->withInput()->withErrors(['error' => 'A problem has been occured while submitting your ticket.']);
     }
 
     public function createTicketFromConvo(Request $request)

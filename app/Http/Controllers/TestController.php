@@ -83,7 +83,7 @@ class TestController extends Controller
         // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
     }
 
-    public function calendar()
+    public function engagementCalendar()
     {
         $params = [
             'uid' => Auth::user()->id
