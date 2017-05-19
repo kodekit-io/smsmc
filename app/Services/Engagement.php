@@ -3,6 +3,8 @@
 namespace App\Service;
 
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use stdClass;
 
 class Engagement
@@ -64,7 +66,7 @@ class Engagement
             ];
             if ($request->has('post_date')) {
                 $postDate = $request->input('post_date');
-                $params['postDate'] = $postDate;
+                $params['postDate'] = Carbon::createFromFormat('d/m/Y H:i', $postDate)->format('Y-m-d\TH:i:s\Z');
             }
             // additional for fb
             if ($idMedia == 1) {
@@ -127,6 +129,8 @@ class Engagement
             if ($socmedVideo != '') {
                 $params['postVideoAttachment'] = $socmedVideo;
             }
+
+            Log::warning(\GuzzleHttp\json_encode($params));
 
             $response = $this->smsmc->post('engagement/post', $params);
             if ($response->status == 200) {

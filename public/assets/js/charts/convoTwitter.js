@@ -95,9 +95,10 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 				"data": "sentiment",
 				"createdCell": function(td, cellData, rowData, row, col) {
 					var id = rowData['id'];
-					// console.log(id);
                     $(td).attr('data-id', id);
                     $(td).attr('data-id-media', idMedia);
+                    $(td).attr('data-date', rowData['Date']);
+
 					switch (cellData) {
 						case 'positive':
 							$(td).addClass('sm-sentiment green-text');

@@ -76,6 +76,7 @@ function tableBlog(chartId, url, chartApiData, idMedia) {
 					var id = rowData['id'];
                     $(td).attr('data-id', id);
                     $(td).attr('data-id-media', idMedia);
+                    $(td).attr('data-date', rowData['Date']);
 					// console.log(id);
 					switch (cellData) {
 						case 'positive':

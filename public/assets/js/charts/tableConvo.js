@@ -140,6 +140,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         $(this).blur();
         var id = $(this).attr('data-id');
         var idMedia = $(this).attr('data-id-media');
+        var date = $(this).attr('data-date');
         var modal = '<form id="changeSentiment" class="change-sentiment" action="' + chartApiData.changeSentimentUrl + '">' +
             '<div class="uk-modal-body">' +
                 '<h5>Edit Sentiment</h5>' +
@@ -148,6 +149,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 '<input type="hidden" name="idMedia" value="'+ idMedia +'">' +
                 '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'">' +
                 '<input type="hidden" name="id" value="' + id + '" >' +
+                '<input type="hidden" name="date" value="' + date + '" >' +
                 '<div class="uk-margin">' +
                     '<select name="sentiment" class="uk-select">' +
                         '<option value="1">Positive</option>' +

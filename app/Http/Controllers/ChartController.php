@@ -396,7 +396,8 @@ class ChartController extends Controller
         $postId = $request->input('id');
         $projectId = $request->input('projectId');
         $sentiment = $request->input('sentiment');
-        $date = Carbon::now()->format('Y-m-d\TH:i:s\Z');
+        //$date = Carbon::now()->format('Y-m-d\TH:i:s\Z');
+        $date = $request->input('date');
 
         if ($reportType == 1) {
             $params = [
@@ -415,10 +416,12 @@ class ChartController extends Controller
             ];
         }
         $url = 'project/' . $reportType . '/' . $idMedia . '/sentiment/update';
-//        Log::warning("change sentiment param ==> " . \GuzzleHttp\json_encode($params));
-//        Log::warning("change sentiment url ==> " . $url);
+        Log::warning("change sentiment param ==> " . \GuzzleHttp\json_encode($params));
+        Log::warning("change sentiment url ==> " . $url);
         $response = $this->smsmc->post($url, $params);
+
         if ($response->status == '200') {
+            Log::warning('change sentiment response ==> ' . \GuzzleHttp\json_encode($response));
             return 1;
         }
         return 0;
