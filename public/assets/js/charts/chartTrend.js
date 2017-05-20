@@ -106,6 +106,13 @@ function chartTrend(domId, url, chartApiData, title) {
                         data: data.legend,
                         x: 'left',
                         y: 'bottom',
+                        formatter: function (name) {
+                            var shortKey = name.substring(0, 10)+'..';
+                            return shortKey;
+                        },
+                        tooltip:{
+                            show:true
+                        }
                     },
                     grid: {
                         x: '30px',
@@ -209,7 +216,9 @@ function chartTrendCombo(domId, url, chartApiData, title) {
             var $item = [], $nav=[];
             if (chartData.length > 0) {
                 for(var x = 0; x < chartData.length; x++) {
-                    $nav[x] = '<li><a class="sm-text-bold uk-text-capitalize">'+result.chartData[x].name+'</a></li>';
+                    var key = result.chartData[x].name;
+                    var shortKey = key.substring(0, 10)+'..';
+                    $nav[x] = '<li><a class="sm-text-bold uk-text-capitalize" title="'+key+'" uk-tooltip>'+shortKey+'</a></li>';
                     $item[x] = '<li id="chart'+[x]+'" class="sm-chart"></li>';
                 }
             }

@@ -64,14 +64,16 @@ class Report
             'mediaId' => $mediaId,
             'name' => $title,
             'reportType' => $reportTypeId,
-            'chartList' => $chartList
+            'chartList' => $chartList,
+            'pid' => $projectId,
+            'uid' => \Auth::id()
         ];
-        
-        if ($reportTypeId == 1) {
-            $params['pid'] = $projectId;
-        } else {
-            $params['uid'] = \Auth::id();
-        }
+
+        // if ($reportTypeId == 1) {
+        //     $params['pid'] = $projectId;
+        // } else {
+        //     $params['uid'] = \Auth::id();
+        // }
 
         $response = $this->smsmc->post('report/create', $params);
         Log::debug("report/add params " . \GuzzleHttp\json_encode($params));

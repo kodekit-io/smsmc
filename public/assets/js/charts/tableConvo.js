@@ -174,7 +174,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 success: function ($res) {
                     if ($res == '1') {
                         uikitModal.hide();
-                        theTable.ajax.reload();
+                        theTable.ajax.reload('',false);
                     } else {
                         alert('Error when updating the data.');
                     }
