@@ -63,14 +63,33 @@ function chartBar(domId, url, chartApiData, name) {
 
                     var option = {
                         tooltip : {
-                            trigger: 'item',
-                            formatter: '{b}<br>{a} : {c}'
+                            formatter: '{b}<br>{a} : {c}',
+                            trigger: 'axis',
+                            axisPointer : {
+                                type : 'shadow'
+                            }
                         },
                         legend: {
                             show: true,
-                            data: [chartName],
+                            // data: [chartName],
+                            data: [{
+                                name: chartName,
+                                // icon: 'none'
+                            }],
                             x: 'left',
-                            y: 'bottom'
+                            y: 'bottom',
+                            formatter: function (value) {
+                                var k = String(key);
+                                var arr = k.split(',');
+                                var keys=[];
+                                for (var i = 0; i < arr.length; i++) {
+                                    keys[i]= [i+1]+' '+arr[i];
+                                }
+                                return value;
+                            },
+                            tooltip:{
+                                show:true
+                            }
                         },
                         grid: {
                             x: '30px',
@@ -103,8 +122,16 @@ function chartBar(domId, url, chartApiData, name) {
                                 axisLabel: {
                                     textStyle: {
                                         fontSize: 10
+                                    },
+                                    formatter: function (value, index) {
+                                        if(value.length>3){
+                                            var shortKey = value.substring(0, 3)+'..';
+                                        } else {
+                                            var shortKey = value;
+                                        }
+                                        return shortKey;
                                     }
-                                }
+                                },
                             }
                         ],
                         yAxis : [
@@ -332,12 +359,20 @@ function chartBarStack(domId, url, chartApiData, name) {
                             xAxis : [
                                 {
                                     type : 'category',
-                                    data : data.cat,
+                                    data: key,
                                     axisLabel: {
                                         textStyle: {
                                             fontSize: 10
+                                        },
+                                        formatter: function (value, index) {
+                                            if(value.length>3){
+                                                var shortKey = value.substring(0, 3)+'..';
+                                            } else {
+                                                var shortKey = value;
+                                            }
+                                            return shortKey;
                                         }
-                                    }
+                                    },
                                 }
                             ],
                             yAxis : [
@@ -370,7 +405,15 @@ function chartBarStack(domId, url, chartApiData, name) {
                         });
                     }
                 } else {
-                    $('#'+chartId).html(msgEmpty);
+                    if (chartId==308) {
+                        var msg308 = '<div class="uk-position-center uk-text-center">'
+                            + '<i class="fa fa-smile-o fa-lg" aria-hidden="true"></i><br>'
+                            + 'Nothing to display here,<br>there\'s no Topic in your project'
+                        + '</div>';
+                        $('#'+chartId).html(msg308);
+                    } else {
+                        $('#'+chartId).html(msgEmpty);
+                    }
                 }
             }
         },

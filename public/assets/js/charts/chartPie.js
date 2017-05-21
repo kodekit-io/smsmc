@@ -99,15 +99,29 @@ function chartPie(domId, url, chartApiData, name) {
                     },
                     legend: {
                         orient: 'vertical',
+                        data: key,
                         x: 'left',
-                        y: 'bottom',
-                        data: key
+                        y: 'top',
+                        itemWidth: 15,
+                        itemHeight: 12,
+                        formatter: function (name) {
+                            var shortKey = name.substring(0, 10);
+                            if(name.length>10){
+                                return shortKey+'..';
+                            } else {
+                                return name;
+                            }
+                        },
+                        tooltip:{
+                            show:true
+                        }
                     },
                     series: [
                         {
                             name: chartName,
                             type:'pie',
                             radius: ['25%', '75%'],
+                            center: ['55%', '55%'],
                             avoidLabelOverlap: true,
                             label: {
                                 normal: {

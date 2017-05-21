@@ -6,7 +6,7 @@
 @section('content')
 
     <section class="sm-main sm-nosubnav uk-container uk-container-expand">
-        <form id="project_add" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl" uk-grid method="post" action="{!! url('project/' . $projectId . '/update') !!}" enctype="multipart/form-data">
+        <form id="project_add" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-2@m " uk-grid method="post" action="{!! url('project/' . $projectId . '/update') !!}" enctype="multipart/form-data">
             {!! csrf_field() !!}
             <input type="hidden" name="keywords_number" value="{!! count($keywords) !!}">
             <input type="hidden" name="topics_number" value="{!! count($topics) !!}">

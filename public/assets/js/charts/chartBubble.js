@@ -125,15 +125,25 @@ function chartBubble(domId, url, chartApiData, name) {
                     },
                     legend: {
                         data: data.legend,
-                        //padding: ['0', '0', '0', '0'],
                         x: 'left',
-                        y: 'bottom'
+                        y: 'bottom',
+                        formatter: function (name) {
+                            var shortKey = name.substring(0, 10);
+                            if(name.length>10){
+                                return shortKey+'..';
+                            } else {
+                                return name;
+                            }
+                        },
+                        tooltip:{
+                            show:true
+                        }
                     },
                     grid: {
                         x: '30px',
                         x2: '10px',
                         y: '10px',
-                        y2: '60px'
+                        y2: '70px'
                     },
                     toolbox: {
                         show: true,

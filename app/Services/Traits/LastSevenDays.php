@@ -15,9 +15,9 @@ trait LastSevenDays
 {
     public function getLastSevenDaysRange()
     {
-        $lastSevenDays = Carbon::today('Asia/Jakarta')->subDay(7);
+        $lastSevenDays = Carbon::today()->subDay(7);
         //$endDate = $lastSevenDays->copy()->setTime(23, 59, 59)->format('Y-m-d\TH:i:s\Z');
-        $endDate = Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z');
+        $endDate = Carbon::now()->format('Y-m-d\TH:i:s\Z');
         $startDate = $lastSevenDays->setTime(00, 00, 01)->format('Y-m-d\TH:i:s\Z');
 
         return [

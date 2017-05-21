@@ -6,7 +6,7 @@
 @section('content')
 
     <section class="sm-main sm-nosubnav uk-container uk-container-expand">
-        <form id="socmed_acc" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl" uk-grid action="{!! url('socmed-accounts/save') !!}" method="post">
+        <form id="socmed_acc" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-2@m " uk-grid action="{!! url('socmed-accounts/save') !!}" method="post">
             {!! csrf_field() !!}
             <div>
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">

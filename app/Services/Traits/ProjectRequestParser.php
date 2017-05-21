@@ -27,8 +27,13 @@ trait ProjectRequestParser
         if ($request->has('filter')) {
             $startDateRequest = $request->input('startDate');
             $endDateRequest = $request->input('endDate');
-            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTime(00, 00, 01)->format('Y-m-d\TH:i:s\Z') : $startDate;
-            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTime(23, 59, 59)->format('Y-m-d\TH:i:s\Z') : $endDate;
+
+            // $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTime(00, 00, 01)->format('Y-m-d\TH:i:s\Z') : $startDate;
+            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $startDate;
+
+            // $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTime(23, 59, 59)->format('Y-m-d\TH:i:s\Z') : $endDate;
+            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $endDate;
+
             $submittedKeywords = ( $request->has('keywords') ? implode(',', $request->input('keywords')) : '' );
             $submittedTopics = ( $request->has('topics') ? implode(',', $request->input('topics')) : '' );
             $submittedSentiments = ( $request->has('sentiments') ? implode(',', $request->input('sentiments')) : '' );
@@ -99,11 +104,11 @@ trait ProjectRequestParser
         $data['searchText'] = $searchText;
         $data['startDate'] = $startDate;
         $data['endDate'] = $endDate;
-        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d/m/y H:i');
-        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
+        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->setTimezone('Asia/Jakarta')->format('d/m/y H:i');
+        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->setTimezone('Asia/Jakarta')->format('d/m/y H:i');
 
         $data['projectDetail'] = $projectDetail;
-
+        // dd($data);
         return $data;
     }
 

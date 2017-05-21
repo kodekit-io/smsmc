@@ -30,15 +30,15 @@
                         <div class="uk-grid-divider uk-grid-small uk-flex uk-flex-middle">
 
                             @if(count($keywords) > 0)
-                            <div class="uk-width-1-2">
-                                <div uk-grid class="uk-grid-small uk-flex uk-flex-middle">
+                            <div class="uk-width-expand">
+                                <div uk-grid class="uk-grid-small uk-flex uk-flex-top">
                                     <div class="uk-width-auto@m sm-text-bold">Keyword:</div>
                                     <div class="uk-width-expand@m">
                                         <ul class="sm-list" id="select-keyword">
-                                                <li><label><input class="uk-checkbox select-all-keyword" type="checkbox" checked> Select All</label></li>
-                                                @foreach($keywords as $keywordId => $keyword)
-                                                    <li><label><input class="uk-checkbox" name="keywords[]" type="checkbox" value="{!! $keywordId !!}" {!! $keyword['selected'] !!}> {!! $keyword['value'] !!}</label></li>
-                                                @endforeach
+                                            <li><label><input class="uk-checkbox select-all-keyword" type="checkbox" checked> Select All</label></li>
+                                            @foreach($keywords as $keywordId => $keyword)
+                                            <li><label><input class="uk-checkbox" name="keywords[]" type="checkbox" value="{!! $keywordId !!}" {!! $keyword['selected'] !!}> {!! $keyword['value'] !!}</label></li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>

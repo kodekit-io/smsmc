@@ -10,7 +10,7 @@ function chartTrend(domId, url, chartApiData, title) {
             $('.cardloader').remove();
         },
         success: function(result){
-            // console.log(result);
+            console.log(result);
             if (result[0]===undefined) {
                 $('#'+domId).html(cardEmpty);
             }
@@ -50,15 +50,16 @@ function chartTrend(domId, url, chartApiData, title) {
                     data = chartData[i].value;
                     date = chartData[i].date;
 
-                    for (var n = 0; n < date.length; n++) {
-                        var sDate = moment.parseZone(chartApiData.startDate).format('DD/MM/YY');
-                        var eDate = moment.parseZone(chartApiData.endDate).format('DD/MM/YY');
-                        if(sDate==eDate){
-                            dates[n] = moment(date[n],'HH:mm:ss').local().format('HH:mm');
-                        } else {
-                            dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
-                        }
-                    }
+                    // for (var n = 0; n < date.length; n++) {
+                    //     var sDate = moment.parseZone(chartApiData.startDate).format('DD/MM/YY');
+                    //     var eDate = moment.parseZone(chartApiData.endDate).format('DD/MM/YY');
+                    //     console.log(eDate);
+                    //     if(sDate==eDate){
+                    //         dates[n] = moment(date[n],'HH:mm:ss').local().format('HH:mm');
+                    //     } else {
+                    //         dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
+                    //     }
+                    // }
 
                     serie[i] = {
                         name: chartData[i].key,
@@ -70,7 +71,7 @@ function chartTrend(domId, url, chartApiData, title) {
                 var data = {
                     legend: key,
                     colors: color,
-                    xaxis: dates,
+                    xaxis: date,
                     series: serie
                 }
 
@@ -107,8 +108,12 @@ function chartTrend(domId, url, chartApiData, title) {
                         x: 'left',
                         y: 'bottom',
                         formatter: function (name) {
-                            var shortKey = name.substring(0, 10)+'..';
-                            return shortKey;
+                            var shortKey = name.substring(0, 10);
+                            if(name.length>10){
+                                return shortKey+'..';
+                            } else {
+                                return name;
+                            }
                         },
                         tooltip:{
                             show:true
@@ -118,7 +123,7 @@ function chartTrend(domId, url, chartApiData, title) {
                         x: '30px',
                         x2: '10px',
                         y: '10px',
-                        y2: '60px'
+                        y2: '70px'
                     },
                     toolbox: {
                         show: true,
@@ -217,7 +222,12 @@ function chartTrendCombo(domId, url, chartApiData, title) {
             if (chartData.length > 0) {
                 for(var x = 0; x < chartData.length; x++) {
                     var key = result.chartData[x].name;
-                    var shortKey = key.substring(0, 10)+'..';
+                    if(key.length>10){
+                        var shortKey = key.substring(0, 10)+'..';
+                    } else {
+                        var shortKey = key;
+                    }
+
                     $nav[x] = '<li><a class="sm-text-bold uk-text-capitalize" title="'+key+'" uk-tooltip>'+shortKey+'</a></li>';
                     $item[x] = '<li id="chart'+[x]+'" class="sm-chart"></li>';
                 }
@@ -233,7 +243,7 @@ function chartTrendCombo(domId, url, chartApiData, title) {
                         + '</ul>'
                     + '</div>'
                     + '<div class="uk-card-body sm-trend-combo">'
-                        + '<ul class="uk-subnav sm-key-switch" uk-switcher>'
+                        + '<ul class="uk-subnav sm-key-switch uk-margin-right uk-margin-remove-bottom" uk-switcher>'
                             + $nav.join('')
                         + '</ul>'
                         + '<ul class="uk-switcher">'
@@ -328,11 +338,22 @@ function itemCombo(id, url, chartApiData, result) {
                 data: data.legend,
                 x: 'left',
                 y: 'bottom',
+                formatter: function (name) {
+                    var shortKey = name.substring(0, 10);
+                    if(name.length>10){
+                        return shortKey+'..';
+                    } else {
+                        return name;
+                    }
+                },
+                tooltip:{
+                    show:true
+                }
             },
             grid: {
                 x: '30px',
                 x2: '10px',
-                y: '30px',
+                y: '40px',
                 y2: '60px'
             },
             toolbox: {

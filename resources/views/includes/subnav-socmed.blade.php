@@ -15,7 +15,7 @@
         <div uk-dropdown="mode: click; offset: 0;" class="uk-width-1-1 dropdown-stack">
             <div class="uk-grid-divider uk-grid-small" uk-grid>
                 <div class="uk-width-1-1">
-                    <div uk-grid class="uk-grid-small uk-flex uk-flex-middle">
+                    <div uk-grid class="uk-grid-small uk-flex uk-flex-top">
                         <div class="uk-width-auto@m sm-text-bold">Accounts:</div>
                         <div class="uk-width-expand@m">
                             <ul class="sm-list" id="select-account">
