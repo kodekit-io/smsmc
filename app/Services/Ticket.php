@@ -151,11 +151,20 @@ class Ticket
     public function getSendToUsers()
     {
         $params = [
-            'uid' => \Auth::id()
+            'uid' => \Auth::id(),
+            'userId' => \Auth::id()
         ];
-        $response = $this->smsmc->post('ticket/sendto', $params);
-        if ($response->status == '200') {
-            return $response->result->data;
+        $userResponse = $this->smsmc->post('user/get', $params);
+        if ($userResponse->status == '200') {
+            $user = $userResponse->result->user;
+            $params = [
+                'uid' => \Auth::id(),
+                'bussinessId' => $user->idBussiness
+            ];
+            $response = $this->smsmc->post('ticket/sendto', $params);
+            if ($response->status == '200') {
+                return $response->result->data;
+            }
         }
 
         return [];
