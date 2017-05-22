@@ -9,7 +9,7 @@
 @section('content')
 
     <section class="sm-main uk-container uk-container-expand">
-        <div class="uk-grid-medium uk-child-width-1-2@m uk-child-width-1-4@xl" uk-grid uk-sortable="handle: .uk-card-header">
+        <div class="uk-grid-medium uk-child-width-1-2@m" uk-grid uk-sortable="handle: .uk-card-header">
             <div id="01"></div>
             <div id="02"></div>
             <div id="03"></div>
