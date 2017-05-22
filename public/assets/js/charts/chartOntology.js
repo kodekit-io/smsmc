@@ -71,14 +71,27 @@ function chartOntology(domId,url,chartApiData,name) {
                 var option = {
                     legend: {
                         data: result.categories,
+                        itemWidth: 15,
                         x: 'left',
                         y: 'bottom',
+                        formatter: function (name) {
+                            var shortKey = name.substring(0, 10);
+                            if(name.length>10){
+                                return shortKey+'..';
+                            } else {
+                                return name;
+                            }
+                        },
+                        tooltip:{
+                            show:true
+                        }
                     },
                     grid: {
-                        x: 0,
-                        x2: 0,
-                        y: 0,
-                        y2: 0
+                        // show: true,
+                        x: '0',
+                        x2: '0',
+                        y: '0',
+                        y2: '60',
                     },
                     tooltip: {
                         trigger: 'item',
@@ -100,8 +113,8 @@ function chartOntology(domId,url,chartApiData,name) {
                     series: [{
                         type: 'graph',
                         layout: 'force',
-                        roam: true,
-                        animation: true,
+                        roam: false,
+                        animation: false,
                         label: {
                             normal: {
                                 show: true,
@@ -118,12 +131,18 @@ function chartOntology(domId,url,chartApiData,name) {
                         categories: result.categories,
                         force: {
                             repulsion: 50,
-                            gravity: 0.1,
+                            gravity: 0.25,
                             edgeLength: 30,
-                            layoutAnimation: false,
+                            layoutAnimation: true,
                         },
                         edges: result.links,
                         itemStyle: {},
+                        lineStyle: {
+                            normal: {
+                                color: 'source',
+                                curveness: 0.1
+                            }
+                        }
                     }]
 
                 };

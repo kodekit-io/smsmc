@@ -142,6 +142,10 @@
             var $topics = '{!! $submittedTopics !!}';
             var $sentiments = '{!! $submittedSentiments !!}';
             var $text = '{!! $searchText !!}';
+            var sdateval = moment.parseZone($startDate).local().format('DD/MM/YY HH:mm');
+            var edateval = moment.parseZone($endDate).local().format('DD/MM/YY HH:mm');
+            $('input[name="startDate"]').val(sdateval);
+            $('input[name="endDate"]').val(edateval);
 
             var $chartData = {
                 "_token": token,
@@ -159,6 +163,7 @@
                 "ticketTypes": '{!! $ticketTypes !!}',
                 'users': '{!! $users !!}'
             };
+
 
             chartBubble('01', baseUrl + '/charts/brand-equity', $chartData);
             chartBarStack('02', baseUrl + '/charts/bar-sentiment', $chartData);

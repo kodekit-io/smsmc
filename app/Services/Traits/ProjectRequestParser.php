@@ -23,7 +23,6 @@ trait ProjectRequestParser
         $submittedSentiments = '';
 
         //dd($request->all());
-
         if ($request->has('filter')) {
             $startDateRequest = $request->input('startDate');
             $endDateRequest = $request->input('endDate');
@@ -104,8 +103,8 @@ trait ProjectRequestParser
         $data['searchText'] = $searchText;
         $data['startDate'] = $startDate;
         $data['endDate'] = $endDate;
-        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->setTimezone('Asia/Jakarta')->format('d/m/y H:i');
-        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->setTimezone('Asia/Jakarta')->format('d/m/y H:i');
+        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d/m/y H:i');
+        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
 
         $data['projectDetail'] = $projectDetail;
         // dd($data);

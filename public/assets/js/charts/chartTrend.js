@@ -10,11 +10,12 @@ function chartTrend(domId, url, chartApiData, title) {
             $('.cardloader').remove();
         },
         success: function(result){
-            console.log(result);
-            if (result[0]===undefined) {
-                $('#'+domId).html(cardEmpty);
-            }
             var result = jQuery.parseJSON(result);
+            // console.log(result);
+            if (result==undefined || result=='') {
+                $('#'+domId).replaceWith(cardEmpty);
+                // alert('hey');
+            }
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -42,7 +43,7 @@ function chartTrend(domId, url, chartApiData, title) {
             + '</div>';
             $('#'+domId).append(card);
 
-            if (chartData.length > 0) {
+            if (chartData.length !== undefined || chartData.length  > 0) {
                 var serie=[], key=[], color=[], dmy=[], dates=[];
                 for (var i = 0; i < chartData.length; i++) {
                     key[i] = chartData[i].key;
@@ -50,16 +51,18 @@ function chartTrend(domId, url, chartApiData, title) {
                     data = chartData[i].value;
                     date = chartData[i].date;
 
-                    // for (var n = 0; n < date.length; n++) {
-                    //     var sDate = moment.parseZone(chartApiData.startDate).format('DD/MM/YY');
-                    //     var eDate = moment.parseZone(chartApiData.endDate).format('DD/MM/YY');
-                    //     console.log(eDate);
-                    //     if(sDate==eDate){
-                    //         dates[n] = moment(date[n],'HH:mm:ss').local().format('HH:mm');
-                    //     } else {
-                    //         dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
-                    //     }
-                    // }
+                    for (var n = 0; n < date.length; n++) {
+                        var sDate = moment(chartApiData.startDate);
+                        var eDate = moment(chartApiData.endDate);
+                        // console.log(sDate +' - '+ eDate);
+                        var dif = eDate.diff(sDate, 'hours');
+
+                        if(dif<24){
+                            dates[n] = moment.parseZone(date[n]).local().format('HH');
+                        } else {
+                            dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
+                        }
+                    }
 
                     serie[i] = {
                         name: chartData[i].key,
@@ -71,7 +74,7 @@ function chartTrend(domId, url, chartApiData, title) {
                 var data = {
                     legend: key,
                     colors: color,
-                    xaxis: date,
+                    xaxis: dates,
                     series: serie
                 }
 
@@ -283,10 +286,13 @@ function itemCombo(id, url, chartApiData, result) {
             date = chartData[i].date;
 
             for (var n = 0; n < date.length; n++) {
-                var sDate = moment.parseZone(chartApiData.startDate).format('DD/MM/YY');
-                var eDate = moment.parseZone(chartApiData.endDate).format('DD/MM/YY');
-                if(sDate==eDate){
-                    dates[n] = moment(date[n],'HH:mm:ss').local().format('HH:mm');
+                var sDate = moment(chartApiData.startDate);
+                var eDate = moment(chartApiData.endDate);
+                // console.log(sDate +' - '+ eDate);
+                var dif = eDate.diff(sDate, 'hours');
+
+                if(dif<24){
+                    dates[n] = moment.parseZone(date[n]).local().format('HH');
                 } else {
                     dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
                 }
