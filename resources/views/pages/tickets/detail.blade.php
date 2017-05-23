@@ -12,8 +12,8 @@
             <div class="uk-card-header uk-clearfix sm-card-toolbar">
                 <h5 class="uk-card-title uk-float-left">Ticket #{!! $ticket->ticketId !!}</h5>
                 <ul class="uk-subnav uk-float-right uk-margin-remove">
-                    <li><span>Updates: <span class="uk-label sm-label uk-label-success">{{ Carbon\Carbon::parse($ticket->date)->toDayDateTimeString() }}</span></span></li>
-                    <li><span>Status: <span class="uk-label sm-label uk-label-danger">{!! strtoupper($ticket->type) !!}</span></span></li>
+                    {{-- <li><span>Updates: <span class="uk-label sm-label uk-label-success">{{ Carbon\Carbon::parse($ticket->date)->toDayDateTimeString() }}</span></span></li> --}}
+                    <li><span>Status: <span class="uk-label sm-label uk-label-danger">{!! $ticket->status !!}</span></span></li>
                 </ul>
             </div>
             <div class="uk-card-body">
@@ -89,6 +89,7 @@
         </div>
 
         {{--Thread--}}
+        @if($ticket->status != 'close')
         <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-card-body uk-margin">
             @if(count($threads) > 0)
                 {{-- <h5 class="uk-card-title">Ticket Thread</h5> --}}
@@ -103,6 +104,7 @@
                     @endforeach
                 </ul>
             @endif
+
             <h6 class="uk-margin-small-bottom">Your Reply</h6>
             <form action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
                 {!! csrf_field() !!}
@@ -115,55 +117,9 @@
                     </div>
                 </fieldset>
             </form>
-            {{--
-            <ul uk-tab>
-                <li class="uk-active"><a href="#">Reply Ticket</a></li>
-                <li><a href="#">Social Media Post</a></li>
-            </ul>
-            <ul class="uk-switcher uk-margin">
-                <li>
 
-                </li>
-                <li>
-                    <form class="uk-form-horizontal" action="{!! url('ticket/' . $ticketId . '/reply') !!}" method="post">
-                        {!! csrf_field() !!}
-                        <fieldset class="uk-fieldset">
-                            <div class="uk-margin">
-                                <label class="uk-form-label" for="post-to">Post to</label>
-                                <div class="uk-form-controls">
-                                    <select class="uk-select uk-width-medium" id="post-to">
-                                        <option>Facebook</option>
-                                        <option>Twitter</option>
-                                        <option>Youtube</option>
-                                        <option>Instagram</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label" for="postSocmed">Content</label>
-                                <div class="uk-form-controls">
-                                    <textarea class="uk-textarea" id="postSocmed" rows="4" placeholder="What's up?" name="socmed_content"></textarea>
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label" for="img">Image</label>
-                                <div class="uk-form-controls">
-                                    <input type="file" id="img">
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="uk-flex uk-flex-middle uk-flex-between">
-                                <div>
-                                    <span><i uk-icon="icon: clock"></i> SCHEDULE POST: </span><input id="schedule" class="uk-input uk-form-width-medium uk-margin-small-left" type="text"></input><a id="clear" class="uk-button uk-button-default uk-hidden" uk-icon="icon: close" style="width:40px;padding:0;" title="Clear date" uk-tooltip></a>
-                                </div>
-                                <button id="postsave" class="uk-button uk-button-primary uk-hidden" type="submit">Save Post</button>
-                                <button id="postnowsocmed" class="uk-button uk-button-danger red" type="submit">Post Now</button>
-                            </div>
-                        </fieldset>
-                    </form>
-                </li>
-            </ul> --}}
         </div>
+        @endif
         {{--end of threads--}}
 
         <form action="{!! url('ticket/' . $ticketId .'/change-status') !!}" method="post">
@@ -172,7 +128,11 @@
                 <h5 class="uk-card-title uk-inline uk-margin-small-right">Change Ticket Status</h5>
                 <div class="uk-inline">
                     <select name="ticket_status" class="uk-select">
-                        <option value="3">Close Ticket</option>
+                        @if($ticket->status == 'close')
+                            <option value="1">Open Ticket</option>
+                        @else
+                            <option value="3">Close Ticket</option>
+                        @endif
                         {{--<option value="">Change to Responded</option>--}}
                         {{--<option value="">Change to Waiting</option>--}}
                     </select>

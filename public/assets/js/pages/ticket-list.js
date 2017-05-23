@@ -26,7 +26,7 @@ function ticketList(div) {
 			{ data: 'date', visible: false, },
             { data: 'ticketId', title: 'ID', width: '5%', },
             {
-                title: 'Ticket Date', width: '9%',
+                title: 'Ticket Date', width: '10%',
                 data: function ( data ) {
                     var localtime = moment.parseZone(data['date']).format('llll');
                     return localtime;
@@ -127,7 +127,7 @@ function ticketList(div) {
                 }
             },
             {
-                title: 'Post', width: '20%',
+                title: 'Related Post', width: '25%',
                 data: function ( data ) {
                     var date = data['postDate'];
                     var localtime = moment.parseZone(date).format('llll');
@@ -142,15 +142,15 @@ function ticketList(div) {
                 }
             },
             {
-                data: 'type', title: 'Type', width: '7.5%'
+                data: 'type', title: 'Type', width: '5%'
             },
             {
-                title: 'Status', width: '7.5%',
+                title: 'Status', width: '5%',
                 data: function ( data ) {
                     var status = data['status'];
                     var btn = '';
                     switch (status) {
-                        case 'closed':
+                        case 'close':
                             btn = '<span class=black-text title="Responded and closed" uk-tooltip>'+status+'</span>'
                         break;
                         case 'open':
@@ -162,7 +162,7 @@ function ticketList(div) {
                 }
             },
             {
-                orderable: false, class: 'uk-text-center', width: '12%',
+                orderable: false, class: 'uk-text-center', width: '10%',
                 data: function ( data ) {
                     var ticketId = data['ticketId'];
                     var ticketStatus = data['status'];
