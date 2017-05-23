@@ -167,18 +167,18 @@
         {{--end of threads--}}
 
         <form action="{!! url('ticket/' . $ticketId .'/change-status') !!}" method="post">
-        {!! csrf_field() !!}
-        <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-card-body">
-            <h5 class="uk-card-title uk-inline uk-margin-small-right">Change Ticket Status</h5>
-            <div class="uk-inline">
-                <select name="ticket_status" class="uk-select">
-                    <option value="3">Close Ticket</option>
-                    {{--<option value="">Change to Responded</option>--}}
-                    {{--<option value="">Change to Waiting</option>--}}
-                </select>
+            {!! csrf_field() !!}
+            <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small uk-card-body">
+                <h5 class="uk-card-title uk-inline uk-margin-small-right">Change Ticket Status</h5>
+                <div class="uk-inline">
+                    <select name="ticket_status" class="uk-select">
+                        <option value="3">Close Ticket</option>
+                        {{--<option value="">Change to Responded</option>--}}
+                        {{--<option value="">Change to Waiting</option>--}}
+                    </select>
+                </div>
+                <button class="uk-button uk-button-danger black uk-float-right" type="submit">SAVE</button>
             </div>
-            <button class="uk-button uk-button-danger black uk-float-right" type="submit">SAVE</button>
-        </div>
         </form>
     </section>
 

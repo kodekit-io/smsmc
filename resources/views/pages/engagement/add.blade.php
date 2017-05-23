@@ -6,15 +6,7 @@
     @include('includes.subnav-engagement')
 @endsection
 @section('content')
-    
-    @if (count($errors) > 0)
-        @foreach ($errors->all() as $error)
-            <div class="uk-alert-danger sm-alert uk-animation-slide-top-small" uk-alert>
-                <a class="uk-alert-close" uk-close></a>
-                <p>{{ $error }}</p>
-            </div>
-        @endforeach
-    @endif
+
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-card uk-card-hover uk-card-default uk-card-small">
             <div class="uk-card-header">

@@ -73,9 +73,11 @@ class TicketController extends Controller
     public function changeStatus(Request $request, $ticketId)
     {
         if ($this->ticket->changeStatus($ticketId, $request->get('ticket_status'))) {
-            return redirect('ticket/' . $ticketId . '/detail');
+            // return redirect('ticket/' . $ticketId . '/detail');
+            return redirect('ticket');
         }
-        return redirect('ticket/' . $ticketId . '/detail')->withErrors(['error' => 'Can not change ticket status.']);
+        // return redirect('ticket/' . $ticketId . '/detail')->withErrors(['error' => 'Can not change ticket status.']);
+        return redirect('ticket')->withErrors(['error' => 'Can not change ticket status.']);
     }
 
     public function add()

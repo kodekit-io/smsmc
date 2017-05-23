@@ -151,10 +151,10 @@ function ticketList(div) {
                     var btn = '';
                     switch (status) {
                         case 'closed':
-                            btn = '<span class=black-text title=Responded and closed uk-tooltip>'+status+'</span>'
+                            btn = '<span class=black-text title="Responded and closed" uk-tooltip>'+status+'</span>'
                         break;
                         case 'open':
-                            btn = '<span class=red-text title=Waiting for a response uk-tooltip>'+status+'</span>'
+                            btn = '<span class=red-text title="Waiting for a response" uk-tooltip>'+status+'</span>'
                         break;
                     }
 
