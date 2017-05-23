@@ -84,7 +84,7 @@ class TicketController extends Controller
     {
         // $users = $this->userService->getUsers();
         $users = $this->ticket->getSendToUsers();
-        $data['ticketTypes'] = $this->ticket->getTicketStatus();
+        $data['ticketTypes'] = $this->ticket->getTicketType();
         $data['users'] = $users;
         $data['pageTitle'] = 'Ticket';
         return view('pages.tickets.add', $data);

@@ -109,6 +109,47 @@ class TestController extends Controller
         dd($response);
     }
 
+    public function tiketditel($ticketId)
+    {
+        $params = [
+            'ticketId' => $ticketId,
+            'uid' => \Auth::user()->id
+        ];
+
+        $response = $this->smsmc->post('ticket/detail', $params);
+        if ($response->status == '200') {
+            // return $response->result;
+            // return \GuzzleHttp\json_encode($response->result);
+            return '<pre>'.json_encode($response->result, JSON_PRETTY_PRINT).'</pre>';
+        }
+    }
+    public function tikettipe()
+    {
+        $params = [
+            'uid' => \Auth::user()->id
+        ];
+
+        $response = $this->smsmc->post('ticket/tipe', $params);
+        if ($response->status == '200') {
+            // return $response->result;
+            // return \GuzzleHttp\json_encode($response->result);
+            return '<pre>'.json_encode($response->result, JSON_PRETTY_PRINT).'</pre>';
+        }
+    }
+    public function tiketstatus()
+    {
+        $params = [
+            'uid' => \Auth::user()->id
+        ];
+
+        $response = $this->smsmc->post('ticket/status', $params);
+        if ($response->status == '200') {
+            // return $response->result;
+            // return \GuzzleHttp\json_encode($response->result);
+            return '<pre>'.json_encode($response->result, JSON_PRETTY_PRINT).'</pre>';
+        }
+    }
+
     //
 	// public function plist($page,$row)
 	// {

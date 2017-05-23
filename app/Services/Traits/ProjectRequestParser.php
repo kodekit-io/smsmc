@@ -84,7 +84,7 @@ trait ProjectRequestParser
 
 
         // get ticket type
-        $ticketTypes = $this->ticketService->getTicketStatus();
+        $ticketTypes = $this->ticketService->getTicketType();
         $data['ticketTypes'] = \GuzzleHttp\json_encode($ticketTypes);
 
         // get TO

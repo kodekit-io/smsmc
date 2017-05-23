@@ -11,9 +11,6 @@
             {!! csrf_field() !!}
             <div class="uk-width-1-1">
                 <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
-                    @foreach($errors->all() as $message)
-                        <h4 class="uk-text-warning">{!! $message !!}</h4>
-                    @endforeach
                     <div class="uk-card-header uk-clearfix">
                         <h5 class="uk-card-title">Project Information</h5>
                     </div>

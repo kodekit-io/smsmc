@@ -3,23 +3,20 @@
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
 @endsection
 @section('page-level-nav')
-    @include('includes.subnav-engagement-ticket')
+    {{-- @include('includes.subnav-engagement-ticket') --}}
 @endsection
 @section('content')
 
-    <section class="sm-main uk-container uk-container-expand">
-        <div class="uk-grid-medium uk-child-width-1-1@m" uk-grid>
-            <div id="01">
-                <div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small">
-                    <div class="uk-card-header uk-clearfix">
-                        <h5 class="uk-card-title uk-float-left">Ticket List</h5>
-                        <a href="{!! url('ticket/add') !!}" title="Create New Ticket" class="uk-button red white-text uk-float-right">Create New Ticket</a>
-                    </div>
-                    <div class="uk-card-body">
-                        <table id="ticketList" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table"></table>
-                    </div>
-                </div>
+    <section class="sm-main sm-nosubnav uk-container uk-container-expand">
+        <div class="uk-animation-fade uk-card-default uk-card-small uk-card-body uk-margin">
+            <div class="uk-flex uk-flex-middle uk-flex-between">
+                <h3 class="uk-margin-remove uk-width-auto">My Ticket</h3>
+                <a href="{!! url('ticket/add') !!}" class="uk-button uk-button-primary uk-button-small uk-width-auto black">
+                    <i class="fa fa-ticket"></i> Create New Ticket
+                </a>
             </div>
+            <hr>
+            <table id="ticketList" class="uk-table uk-table-small uk-width-1-1 sm-table"></table>
         </div>
     </section>
 
