@@ -67,7 +67,7 @@ function timeline(div,typeId) {
                         "previous": "<i class='fa fa-chevron-left'></i>",
                         "next": "<i class='fa fa-chevron-right'></i>"
                     },
-                    "emptyTable": "searching..."
+                    "emptyTable": "The list is empty.<br>Token expired, please re-login.."
                 },
                 ajax: {
                     "url": url,
