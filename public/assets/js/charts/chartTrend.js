@@ -110,6 +110,7 @@ function chartTrend(domId, url, chartApiData, title) {
                         data: data.legend,
                         x: 'left',
                         y: 'bottom',
+                        itemGap: 5,
                         formatter: function (name) {
                             var shortKey = name.substring(0, 10);
                             if(name.length>10){
@@ -344,6 +345,7 @@ function itemCombo(id, url, chartApiData, result) {
                 data: data.legend,
                 x: 'left',
                 y: 'bottom',
+                itemGap: 5,
                 formatter: function (name) {
                     var shortKey = name.substring(0, 10);
                     if(name.length>10){

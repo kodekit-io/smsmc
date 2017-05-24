@@ -74,6 +74,7 @@ function chartOntology(domId,url,chartApiData,name) {
                         itemWidth: 15,
                         x: 'left',
                         y: 'bottom',
+                        itemGap: 5,
                         formatter: function (name) {
                             var shortKey = name.substring(0, 10);
                             if(name.length>10){

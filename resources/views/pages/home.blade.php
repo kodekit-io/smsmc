@@ -15,12 +15,13 @@
                 @foreach($projects as $project)
                 <div id="{!! $project->pid !!}">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
-                        <div class="uk-card-media-top uk-cover-container sm-cover">
+                        <div class="uk-card-media-top uk-position-relative uk-background-cover sm-cover" style="background-image:url(
                             @if(($project->pmage == 'null') || ($project->pmage == ''))
-                                <img class="uk-animation-fade" src="{!! asset('images/default.jpg') !!}" uk-cover>
+                                {!! asset('images/default.jpg') !!}
                             @else
-                                <img class="uk-animation-fade" src="{!! $project->pmage !!}" uk-cover>
+                                {!! $project->pmage !!}
                             @endif
+                            )">
                             <div class="sm-cover-overlay"></div>
                             <h4 class="white-text sm-title-cover">{!! $project->pname !!}</h4>
                         </div>
@@ -32,17 +33,17 @@
                                 <div class="uk-width-3-5 sm-text-bold">{!! $project->pgroup !!}</div>
                             </div>
                         </div>
-                        <div class="uk-card-footer uk-clearfix">
+                        <div class="uk-card-footer uk-flex uk-flex-middle uk-flex-between">
                             @if (is_authorized_to('projectEdit') || is_authorized_to('projectDelete'))
                             <div class="uk-inline">
                                 <a class="grey-text" uk-icon="icon: more-vertical"></a>
-                                <div class="sm-card-action" uk-drop="pos: right-center">
+                                <div class="sm-card-action" uk-drop="mode: click; pos: right-center;">
                                     <a class="sm-edit-project uk-icon-button green white-text" uk-icon="icon: pencil" title="Edit Project" uk-tooltip data-id="{!! $project->pid !!}" data-name="{!! $project->pname !!}"></a>
                                     <a class="sm-delete-project uk-icon-button red white-text" uk-icon="icon: trash" title="Delete Project" uk-tooltip data-id="{!! $project->pid !!}" data-name="{!! $project->pname !!}"></a>
                                 </div>
                             </div>
                             @endif
-                            <a href="{!! url('project/all/' . $project->pid) !!}" class="uk-button uk-button-text uk-float-right red-text" title="Project {!! $project->pname !!}" uk-tooltip>View Project</a>
+                            <a href="{!! url('project/all/' . $project->pid) !!}" class="uk-button uk-button-text red-text" title="Project {!! $project->pname !!}" uk-tooltip>View Project</a>
                         </div>
                     </div>
                 </div>

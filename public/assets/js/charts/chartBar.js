@@ -78,6 +78,7 @@ function chartBar(domId, url, chartApiData, name) {
                             }],
                             x: 'left',
                             y: 'bottom',
+                            itemGap: 5,
                             formatter: function (value) {
                                 var k = String(key);
                                 var arr = k.split(',');
@@ -330,6 +331,7 @@ function chartBarStack(domId, url, chartApiData, name) {
                                 data: data.name,
                                 x: 'left',
                                 y: 'bottom',
+                                itemGap: 5,
                             },
                             grid: {
                                 x: '30px',

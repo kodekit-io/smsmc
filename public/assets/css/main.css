@@ -244,7 +244,7 @@ a.sm-label:hover {
 .sm-title-cover {
     position: absolute;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     z-index: 10;
     bottom: 0;
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -311,11 +311,10 @@ li:hover .sm-nav-round {
 }
 
 .sm-card-action {
-	width: 90px;
+	width: 80px;
+    margin-left: 0;
 }
-.sm-card-action a {
-	margin-left: 5px;
-}
+
 .sm-card-toolbar {
     padding-top: 20px !important;
     padding-bottom: 18px !important;
