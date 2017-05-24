@@ -8,6 +8,16 @@
                     <a href="#"><span class="uk-visible@m">Project </span>Group <i uk-icon="icon: chevron-down" class="uk-margin-small-left"></i></a>
                     <div uk-dropdown="offset: 0">
                         <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
+                            <li @if($pgroup == 0)
+                                class="uk-active" @endif><a href="{!! url('/home') !!}">All Group</a>
+                            </li>
+                            @foreach($groups as $group)
+                            <li @if($pgroup == $group->id) class="uk-active" @endif>
+                                <a href="{!! url('/home') !!}?pgroup={!! $group->id !!}">{!! $group->pilarName !!}</a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        {{-- <ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">
                             <li>
                                 <label>
                                     <input class="uk-checkbox" name="pgroup"
@@ -26,7 +36,7 @@
                                 </label>
                             </li>
                             @endforeach
-                        </ul>
+                        </ul> --}}
                     </div>
                 </li>
             </ul>
