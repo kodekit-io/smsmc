@@ -67,7 +67,7 @@ function timeline(div,typeId) {
                         "previous": "<i class='fa fa-chevron-left'></i>",
                         "next": "<i class='fa fa-chevron-right'></i>"
                     },
-                    "emptyTable": ""
+                    "emptyTable": "..."
                 },
                 ajax: {
                     "url": url,
