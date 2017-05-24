@@ -30,10 +30,20 @@ function timeline(div,typeId) {
                 desc = 'Timeline '+name;
             }
 
+            var akun = '<a class="grey-text fa fa-user" title="Switch Account" uk-tooltip></a> \
+            <div uk-dropdown="pos: bottom-center"> \
+                <ul class="uk-nav uk-navbar-dropdown-nav"> \
+                    <li>Akun 1</li> \
+                    <li>Akun 2</li> \
+                    <li>Akun 3</li> \
+                </ul> \
+            </div>';
+
             var card = '<div class="uk-animation-fade uk-card sm-chart-container uk-card-hover uk-card-default uk-card-small"> \
                 <div class="uk-card-header uk-clearfix"> \
                     <h5 class="uk-card-title uk-float-left color-text-'+type+' uk-text-uppercase"><i class="fa fa-'+type+'"></i> '+name+'</h5> \
                     <ul class="uk-float-right uk-subnav uk-margin-remove"> \
+                        <li>'+akun+'</li> \
                         <li><a class="grey-text fa fa-info-circle" title="'+desc+'" uk-tooltip></a></li> \
                         <li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li> \
                         <li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li> \

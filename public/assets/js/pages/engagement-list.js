@@ -40,7 +40,8 @@ function theList(div) {
             {
                 title: 'Date', width: '20%',
                 data: function ( data ) {
-                    var localtime = moment.parseZone(data['engagementDate']).format('llll');
+                    var localtime = moment(data['engagementDate']).format('llll');
+                    // return data['engagementDate'];
                     return localtime;
                 }
             },
@@ -86,32 +87,8 @@ function theList(div) {
                 }
             },
             { data: 'engagementPost', title: 'Post', width: '35%', class: 'uk-text-break' },
-
-            // {
-            //     title: 'Reply to', width: '30%',
-            //     data: function ( data ) {
-            //         var date = data['postDate'];
-            //         var localtime = moment.parseZone(date).format('llll');
-            //         var postAuthor = data['postAuthor'];
-            //         var postDetails = data['postDetails'];
-            //         var postLink = data['postLink'];
-            //         var postSentiment = data['postSentiment'];
-            //         var post = '<span class="black-text">'+postAuthor+'</span> wrote:<br>'+postDetails+'<br><em class="grey-text">'+localtime+'</em><br><span >'+postSentiment+'</span> | <a href="'+postLink+'" class="uk-button uk-button-text red-text" title="Post Details" target="_blank" uk-tooltip>Post Details <i class="fa fa-angle-right"></i></a>';
-			// 		if ( postDetails !== undefined  ) {
-			// 			return post;
-			// 		} else { return ''; }
-            //     }
-            // },
-            // {
-            //     orderable: false, class: 'uk-text-center', width: '10%',
-            //     data: function ( data ) {
-            //         var id = data['engagementId'];
-            //         var btn = '<a href="' + baseUrl + '/engagement/detail/' + id + '" class="uk-button uk-button-small uk-button-secondary white-text" title="Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>';
-            //         return btn;
-            //     }
-            // },
         ],
-        order: [[ 0, 'desc' ]]
+        order: [[ 1, 'desc' ]]
     });
     /*
     theTable.on( 'order.dt search.dt', function () {

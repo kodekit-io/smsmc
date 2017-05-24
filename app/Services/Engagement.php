@@ -66,7 +66,8 @@ class Engagement
             ];
             if ($request->has('post_date')) {
                 $postDate = $request->input('post_date');
-                $params['postDate'] = Carbon::createFromFormat('d/m/Y H:i', $postDate)->format('Y-m-d\TH:i:s\Z');
+                // $params['postDate'] = Carbon::createFromFormat('d/m/Y H:i', $postDate)->format('Y-m-d\TH:i:s\Z');
+                $params['postDate'] = Carbon::createFromFormat('d/m/y H:i', $postDate)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
             }
             // additional for fb
             if ($idMedia == 1) {

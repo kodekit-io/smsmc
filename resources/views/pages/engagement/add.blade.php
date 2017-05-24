@@ -27,6 +27,10 @@
                                         @endif
                                     @endforeach
                                 </select>
+                                <span class="uk-margin-left uk-margin-small-right">From account</span>
+                                <select class="uk-select uk-width-medium" id="acc-from" name="acc_id">
+                                    <option value="">Akun 1</option>
+                                </select>
                                 {{-- <p><em>* Note: News, Blog, Forum should be posted manually</em></p> --}}
                             </div>
                         </div>
@@ -57,12 +61,13 @@
                                     <span class="uk-form-icon" uk-icon="icon: calendar"></span>
                                     <input id="schedule" class="uk-input uk-form-width-medium" type="text" name="post_date" />
                                 </div>
+                                <a id="set" class="uk-icon-button" uk-icon="icon: check" title="Confirm Date" uk-tooltip></a>
                                 <a id="clear" class="uk-icon-button uk-hidden" uk-icon="icon: close" title="Clear date" uk-tooltip></a>
                             </div>
                         </div>
                         <hr>
                         <div class="uk-flex uk-flex-middle uk-flex-between">
-                            <a class="uk-modal-close uk-button grey white-text" href="{!! url('/engagement/timeline') !!}">CANCEL</a>
+                            <a class="uk-modal-close uk-button grey white-text" href="{!! url('/engagement/list') !!}">CANCEL</a>
                             <button id="postsave" class="uk-button uk-button-primary uk-hidden" type="submit">Save Post</button>
                             <button id="postnowsocmed" class="uk-button uk-button-danger red" type="submit">Post Now</button>
                         </div>

@@ -42,7 +42,7 @@
 
         var dt = new Date();
         $('#schedule').datetimepicker({
-            'format': 'd/m/Y H:i',
+            'format': 'd/m/y H:i',
             'minDate': 0,
             'minDateTime': dt,
             'closeOnDateSelect' : true,
@@ -53,10 +53,12 @@
                 $('#postsave').removeClass('uk-hidden');
                 $('#postnowsocmed').addClass('uk-hidden');
                 $('#clear').removeClass('uk-hidden');
+                $('#set').addClass('uk-hidden');
             } else {
                 $('#postnowsocmed').removeClass('uk-hidden');
                 $('#postsave').addClass('uk-hidden');
                 $('#clear').addClass('uk-hidden');
+                $('#set').removeClass('uk-hidden');
             }
         });
         $('#clear').click(function(){
@@ -64,6 +66,7 @@
             $('#schedule').val('');
             $('#postnowsocmed').removeClass('uk-hidden');
             $('#postsave').addClass('uk-hidden');
+            $('#set').removeClass('uk-hidden');
         });
     });
 }(window.jQuery, window, document));
