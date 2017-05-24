@@ -16,7 +16,7 @@
                 </a>
             </div>
             <hr>
-            <table id="ticketList" class="uk-table uk-table-small uk-width-1-1 sm-table"></table>
+            <table id="ticketList" class="uk-table uk-table-small uk-table-striped uk-width-1-1 sm-table"></table>
         </div>
     </section>
 
