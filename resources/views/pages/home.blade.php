@@ -9,7 +9,7 @@
 
 @section('content')
 
-    <section class="sm-main sm-dashboard uk-container uk-container-expand">
+    <section class="sm-main sm-dashboard uk-container uk-container-expand uk-position-relative">
         <div id="projectGrid" class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-4@m" uk-grid>
             @if (count($projects) > 0)
                 @foreach($projects as $project)
@@ -62,7 +62,7 @@
             @endif
         </div>
         @if (count($projects) > 0)
-        {{ $projects->links() }}
+        <div class="uk-position-bottom-center">{{ $projects->links() }}</div>
         @endif
 
 
