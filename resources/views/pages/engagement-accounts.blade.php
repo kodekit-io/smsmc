@@ -10,7 +10,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-facebook uk-margin-remove uk-text-uppercase"><i class="fa fa-facebook-square"></i> Facebook Account</h5>
-                        <a href="javascript:popup('https://www.facebook.com/v2.8/dialog/oauth?app_id=219214895250942&auth_type=&client_id=219214895250942&display=popup&domain=testdevel.com&e2e=%7B%7D&locale=en_US&origin=1&redirect_uri=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2F0F7S7QWJ0Ac.js%3Fversion%3D42%23cb%3Df29793187900b84%26domain%3Dtestdevel.com%26origin%3Dhttp%253A%252F%252Ftestdevel.com%252Ffd6a7dee11722c%26relation%3Dopener%26frame%3Df1fa145811b60c&ref=LoginButton&response_type=none%2Ctoken%2Csigned_request&scope=public_profile%2Cemail&sdk=joey&seen_revocable_perms_nux=false&version=v2.8',720,720)" class="uk-button uk-button-primary uk-button-small color-facebook" title="Add Facebook User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
+                        <a href="javascript:popup('https://www.facebook.com/v2.8/dialog/oauth?app_id=219214895250942&redirect_uri=http%3A%2F%2Ftestdevel.com&version=v2.8',720,720)" class="uk-button uk-button-primary uk-button-small color-facebook" title="Add Facebook User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(! isset($socmedAttribute[1]))
                         <div class="uk-height-small">
