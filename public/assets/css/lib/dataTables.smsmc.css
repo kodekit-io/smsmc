@@ -67,3 +67,22 @@ div.dataTables_wrapper .uk-inline.B {
 div.dataTables_wrapper .uk-pagination {
     margin-bottom: 0;
 }
+div.dataTables_wrapper .uk-pagination > * {
+    padding-left: 10px;
+}
+div.dataTables_wrapper .uk-pagination > * > *  {
+    border: 1px solid #eee;
+    width: 20px;
+    height: 20px;
+    line-height: 22px;
+    text-align: center;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+div.dataTables_wrapper .uk-pagination > .uk-active > *  {
+    background-color: #F44336;
+    border-color: #F44336;
+    color: #fff;
+    cursor: default;
+}
