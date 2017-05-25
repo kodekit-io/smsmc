@@ -112,6 +112,11 @@ function unhideAll(obj) {
     $(window).trigger('resize');
 }
 
+function popup(url,width,height){
+    var pop=window.open(url,'Sinar Mas','width='+width+',height='+height+',resizable=0');
+    return false;
+}
+
 //Screenshot
 function savePage() {
     $('section.sm-main').html2canvas({
