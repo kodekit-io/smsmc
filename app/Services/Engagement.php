@@ -55,6 +55,10 @@ class Engagement
         $idMedia = $request->input('media_id');
         $content = $request->input('content');
 
+        $videoTitle = $request->input('videoTitle');
+        $videoDescription = $request->input('videoDescription');
+        $videoTags = $request->input('videoTags');
+
         if (isset($socmedAttribute[$idMedia])) {
             $socmed = $socmedAttribute[$idMedia];
             $params = [
@@ -79,8 +83,9 @@ class Engagement
             }
             // additional for youtube
             if ($idMedia == 5) {
-                $params['videoDescription'] = 'youtube';
-                $params['videoTags'] = 'youtube';
+                $params['postContent'] = $videoTitle;
+                $params['videoDescription'] = $videoDescription;
+                $params['videoTags'] = $videoTags;
             }
 
             $fileFieldName = 'image';

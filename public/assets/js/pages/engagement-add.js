@@ -1,18 +1,28 @@
 (function ($, window, document) {
     $(function () {
+        $('.sm-formyoutube').addClass('uk-hidden').prop('required',false);
+        $('.sm-forminput').removeClass('uk-hidden').prop('required',true);
         $('#post-to').change(function(){
             if ($(this).val()=='1') {
                 $('.sm-vid').show();
                 $('.sm-img').show();
+                $('.sm-formyoutube').addClass('uk-hidden').prop('required',false);
+                $('.sm-forminput').removeClass('uk-hidden').prop('required',true);
             } else if ($(this).val()=='2') {
                 $('.sm-vid').hide();
                 $('.sm-img').show();
+                $('.sm-formyoutube').addClass('uk-hidden').prop('required',false);
+                $('.sm-forminput').removeClass('uk-hidden').prop('required',true);
             } else if ($(this).val()=='5') {
                 $('.sm-vid').show();
                 $('.sm-img').hide();
+                $('.sm-formyoutube').removeClass('uk-hidden').prop('required',true);
+                $('.sm-forminput').addClass('uk-hidden').prop('required',false);
             } else if ($(this).val()=='7') {
                 $('.sm-vid').hide();
                 $('.sm-img').show();
+                $('.sm-formyoutube').addClass('uk-hidden').prop('required',false);
+                $('.sm-forminput').removeClass('uk-hidden').prop('required',true);
             }
         });
         // jQuery.validator.setDefaults({

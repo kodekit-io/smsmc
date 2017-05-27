@@ -37,7 +37,10 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="postSocmed"><span uk-icon="icon: file-edit"></span> Content</label>
                             <div class="uk-form-controls">
-                                <textarea class="uk-textarea" id="postSocmed" rows="8" placeholder="What's up?" name="content" required></textarea>
+                                <input class="uk-input uk-margin-small-bottom sm-formyoutube" id="videoTitle" placeholder="Video Title" name="videoTitle">
+                                <textarea class="uk-textarea uk-margin-small-bottom sm-formyoutube" id="videoDescription" rows="4" placeholder="Video Description" name="videoDescription" ></textarea>
+                                <input class="uk-input sm-formyoutube" id="videoTags" placeholder="Video Tag" name="videoTags">
+                                <textarea class="uk-textarea sm-forminput" id="postSocmed" rows="8" placeholder="What's up?" name="content" ></textarea>
                             </div>
                         </div>
                         <div class="uk-margin sm-img">
