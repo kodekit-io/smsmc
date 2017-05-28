@@ -93,15 +93,16 @@ class Engagement
 
             if ($request->hasFile($fileFieldName)) {
                 if ($request->file($fileFieldName)->isValid()) {
-                    $fileName = 'socmed_' . $idMedia . '_' . strtotime(date('Y-m-d H:i:s')) . '.' . $request->file($fileFieldName)->getClientOriginalExtension();
-                    $dirPath = public_path('socmed-images');
-                    if (! is_dir($dirPath)) {
-                        mkdir($dirPath, 0777, true);
-                    }
-                    $request->file($fileFieldName)->move($dirPath, $fileName);
-                    $fullFilePath = public_path('socmed-images/' . $fileName);
-
-                    $uploadResponse = $this->smsmc->postSocmedFile($fullFilePath, $idMedia);
+//                    $fileName = 'socmed_' . $idMedia . '_' . strtotime(date('Y-m-d H:i:s')) . '.' . $request->file($fileFieldName)->getClientOriginalExtension();
+//                    $dirPath = public_path('socmed-images');
+//                    if (! is_dir($dirPath)) {
+//                        mkdir($dirPath, 0777, true);
+//                    }
+//                    $request->file($fileFieldName)->move($dirPath, $fileName);
+//                    $fullFilePath = public_path('socmed-images/' . $fileName);
+                    //dd($request->file($fileFieldName));
+                    $uploadedFile = $request->file($fileFieldName);
+                    $uploadResponse = $this->smsmc->postSocmedFile($uploadedFile->getRealPath(), $idMedia);
                     if ($uploadResponse->status == 200) {
                         $socmedFile = $uploadResponse->result->file_path;
                     }
@@ -117,15 +118,15 @@ class Engagement
 
             if ($request->hasFile($videoFieldName)) {
                 if ($request->file($videoFieldName)->isValid()) {
-                    $videoName = 'socmed_' . $idMedia . '_' . strtotime(date('Y-m-d H:i:s')) . '.' . $request->file($videoFieldName)->getClientOriginalExtension();
-                    $vidPath = public_path('socmed-videos');
-                    if (! is_dir($vidPath)) {
-                        mkdir($vidPath, 0777, true);
-                    }
-                    $request->file($videoFieldName)->move($vidPath, $videoName);
-                    $fullVidPath = public_path('socmed-videos/' . $videoName);
-
-                    $uploadResponse = $this->smsmc->postSocmedFile($fullVidPath, $idMedia);
+//                    $videoName = 'socmed_' . $idMedia . '_' . strtotime(date('Y-m-d H:i:s')) . '.' . $request->file($videoFieldName)->getClientOriginalExtension();
+//                    $vidPath = public_path('socmed-videos');
+//                    if (! is_dir($vidPath)) {
+//                        mkdir($vidPath, 0777, true);
+//                    }
+//                    $request->file($videoFieldName)->move($vidPath, $videoName);
+//                    $fullVidPath = public_path('socmed-videos/' . $videoName);
+                    $uploadedFile = $request->file($videoFieldName);
+                    $uploadResponse = $this->smsmc->postSocmedFile($uploadedFile->getRealPath(), $idMedia);
                     if ($uploadResponse->status == 200) {
                         $socmedVideo = $uploadResponse->result->file_path;
                     }
