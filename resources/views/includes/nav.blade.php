@@ -82,7 +82,7 @@
                         <span class="fa fa-user"></span>
                     </a>
                     {{-- <a href="{!! url('setting/account') !!}"><i class="material-icons md-18">account_circle</i> Profile</a> --}}
-                    <div uk-dropdown>
+                    <div uk-dropdown="pos:bottom-center">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <li><a href="{!! url('setting/account') !!}"><i class="fa fa-user fa-fw"></i> My Account</a></li>
                             <li class="uk-nav-divider"></li>

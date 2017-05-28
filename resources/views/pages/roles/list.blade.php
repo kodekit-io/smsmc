@@ -14,15 +14,6 @@
                 {{--<a href="{!! url('setting/group/add') !!}" title="Add Role" class="uk-button red white-text uk-float-right">Add Group</a>--}}
             </div>
             <div class="uk-card-body">
-                @if (count($errors) > 0)
-                    <div class="uk-alert">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <table id="roles" class="uk-table uk-table-striped"></table>
             </div>
         </div>

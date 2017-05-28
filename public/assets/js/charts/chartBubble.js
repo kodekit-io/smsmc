@@ -127,6 +127,7 @@ function chartBubble(domId, url, chartApiData, name) {
                         data: data.legend,
                         x: 'left',
                         y: 'bottom',
+                        itemGap: 5,
                         formatter: function (name) {
                             var shortKey = name.substring(0, 10);
                             if(name.length>10){

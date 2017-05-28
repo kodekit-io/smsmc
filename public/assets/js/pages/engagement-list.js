@@ -1,15 +1,4 @@
 function theList(div) {
-    // var card = '<div class="uk-animation-fade uk-card uk-card-hover uk-card-default uk-card-small"> \
-    //     <div class="uk-card-header uk-clearfix"> \
-    //         <h5 class="uk-card-title uk-float-left">Ticket List</h5> \
-    //         <a href="' + baseUrl + '/ticket/add" title="Create New Ticket" class="uk-button red white-text uk-float-right">Create New Ticket</a> \
-    //     </div> \
-    //     <div class="uk-card-body"> \
-    //         <table id="ticketList" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table"></table> \
-    //     </div> \
-    // </div>';
-    // $('#'+div).append(card);
-
     var theTable = $('#'+div).DataTable( {
         ajax: {
             // url: baseUrl+'/json/engagement-list.json',
@@ -22,30 +11,11 @@ function theList(div) {
                 { extend: 'csvHtml5', className: 'uk-button uk-button-small teal white-text uk-margin-small-left' }
             ]
         },
-        // "engagementId": "33",
-        // "postDate": "",
-        // "postChanel": "",
-        // "engagementMedia": "7",
-        // "postDetails": "",
-        // "engagementPost": "Test instagram",
-        // "engagementAuthor": "gitacaesar",
-        // "engagementAuthorGroup": "PO",
-        // "engagementDate": "2017-05-05 14:38:05.0",
-        // "postLink": "",
-        // "postAuthor": ""
-
         columns: [
 			{ data: 'engagementDate', visible: false, },
-            { data: 'engagementId', title: 'ID', width: '5%', },
+            { data: 'engagementId', title: 'ID', width: '3%', },
             {
-                title: 'Date', width: '20%',
-                data: function ( data ) {
-                    var localtime = moment.parseZone(data['engagementDate']).format('llll');
-                    return localtime;
-                }
-            },
-            {
-                data: 'engagementMedia', title: 'Channel', class: 'uk-text-center',  width: '10%',
+                data: 'engagementMedia', title: 'Channel', class: 'uk-text-center',  width: '8%',
                 render: function ( cellData ) {
                     var channel = cellData;
                     var icon = '';
@@ -78,38 +48,47 @@ function theList(div) {
                     return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+icon+'</span></span>';
                 }
             },
-            { title: 'Author', width: '20%',
+            {
+                title: 'Post Date', width: '15%',
+                sortable: false,
+                data: function ( data ) {
+                    var localtime = moment(data['engagementDate']).format('llll');
+                    // return data['engagementDate'];
+                    return localtime;
+                }
+            },
+            {
+                title: 'Author', width: '15%',
                 data: function ( data ) {
                     var author = data['engagementAuthor'];
                     var group = data['engagementAuthorGroup'];
                     return author+' ('+group+')';
                 }
             },
-            { data: 'engagementPost', title: 'Post', width: '35%', class: 'uk-text-break' },
-
-            // {
-            //     title: 'Reply to', width: '30%',
-            //     data: function ( data ) {
-            //         var date = data['postDate'];
-            //         var localtime = moment.parseZone(date).format('llll');
-            //         var postAuthor = data['postAuthor'];
-            //         var postDetails = data['postDetails'];
-            //         var postLink = data['postLink'];
-            //         var postSentiment = data['postSentiment'];
-            //         var post = '<span class="black-text">'+postAuthor+'</span> wrote:<br>'+postDetails+'<br><em class="grey-text">'+localtime+'</em><br><span >'+postSentiment+'</span> | <a href="'+postLink+'" class="uk-button uk-button-text red-text" title="Post Details" target="_blank" uk-tooltip>Post Details <i class="fa fa-angle-right"></i></a>';
-			// 		if ( postDetails !== undefined  ) {
-			// 			return post;
-			// 		} else { return ''; }
-            //     }
-            // },
-            // {
-            //     orderable: false, class: 'uk-text-center', width: '10%',
-            //     data: function ( data ) {
-            //         var id = data['engagementId'];
-            //         var btn = '<a href="' + baseUrl + '/engagement/detail/' + id + '" class="uk-button uk-button-small uk-button-secondary white-text" title="Details" uk-tooltip><i class="fa fa-fw fa-ticket"></i> Details</a>';
-            //         return btn;
-            //     }
-            // },
+            { data: 'engagementPost', title: 'Post', width: '40%', class: 'uk-text-break' },
+            {
+                title: 'Status', width: '20%', class: 'uk-text-break',
+                data: function ( data ) {
+                    var isbefore = moment().isBefore(data['engagementDate']);
+                    var iclock = '<i class="fa fa-clock-o fa-fw"></i> ';
+                    var icheck = '<i class="fa fa-check fa-fw"></i> ';
+                    var edit = '<a class="uk-label sm-label red" title="Edit Post" uk-tooltip><i class="fa fa-pencil fa-fw"></i> Edit Post</a>';
+                    var link = '<a class="uk-button uk-button-link teal-text" title="See original post" uk-tooltip>See details <i class="fa fa-external-link-square fa-fw"></i></a>'
+                    var scheduled = '<div class="uk-flex uk-flex-middle uk-flex-between">' +
+                        '<div class="red-text">'+iclock+' Scheduled</div>' +
+                        '<div>'+edit+'</div>' +
+                    '</div>';
+                    var published = '<div class="uk-flex uk-flex-middle uk-flex-between">' +
+                        '<div class="teal-text">'+icheck+' Published</div>' +
+                        '<div>'+link+'</div>' +
+                    '</div>';
+                    if (isbefore==true) {
+                        return scheduled;
+                    } else {
+                        return published;
+                    }
+                }
+            },
         ],
         order: [[ 0, 'desc' ]]
     });

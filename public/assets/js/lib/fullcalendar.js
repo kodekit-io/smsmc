@@ -6314,33 +6314,38 @@ DayGrid.mixin({
 		// Only display a timed events time if it is the starting segment
 		if (seg.isStart) {
 			timeText = this.getEventTimeText(event);
+			timemoment = moment(timeText,'HH:mm').format('HH:mm');
+			console.log(timeText+' '+timemoment);
 			if (timeText) {
-				timeHtml = '<span class="fc-time">' + htmlEscape(timeText) + '</span>';
+				timeHtml = '<span class="fc-time uk-text-uppercase">' + htmlEscape(timemoment) + '</span>';
 			}
 		}
 
 		var eventChannel = htmlEscape(event.channel);
 		var eventIcon = '';
 		switch (eventChannel) {
-			case 'facebook':
+			case '1':
 				eventIcon = 'facebook';
 				break;
-			case 'twitter':
+			case '2':
 				eventIcon = 'twitter';
 				break;
-			case 'youtube':
+			case '5':
 				eventIcon = 'youtube';
 				break;
-			case 'instagram':
+			case '7':
 				eventIcon = 'instagram';
 				break;
-			case 'news':
+			case '4':
 				eventIcon = 'globe';
 				break;
-			case 'blog':
+			case '9':
+				eventIcon = 'globe';
+				break;
+			case '3':
 				eventIcon = 'rss';
 				break;
-			case 'forum':
+			case '6':
 				eventIcon = 'comments';
 				break;
 		}
@@ -6363,10 +6368,9 @@ DayGrid.mixin({
 					) +
 			'>' +
 				'<div class="fc-content">' +
-					channelHtml +
 					(this.isRTL ?
-						titleHtml + ' ' + timeHtml + ' ' : // put a natural space in between
-						' ' + timeHtml + ' ' + titleHtml   //
+						channelHtml +' '+ titleHtml + ' ' + timeHtml + ' ' : // put a natural space in between
+						' ' + timeHtml + ' ' + channelHtml + ' ' + titleHtml   //
 						) +
 				'</div>' +
 				(isResizableFromStart ?

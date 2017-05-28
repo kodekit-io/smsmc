@@ -14,11 +14,6 @@
                 <div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title uk-margin-bottom">SINAR MAS LOGIN</h3>
-                        @foreach($errors->all() as $error)
-                            <div class="uk-alert-danger" uk-alert>
-                                {!! $error !!}
-                            </div>
-                        @endforeach
                         <form action="{!! url('login') !!}" method="post" id="login">
                             {!! csrf_field() !!}
                             <div class="uk-margin">

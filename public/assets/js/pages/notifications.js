@@ -27,7 +27,7 @@ function notifications(div) {
                 dom: "<'sm-timeline-wrap't><'uk-grid uk-grid-collapse sm-timeline-foot'<'uk-width-1-2'l><'uk-width-1-2'p>>",
                 language: {
                     "lengthMenu": "Show _MENU_",
-                    "emptyTable": "Loading..."
+                    "emptyTable": "Empty notifications."
                 },
                 columns: [
                     { data: "date", visible : false },

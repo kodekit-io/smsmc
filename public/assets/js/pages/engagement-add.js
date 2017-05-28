@@ -1,18 +1,28 @@
 (function ($, window, document) {
     $(function () {
+        $('.sm-formyoutube').addClass('uk-hidden').prop('required',false);
+        $('.sm-forminput').removeClass('uk-hidden').prop('required',true);
         $('#post-to').change(function(){
             if ($(this).val()=='1') {
                 $('.sm-vid').show();
                 $('.sm-img').show();
+                $('.sm-formyoutube').addClass('uk-hidden').prop('required',false);
+                $('.sm-forminput').removeClass('uk-hidden').prop('required',true);
             } else if ($(this).val()=='2') {
                 $('.sm-vid').hide();
                 $('.sm-img').show();
+                $('.sm-formyoutube').addClass('uk-hidden').prop('required',false);
+                $('.sm-forminput').removeClass('uk-hidden').prop('required',true);
             } else if ($(this).val()=='5') {
                 $('.sm-vid').show();
                 $('.sm-img').hide();
+                $('.sm-formyoutube').removeClass('uk-hidden').prop('required',true);
+                $('.sm-forminput').addClass('uk-hidden').prop('required',false);
             } else if ($(this).val()=='7') {
                 $('.sm-vid').hide();
                 $('.sm-img').show();
+                $('.sm-formyoutube').addClass('uk-hidden').prop('required',false);
+                $('.sm-forminput').removeClass('uk-hidden').prop('required',true);
             }
         });
         // jQuery.validator.setDefaults({
@@ -42,7 +52,7 @@
 
         var dt = new Date();
         $('#schedule').datetimepicker({
-            'format': 'd/m/Y H:i',
+            'format': 'd/m/y H:i',
             'minDate': 0,
             'minDateTime': dt,
             'closeOnDateSelect' : true,
@@ -53,10 +63,12 @@
                 $('#postsave').removeClass('uk-hidden');
                 $('#postnowsocmed').addClass('uk-hidden');
                 $('#clear').removeClass('uk-hidden');
+                $('#set').addClass('uk-hidden');
             } else {
                 $('#postnowsocmed').removeClass('uk-hidden');
                 $('#postsave').addClass('uk-hidden');
                 $('#clear').addClass('uk-hidden');
+                $('#set').removeClass('uk-hidden');
             }
         });
         $('#clear').click(function(){
@@ -64,6 +76,7 @@
             $('#schedule').val('');
             $('#postnowsocmed').removeClass('uk-hidden');
             $('#postsave').addClass('uk-hidden');
+            $('#set').removeClass('uk-hidden');
         });
     });
 }(window.jQuery, window, document));

@@ -74,15 +74,17 @@ class TicketController extends Controller
     {
         if ($this->ticket->changeStatus($ticketId, $request->get('ticket_status'))) {
             return redirect('ticket/' . $ticketId . '/detail');
+            // return redirect('ticket');
         }
-        return redirect('ticket/' . $ticketId . '/detail')->withErrors(['error' => 'Can not change ticket status.']);
+        // return redirect('ticket/' . $ticketId . '/detail')->withErrors(['error' => 'Can not change ticket status.']);
+        return redirect('ticket')->withErrors(['error' => 'Cannot change ticket status.']);
     }
 
     public function add()
     {
         // $users = $this->userService->getUsers();
         $users = $this->ticket->getSendToUsers();
-        $data['ticketTypes'] = $this->ticket->getTicketStatus();
+        $data['ticketTypes'] = $this->ticket->getTicketType();
         $data['users'] = $users;
         $data['pageTitle'] = 'Ticket';
         return view('pages.tickets.add', $data);

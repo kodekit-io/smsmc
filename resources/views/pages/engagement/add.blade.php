@@ -6,15 +6,7 @@
     @include('includes.subnav-engagement')
 @endsection
 @section('content')
-    
-    @if (count($errors) > 0)
-        @foreach ($errors->all() as $error)
-            <div class="uk-alert-danger sm-alert uk-animation-slide-top-small" uk-alert>
-                <a class="uk-alert-close" uk-close></a>
-                <p>{{ $error }}</p>
-            </div>
-        @endforeach
-    @endif
+
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-card uk-card-hover uk-card-default uk-card-small">
             <div class="uk-card-header">
@@ -35,27 +27,38 @@
                                         @endif
                                     @endforeach
                                 </select>
+                                <span class="uk-margin-left uk-margin-small-right">From account</span>
+                                <select class="uk-select uk-width-medium" id="acc-from" name="acc_id">
+                                    <option value="">Akun 1</option>
+                                </select>
                                 {{-- <p><em>* Note: News, Blog, Forum should be posted manually</em></p> --}}
                             </div>
                         </div>
                         <div class="uk-margin">
                             <label class="uk-form-label" for="postSocmed"><span uk-icon="icon: file-edit"></span> Content</label>
                             <div class="uk-form-controls">
-                                <textarea class="uk-textarea" id="postSocmed" rows="8" placeholder="What's up?" name="content" required></textarea>
+                                <input class="uk-input uk-margin-small-bottom sm-formyoutube" id="videoTitle" placeholder="Video Title" name="videoTitle">
+                                <textarea class="uk-textarea uk-margin-small-bottom sm-formyoutube" id="videoDescription" rows="4" placeholder="Video Description" name="videoDescription" ></textarea>
+                                <input class="uk-input sm-formyoutube" id="videoTags" placeholder="Video Tag" name="videoTags">
+                                <textarea class="uk-textarea sm-forminput" id="postSocmed" rows="8" placeholder="What's up?" name="content" ></textarea>
                             </div>
                         </div>
                         <div class="uk-margin sm-img">
                             <label class="uk-form-label" for="img"><span uk-icon="icon: image"></span> Image </label>
                             <div class="uk-form-controls">
-                                <input type="file" id="img" name="image"><br>
-                                (max filesize allowed 2MB)
+                                <div uk-form-custom="target: true">
+                                    <input type="file" id="img" name="image">
+                                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select image file" disabled> (max filesize allowed 2MB)
+                                </div>
                             </div>
                         </div>
                         <div class="uk-margin sm-vid">
                             <label class="uk-form-label" for="vid"><span uk-icon="icon: play-circle"></span> Video</label>
                             <div class="uk-form-controls">
-                                <input type="file" id="vid" name="video"><br>
-                                (max filesize allowed 1GB)
+                                <div uk-form-custom="target: true">
+                                    <input type="file" id="vid" name="video">
+                                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select video file" disabled> (max filesize allowed 1GB)
+                                </div>
                             </div>
                         </div>
                         <div class="uk-margin">
@@ -65,12 +68,13 @@
                                     <span class="uk-form-icon" uk-icon="icon: calendar"></span>
                                     <input id="schedule" class="uk-input uk-form-width-medium" type="text" name="post_date" />
                                 </div>
+                                <a id="set" class="uk-icon-button" uk-icon="icon: check" title="Confirm Date" uk-tooltip></a>
                                 <a id="clear" class="uk-icon-button uk-hidden" uk-icon="icon: close" title="Clear date" uk-tooltip></a>
                             </div>
                         </div>
                         <hr>
                         <div class="uk-flex uk-flex-middle uk-flex-between">
-                            <a class="uk-modal-close uk-button grey white-text" href="{!! url('/engagement/timeline') !!}">CANCEL</a>
+                            <a class="uk-modal-close uk-button grey white-text" href="{!! url('/engagement/list') !!}">CANCEL</a>
                             <button id="postsave" class="uk-button uk-button-primary uk-hidden" type="submit">Save Post</button>
                             <button id="postnowsocmed" class="uk-button uk-button-danger red" type="submit">Post Now</button>
                         </div>

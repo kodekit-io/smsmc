@@ -61,6 +61,10 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::get('/notifications', 'TicketController@notif');
     Route::get('/notification/list', 'TicketController@notifList');
 
+    Route::get('tiketditel/{ticketId}', 'TestController@tiketditel');
+    Route::get('tikettipe', 'TestController@tikettipe');
+    Route::get('tiketstatus', 'TestController@tiketstatus');
+
     Route::get('setting/account', 'SettingController@account');
     Route::post('setting/account/update', 'SettingController@update');
 

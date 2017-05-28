@@ -9,7 +9,7 @@
 @section('content')
 
     <section class="sm-main uk-container uk-container-expand">
-        <div class="uk-grid-medium uk-child-width-1-2@m" uk-grid uk-sortable="handle: .uk-card-header">
+        <div class="uk-grid-medium uk-child-width-1-2@m " uk-grid uk-sortable="handle: .uk-card-header">
             <div id="01"></div>
             <div id="02"></div>
             <div id="03"></div>
@@ -26,8 +26,8 @@
             <div id="14"></div>
             <div id="15"></div>
             <div id="16"></div>
-            <div id="17" class="uk-width-1-1"></div>
-            <div id="18" class="uk-width-1-1">
+            {{-- <div id="17" class="uk-width-1-1"></div> --}}
+            <div id="17" class="uk-width-1-1">
                 <div id="405" class="sm-chart-container uk-animation-fade">
                     <div class="uk-card uk-card-hover uk-card-default uk-card-small">
                         <div class="uk-card-header uk-clearfix">

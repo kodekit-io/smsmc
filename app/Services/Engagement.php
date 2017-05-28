@@ -55,6 +55,10 @@ class Engagement
         $idMedia = $request->input('media_id');
         $content = $request->input('content');
 
+        $videoTitle = $request->input('videoTitle');
+        $videoDescription = $request->input('videoDescription');
+        $videoTags = $request->input('videoTags');
+
         if (isset($socmedAttribute[$idMedia])) {
             $socmed = $socmedAttribute[$idMedia];
             $params = [
@@ -66,7 +70,8 @@ class Engagement
             ];
             if ($request->has('post_date')) {
                 $postDate = $request->input('post_date');
-                $params['postDate'] = Carbon::createFromFormat('d/m/Y H:i', $postDate)->format('Y-m-d\TH:i:s\Z');
+                // $params['postDate'] = Carbon::createFromFormat('d/m/Y H:i', $postDate)->format('Y-m-d\TH:i:s\Z');
+                $params['postDate'] = Carbon::createFromFormat('d/m/y H:i', $postDate)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
             }
             // additional for fb
             if ($idMedia == 1) {
@@ -78,8 +83,9 @@ class Engagement
             }
             // additional for youtube
             if ($idMedia == 5) {
-                $params['videoDescription'] = 'youtube';
-                $params['videoTags'] = 'youtube';
+                $params['postContent'] = $videoTitle;
+                $params['videoDescription'] = $videoDescription;
+                $params['videoTags'] = $videoTags;
             }
 
             $fileFieldName = 'image';

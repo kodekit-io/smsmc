@@ -43,19 +43,8 @@
 
 }(window.jQuery, window, document));
 
-function submitThisForm(cb) {
-    if(cb.checked) {
-        $('#searchform').submit();
-    }
-}
-
-// function imgCover(pid) {
-//     var url = baseUrl+"/images/"+pid+".jpg";
-//     var defUrl = baseUrl+"/images/default.jpg";
-//     $.get(baseUrl+"/images/"+pid+".jpg")
-//     .done(function() {
-//         $('#'+pid).find('.sm-cover').prepend('<img class="uk-animation-fade" src="'+url+'" uk-cover>');
-//     }).fail(function() {
-//         $('#'+pid).find('.sm-cover').prepend('<img class="uk-animation-fade" src="'+defUrl+'" uk-cover>');
-//     })
+// function submitThisForm(cb) {
+//     if(cb.checked) {
+//         $('#searchform').submit();
+//     }
 // }
