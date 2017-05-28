@@ -46,15 +46,19 @@
                         <div class="uk-margin sm-img">
                             <label class="uk-form-label" for="img"><span uk-icon="icon: image"></span> Image </label>
                             <div class="uk-form-controls">
-                                <input type="file" id="img" name="image"><br>
-                                (max filesize allowed 2MB)
+                                <div uk-form-custom="target: true">
+                                    <input type="file" id="img" name="image">
+                                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select image file" disabled> (max filesize allowed 2MB)
+                                </div>
                             </div>
                         </div>
                         <div class="uk-margin sm-vid">
                             <label class="uk-form-label" for="vid"><span uk-icon="icon: play-circle"></span> Video</label>
                             <div class="uk-form-controls">
-                                <input type="file" id="vid" name="video"><br>
-                                (max filesize allowed 1GB)
+                                <div uk-form-custom="target: true">
+                                    <input type="file" id="vid" name="video">
+                                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select video file" disabled> (max filesize allowed 1GB)
+                                </div>
                             </div>
                         </div>
                         <div class="uk-margin">
