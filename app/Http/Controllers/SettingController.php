@@ -90,8 +90,12 @@ class SettingController extends Controller
 
     public function userEdit(Request $request, $id)
     {
+        $roles = $this->role->getRoles();
+        $pilars = $this->user->getPilars();
         $data['pageTitle'] = 'Edit Account';
         $data['id'] = $id;
+        $data['roles'] = $roles->data;
+        $data['pilars'] = $pilars->group;
         $response = $this->user->getUserById($id);
         $data['user'] = $response->user;
 

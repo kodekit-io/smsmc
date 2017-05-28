@@ -55,7 +55,9 @@ class User
             'uid' => \Auth::user()->id,
             'userId' => $id,
             'email' => $data['email'],
-            'name' => $data['name']
+            'name' => $data['name'],
+            'idBussiness' => $data['id_business'],
+            'idRole' => $data['role']
         ];
 
         if ($data['password'] != '') {
