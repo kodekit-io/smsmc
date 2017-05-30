@@ -25,7 +25,10 @@ class EngagementController extends Controller
     public function accounts()
     {
         $socmedAttribute = session('socmedAttribute');
-
+        $data['fbAccounts'] = $this->engagement->getLoggedInAccounts(1);
+        $data['twAccounts'] = $this->engagement->getLoggedInAccounts(3);
+        $data['ytAccounts'] = $this->engagement->getLoggedInAccounts(5);
+        $data['igAccounts'] = $this->engagement->getLoggedInAccounts(7);
         $data['socmedAttribute'] = $socmedAttribute;
         $data['pageTitle'] = 'Engagement Accounts';
         return view('pages.engagement-accounts', $data);

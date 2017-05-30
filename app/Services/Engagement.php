@@ -49,6 +49,19 @@ class Engagement
         return $this->smsmc->post('engagement/logout', $params);
     }
 
+    public function getLoggedInAccounts($idMedia)
+    {
+        $params = [
+            'uid' => auth()->id(),
+            'idMedia' => $idMedia
+        ];
+        $response = $this->smsmc->post('engagement/user', $params);
+        if ($response->status == 200) {
+            return $response->result->data;
+        }
+        return [];
+    }
+
     public function post($request)
     {
         $socmedAttribute = session('socmedAttribute');

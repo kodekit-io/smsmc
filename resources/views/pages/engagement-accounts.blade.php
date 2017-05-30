@@ -12,24 +12,25 @@
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-facebook uk-margin-remove uk-text-uppercase"><i class="fa fa-facebook-square"></i> Facebook Account</h5>
                         <a href="javascript:popup('//103.16.199.58/sinarmas-plus/facebook/login',720,720)" class="uk-button uk-button-primary uk-button-small color-facebook" title="Add Facebook User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
-                    @if(! isset($socmedAttribute[1]))
+                    @if(count($fbAccounts) > 0)
+                        <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
+                            @foreach($fbAccounts as $fbAccount)
+                                <li>
+                                    <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/1') !!}">
+                                        {!! csrf_field() !!}
+                                        <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
+                                        <p class="sm-text-bold">{{ $fbAccount->engagementAuthor }}</p>
+                                        {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
+                                            <i class="fa fa-close"></i> LOGOUT
+                                        </button> --}}
+                                    </form>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
                         <div class="uk-height-small">
                             <div class="uk-position-center">No user data found!</div>
                         </div>
-                    @else
-
-                        <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
-                            <li>
-                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/1') !!}">
-                                    {!! csrf_field() !!}
-                                    <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
-                                    <p class="sm-text-bold">Username</p>
-                                    {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
-                                        <i class="fa fa-close"></i> LOGOUT
-                                    </button> --}}
-                                </form>
-                            </li>
-                        </ul>
                     @endif
                 </div>
             </div>
@@ -39,24 +40,25 @@
                         <a href="javascript:popup('//103.16.199.58/sinarmas-plus/twitter/login
 ',720,720)" class="uk-button uk-button-primary uk-button-small color-twitter" title="Add Twitter User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
-                    @if(! isset($socmedAttribute[2]))
-                        <div class="uk-height-small">
-                            <div class="uk-position-center">No user data found!</div>
-                        </div>
-                    @else
-
+                    @if(count($twAccounts) > 0)
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
+                            @foreach($twAccounts as $twAccount)
                             <li>
                                 <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/2') !!}">
                                     {!! csrf_field() !!}
                                     <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
-                                    <p class="sm-text-bold">Username</p>
+                                    <p class="sm-text-bold">{{ $twAccount->engagementAuthor }}</p>
                                     {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
                                         <i class="fa fa-close"></i> LOGOUT
                                     </button> --}}
                                 </form>
                             </li>
+                            @endforeach
                         </ul>
+                    @else
+                        <div class="uk-height-small">
+                            <div class="uk-position-center">No user data found!</div>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -65,24 +67,25 @@
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-youtube uk-margin-remove uk-text-uppercase"><i class="fa fa-youtube-square"></i> Youtube Account</h5>
                         <a href="javascript:popup('//document.mediawave.co.id/sinarmas-plus/youtube/login',720,720)" class="uk-button uk-button-primary uk-button-small color-youtube" title="Add Youtube User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
-                    @if(! isset($socmedAttribute[5]))
-                        <div class="uk-height-small">
-                            <div class="uk-position-center">No user data found!</div>
-                        </div>
-                    @else
-
+                    @if(count($ytAccounts) > 0)
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
+                            @foreach($ytAccounts as $ytAccount)
                             <li>
                                 <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/3') !!}">
                                     {!! csrf_field() !!}
                                     <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
-                                    <p class="sm-text-bold">Username</p>
+                                    <p class="sm-text-bold">{{ $ytAccount->engagementAuthor }}</p>
                                     {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
                                         <i class="fa fa-close"></i> LOGOUT
                                     </button> --}}
                                 </form>
                             </li>
+                            @endforeach
                         </ul>
+                    @else
+                        <div class="uk-height-small">
+                            <div class="uk-position-center">No user data found!</div>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -91,24 +94,25 @@
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-instagram uk-margin-remove uk-text-uppercase"><i class="fa fa-instagram"></i> Instagram Account</h5>
                         <a href="javascript:popup('//103.16.199.58/sinarmas-plus/instagram/login',720,720)" class="uk-button uk-button-primary uk-button-small color-instagram" title="Add Instagram User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
-                    @if(! isset($socmedAttribute[7]))
-                        <div class="uk-height-small">
-                            <div class="uk-position-center">No user data found!</div>
-                        </div>
-                    @else
-
+                    @if(count($igAccounts) > 0)
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
+                            @foreach($igAccounts as $igAccount)
                             <li>
                                 <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/4') !!}">
                                     {!! csrf_field() !!}
                                     <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
-                                    <p class="sm-text-bold">Username</p>
+                                    <p class="sm-text-bold">{{ $igAccount->engagementAuthor }}</p>
                                     {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
                                         <i class="fa fa-close"></i> LOGOUT
                                     </button> --}}
                                 </form>
                             </li>
+                            @endforeach
                         </ul>
+                    @else
+                        <div class="uk-height-small">
+                            <div class="uk-position-center">No user data found!</div>
+                        </div>
                     @endif
                 </div>
             </div>
