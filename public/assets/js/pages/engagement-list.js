@@ -70,7 +70,13 @@ function theList(div) {
             {
                 title: 'Status', width: '20%', class: 'uk-text-break',
                 data: function ( data ) {
-                    var isbefore = moment().isBefore(data['engagementDate']);
+                    var dateAsli = data['engagementDate'];
+                    var dateUtc = moment.utc(dateAsli).format('YYYY-MM-DD HH:mm:ss');
+                    var dateLoc = moment(dateAsli).local().format('YYYY-MM-DD HH:mm:ss');
+                    var now = moment().format('YYYY-MM-DD HH:mm:ss');
+
+                    var isbefore = moment.utc(now).isBefore(dateLoc);
+
                     var iclock = '<i class="fa fa-clock-o fa-fw"></i> ';
                     var icheck = '<i class="fa fa-check fa-fw"></i> ';
                     var edit = '<a class="uk-label sm-label red" title="Edit Post" uk-tooltip><i class="fa fa-pencil fa-fw"></i> Edit Post</a>';
@@ -84,9 +90,9 @@ function theList(div) {
                         '<div>'+link+'</div>' +
                     '</div>';
                     if (isbefore==true) {
-                        return scheduled;
+                        return scheduled; //+'<br>'+isbefore+'<br>'+dateAsli+'<br>'+dateUtc+'<br>'+dateLoc+'<br>'+now;
                     } else {
-                        return published;
+                        return published; //+'<br>'+isbefore+'<br>'+dateAsli+'<br>'+dateUtc+'<br>'+dateLoc+'<br>'+now;
                     }
                 }
             },
