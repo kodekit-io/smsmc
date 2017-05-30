@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="img"><span uk-icon="icon: image"></span> Image</label>
+                                <label class="uk-form-label" for="postImgFb"><span uk-icon="icon: image"></span> Image</label>
                                 <div class="uk-form-controls">
                                     <div uk-form-custom="target: true">
                                         <input type="file" id="postImgFb" name="postImgFb">
@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             <div class="uk-margin">
-                                <label class="uk-form-label" for="vid"><span uk-icon="icon: play-circle"></span> Video</label>
+                                <label class="uk-form-label" for="postVidFb"><span uk-icon="icon: play-circle"></span> Video</label>
                                 <div class="uk-form-controls">
                                     <div uk-form-custom="target: true">
                                         <input type="file" id="postVidFb" name="postVidFb">
@@ -111,7 +111,7 @@
                                         <input type="file" id="postImgTw1" name="postImgTw1">
                                         <input class="uk-input uk-form-width-medium" type="text" placeholder="Select image file" disabled> (max filesize allowed 2MB)
                                     </div>
-                                    <div class="uk-width-1-1 uk-margin-small-bottom" uk-form-custom="target: true">
+                                    {{-- <div class="uk-width-1-1 uk-margin-small-bottom" uk-form-custom="target: true">
                                         <input type="file" id="postImgTw2" name="postImgTw2">
                                         <input class="uk-input uk-form-width-medium" type="text" placeholder="Select image file" disabled> (max filesize allowed 2MB)
                                     </div>
@@ -122,7 +122,7 @@
                                     <div class="uk-width-1-1" uk-form-custom="target: true">
                                         <input type="file" id="postImgTw4" name="postImgTw4">
                                         <input class="uk-input uk-form-width-medium" type="text" placeholder="Select image file" disabled> (max filesize allowed 2MB)
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

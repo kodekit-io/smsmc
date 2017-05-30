@@ -76,7 +76,7 @@ function theList(div) {
                     var link = '<a class="uk-button uk-button-link teal-text" title="See original post" uk-tooltip>See details <i class="fa fa-external-link-square fa-fw"></i></a>'
                     var scheduled = '<div class="uk-flex uk-flex-middle uk-flex-between">' +
                         '<div class="red-text">'+iclock+' Scheduled</div>' +
-                        '<div>'+edit+'</div>' +
+                        // '<div>'+edit+'</div>' +
                     '</div>';
                     var published = '<div class="uk-flex uk-flex-middle uk-flex-between">' +
                         '<div class="teal-text">'+icheck+' Published</div>' +
