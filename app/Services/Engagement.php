@@ -53,11 +53,6 @@ class Engagement
     {
         $socmedAttribute = session('socmedAttribute');
         $idMedia = $request->input('media_id');
-        $content = $request->input('content');
-
-        $videoTitle = $request->input('videoTitle');
-        $videoDescription = $request->input('videoDescription');
-        $videoTags = $request->input('videoTags');
 
         if (isset($socmedAttribute[$idMedia])) {
             $socmed = $socmedAttribute[$idMedia];
@@ -66,14 +61,16 @@ class Engagement
                 'idMedia' => $idMedia,
                 'authTokenSocmed' => $socmed['token'],
                 'idSocmed' => $socmed['id'],
-                'postContent' => $content,
+                // 'postContent' => $content,
             ];
             if ($request->has('post_date')) {
                 $postDate = $request->input('post_date');
                 // $params['postDate'] = Carbon::createFromFormat('d/m/Y H:i', $postDate)->format('Y-m-d\TH:i:s\Z');
                 $params['postDate'] = Carbon::createFromFormat('d/m/y H:i', $postDate)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
+            } else {
+                $params['postDate'] = Carbon::now()->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
             }
-            // additional for fb
+            // for fb
             if ($idMedia == 1) {
                 $params['postLinkAttachment'] = 'facebook';
                 $params['postSourceAttachment'] = 'facebook';
@@ -81,7 +78,7 @@ class Engagement
                 $params['caption'] = 'facebook';
                 $params['description'] = 'facebook';
             }
-            // additional for youtube
+            // for youtube
             if ($idMedia == 5) {
                 $params['postContent'] = $videoTitle;
                 $params['videoDescription'] = $videoDescription;
