@@ -10,7 +10,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-facebook uk-margin-remove uk-text-uppercase"><i class="fa fa-facebook-square"></i> Facebook Account</h5>
-                        <a href="javascript:popup('https://www.facebook.com/v2.8/dialog/oauth?app_id=219214895250942&redirect_uri=http%3A%2F%2Ftestdevel.com&version=v2.8',720,720)" class="uk-button uk-button-primary uk-button-small color-facebook" title="Add Facebook User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
+                        <a href="javascript:popup('//103.16.199.58/sinarmas-plus/facebook/login',720,720)" class="uk-button uk-button-primary uk-button-small color-facebook" title="Add Facebook User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(! isset($socmedAttribute[1]))
                         <div class="uk-height-small">
@@ -24,19 +24,9 @@
                                     {!! csrf_field() !!}
                                     <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
                                     <p class="sm-text-bold">Username</p>
-                                    <button class="uk-button uk-button-default uk-button-small" type="submit">
+                                    {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
                                         <i class="fa fa-close"></i> LOGOUT
-                                    </button>
-                                </form>
-                            </li>
-                            <li>
-                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/1') !!}">
-                                    {!! csrf_field() !!}
-                                    <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
-                                    <p class="sm-text-bold">Username</p>
-                                    <button class="uk-button uk-button-default uk-button-small" type="submit">
-                                        <i class="fa fa-close"></i> LOGOUT
-                                    </button>
+                                    </button> --}}
                                 </form>
                             </li>
                         </ul>
@@ -46,7 +36,8 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-twitter uk-margin-remove uk-text-uppercase"><i class="fa fa-twitter-square"></i> Twitter Account</h5>
-                        <a href="javascript:popup('//103.16.199.58/sinarmas-plus/twitter/login',720,720)" class="uk-button uk-button-primary uk-button-small color-twitter" title="Add Twitter User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
+                        <a href="javascript:popup('//103.16.199.58/sinarmas-plus/twitter/login
+',720,720)" class="uk-button uk-button-primary uk-button-small color-twitter" title="Add Twitter User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(! isset($socmedAttribute[2]))
                         <div class="uk-height-small">
@@ -60,29 +51,9 @@
                                     {!! csrf_field() !!}
                                     <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
                                     <p class="sm-text-bold">Username</p>
-                                    <button class="uk-button uk-button-default uk-button-small" type="submit">
+                                    {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
                                         <i class="fa fa-close"></i> LOGOUT
-                                    </button>
-                                </form>
-                            </li>
-                            <li>
-                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/2') !!}">
-                                    {!! csrf_field() !!}
-                                    <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
-                                    <p class="sm-text-bold">Username</p>
-                                    <button class="uk-button uk-button-default uk-button-small" type="submit">
-                                        <i class="fa fa-close"></i> LOGOUT
-                                    </button>
-                                </form>
-                            </li>
-                            <li>
-                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/2') !!}">
-                                    {!! csrf_field() !!}
-                                    <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
-                                    <p class="sm-text-bold">Username</p>
-                                    <button class="uk-button uk-button-default uk-button-small" type="submit">
-                                        <i class="fa fa-close"></i> LOGOUT
-                                    </button>
+                                    </button> --}}
                                 </form>
                             </li>
                         </ul>
@@ -92,7 +63,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-youtube uk-margin-remove uk-text-uppercase"><i class="fa fa-youtube-square"></i> Youtube Account</h5>
-                        <a href="javascript:popup('https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=831371170934-udapit5jhjj56pft5l2drc9gjhfeclf3.apps.googleusercontent.com&as=-60df4ad5507eb7d2&destination=https%3A%2F%2Fgoogle-developers.appspot.com&approval_state=!ChRSdlhqbmc4b2U4YzF2bUp2RnJPaRIfNDBuOExDLUVXODBZVU9xWmlfQjdtUi1FRGFYYnd4VQ∙ADiIGyEAAAAAWSemDydrX2xdfRaf9R4LYwWd1EGmflpi&xsrfsig=AHgIfE9lacw16is5JLPbLdr0n7AlsXPUgw&flowName=GeneralOAuthFlow',600,600)" class="uk-button uk-button-primary uk-button-small color-youtube" title="Add Youtube User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
+                        <a href="javascript:popup('//document.mediawave.co.id/sinarmas-plus/youtube/login',720,720)" class="uk-button uk-button-primary uk-button-small color-youtube" title="Add Youtube User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(! isset($socmedAttribute[5]))
                         <div class="uk-height-small">
@@ -106,9 +77,9 @@
                                     {!! csrf_field() !!}
                                     <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
                                     <p class="sm-text-bold">Username</p>
-                                    <button class="uk-button uk-button-default uk-button-small" type="submit">
+                                    {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
                                         <i class="fa fa-close"></i> LOGOUT
-                                    </button>
+                                    </button> --}}
                                 </form>
                             </li>
                         </ul>
@@ -118,7 +89,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-instagram uk-margin-remove uk-text-uppercase"><i class="fa fa-instagram"></i> Instagram Account</h5>
-                        <a href="javascript:popup('https://www.instagram.com/accounts/login/',600,600)" class="uk-button uk-button-primary uk-button-small color-instagram" title="Add Instagram User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
+                        <a href="javascript:popup('//103.16.199.58/sinarmas-plus/instagram/login',720,720)" class="uk-button uk-button-primary uk-button-small color-instagram" title="Add Instagram User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(! isset($socmedAttribute[7]))
                         <div class="uk-height-small">
@@ -132,19 +103,9 @@
                                     {!! csrf_field() !!}
                                     <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
                                     <p class="sm-text-bold">Username</p>
-                                    <button class="uk-button uk-button-default uk-button-small" type="submit">
+                                    {{-- <button class="uk-button uk-button-default uk-button-small" type="submit">
                                         <i class="fa fa-close"></i> LOGOUT
-                                    </button>
-                                </form>
-                            </li>
-                            <li>
-                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/4') !!}">
-                                    {!! csrf_field() !!}
-                                    <img class="uk-border-circle" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
-                                    <p class="sm-text-bold">Username</p>
-                                    <button class="uk-button uk-button-default uk-button-small" type="submit">
-                                        <i class="fa fa-close"></i> LOGOUT
-                                    </button>
+                                    </button> --}}
                                 </form>
                             </li>
                         </ul>
