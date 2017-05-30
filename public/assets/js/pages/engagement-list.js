@@ -75,7 +75,7 @@ function theList(div) {
                     var dateLoc = moment(dateAsli).local().format('YYYY-MM-DD HH:mm:ss');
                     var now = moment().format('YYYY-MM-DD HH:mm:ss');
 
-                    var isbefore = moment.utc(now).isBefore(dateLoc);
+                    var isbefore = moment(now).isBefore(dateLoc);
 
                     var iclock = '<i class="fa fa-clock-o fa-fw"></i> ';
                     var icheck = '<i class="fa fa-check fa-fw"></i> ';
@@ -90,9 +90,9 @@ function theList(div) {
                         '<div>'+link+'</div>' +
                     '</div>';
                     if (isbefore==true) {
-                        return scheduled; //+'<br>'+isbefore+'<br>'+dateAsli+'<br>'+dateUtc+'<br>'+dateLoc+'<br>'+now;
+                        return scheduled;//+'<br>'+isbefore+'<br>'+dateAsli+'<br>'+dateUtc+'<br>'+dateLoc+'<br>'+now;
                     } else {
-                        return published; //+'<br>'+isbefore+'<br>'+dateAsli+'<br>'+dateUtc+'<br>'+dateLoc+'<br>'+now;
+                        return published;//+'<br>'+isbefore+'<br>'+dateAsli+'<br>'+dateUtc+'<br>'+dateLoc+'<br>'+now;
                     }
                 }
             },
