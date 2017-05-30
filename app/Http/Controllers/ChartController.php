@@ -416,12 +416,12 @@ class ChartController extends Controller
             ];
         }
         $url = 'project/' . $reportType . '/' . $idMedia . '/sentiment/update';
-        Log::warning("change sentiment param ==> " . \GuzzleHttp\json_encode($params));
-        Log::warning("change sentiment url ==> " . $url);
+        // Log::warning("change sentiment param ==> " . \GuzzleHttp\json_encode($params));
+        // Log::warning("change sentiment url ==> " . $url);
         $response = $this->smsmc->post($url, $params);
 
         if ($response->status == '200') {
-            Log::warning('change sentiment response ==> ' . \GuzzleHttp\json_encode($response));
+            // Log::warning('change sentiment response ==> ' . \GuzzleHttp\json_encode($response));
             return 1;
         }
         return 0;

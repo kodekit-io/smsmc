@@ -41,8 +41,8 @@ class Project
         if ($text != '') {
             $params['text'] = $text;
         }
-        Log::warning('Project list parameters : ');
-        Log::warning(\GuzzleHttp\json_encode($params));
+        // Log::warning('Project list parameters : ');
+        // Log::warning(\GuzzleHttp\json_encode($params));
         $projectList = $this->smsmc->post('project/list', $params);
         if ($projectList->status == 200) {
             return $projectList->result;
