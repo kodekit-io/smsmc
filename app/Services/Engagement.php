@@ -108,7 +108,7 @@ class Engagement
                 }
 
                 // vidFB
-                $videoFieldName = 'video';
+                $videoFieldName = 'postVidFb';
                 $socmedVideo = '';
                 if ($request->hasFile($videoFieldName)) {
                     if ($request->file($videoFieldName)->isValid()) {

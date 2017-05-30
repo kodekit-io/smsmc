@@ -49,13 +49,13 @@
                                 <span class="uk-margin-left uk-margin-small-right">From account</span>
                                 {{--  akun fb --}}
                                 <select class="uk-select uk-width-medium sm-post-fb" id="accFb" name="accFb">
-                                    <option value="">Akun FB 1</option>
-                                    <option value="">Akun FB 2</option>
+                                    <option value="">Akun Facebook 1</option>
+                                    <option value="">Akun Facebook 2</option>
                                 </select>
                                 {{--  akun tw --}}
                                 <select class="uk-select uk-width-medium sm-post-tw" id="accTw" name="accTw">
-                                    <option value="">Akun TW 1</option>
-                                    <option value="">Akun TW 2</option>
+                                    <option value="">Akun Twitter 1</option>
+                                    <option value="">Akun Twitter 2</option>
                                 </select>
                                 {{--  akun yt --}}
                                 <select class="uk-select uk-width-medium sm-post-yt" id="accYt" name="accYt">
@@ -64,8 +64,8 @@
                                 </select>
                                 {{--  akun ig --}}
                                 <select class="uk-select uk-width-medium sm-post-ig" id="accIg" name="accIg">
-                                    <option value="">Akun IG 1</option>
-                                    <option value="">Akun IG 2</option>
+                                    <option value="">Akun Instagram 1</option>
+                                    <option value="">Akun Instagram 2</option>
                                 </select>
                             </div>
                         </div>
