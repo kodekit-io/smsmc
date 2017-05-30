@@ -41,31 +41,33 @@
                             <div class="uk-form-controls">
                                 <select class="uk-select uk-width-medium" id="post-to" name="media_id">
                                     @foreach($socmeds as $socmed => $name)
-                                        @if(isset($socmedAttributes[$socmed]))
                                         <option value="{!! $socmed !!}">{!! $name !!}</option>
-                                        @endif
                                     @endforeach
                                 </select>
                                 <span class="uk-margin-left uk-margin-small-right">From account</span>
                                 {{--  akun fb --}}
                                 <select class="uk-select uk-width-medium sm-post-fb" id="accFb" name="accFb">
-                                    <option value="">Akun Facebook 1</option>
-                                    <option value="">Akun Facebook 2</option>
+                                    @foreach($fbAccounts as $fbAccount)
+                                        <option value="{{ $fbAccount->engagementId }}">{{ $fbAccount->engagementAuthor }}</option>
+                                    @endforeach
                                 </select>
                                 {{--  akun tw --}}
                                 <select class="uk-select uk-width-medium sm-post-tw" id="accTw" name="accTw">
-                                    <option value="">Akun Twitter 1</option>
-                                    <option value="">Akun Twitter 2</option>
+                                    @foreach($twAccounts as $twAccount)
+                                        <option value="{{ $twAccount->engagementId }}">{{ $twAccount->engagementAuthor }}</option>
+                                    @endforeach
                                 </select>
                                 {{--  akun yt --}}
                                 <select class="uk-select uk-width-medium sm-post-yt" id="accYt" name="accYt">
-                                    <option value="">Akun Youtube 1</option>
-                                    <option value="">Akun Youtube 2</option>
+                                    @foreach($ytAccounts as $ytAccount)
+                                        <option value="{{ $ytAccount->engagementId }}">{{ $ytAccount->engagementAuthor }}</option>
+                                    @endforeach
                                 </select>
                                 {{--  akun ig --}}
                                 <select class="uk-select uk-width-medium sm-post-ig" id="accIg" name="accIg">
-                                    <option value="">Akun Instagram 1</option>
-                                    <option value="">Akun Instagram 2</option>
+                                    @foreach($igAccounts as $igAccount)
+                                        <option value="{{ $igAccount->engagementId }}">{{ $igAccount->engagementAuthor }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
