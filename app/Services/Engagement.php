@@ -80,7 +80,7 @@ class Engagement
             } else {
                 // $params['postDate'] = Carbon::now()->format('Y-m-d\TH:i:s\Z');
                 // $params['postDate'] = Carbon::now()->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
-                $params['postDate'] = '';
+                // $params['postDate'] = '';
             }
             // for fb
             if ($idMedia == 1) {
