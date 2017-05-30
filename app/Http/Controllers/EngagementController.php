@@ -49,11 +49,6 @@ class EngagementController extends Controller
         return redirect('engagement-accounts');
     }
 
-    // public function users($idMedia)
-    // {
-    //     return \GuzzleHttp\json_encode($this->engagement->users($idMedia));
-    // }
-
     public function add()
     {
         $socmedAttribute = session('socmedAttribute');

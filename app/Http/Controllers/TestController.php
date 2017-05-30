@@ -113,7 +113,7 @@ class TestController extends Controller
     {
         $params = [
             'ticketId' => $ticketId,
-            'uid' => \Auth::user()->id
+            'uid' => \Auth::user()->id,
         ];
 
         $response = $this->smsmc->post('ticket/detail', $params);
@@ -149,7 +149,17 @@ class TestController extends Controller
             return '<pre>'.json_encode($response->result, JSON_PRETTY_PRINT).'</pre>';
         }
     }
-
+    public function engagementUsers($idMedia)
+    {
+        $params = [
+            'uid' => Auth::user()->id,
+            'idMedia' => $idMedia,
+            'idSocmed' => '1'
+        ];
+        $result = $this->smsmc->post('engagement/login', $params);
+        return \GuzzleHttp\json_encode($result->result);
+        // echo '<pre>'.json_encode($result->result, JSON_PRETTY_PRINT).'</pre>';
+    }
     //
 	// public function plist($page,$row)
 	// {

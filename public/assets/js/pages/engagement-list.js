@@ -55,7 +55,7 @@ function theList(div) {
                     var dateAsli = data['engagementDate'];
                     var dateUtc = moment.utc(dateAsli).format('llll');
                     var dateLoc = moment.utc(dateAsli).local().format('llll');
-                    return dateUtc;
+                    return dateLoc;
                 }
             },
             {

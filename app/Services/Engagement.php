@@ -49,16 +49,6 @@ class Engagement
         return $this->smsmc->post('engagement/logout', $params);
     }
 
-    // public function users($idMedia)
-    // {
-    //     // $socmedAttribute = session('socmedAttribute')[$idMedia];
-    //     $params = [
-    //         'uid' => \Auth::id(),
-    //         'idMedia' => $idMedia
-    //     ];
-    //     return $this->smsmc->post('engagement/user', $params);
-    // }
-
     public function post($request)
     {
         $socmedAttribute = session('socmedAttribute');
