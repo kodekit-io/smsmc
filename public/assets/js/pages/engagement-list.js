@@ -52,9 +52,10 @@ function theList(div) {
                 title: 'Post Date', width: '15%',
                 sortable: false,
                 data: function ( data ) {
-                    var localtime = moment(data['engagementDate']).format('llll');
-                    // return data['engagementDate'];
-                    return localtime;
+                    var dateAsli = data['engagementDate'];
+                    var dateUtc = moment.utc(dateAsli).format('llll');
+                    var dateLoc = moment.utc(dateAsli).local().format('llll');
+                    return dateUtc;
                 }
             },
             {
