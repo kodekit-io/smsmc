@@ -113,7 +113,8 @@ function unhideAll(obj) {
 }
 
 function popup(url,width,height){
-    var pop=window.open(url,'Sinar Mas','width='+width+',height='+height+',resizable=0');
+    var pop = window.open(url,'Sinar Mas','width='+width+',height='+height+',resizable=0,toolbar=no,location=no');
+    pop.document.body.innerHTML = '<a href="#" onclick="window.opener.location.reload();window.close();">CLOSE THIS WINDOW</a>';
     return false;
 }
 
