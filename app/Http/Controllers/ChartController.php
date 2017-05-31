@@ -302,6 +302,11 @@ class ChartController extends Controller
             $params['text'] = $searchText;
         }
 
+        if ($request->has('text')) {
+            $searchText = $request->input('text');
+            $params['text'] = $searchText;
+        }
+
         // other params
         if ($reportType == 1) {
             $params['pid'] = $request->projectId;
@@ -318,7 +323,7 @@ class ChartController extends Controller
 
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
 
-        // Log::warning('convo paging params ==> ' . \GuzzleHttp\json_encode($request->all()));
+        // Log::warning('convo paging request ==> ' . \GuzzleHttp\json_encode($request->all()));
         // Log::warning("convo paging url ==> " . $convoUrl);
         // Log::warning("convo paging param ==> " . \GuzzleHttp\json_encode($params));
 
@@ -374,7 +379,7 @@ class ChartController extends Controller
 
         $apiUrl = 'project/1/8/convoexcel';
         $response = $this->smsmc->post($apiUrl, $params);
-        Log::debug($apiUrl . " params ==> " . \GuzzleHttp\json_encode($params));
+        //Log::debug($apiUrl . " params ==> " . \GuzzleHttp\json_encode($params));
         if ($response->status == 200) {
             return $response->result->excel;
         }
@@ -416,12 +421,12 @@ class ChartController extends Controller
             ];
         }
         $url = 'project/' . $reportType . '/' . $idMedia . '/sentiment/update';
-        Log::warning("change sentiment param ==> " . \GuzzleHttp\json_encode($params));
-        Log::warning("change sentiment url ==> " . $url);
+        // Log::warning("change sentiment param ==> " . \GuzzleHttp\json_encode($params));
+        // Log::warning("change sentiment url ==> " . $url);
         $response = $this->smsmc->post($url, $params);
-
+        // Log::warning('change sentiment response ==> ' . \GuzzleHttp\json_encode($response));
         if ($response->status == '200') {
-            Log::warning('change sentiment response ==> ' . \GuzzleHttp\json_encode($response));
+            // Log::warning('change sentiment response ==> ' . \GuzzleHttp\json_encode($response));
             return 1;
         }
         return 0;

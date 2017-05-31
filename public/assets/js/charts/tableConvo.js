@@ -173,7 +173,8 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 data: $(this).serialize(),
                 success: function ($res) {
                     if ($res == '1') {
-                        uikitModal.hide();
+                        //uikitModal.hide();
+                        UIkit.modal.dialog('<div class="uk-modal-body"><div class="uk-error">Berhasil</div></div>');
                         theTable.ajax.reload('',false);
                     } else {
                         alert('Error when updating the data.');

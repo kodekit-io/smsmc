@@ -1,5 +1,7 @@
 // Table convo twitter
 function tableTwitter(chartId, url, chartApiData, idMedia) {
+	// console.log(url);
+	// console.log(chartApiData);
 	var theTable = $('#' + chartId).DataTable({
 		processing: true,
         serverSide: true,
