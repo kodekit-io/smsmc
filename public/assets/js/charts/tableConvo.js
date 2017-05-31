@@ -124,10 +124,11 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 data: $(this).serialize(),
                 success: function ($res) {
                     if ($res == '1') {
-                        theTable.ajax.reload();
+                        UIkit.modal.dialog('<div class="uk-modal-body uk-text-center">Your ticket has been sent successfully!</div>');
+                        theTable.ajax.reload('',false);
                         uikitModal.hide();
                     } else {
-                        alert('Error when updating the data.');
+                        alert('A problem has been occured while submitting your ticket.');
                     }
                 }
             })
@@ -176,10 +177,10 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 success: function ($res) {
                     if ($res == '1') {
                         //uikitModal.hide();
-                        UIkit.modal.dialog('<div class="uk-modal-body"><div class="uk-error">Berhasil</div></div>');
+                        UIkit.modal.dialog('<div class="uk-modal-body uk-text-center">Sentiment Updated!</div>');
                         theTable.ajax.reload('',false);
                     } else {
-                        alert('Error when updating the data.');
+                        alert('A problem has been occured while updating the sentiment.');
                     }
                 }
             })

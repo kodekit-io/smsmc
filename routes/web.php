@@ -105,9 +105,6 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::post('/engagement/account-login/{idMedia}', 'EngagementController@login');
     Route::post('/engagement/account-logout/{idMedia}', 'EngagementController@logout');
 
-    // aing nyoba
-    Route::post('/engagement/users/{idMedia}', 'TestController@engagementUsers');
-
     Route::get('/engagement/get-timeline/{idMedia}/{idSocmed}', 'EngagementController@getTimeline');
     Route::get('/engagement/add', 'EngagementController@add');
     Route::post('/engagement/post', 'EngagementController@post');
