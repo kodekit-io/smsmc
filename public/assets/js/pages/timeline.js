@@ -1,6 +1,121 @@
-function timeline(div,typeId) {
+function tline(domId,typeId,socmedId) {
+    switch (typeId) {
+        case 1:
+            var type = 'facebook';
+            break;
+        case 2:
+            var type = 'twitter';
+            break;
+        case 5:
+            var type = 'youtube';
+            break;
+        case 7:
+            var type = 'instagram';
+            break;
+    }
+    var url = baseUrl+'/engagement/get-timeline/'+typeId+'/'+socmedId;
+
+    var theTable = $('#'+domId).DataTable( {
+        paging: true,
+        searching: false,
+        info: false,
+        processing: true,
+        dom: "<'sm-timeline-wrap't><'uk-grid uk-grid-collapse sm-timeline-foot'<'uk-width-1-2'l><'uk-width-1-2'p>>",
+        language: {
+            "lengthMenu": "Show _MENU_",
+            "paginate": {
+                "previous": "<i class='fa fa-chevron-left'></i>",
+                "next": "<i class='fa fa-chevron-right'></i>"
+            },
+            "emptyTable": "<div class='sm-timeline-wrap'><div class='uk-position-center' uk-spinner></div></div>"
+        },
+        ajax: {
+            "url": url,
+            "data" : "data"
+        },
+        columns: [
+            {
+                visible: false,
+                data: function ( data ) {
+                    var d = data['postDate'];
+                    var date = moment.parseZone(d).utc().format();
+                    if (d == '' || date == 'Invalid date') {
+                        date = d;
+                    }
+                    return date;
+                }
+            },
+            {   width: "100%",
+                data: function ( data ) {
+                    var d = data['postDate'];
+                    var postDate = moment.parseZone(d).local().format('llll');
+                    if (d == '' || postDate == 'Invalid date') {
+                        postDate = d;
+                    }
+                    var userName = data['userName'];
+                    var userImg = data['userImg'];
+                    if (userImg == null || userImg == '') {
+                        userImg = baseUrl+'/assets/img/favicon.png';
+                    }
+                    var userUrl = data['userUrl'];
+                    var postText = data['postText'];
+                    if (postText == null || postText == '') {
+                        var postTrim = postText;
+                    } else {
+                        var postTrim = postText.substr(0,150);
+                    }
+                    var postUrl = data['postUrl'];
+                    var postImg = data['postImg'];
+                    var postVid = data['postVid'];
+                    var img = '';
+                    if (postImg !=''){
+                        img = '<div class="uk-width-1-1 uk-height-small uk-background-cover sm-timeline-img" style="background-image:url('+postImg+')"></div>';
+                    }
+                    var vid = '';
+                    if (postVid !='' && type == 'youtube'){
+                        yid = YouTubeGetID(postUrl);
+                        vid = '<iframe src="//www.youtube.com/embed/'+yid+'?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;wmode=transparent" class="uk-width-1-1 uk-height-small sm-timeline-vid"></iframe>';
+                    }
+
+                    var replyUrl = baseUrl+'/engagement/reply';
+                    var timeline =  '<div class="uk-grid-small" uk-grid>'
+                                        + '<div class="uk-width-auto">'
+                                            + '<a href="'+userUrl+'" target="_blank" title="'+userName+'"><img class="uk-border-rounded" src="'+userImg+'" width="32" height="32" alt="'+userName+'"></a>'
+                                        + '</div>'
+                                        + '<div class="uk-width-expand">'
+                                            + '<h5 class="uk-margin-remove"><a class="color-text-'+type+'" href="'+userUrl+'" target="_blank" title="'+userName+'">' +userName+ '</a></h5>'
+                                            + '<div class="uk-text-meta uk-text-small uk-text-truncate">' +postDate+ '</div>'
+                                            + img
+                                            + vid
+                                            + '<div title="'+postText+'" uk-tooltip>' +postTrim+ '</div>'
+                                            + '<ul class="uk-iconnav">'
+                                                + '<li><a href="'+postUrl+'" class="fa fa-link green-text" target="_blank" title="Open link" uk-tooltip></a></li>'
+                                                + '<li><a href="'+replyUrl+'" class="fa fa-comment blue-text" title="Reply" uk-tooltip></a></li>'
+                                            + '</div>'
+                                        + '</div>'
+                                    + '</div>';
+                    return timeline;
+                }
+            }
+        ],
+        order: [[ 0, "desc" ]]
+    });
+    theTable.columns.adjust().draw();
+}
+
+/*
+function timeline(div,typeId,socmedId) {
     // var url = baseUrl+'/json/timeline-'+type+'.json'
-    var url = baseUrl+'/engagement/get-timeline/'+typeId;
+    var akun = '<a class="grey-text fa fa-user" title="Switch Account" uk-tooltip></a> \
+    <div uk-dropdown="pos: bottom-center"> \
+        <ul class="uk-nav uk-navbar-dropdown-nav"> \
+            <li>Akun 1</li> \
+            <li>Akun 2</li> \
+            <li>Akun 3</li> \
+        </ul> \
+    </div>';
+
+    var url = baseUrl+'/engagement/get-timeline/'+typeId+'/'+socmedId;
     switch (typeId) {
         case 1:
             var type = 'facebook';
@@ -29,15 +144,6 @@ function timeline(div,typeId) {
             if(desc === undefined) {
                 desc = 'Timeline '+name;
             }
-
-            var akun = '<a class="grey-text fa fa-user" title="Switch Account" uk-tooltip></a> \
-            <div uk-dropdown="pos: bottom-center"> \
-                <ul class="uk-nav uk-navbar-dropdown-nav"> \
-                    <li>Akun 1</li> \
-                    <li>Akun 2</li> \
-                    <li>Akun 3</li> \
-                </ul> \
-            </div>';
 
             var card = '<div class="uk-animation-fade uk-card sm-chart-container uk-card-hover uk-card-default uk-card-small"> \
                 <div class="uk-card-header uk-clearfix"> \
@@ -144,3 +250,4 @@ function timeline(div,typeId) {
         }
     })
 }
+*/

@@ -73,9 +73,9 @@ class EngagementController extends Controller
         return redirect('engagement/add')->withInput()->withErrors(['error' => 'A problem has been occured while submitting your post.']);
     }
 
-    public function getTimeline($idMedia)
+    public function getTimeline($idMedia,$idSocmed)
     {
-        return \GuzzleHttp\json_encode($this->engagement->timeline($idMedia));
+        return \GuzzleHttp\json_encode($this->engagement->timeline($idMedia,$idSocmed));
     }
 
     private function saveSocmedToken($result, $idMedia)
@@ -111,6 +111,14 @@ class EngagementController extends Controller
     }
     public function engagementTimeline()
     {
+        $socmedAttribute = session('socmedAttribute');
+        $data['fbAccounts'] = $this->engagement->getLoggedInAccounts(1);
+        $data['twAccounts'] = $this->engagement->getLoggedInAccounts(3);
+        $data['ytAccounts'] = $this->engagement->getLoggedInAccounts(5);
+        $data['igAccounts'] = $this->engagement->getLoggedInAccounts(7);
+
+        $data['socmedAttributes'] = $socmedAttribute;
+
         $data['pageTitle'] = 'Timeline';
         return view('pages.engagement.timeline', $data);
     }
