@@ -1,4 +1,6 @@
 function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
+    // var searchText = $('input[name=searchText]').val();
+    // $('.dataTables_filter').find('input[type=search]').val(searchText);
     var idMedia = chartApiData.idMedia;
     if (idMediaParam != '') {
         idMedia = idMediaParam;
@@ -64,7 +66,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
             var theType = $ticketTypes[i];
             ticketType += '<li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="'+ theType.id +'"> '+ theType.name +'</label></li>';
         }
-        var $toSelect = '<select id="to_select" name="to[]" class="uk-input" multiple >';
+        var $toSelect = '<select id="to_select" name="to[]" class="uk-input uk-width-medium" multiple >';
         // var $toCcSelect = '<select id="to_cc_select" name="to_cc[]" class="uk-input" multiple >';
         for (i=0; i < $users.length; i++) {
             var theUser = $users[i];
@@ -85,7 +87,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 '<h5>Open New Ticket</h5>' +
                 '<div class="uk-margin">' +
                     '<label class="uk-form-label" for="to_select">Send to</label>' +
-                    '<div class="uk-form-controls">' +
+                    '<div class="uk-form-controls uk-width-1-1">' +
                         $toSelect +
                     '</div>' +
                 '</div>' +
