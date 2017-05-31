@@ -88,6 +88,9 @@ function chartBar(domId, url, chartApiData, name) {
                                 }
                                 return value;
                             },
+                            textStyle: {
+                                fontSize: 11
+                            },
                             tooltip:{
                                 show:true
                             }
@@ -332,6 +335,9 @@ function chartBarStack(domId, url, chartApiData, name) {
                                 x: 'left',
                                 y: 'bottom',
                                 itemGap: 5,
+                                textStyle: {
+                                    fontSize: 11
+                                },
                             },
                             grid: {
                                 x: '30px',

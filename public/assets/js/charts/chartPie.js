@@ -112,6 +112,9 @@ function chartPie(domId, url, chartApiData, name) {
                                 return name;
                             }
                         },
+                        textStyle: {
+                            fontSize: 11
+                        },
                         tooltip:{
                             show:true
                         }

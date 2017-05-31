@@ -251,7 +251,7 @@ class Engagement
         return false;
     }
 
-    public function timeline($idMedia)
+    public function timeline($idMedia,$idSocmed)
     {
         if (isset(session('socmedAttribute')[$idMedia])) {
             $socmedAttribute = session('socmedAttribute')[$idMedia];
@@ -259,7 +259,8 @@ class Engagement
                 'uid' => \Auth::id(),
                 'authTokenSocmed' => $socmedAttribute['token'],
                 'idMedia' => $idMedia,
-                'idSocmed' => $socmedAttribute['id']
+                'idSocmed' => $idSocmed
+                // 'idSocmed' => $socmedAttribute['id']
             ];
             $response = $this->smsmc->post('engagement/timeline', $params);
             if ($response->status == 200) {

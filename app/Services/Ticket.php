@@ -114,7 +114,7 @@ class Ticket
             'ticketId' => $ticketId,
             'statusId' => $status
         ];
-        Log::warning("TicketService/changeStatus => " . \GuzzleHttp\json_encode($params));
+        // Log::warning("TicketService/changeStatus => " . \GuzzleHttp\json_encode($params));
         $response = $this->smsmc->post('ticket/updatestatus', $params);
         if ($response->status == '200') {
             return true;

@@ -605,12 +605,24 @@ label.error {
     position: absolute;
     z-index: 1;
     top: 40px;
-    left: 20px;
+    left: 30px;
 }
 .sm-key-switch>li>a {
-    font-size: .75rem !important;
+    font-size: 11px !important;
+    font-family: 'GothamPro' !important;
+    font-weight: normal !important;
+    color: #333 !important;
 }
-
+.sm-key-switch>li.uk-active>a {
+    color: #F44336 !important;
+}
+.sm-key-switch.uk-subnav-divider > :nth-child(n+2):not(.uk-first-column)::before {
+    margin-right: 10px;
+    height: 1em;
+}
+.sm-key-switch.uk-subnav > * {
+    padding-left: 10px;
+}
 div.sm-dropdown {
     display: none;
     position: absolute;

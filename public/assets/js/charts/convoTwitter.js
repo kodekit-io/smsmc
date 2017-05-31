@@ -123,21 +123,17 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 					var cellData = data['status'];
 					var id = data['id'];
 					var btn = '';
-                    switch (cellData) {
+					switch (cellData) {
 						case 'new':
 						case 'New':
 							btn = '<a uk-tooltip title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge" data-id="' + id + '" data-id-media="'+idMedia+'" data-post-date="'+data['Date']+'" data-sentiment="'+data['Sentiment']+'"><span class="nothover">' + cellData + '</span></a>';
 							break;
-						case 'closed':
-						case 'Closed':
-							btn = '<span class="black-text" title="Responded and closed" uk-tooltip>' + cellData + '</span>';
-							break;
-						case 'waiting':
-						case 'Waiting':
+						case 'open':
+						case 'Open':
 							btn = '<span class="red-text" title="Waiting for a response" uk-tooltip>' + cellData + '</span>';
 							break;
 						default:
-
+							btn = '<span class="" title="' + cellData + '" uk-tooltip>' + cellData + '</span>';
 							break;
 					}
 					//console.log(row);

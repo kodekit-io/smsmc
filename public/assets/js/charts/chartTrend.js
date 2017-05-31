@@ -119,6 +119,9 @@ function chartTrend(domId, url, chartApiData, title) {
                                 return name;
                             }
                         },
+                        textStyle: {
+                            fontSize: 11
+                        },
                         tooltip:{
                             show:true
                         }
@@ -232,7 +235,7 @@ function chartTrendCombo(domId, url, chartApiData, title) {
                         var shortKey = key;
                     }
 
-                    $nav[x] = '<li><a class="sm-text-bold uk-text-capitalize" title="'+key+'" uk-tooltip>'+shortKey+'</a></li>';
+                    $nav[x] = '<li><a class="uk-text-capitalize" title="'+key+'" uk-tooltip>'+shortKey+'</a></li>';
                     $item[x] = '<li id="chart'+[x]+'" class="sm-chart"></li>';
                 }
             }
@@ -247,7 +250,7 @@ function chartTrendCombo(domId, url, chartApiData, title) {
                         + '</ul>'
                     + '</div>'
                     + '<div class="uk-card-body sm-trend-combo">'
-                        + '<ul class="uk-subnav sm-key-switch uk-margin-right uk-margin-remove-bottom" uk-switcher>'
+                        + '<ul class="uk-subnav uk-subnav-divider sm-key-switch uk-margin-right uk-margin-remove-bottom" uk-switcher>'
                             + $nav.join('')
                         + '</ul>'
                         + '<ul class="uk-switcher">'
@@ -353,6 +356,9 @@ function itemCombo(id, url, chartApiData, result) {
                     } else {
                         return name;
                     }
+                },
+                textStyle: {
+                    fontSize: 11
                 },
                 tooltip:{
                     show:true
