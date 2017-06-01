@@ -486,7 +486,9 @@ a.btn-screenshot {
     text-align: center;
     font-size: .75rem;
 }
-
+.sm-list-item>li:first-child>a.sm-del-row {
+    visibility: hidden;
+}
 .sm-del-row {
     position: absolute;
     right: 0;
