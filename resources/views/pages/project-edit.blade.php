@@ -80,6 +80,7 @@
                                     @php $x = 1; @endphp
                                     @foreach($keywords as $keyword)
                                         <li><textarea class="uk-textarea field-adv_keyword" rows="6" name="field_adv_keyword[{!! $x !!}]">{!! $keyword->keyword->keywordName !!}</textarea></li>
+                                        @php $x++; @endphp
                                     @endforeach
                                 @else
                                     <li><textarea class="uk-textarea field-adv_keyword" rows="6" name="field_adv_keyword[1]"></textarea></li>
@@ -95,6 +96,7 @@
                                     @php $x = 1; @endphp
                                     @foreach($topics as $topic)
                                         <li><textarea class="uk-textarea field-adv_topic" rows="6" name="field_adv_topic[{!! $x !!}]">{!! $topic->topicName !!}</textarea></li>
+                                        @php $x++; @endphp
                                     @endforeach
                                 @else
                                     <li><textarea class="uk-textarea field-adv_topic" rows="6" name="field_adv_topic[1]"></textarea></li>
@@ -110,6 +112,7 @@
                                     @php $x = 1; @endphp
                                     @foreach($excludes as $exclude)
                                         <li><textarea class="uk-textarea field-adv_noise" rows="6" name="field_adv_noise[{!! $x !!}]">{!! $exclude->noiseKeyName !!}</textarea></li>
+                                        @php $x++; @endphp
                                     @endforeach
                                 @else
                                     <li><textarea class="uk-textarea field-adv_noise" rows="6" name="field_adv_noise[1]"></textarea></li>

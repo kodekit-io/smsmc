@@ -215,8 +215,10 @@ class Project
         $params['pname'] = $inputs['field_title'];
         $params['pid'] = $projectId;
         $params['pgroup'] = $group;
-        $params['project_image'] = $fileUrl;
         $params['description'] = $objective;
+        if ($fileUrl != '') {
+            $params['project_image'] = $fileUrl;
+        }
 
         if ($oriKeywordsNumber >= $keywordNumber) {
             for ($x = 1; $x <= $oriKeywordsNumber; $x++) {
@@ -261,7 +263,8 @@ class Project
             }
         }
 
-        //Log::warning("update project ==> project/edit ==> " . \GuzzleHttp\json_encode($params));
+        // Log::warning("update project ==> project/edit ==> " . \GuzzleHttp\json_encode($params));
+        // dd($params);
 
         return $this->smsmc->post('project/edit', $params);
     }
