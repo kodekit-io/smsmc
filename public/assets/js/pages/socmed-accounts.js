@@ -46,6 +46,6 @@ function addRowItem(wrapper) {
 function delRowItem(e) {
     $(e).closest('li').find('input').val('');
     $.when($(e).closest('li').find('input').val() == '').done(function( x ) {
-        $(e).closest('li').remove();
+        $(e).closest('li').css('visibility','hidden');
     });
 }
