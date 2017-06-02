@@ -69,15 +69,15 @@ function tline(domId,typeId,socmedId) {
                     var postVid = data['postVid'];
                     var img = '';
                     if (postImg !=''){
-                        img = '<div class="uk-width-1-1 uk-height-small uk-background-cover sm-timeline-img" style="background-image:url('+postImg+')"></div>';
+                        img = '<div class="uk-width-1-1 uk-height-small uk-background-cover sm-timeline-img uk-margin-small-bottom" style="background-image:url('+postImg+')"></div>';
                     }
                     var vid = '';
                     if (postVid !='' && type == 'youtube'){
                         yid = YouTubeGetID(postUrl);
-                        vid = '<iframe src="//www.youtube.com/embed/'+yid+'?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;wmode=transparent" class="uk-width-1-1 uk-height-small sm-timeline-vid"></iframe>';
+                        vid = '<iframe src="//www.youtube.com/embed/'+yid+'?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;wmode=transparent" class="uk-width-1-1 uk-height-small sm-timeline-vid uk-margin-small-bottom"></iframe>';
                     }
 
-                    var replyUrl = baseUrl+'/engagement/reply';
+                    var replyUrl = baseUrl+'/engagement/add';
                     var timeline =  '<div class="uk-grid-small" uk-grid>'
                                         + '<div class="uk-width-auto">'
                                             + '<a href="'+userUrl+'" target="_blank" title="'+userName+'"><img class="uk-border-rounded" src="'+userImg+'" width="32" height="32" alt="'+userName+'"></a>'
@@ -87,7 +87,7 @@ function tline(domId,typeId,socmedId) {
                                             + '<div class="uk-text-meta uk-text-small uk-text-truncate">' +postDate+ '</div>'
                                             + img
                                             + vid
-                                            + '<div title="'+postText+'" uk-tooltip>' +postTrim+ '</div>'
+                                            + '<div class="uk-text-break" title="'+postText+'" uk-tooltip>' +postTrim+ '</div>'
                                             + '<ul class="uk-iconnav">'
                                                 + '<li><a href="'+postUrl+'" class="fa fa-link green-text" target="_blank" title="Open link" uk-tooltip></a></li>'
                                                 + '<li><a href="'+replyUrl+'" class="fa fa-comment blue-text" title="Reply" uk-tooltip></a></li>'
