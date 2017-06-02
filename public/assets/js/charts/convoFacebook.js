@@ -58,9 +58,13 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 				"width": "25%",
 				"data": function(data) {
 					var post = data["Post"];
-					var postrim = post.substring(0, 100) + "...";
 					var plink = data["Link"];
-					return '<a href="' + plink + '" target="_blank" data-uk-tooltip title="' + post + '" class="uk-link">' + postrim + '</a>';
+					if(post.length>100) {
+						var thepost = post.substring(0, 100) + "...";
+					} else {
+						var thepost = post;
+					}
+					return '<div class="uk-text-break">'+thepost+' <a href="'+plink+'" target="_blank" uk-tooltip title="'+post+'" class="uk-margin-small-left black-text"> more <i class="fa fa-external-link-square"></i></a></div>';
 				}
 			},
 			{
@@ -72,19 +76,22 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 				"data": "Comments",
 				"title": "<span class='fa fa- fa-comment' title='Comment' uk-tooltip></span>",
 				"class": "uk-text-right",
-				"width": "2.5%"
+				"width": "2.5%",
+				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{
 				"data": "Likes",
 				"title": "<span class='fa fa- fa-thumbs-up' title='Like' uk-tooltip></span>",
 				"class": "uk-text-right",
-				"width": "2.5%"
+				"width": "2.5%",
+				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{
 				"data": "Shares",
 				"title": "<span class='fa fa- fa-share' title='Share' uk-tooltip></span>",
 				"class": "uk-text-right",
-				"width": "2.5%"
+				"width": "2.5%",
+				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{
 				"title": "",

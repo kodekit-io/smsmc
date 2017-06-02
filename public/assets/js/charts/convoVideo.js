@@ -55,29 +55,41 @@ function tableVideo(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Video",
 				"width": "25%",
+				// "data": function(data) {
+				// 	var title = data["Title"];
+				// 	var post = data["Summary"];
+				// 	var postrim = post.substring(0, 100) + "...";
+				// 	var plink = data["Url"];
+				// 	var img = data["Thumbnail"];
+				// 	return '<div class="thumb-wrap" data-uk-tooltip="{pos:\'top-left\'}" title="' + postrim + '">' +
+				// 		'<a href="' + plink + '" target="_blank" class="thumb-img"><span style="background-image:url(' + img + ');"></span></a>' +
+				// 		'<a href="' + plink + '" target="_blank" class="thumb-txt">' + post + '</a>' +
+				// 		'</div>';
+				// }
 				"data": function(data) {
-					var title = data["Title"];
 					var post = data["Summary"];
-					var postrim = post.substring(0, 100) + "...";
 					var plink = data["Url"];
-					var img = data["Thumbnail"];
-					return '<div class="thumb-wrap" data-uk-tooltip="{pos:\'top-left\'}" title="' + postrim + '">' +
-						'<a href="' + plink + '" target="_blank" class="thumb-img"><span style="background-image:url(' + img + ');"></span></a>' +
-						'<a href="' + plink + '" target="_blank" class="thumb-txt">' + post + '</a>' +
-						'</div>';
+					if(post.length>100) {
+						var thepost = post.substring(0, 100) + "...";
+					} else {
+						var thepost = post;
+					}
+					return '<div class="uk-text-break">'+thepost+' <a href="'+plink+'" target="_blank" uk-tooltip title="'+post+'" class="uk-margin-small-left black-text"> more <i class="fa fa-external-link-square"></i></a></div>';
 				}
 			},
 			{
 				"data": "Comments",
 				"title": "Comments",
 				"class": "uk-text-right",
-				"width": "7.5%"
+				"width": "7.5%",
+				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{
 				"data": "view",
 				"title": "View",
 				"class": "uk-text-right",
-				"width": "7.5%"
+				"width": "7.5%",
+				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{
 				"title": "",

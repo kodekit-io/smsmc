@@ -58,12 +58,22 @@ function tableBlog(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Post",
 				"width": "35%",
+				// "data": function(data) {
+				// 	var title = data["Title"];
+				// 	var post = data["Summary"];
+				// 	var postrim = post.substring(0, 100) + " ...";
+				// 	var plink = data["Url"];
+				// 	return '<a href="' + plink + '" target="_blank" data-uk-tooltip title="' + postrim + '" class="uk-link">' + title + '</a>';
+				// }
 				"data": function(data) {
-					var title = data["Title"];
 					var post = data["Summary"];
-					var postrim = post.substring(0, 100) + " ...";
 					var plink = data["Url"];
-					return '<a href="' + plink + '" target="_blank" data-uk-tooltip title="' + postrim + '" class="uk-link">' + title + '</a>';
+					if(post.length>100) {
+						var thepost = post.substring(0, 100) + "...";
+					} else {
+						var thepost = post;
+					}
+					return '<div class="uk-text-break">'+thepost+' <a href="'+plink+'" target="_blank" uk-tooltip title="'+post+'" class="uk-margin-small-left black-text"> more <i class="fa fa-external-link-square"></i></a></div>';
 				}
 			},
 			{

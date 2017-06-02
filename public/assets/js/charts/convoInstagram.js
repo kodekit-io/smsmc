@@ -57,25 +57,36 @@ function tableInstagram(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Post",
 				"width": "25%",
-				"class": "uk-text-break",
+				// "data": function(data) {
+				// 	var post = data["Post"];
+				// 	var postrim = post.substring(0, 100) + "...";
+				// 	var plink = data["Url"];
+				// 	return '<a href="' + plink + '" target="_blank" title="' + postrim + '" uk-tooltip>' + post + '</a>';
+				// }
 				"data": function(data) {
 					var post = data["Post"];
-					var postrim = post.substring(0, 100) + "...";
 					var plink = data["Url"];
-					return '<a href="' + plink + '" target="_blank" title="' + postrim + '" uk-tooltip>' + post + '</a>';
+					if(post.length>100) {
+						var thepost = post.substring(0, 100) + "...";
+					} else {
+						var thepost = post;
+					}
+					return '<div class="uk-text-break">'+thepost+' <a href="'+plink+'" target="_blank" uk-tooltip title="'+post+'" class="uk-margin-small-left black-text"> more <i class="fa fa-external-link-square"></i></a></div>';
 				}
 			},
 			{
 				"data": "Comments",
 				"title": "Comments",
 				"class": "uk-text-right",
-				"width": "10%"
+				"width": "10%",
+				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{
 				"data": "Likes",
-				"title": "Likes",
+				"title": "Loves",
 				"class": "uk-text-right",
-				"width": "10%"
+				"width": "10%",
+				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{
 				"title": "",

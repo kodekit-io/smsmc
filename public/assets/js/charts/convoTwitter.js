@@ -58,11 +58,14 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 				"title": "Post",
 				"width": "30%",
 				"data": function(data) {
-					// console.log(data);
 					var post = data["Post"];
-					var postrim = post.substring(0, 100) + "...";
 					var plink = data["Link"];
-					return '<a href="' + plink + '" target="_blank" data-uk-tooltip title="' + post + '" class="uk-link">' + postrim + '</a>';
+					if(post.length>100) {
+						var thepost = post.substring(0, 100) + "...";
+					} else {
+						var thepost = post;
+					}
+					return '<div class="uk-text-break">'+thepost+' <a href="'+plink+'" target="_blank" uk-tooltip title="'+post+'" class="uk-margin-small-left black-text"> more <i class="fa fa-external-link-square"></i></a></div>';
 				}
 			},
 			// {
@@ -75,7 +78,8 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 				"data": "Original Reach",
 				"title": "Original Reach",
 				"class": "uk-text-right",
-				"width": "10%"
+				"width": "10%",
+				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			// {
 			// 	"data": "Viral Reach",

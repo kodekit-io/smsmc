@@ -80,12 +80,6 @@ function chartBar(domId, url, chartApiData, name) {
                             y: 'bottom',
                             itemGap: 5,
                             formatter: function (value) {
-                                var k = String(key);
-                                var arr = k.split(',');
-                                var keys=[];
-                                for (var i = 0; i < arr.length; i++) {
-                                    keys[i]= [i+1]+' '+arr[i];
-                                }
                                 return value;
                             },
                             textStyle: {
@@ -128,8 +122,14 @@ function chartBar(domId, url, chartApiData, name) {
                                         fontSize: 10
                                     },
                                     formatter: function (value, index) {
-                                        if(value.length>3){
-                                            var shortKey = value.substring(0, 3)+'..';
+                                        var k = String(key);
+                                        var arr = k.split(',');
+                                        if (arr.length > 3) {
+                                            if(value.length>3){
+                                                var shortKey = value.substring(0, 3)+'..';
+                                            } else {
+                                                var shortKey = value;
+                                            }
                                         } else {
                                             var shortKey = value;
                                         }
@@ -373,8 +373,14 @@ function chartBarStack(domId, url, chartApiData, name) {
                                             fontSize: 10
                                         },
                                         formatter: function (value, index) {
-                                            if(value.length>3){
-                                                var shortKey = value.substring(0, 3)+'..';
+                                            var k = String(key);
+                                            var arr = k.split(',');
+                                            if (arr.length > 3) {
+                                                if(value.length>3){
+                                                    var shortKey = value.substring(0, 3)+'..';
+                                                } else {
+                                                    var shortKey = value;
+                                                }
                                             } else {
                                                 var shortKey = value;
                                             }
