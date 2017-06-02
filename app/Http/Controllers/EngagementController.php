@@ -26,7 +26,7 @@ class EngagementController extends Controller
     {
         $socmedAttribute = session('socmedAttribute');
         $data['fbAccounts'] = $this->engagement->getLoggedInAccounts(1);
-        $data['twAccounts'] = $this->engagement->getLoggedInAccounts(3);
+        $data['twAccounts'] = $this->engagement->getLoggedInAccounts(2);
         $data['ytAccounts'] = $this->engagement->getLoggedInAccounts(5);
         $data['igAccounts'] = $this->engagement->getLoggedInAccounts(7);
         $data['socmedAttribute'] = $socmedAttribute;
@@ -56,7 +56,7 @@ class EngagementController extends Controller
     {
         $socmedAttribute = session('socmedAttribute');
         $data['fbAccounts'] = $this->engagement->getLoggedInAccounts(1);
-        $data['twAccounts'] = $this->engagement->getLoggedInAccounts(3);
+        $data['twAccounts'] = $this->engagement->getLoggedInAccounts(2);
         $data['ytAccounts'] = $this->engagement->getLoggedInAccounts(5);
         $data['igAccounts'] = $this->engagement->getLoggedInAccounts(7);
         $data['socmeds'] = get_socmeds([4,9,3,6]);
@@ -113,7 +113,7 @@ class EngagementController extends Controller
     {
         $socmedAttribute = session('socmedAttribute');
         $data['fbAccounts'] = $this->engagement->getLoggedInAccounts(1);
-        $data['twAccounts'] = $this->engagement->getLoggedInAccounts(3);
+        $data['twAccounts'] = $this->engagement->getLoggedInAccounts(2);
         $data['ytAccounts'] = $this->engagement->getLoggedInAccounts(5);
         $data['igAccounts'] = $this->engagement->getLoggedInAccounts(7);
 
