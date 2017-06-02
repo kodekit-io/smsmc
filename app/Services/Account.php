@@ -54,10 +54,11 @@ class Account
         if (count($data) > 0) {
             $x = 1;
             foreach ($data as $account) {
-                $params[$type . $x] = $account;
+                $params[$type . $x] = (is_null($account) ? '' : $account);
                 $x++;
             }
         }
+
         return $params;
     }
 }
