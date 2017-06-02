@@ -52,6 +52,14 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="uk-margin">
+                        <label>Group</label>
+                        <select name="group" class="uk-select">
+                            @foreach($groups as $group)
+                                <option value="{!! $group->id !!}">{!! $group->groupName !!}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="uk-flex uk-flex-between">
                         <a class="uk-modal-close uk-button grey white-text" href="{!! url('setting/user') !!}">CANCEL</a>
                         <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SEND" />

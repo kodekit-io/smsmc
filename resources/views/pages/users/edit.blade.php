@@ -41,6 +41,14 @@
                         </select>
                     </div>
                     <div class="uk-margin">
+                        <label>Group</label>
+                        <select name="group" class="uk-select">
+                            @foreach($groups as $group)
+                                <option value="{!! $group->id !!}" @if($user->idGroup == $group->id) selected @endif>{!! $group->groupName !!}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="uk-margin">
                         <label>Password</label>
                         <input class="uk-input" type="password" name="password">
                     </div>

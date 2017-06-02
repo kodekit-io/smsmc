@@ -20,8 +20,11 @@ class User
 
     public function getUsers()
     {
+        $user = auth()->user();
+        $smUser = $this->getUserById($user->id)->user;
         $params = [
-            'uid' => \Auth::user()->id
+            'uid' => $user->id,
+            'idRole' => $smUser->idRole
         ];
 
         $response = $this->smsmc->post('user/list', $params);
@@ -42,7 +45,8 @@ class User
             'email' => $data['email'],
             'name' => $data['name'],
             'idBussiness' => $data['id_business'],
-            'idRole' => $data['role']
+            'idRole' => $data['role'],
+            'idGroup' => $data['group'],
         ];
         $response = $this->smsmc->post('user/add', $params);
 
@@ -57,7 +61,8 @@ class User
             'email' => $data['email'],
             'name' => $data['name'],
             'idBussiness' => $data['id_business'],
-            'idRole' => $data['role']
+            'idRole' => $data['role'],
+            'idGroup' => $data['group']
         ];
 
         if ($data['password'] != '') {

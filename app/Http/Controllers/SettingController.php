@@ -57,6 +57,7 @@ class SettingController extends Controller
     /****************** USER ******************/
     public function user()
     {
+        $data['user'] = $this->user->getUserById(auth()->id())->user;
         $data['pageTitle'] = 'Manage Accounts';
 
         return view('pages.users.list', $data);
@@ -73,8 +74,10 @@ class SettingController extends Controller
         $data['pageTitle'] = 'Add Account';
         $roles = $this->role->getRoles();
         $pilars = $this->user->getPilars();
+        $groups = $this->group->getGroups();
         $data['roles'] = $roles->data;
         $data['pilars'] = $pilars->group;
+        $data['groups'] = $groups->group;
         return view('pages.users.add', $data);
     }
 
@@ -92,10 +95,12 @@ class SettingController extends Controller
     {
         $roles = $this->role->getRoles();
         $pilars = $this->user->getPilars();
+        $groups = $this->group->getGroups();
         $data['pageTitle'] = 'Edit Account';
         $data['id'] = $id;
         $data['roles'] = $roles->data;
         $data['pilars'] = $pilars->group;
+        $data['groups'] = $groups->group;
         $response = $this->user->getUserById($id);
         $data['user'] = $response->user;
 
