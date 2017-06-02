@@ -37,7 +37,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-twitter uk-margin-remove uk-text-uppercase"><i class="fa fa-twitter-square"></i> Twitter Account</h5>
-                        <a href="javascript:popup('//103.16.199.58/sinarmas-plus/twitter/login
+                        <a href="javascript:popup('http://103.16.199.58/sinarmas-plus/twitter/login?uid={{ Auth::user()->id }}
 ',720,720)" class="uk-button uk-button-primary uk-button-small color-twitter" title="Add Twitter User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(count($twAccounts) > 0)
