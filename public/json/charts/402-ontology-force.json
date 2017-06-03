@@ -184,147 +184,147 @@
     "links": [
         {
             "source": "Brand1",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserA"
         },
         {
             "source": "Brand2",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserB"
         },
         {
             "source": "Brand3",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserC"
         },
         {
             "source": "Brand1",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserD"
         },
         {
             "source": "Brand2",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserE"
         },
         {
             "source": "Brand3",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserF"
         },
         {
             "source": "Brand1",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserG"
         },
         {
             "source": "Brand2",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserH"
         },
         {
             "source": "Brand3",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserI"
         },
         {
             "source": "Brand1",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserJ"
         },
         {
             "source": "Brand2",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserK"
         },
         {
             "source": "Brand3",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserL"
         },
         {
             "source": "Brand1",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserM"
         },
         {
             "source": "Brand2",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserN"
         },
         {
             "source": "Brand3",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserO"
         },
         {
             "source": "Brand1",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserP"
         },
         {
             "source": "Brand2",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserQ"
         },
         {
             "source": "Brand3",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserR"
         },
         {
             "source": "Brand1",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserS"
         },
         {
             "source": "Brand2",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserT"
         },
         {
             "source": "Brand3",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserU"
         },
         {
             "source": "Brand1",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserV"
         },
         {
             "source": "Brand2",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserW"
         },
         {
             "source": "Brand3",
-            "sentiment": "grey",
+            "color": "grey",
             "target": "UserX"
         },
         {
             "source": "Brand2",
-            "sentiment": "green",
+            "color": "green",
             "target": "UserA"
         },
         {
             "source": "Brand3",
-            "sentiment": "red",
+            "color": "red",
             "target": "UserA"
         },
         {
             "source": "Brand3",
-            "sentiment": "red",
+            "color": "red",
             "target": "UserB"
         },
         {
             "source": "Brand1",
-            "sentiment": "green",
+            "color": "green",
             "target": "UserC"
         },
         {
             "source": "Brand2",
-            "sentiment": "red",
+            "color": "red",
             "target": "UserD"
         }
     ]

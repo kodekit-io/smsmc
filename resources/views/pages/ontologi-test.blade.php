@@ -13,8 +13,8 @@
 
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-grid-medium uk-child-width-1-2" uk-grid uk-sortable="handle: .uk-card-header">
-            <div id="01" class="uk-height-large"></div>
-            <div id="02" class="uk-height-large"></div>
+            <div id="01"></div>
+            <div id="02"></div>
         </div>
     </section>
 
@@ -155,8 +155,6 @@
 
                 var data = result.nodes;
                 if (data.length > 0) {
-                    var graph = result;
-
                     //CHART
                     var domchart = document.getElementById(chartId);
                     var theme = 'default';
@@ -169,7 +167,7 @@
                         text : '',
                     });
 
-
+                    var graph = result;
                     var categories = graph.categories;
 
                     // console.log(serie);
@@ -213,7 +211,7 @@
                                         target: link.target,
                                         lineStyle: {
                                             normal: {
-                                                color: link.sentiment,
+                                                color: link.color,
                                                 curveness: 0.3,
                                                 width: 2
                                             }
