@@ -1,0 +1,331 @@
+{
+    "chartId": "4021",
+    "chartName": "Ontology",
+    "chartInfo": "Ontology Chart",
+    "type": "force",
+    "categories": [
+        {
+            "name": "Brand1",
+            "color": "#588dd5"
+        },
+        {
+            "name": "Brand2",
+            "color": "#6f5553"
+        },
+        {
+            "name": "Brand3",
+            "color": "#c9ab00"
+        }
+    ],
+    "nodes": [
+        {
+            "id": 0,
+            "category": "Brand1",
+            "name": "Brand1",
+            "value": 50
+        },
+        {
+            "id": 1,
+            "category": "Brand2",
+            "name": "Brand2",
+            "value": 50
+        },
+        {
+            "id": 2,
+            "category": "Brand3",
+            "name": "Brand3",
+            "value": 50
+        },
+        {
+            "id": 3,
+            "category": "Brand1",
+            "name": "UserA",
+            "value": 12
+        },
+        {
+            "id": 4,
+            "category": "Brand2",
+            "name": "UserB",
+            "value": 11
+        },
+        {
+            "id": 5,
+            "category": "Brand3",
+            "name": "UserC",
+            "value": 10
+        },
+        {
+            "id": 6,
+            "category": "Brand1",
+            "name": "UserD",
+            "value": 11
+        },
+        {
+            "id": 7,
+            "category": "Brand2",
+            "name": "UserE",
+            "value": 12
+        },
+        {
+            "id": 8,
+            "category": "Brand3",
+            "name": "UserF",
+            "value": 13
+        },
+        {
+            "id": 9,
+            "category": "Brand1",
+            "name": "UserG",
+            "value": 15
+        },
+        {
+            "id": 10,
+            "category": "Brand2",
+            "name": "UserH",
+            "value": 12
+        },
+        {
+            "id": 11,
+            "category": "Brand3",
+            "name": "UserI",
+            "value": 9
+        },
+        {
+            "id": 12,
+            "category": "Brand1",
+            "name": "UserJ",
+            "value": 14
+        },
+        {
+            "id": 13,
+            "category": "Brand2",
+            "name": "UserK",
+            "value": 20
+        },
+        {
+            "id": 14,
+            "category": "Brand3",
+            "name": "UserL",
+            "value": 12
+        },
+        {
+            "id": 15,
+            "category": "Brand1",
+            "name": "UserM",
+            "value": 10
+        },
+        {
+            "id": 16,
+            "category": "Brand2",
+            "name": "UserN",
+            "value": 9
+        },
+        {
+            "id": 17,
+            "category": "Brand3",
+            "name": "UserO",
+            "value": 17
+        },
+        {
+            "id": 18,
+            "category": "Brand1",
+            "name": "UserP",
+            "value": 12
+        },
+        {
+            "id": 19,
+            "category": "Brand2",
+            "name": "UserQ",
+            "value": 13
+        },
+        {
+            "id": 20,
+            "category": "Brand3",
+            "name": "UserR",
+            "value": 14
+        },
+        {
+            "id": 21,
+            "category": "Brand1",
+            "name": "UserS",
+            "value": 11
+        },
+        {
+            "id": 22,
+            "category": "Brand2",
+            "name": "UserT",
+            "value": 13
+        },
+        {
+            "id": 23,
+            "category": "Brand3",
+            "name": "UserU",
+            "value": 13
+        },
+        {
+            "id": 24,
+            "category": "Brand1",
+            "name": "UserV",
+            "value": 12
+        },
+        {
+            "id": 25,
+            "category": "Brand2",
+            "name": "UserW",
+            "value": 13
+        },
+        {
+            "id": 26,
+            "category": "Brand3",
+            "name": "UserX",
+            "value": 12
+        }
+    ],
+    "links": [
+        {
+            "source": "Brand1",
+            "sentiment": "grey",
+            "target": "UserA"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "grey",
+            "target": "UserB"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "grey",
+            "target": "UserC"
+        },
+        {
+            "source": "Brand1",
+            "sentiment": "grey",
+            "target": "UserD"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "grey",
+            "target": "UserE"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "grey",
+            "target": "UserF"
+        },
+        {
+            "source": "Brand1",
+            "sentiment": "grey",
+            "target": "UserG"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "grey",
+            "target": "UserH"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "grey",
+            "target": "UserI"
+        },
+        {
+            "source": "Brand1",
+            "sentiment": "grey",
+            "target": "UserJ"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "grey",
+            "target": "UserK"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "grey",
+            "target": "UserL"
+        },
+        {
+            "source": "Brand1",
+            "sentiment": "grey",
+            "target": "UserM"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "grey",
+            "target": "UserN"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "grey",
+            "target": "UserO"
+        },
+        {
+            "source": "Brand1",
+            "sentiment": "grey",
+            "target": "UserP"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "grey",
+            "target": "UserQ"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "grey",
+            "target": "UserR"
+        },
+        {
+            "source": "Brand1",
+            "sentiment": "grey",
+            "target": "UserS"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "grey",
+            "target": "UserT"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "grey",
+            "target": "UserU"
+        },
+        {
+            "source": "Brand1",
+            "sentiment": "grey",
+            "target": "UserV"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "grey",
+            "target": "UserW"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "grey",
+            "target": "UserX"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "green",
+            "target": "UserA"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "red",
+            "target": "UserA"
+        },
+        {
+            "source": "Brand3",
+            "sentiment": "red",
+            "target": "UserB"
+        },
+        {
+            "source": "Brand1",
+            "sentiment": "green",
+            "target": "UserC"
+        },
+        {
+            "source": "Brand2",
+            "sentiment": "red",
+            "target": "UserD"
+        }
+    ]
+}

@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::any('project/youtube/{projectId}', 'ProjectController@youtube')->name('projectRead');
     Route::any('project/instagram/{projectId}', 'ProjectController@instagram')->name('projectRead');
 
-    Route::any('project/ontologi-test/{projectId}', 'ProjectController@ontologiTest');
+    Route::any('ontologi/{projectId}', 'ProjectController@ontologiTest');
 
     Route::any('socmed/facebook', 'SocmedController@facebook');
     Route::any('socmed/twitter', 'SocmedController@twitter');
