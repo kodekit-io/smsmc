@@ -90,7 +90,7 @@ function tline(domId,typeId,socmedId) {
                                             + '<div class="uk-text-break" title="'+postText+'" uk-tooltip>' +postTrim+ '</div>'
                                             + '<ul class="uk-iconnav">'
                                                 + '<li><a href="'+postUrl+'" class="fa fa-link green-text" target="_blank" title="Open link" uk-tooltip></a></li>'
-                                                + '<li><a href="'+replyUrl+'" class="fa fa-comment blue-text" title="Reply" uk-tooltip></a></li>'
+                                                // + '<li><a href="'+replyUrl+'" class="fa fa-comment blue-text" title="Reply" uk-tooltip></a></li>'
                                             + '</div>'
                                         + '</div>'
                                     + '</div>';
