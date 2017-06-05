@@ -97,7 +97,7 @@ function theList(div) {
                 }
             },
         ],
-        order: [[ 1, 'desc' ]]
+        order: [[ 6, 'desc' ]]
     });
     /*
     theTable.on( 'order.dt search.dt', function () {
