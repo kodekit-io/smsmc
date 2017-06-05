@@ -10,11 +10,11 @@ function chartOntology(domId,url,chartApiData,name) {
             $('.cardloader').remove();
         },
         success: function(result){
-            // if (result[0]===undefined) {
-            //     $('#'+domId).html(cardEmpty);
-            // }
+            if (result[0]===undefined) {
+                $('#'+domId).html(cardEmpty);
+            }
             var result = jQuery.parseJSON(result);
-            console.log(result);
+            // console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -24,7 +24,7 @@ function chartOntology(domId,url,chartApiData,name) {
                 var chartTitle = chartName;
             }
 
-            var card = '<div class="sm-chart-container uk-animation-fade">'
+            var card = '<div class="sm-chart-container uk-animation-fade uk-position-relative" id="chartOntology">'
                 + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
                     + '<div class="uk-card-header uk-clearfix">'
                         + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
@@ -40,6 +40,8 @@ function chartOntology(domId,url,chartApiData,name) {
                 + '</div>'
             + '</div>';
             $('#'+domId).append(card);
+            var typeSelector = '<select class="uk-select uk-form-small uk-position-top-right" id="selectType" style="margin:10px 125px 0 0;width:auto;"><option value="force" selected>Force</option><option value="circular">Circular</option></select>';
+            $('#chartOntology').append(typeSelector);
 
             var data = result.nodes;
             if (data.length > 0) {
@@ -57,83 +59,115 @@ function chartOntology(domId,url,chartApiData,name) {
 
                 var graph = result;
                 var categories = graph.categories;
+                console.log(graph);
 
-                // console.log(serie);
-                var option = {
-                    tooltip: {},
-                    color: categories.map(function (c) {
-                            return c.color;
-                        }),
-                    legend: {
-                        data: categories.map(function (a) {
-                            return a.name;
-                        }),
-                        itemWidth: 15,
-                        x: 'left',
-                        y: 'bottom',
-                        itemGap: 5,
-                        formatter: function (name) {
-                            var shortKey = name.substring(0, 10);
-                            if(name.length>10){
-                                return shortKey+'..';
-                            } else {
-                                return name;
-                            }
-                        },
-                        textStyle: {
-                            fontSize: 11
-                        },
-                        tooltip:{
-                            show:true
+                var optionColor = categories.map(function (c) {
+                    console.log(categories.color);
+                    if(categories.color == '' || categories.color == 'undefined' || categories.color == undefined || categories.color == null){
+                        return '#c05050';
+                    } else {
+                        return c.color;
+                    }
+                });
+                var optionLegend = {
+                    data: categories.map(function (a) {
+                        return a.name;
+                    }),
+                    itemWidth: 15,
+                    x: 'left',
+                    y: 'bottom',
+                    itemGap: 5,
+                    formatter: function (name) {
+                        var shortKey = name.substring(0, 10);
+                        if(name.length>10){
+                            return shortKey+'..';
+                        } else {
+                            return name;
                         }
                     },
+                    textStyle: {
+                        fontSize: 11
+                    },
+                    tooltip:{
+                        show:true
+                    }
+                };
+
+                // console.log(graph.nodes);
+                var optionData = graph.nodes.map(function (node) {
+                    return {
+                        id: node.name,
+                        name: node.name,
+                        symbolSize: node.value,
+                        value: node.value,
+                        category: node.category,
+                    };
+                });
+                var optionLinks = graph.links.map(function (link) {
+                    return {
+                        source: link.source,
+                        target: link.target,
+                        lineStyle: {
+                            normal: {
+                                color: link.color,
+                                curveness: 0.3,
+                                width: 2
+                            }
+                        }
+                    };
+                });
+                var optionLabel = {
+                    normal: {
+                        position: 'right',
+                        formatter: '{b} ({c})'
+                    }
+                };
+
+                var option = {
+                    // tooltip: {},
+                    color: optionColor,
+                    legend: optionLegend,
                     animationDuration: 1500,
                     animationEasingUpdate: 'quinticInOut',
                     series : [
                         {
                             name: graph.chartName,
                             type: 'graph',
-                            layout: graph.type,
+                            layout: 'force',
                             force: {
                                 repulsion: 100,
                                 gravity: 0.1,
                                 edgeLength: 50,
                                 layoutAnimation: true,
                             },
-                            // data: graph.nodes,
-                            data: graph.nodes.map(function (node) {
-                                return {
-                                    id: node.name,
-                                    name: node.name,
-                                    symbolSize: node.value,
-                                    value: node.value,
-                                    category: node.category,
-                                };
-                            }),
-                            // links: graph.links,
-                            links: graph.links.map(function (link) {
-                                return {
-                                    source: link.source,
-                                    target: link.target,
-                                    lineStyle: {
-                                        normal: {
-                                            color: link.color,
-                                            curveness: 0.3,
-                                            width: 2
-                                        }
-                                    }
-                                };
-                            }),
+                            data: optionData,
+                            links: optionLinks,
                             categories: categories,
                             roam: true,
                             focusNodeAdjacency: true,
                             draggable: true,
-                            label: {
-                                normal: {
-                                    position: 'right',
-                                    formatter: '{b}'
-                                }
-                            }
+                            label: optionLabel
+                        }
+                    ]
+                };
+                var optionCircular = {
+                    // tooltip: {},
+                    color: optionColor,
+                    legend: optionLegend,
+                    animationDuration: 1500,
+                    animationEasingUpdate: 'quinticInOut',
+                    series : [
+                        {
+                            name: graph.chartName,
+                            type: 'graph',
+                            layout: 'circular',
+                            data: optionData,
+                            links: optionLinks,
+                            categories: categories,
+                            roam: true,
+                            focusNodeAdjacency: true,
+                            draggable: true,
+                            label: optionLabel
                         }
                     ]
                 };
@@ -146,6 +180,15 @@ function chartOntology(domId,url,chartApiData,name) {
                 $(window).on('resize', function(){
                     if(theChart != null && theChart != undefined){
                         theChart.resize();
+                    }
+                });
+
+                $('#selectType').on('change', function() {
+                    var typeselected = $(this).find(":selected").val();
+                    if (typeselected == 'circular') {
+                        theChart.setOption(optionCircular);
+                    } else {
+                        theChart.setOption(option);
                     }
                 });
 
