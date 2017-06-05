@@ -59,6 +59,7 @@ class EngagementController extends Controller
         $data['twAccounts'] = $this->engagement->getLoggedInAccounts(2);
         $data['ytAccounts'] = $this->engagement->getLoggedInAccounts(5);
         $data['igAccounts'] = $this->engagement->getLoggedInAccounts(7);
+
         $data['socmeds'] = get_socmeds([4,9,3,6]);
         $data['socmedAttributes'] = $socmedAttribute;
         $data['pageTitle'] = 'New Engagement';
