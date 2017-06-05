@@ -10,11 +10,11 @@ function chartOntology(domId,url,chartApiData,name) {
             $('.cardloader').remove();
         },
         success: function(result){
-            // if (result[0]===undefined) {
-            //     $('#'+domId).html(cardEmpty);
-            // }
+            if (result[0]===undefined) {
+                $('#'+domId).html(cardEmpty);
+            }
             var result = jQuery.parseJSON(result);
-            console.log(result);
+            // console.log(result);
             var chartId = result.chartId;
             var chartName = result.chartName;
             var chartInfo = result.chartInfo;
@@ -55,19 +55,22 @@ function chartOntology(domId,url,chartApiData,name) {
                     text : '',
                 });
 
-                var graph = result;
-                var categories = graph.categories;
-
+                var serie=[];
+                for (var i = 0; i < data.length; i++) {
+					// if (i < 25) {
+						serie[i] = {
+	                        name: data[i].name,
+	                        value: data[i].value,
+	                        // symbolSize: data[i].value,
+	                        category: data[i].category,
+	                        node: data[i].node
+	                    }
+					// }
+                }
                 // console.log(serie);
                 var option = {
-                    tooltip: {},
-                    color: categories.map(function (c) {
-                            return c.color;
-                        }),
                     legend: {
-                        data: categories.map(function (a) {
-                            return a.name;
-                        }),
+                        data: result.categories,
                         itemWidth: 15,
                         x: 'left',
                         y: 'bottom',
@@ -87,55 +90,65 @@ function chartOntology(domId,url,chartApiData,name) {
                             show:true
                         }
                     },
-                    animationDuration: 1500,
-                    animationEasingUpdate: 'quinticInOut',
-                    series : [
-                        {
-                            name: graph.chartName,
-                            type: 'graph',
-                            layout: graph.type,
-                            force: {
-                                repulsion: 100,
-                                gravity: 0.1,
-                                edgeLength: 50,
-                                layoutAnimation: true,
+                    grid: {
+                        // show: true,
+                        x: '0',
+                        x2: '0',
+                        y: '0',
+                        y2: '60',
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        //formatter: '{c}'
+                    },
+                    toolbox: {
+                        show: true,
+                        x: 'right',
+                        y: 'bottom',
+                        padding: ['0', '0', '0', '0'],
+                        feature: {
+                            mark: {
+                                show: true
                             },
-                            // data: graph.nodes,
-                            data: graph.nodes.map(function (node) {
-                                return {
-                                    id: node.name,
-                                    name: node.name,
-                                    symbolSize: node.value,
-                                    value: node.value,
-                                    category: node.category,
-                                };
-                            }),
-                            // links: graph.links,
-                            links: graph.links.map(function (link) {
-                                return {
-                                    source: link.source,
-                                    target: link.target,
-                                    lineStyle: {
-                                        normal: {
-                                            color: link.color,
-                                            curveness: 0.3,
-                                            width: 2
-                                        }
-                                    }
-                                };
-                            }),
-                            categories: categories,
-                            roam: true,
-                            focusNodeAdjacency: true,
-                            draggable: true,
-                            label: {
-                                normal: {
-                                    position: 'right',
-                                    formatter: '{b}'
-                                }
+                            restore: {show: true, title: 'Reload'},
+                            saveAsImage: {show: true, title: 'Save'}
+                        }
+                    },
+                    series: [{
+                        type: 'graph',
+                        layout: 'force',
+                        roam: false,
+                        animation: false,
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'right',
+                                formatter: '{b}'
+                            }
+                        },
+                        draggable: true,
+                        data: result.nodes.map(function (node, idx) {
+                            node.id = idx;
+                            return node;
+                        }),
+						// data: serie,
+                        categories: result.categories,
+                        force: {
+                            repulsion: 50,
+                            gravity: 0.25,
+                            edgeLength: 30,
+                            layoutAnimation: true,
+                        },
+                        edges: result.links,
+                        itemStyle: {},
+                        lineStyle: {
+                            normal: {
+                                color: 'source',
+                                curveness: 0.1
                             }
                         }
-                    ]
+                    }]
+
                 };
                 clearTimeout(loadingTicket);
                 loadingTicket = setTimeout(function (){
