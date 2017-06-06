@@ -10,7 +10,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-facebook uk-margin-remove uk-text-uppercase"><i class="fa fa-facebook-square"></i> Facebook Account</h5>
-                        <a href="javascript:popup('//103.16.199.58/sinarmas-plus/facebook/login',720,720)" class="uk-button uk-button-primary uk-button-small color-facebook" title="Add Facebook User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
+                        <a href="javascript:popup('http://document.mediawave.co.id/sinarmas-plus/facebook/login',720,720)" class="uk-button uk-button-primary uk-button-small color-facebook" title="Add Facebook User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(count($fbAccounts) > 0)
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
@@ -37,7 +37,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-twitter uk-margin-remove uk-text-uppercase"><i class="fa fa-twitter-square"></i> Twitter Account</h5>
-                        <a href="javascript:popup('http://103.16.199.58/sinarmas-plus/twitter/login?uid={{ Auth::user()->id }}
+                        <a href="javascript:popup('http://document.mediawave.co.id/sinarmas-plus/twitter/login?uid={{ Auth::user()->id }}
 ',720,720)" class="uk-button uk-button-primary uk-button-small color-twitter" title="Add Twitter User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(count($twAccounts) > 0)
@@ -65,7 +65,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-youtube uk-margin-remove uk-text-uppercase"><i class="fa fa-youtube-square"></i> Youtube Account</h5>
-                        <a href="javascript:popup('//document.mediawave.co.id/sinarmas-plus/youtube/login',720,720)" class="uk-button uk-button-primary uk-button-small color-youtube" title="Add Youtube User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
+                        <a href="javascript:popup('http://document.mediawave.co.id/sinarmas-plus/sinarmas-plus/youtube/login',720,720)" class="uk-button uk-button-primary uk-button-small color-youtube" title="Add Youtube User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(count($ytAccounts) > 0)
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
@@ -92,7 +92,7 @@
             <div>
                 <div class="uk-animation-fade uk-card uk-card-default uk-card-body uk-card-small uk-position-relative">
                     <div class="uk-flex uk-flex-middle uk-flex-between uk-margin"><h5 class="color-text-instagram uk-margin-remove uk-text-uppercase"><i class="fa fa-instagram"></i> Instagram Account</h5>
-                        <a href="javascript:popup('//103.16.199.58/sinarmas-plus/instagram/login',720,720)" class="uk-button uk-button-primary uk-button-small color-instagram" title="Add Instagram User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
+                        <a href="javascript:popup('http://document.mediawave.co.id/sinarmas-plus/instagram/login',720,720)" class="uk-button uk-button-primary uk-button-small color-instagram" title="Add Instagram User" uk-tooltip><i class="fa fa-user-plus"></i> Add User</a>
                     </div>
                     @if(count($igAccounts) > 0)
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
