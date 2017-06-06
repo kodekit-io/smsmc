@@ -119,7 +119,7 @@ function chartOntology(domId,url,chartApiData,name) {
                 var optionLabel = {
                     normal: {
                         position: 'right',
-                        formatter: '{b} ({c})'
+                        formatter: '{b}'
                     }
                 };
 
