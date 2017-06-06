@@ -73,9 +73,9 @@ function theList(div) {
                     var dateAsli = data['engagementDate'];
                     var dateUtc = moment.utc(dateAsli).format('YYYY-MM-DD HH:mm:ss');
                     var dateLoc = moment(dateAsli).local().format('YYYY-MM-DD HH:mm:ss');
-                    var now = moment().format('YYYY-MM-DD HH:mm:ss');
+                    var now = moment.utc().format('YYYY-MM-DD HH:mm:ss');
 
-                    var isbefore = moment(now).isBefore(dateLoc);
+                    var isbefore = moment(now).isBefore(dateUtc);
 
                     var iclock = '<i class="fa fa-clock-o fa-fw"></i> ';
                     var icheck = '<i class="fa fa-check fa-fw"></i> ';
@@ -90,14 +90,14 @@ function theList(div) {
                         '<div>'+link+'</div>' +
                     '</div>';
                     if (isbefore==true) {
-                        return scheduled;//+'<br>'+isbefore+'<br>'+dateAsli+'<br>'+dateUtc+'<br>'+dateLoc+'<br>'+now;
+                        return scheduled; //+'<br>'+isbefore+'<br>asli '+dateAsli+'<br>utc '+dateUtc+'<br>loc '+dateLoc+'<br>now '+now;
                     } else {
-                        return published;//+'<br>'+isbefore+'<br>'+dateAsli+'<br>'+dateUtc+'<br>'+dateLoc+'<br>'+now;
+                        return published; //+'<br>'+isbefore+'<br>asli '+dateAsli+'<br>utc '+dateUtc+'<br>loc '+dateLoc+'<br>now '+now;
                     }
                 }
             },
         ],
-        order: [[ 0, 'desc' ]]
+        order: [[ 6, 'desc' ]]
     });
     /*
     theTable.on( 'order.dt search.dt', function () {
