@@ -62,8 +62,8 @@ function chartOntology(domId,url,chartApiData,name) {
                 console.log(graph);
 
                 var optionColor = categories.map(function (c) {
-                    console.log(categories.color);
-                    if(categories.color == '' || categories.color == 'undefined' || categories.color == undefined || categories.color == null){
+                    console.log(c.color);
+                    if(c.color == '' || c.color == 'undefined' || c.color == undefined || c.color == null){
                         return '#c05050';
                     } else {
                         return c.color;
