@@ -210,23 +210,21 @@ class Engagement
 
     public function timeline($idMedia,$idSocmed)
     {
-        if (isset(session('socmedAttribute')[$idMedia])) {
-            $socmedAttribute = session('socmedAttribute')[$idMedia];
-            $params = [
-                'uid' => \Auth::id(),
-                'authTokenSocmed' => $socmedAttribute['token'],
-                'idMedia' => $idMedia,
-                'idSocmed' => $idSocmed
-                // 'idSocmed' => $socmedAttribute['id']
-            ];
-            $response = $this->smsmc->post('engagement/timeline', $params);
-            if ($response->status == 200) {
-                return $response->result;
-            }
+        $params = [
+            'uid' => \Auth::id(),
+            //'authTokenSocmed' => $socmedAttribute['token'],
+            'idMedia' => $idMedia,
+            'idSocmed' => $idSocmed
+            // 'idSocmed' => $socmedAttribute['id']
+        ];
+        $response = $this->smsmc->post('engagement/timeline', $params);
+        if ($response->status == 200) {
+            return $response->result;
+        } else {
+            $class = new StdClass();
+            $class->data = [];
+            $class->List = 'Timeline';
+            return $class;
         }
-        $class = new StdClass();
-        $class->data = [];
-        $class->List = 'Timeline';
-        return $class;
     }
 }
