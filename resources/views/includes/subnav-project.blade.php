@@ -2,11 +2,32 @@
     <div class="uk-navbar-left">
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="{!! $projectDetail->project->pname !!}" uk-tooltip="pos: bottom">{!! $projectDetail->project->pname !!}</h2>
         <ul class="uk-navbar-nav">
-            <li {!! isset($activeAll) ? $activeAll : '' !!}><a href="{!! url('/project/all/' . $projectId) !!}"><i class="fa fa-th-large"></i>All Media</a></li>
-            <li {!! isset($activeFb) ? $activeFb : '' !!}><a href="{!! url('/project/facebook/' . $projectId) !!}"><i class="fa fa-facebook"></i>Facebook</a></li>
-            <li {!! isset($activeTw) ? $activeTw : '' !!}><a href="{!! url('/project/twitter/' . $projectId) !!}"><i class="fa fa-twitter"></i>Twitter</a></li>
+            <li {!! isset($activeAll) ? $activeAll : '' !!}>
+                <a href="{!! url('/project/all/' . $projectId) !!}" class="" title="All Media">
+                    <i class="fa fa-fw fa-th-large"></i>
+                    <span class="totName">All Media</span>
+                </a>
+            </li>
+            <li {!! isset($activeFb) ? $activeFb : '' !!}>
+                <a href="{!! url('/project/facebook/' . $projectId) !!}" class="" title="Facebook">
+                    <i class="fa fa-fw fa-facebook"></i>
+                    <span class="totName">Facebook</span>
+                    <span id="totBuzzFB" class="totBuzz"></span>
+                </a>
+            </li>
+            <li {!! isset($activeTw) ? $activeTw : '' !!}>
+                <a href="{!! url('/project/twitter/' . $projectId) !!}" class="" title="">
+                    <i class="fa fa-fw fa-twitter"></i>
+                    <span class="totName">Twitter</span>
+                    <span id="totBuzzTW" class="totBuzz"></span>
+                </a>
+            </li>
             <li {!! isset($activeNews) ? $activeNews : '' !!}>
-                <a href="{!! url('/project/news/' . $projectId) !!}"><i class="fa fa-globe"></i>News</a>
+                <a href="{!! url('/project/news/' . $projectId) !!}" class="" title="">
+                    <i class="fa fa-fw fa-globe"></i>
+                    <span class="totName">News</span>
+                    <span id="totBuzzNews" class="totBuzz"></span>
+                </a>
                 <div uk-dropdown="offset: 0" class="uk-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li><a href="{!! url('/project/news/' . $projectId) !!}">National</a></li>
@@ -14,10 +35,34 @@
                     </ul>
                 </div>
             </li>
-            <li {!! isset($activeBlog) ? $activeBlog : '' !!}><a href="{!! url('/project/blog/' . $projectId) !!}"><i class="fa fa-rss"></i>Blog</a></li>
-            <li {!! isset($activeForum) ? $activeForum : '' !!}><a href="{!! url('/project/forum/' . $projectId) !!}"><i class="fa fa-comments"></i>Forum</a></li>
-            <li {!! isset($activeVid) ? $activeVid : '' !!}><a href="{!! url('/project/youtube/' . $projectId) !!}"><i class="fa fa-youtube-play"></i>Video</a></li>
-            <li {!! isset($activeIg) ? $activeIg : '' !!}><a href="{!! url('/project/instagram/' . $projectId) !!}"><i class="fa fa-instagram"></i>Instagram</a></li>
+            <li {!! isset($activeBlog) ? $activeBlog : '' !!}>
+                <a href="{!! url('/project/blog/' . $projectId) !!}" class="" title="">
+                    <i class="fa fa-fw fa-rss"></i>
+                    <span class="totName">Blog</span>
+                    <span id="totBuzzBlog" class="totBuzz"></span>
+                </a>
+            </li>
+            <li {!! isset($activeForum) ? $activeForum : '' !!}>
+                <a href="{!! url('/project/forum/' . $projectId) !!}" class="" title="">
+                    <i class="fa fa-fw fa-comments"></i>
+                    <span class="totName">Forum</span>
+                    <span id="totBuzzForum" class="totBuzz"></span>
+                </a>
+            </li>
+            <li {!! isset($activeVid) ? $activeVid : '' !!}>
+                <a href="{!! url('/project/youtube/' . $projectId) !!}" class="" title="">
+                    <i class="fa fa-fw fa-youtube-play"></i>
+                    <span class="totName">Video</span>
+                    <span id="totBuzzVid" class="totBuzz"></span>
+                </a>
+            </li>
+            <li {!! isset($activeIg) ? $activeIg : '' !!}>
+                <a href="{!! url('/project/instagram/' . $projectId) !!}" class="" title="">
+                    <i class="fa fa-fw fa-instagram"></i>
+                    <span class="totName">Instagram</span>
+                    <span id="totBuzzIG" class="totBuzz"></span>
+                </a>
+            </li>
         </ul>
     </div>
     <div class="uk-navbar-right">

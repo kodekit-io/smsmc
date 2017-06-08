@@ -49,14 +49,11 @@
     <script src="{!! asset('assets/js/echarts/extension/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/jquery.dataTables.min.js') !!}"></script>
     <script src="{!! asset('assets/js/datatables/dataTables.smsmc.js') !!}"></script>
-    {{-- <script src="{!! asset('assets/js/datatables/extensions/dataTables.buttons.min.js') !!}"></script> --}}
-    {{-- <script src="{!! asset('assets/js/datatables/extensions/jszip.min.js') !!}"></script> --}}
-    {{-- <script src="{!! asset('assets/js/datatables/extensions/buttons.html5.min.js') !!}"></script> --}}
-    {{-- <script src="{!! asset('assets/js/datatables/extensions/pdfmake.min.js') !!}"></script> --}}
-    {{-- <script src="{!! asset('assets/js/datatables/extensions/vfs_fonts.js') !!}"></script> --}}
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jqcloud.js') !!}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <script src="{!! asset('assets/js/charts/getTotalMedia.js') !!}"></script>
 
     <script src="{!! asset('assets/js/charts/chartBubble.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/chartBar.js') !!}"></script>
@@ -99,6 +96,7 @@
                 "ticketTypes": '{!! $ticketTypes !!}',
                 'users': '{!! $users !!}'
             };
+            getTotalMedia(baseUrl + '/charts/bar-media-share', $chartData);
 
             chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
             chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
