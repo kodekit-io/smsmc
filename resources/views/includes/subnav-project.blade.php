@@ -16,14 +16,14 @@
                 </a>
             </li>
             <li {!! isset($activeTw) ? $activeTw : '' !!}>
-                <a href="{!! url('/project/twitter/' . $projectId) !!}" class="" title="">
+                <a href="{!! url('/project/twitter/' . $projectId) !!}" class="" title="Twitter">
                     <i class="fa fa-fw fa-twitter"></i>
                     <span class="totName">Twitter</span>
                     <span id="totBuzzTW" class="totBuzz"></span>
                 </a>
             </li>
             <li {!! isset($activeNews) ? $activeNews : '' !!}>
-                <a href="{!! url('/project/news/' . $projectId) !!}" class="" title="">
+                <a href="{!! url('/project/news/' . $projectId) !!}" class="" title="News">
                     <i class="fa fa-fw fa-globe"></i>
                     <span class="totName">News</span>
                     <span id="totBuzzNews" class="totBuzz"></span>
@@ -36,28 +36,28 @@
                 </div>
             </li>
             <li {!! isset($activeBlog) ? $activeBlog : '' !!}>
-                <a href="{!! url('/project/blog/' . $projectId) !!}" class="" title="">
+                <a href="{!! url('/project/blog/' . $projectId) !!}" class="Blog" title="">
                     <i class="fa fa-fw fa-rss"></i>
                     <span class="totName">Blog</span>
                     <span id="totBuzzBlog" class="totBuzz"></span>
                 </a>
             </li>
             <li {!! isset($activeForum) ? $activeForum : '' !!}>
-                <a href="{!! url('/project/forum/' . $projectId) !!}" class="" title="">
+                <a href="{!! url('/project/forum/' . $projectId) !!}" class="Forum" title="">
                     <i class="fa fa-fw fa-comments"></i>
                     <span class="totName">Forum</span>
                     <span id="totBuzzForum" class="totBuzz"></span>
                 </a>
             </li>
             <li {!! isset($activeVid) ? $activeVid : '' !!}>
-                <a href="{!! url('/project/youtube/' . $projectId) !!}" class="" title="">
+                <a href="{!! url('/project/youtube/' . $projectId) !!}" class="Video" title="">
                     <i class="fa fa-fw fa-youtube-play"></i>
                     <span class="totName">Video</span>
                     <span id="totBuzzVid" class="totBuzz"></span>
                 </a>
             </li>
             <li {!! isset($activeIg) ? $activeIg : '' !!}>
-                <a href="{!! url('/project/instagram/' . $projectId) !!}" class="" title="">
+                <a href="{!! url('/project/instagram/' . $projectId) !!}" class="Instagram" title="">
                     <i class="fa fa-fw fa-instagram"></i>
                     <span class="totName">Instagram</span>
                     <span id="totBuzzIG" class="totBuzz"></span>
