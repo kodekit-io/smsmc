@@ -17,6 +17,9 @@ function tableVideo(chartId, url, chartApiData, idMedia) {
                 }
             }
         },
+		"fnInfoCallback": function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
+			return "Showing "+ iStart +" to "+ iEnd;
+		},
         pageLength: 25,
 		// buttons: {
 		// 	buttons: [

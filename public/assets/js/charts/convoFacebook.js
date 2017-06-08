@@ -17,6 +17,13 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
                 }
             }
         },
+		language: {
+			"infoFiltered": "",
+			"infoPostFix": ""
+		},
+		"fnInfoCallback": function( oSettings, iStart, iEnd, iMax, iTotal, sPre ) {
+			return "Showing "+ iStart +" to "+ iEnd;
+		},
         pageLength: 25,
 		// buttons: {
 		// 	buttons: [
