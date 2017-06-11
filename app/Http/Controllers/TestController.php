@@ -37,11 +37,11 @@ class TestController extends Controller
         $data['secondChart'] = $request->input('04');
         $data['thirdChart'] = $request->input('05');
         $data['fourthChart'] = $request->input('06');
-        return view('tests.echarts-showimage', $data);
+        // return view('tests.echarts-showimage', $data);
 
-        // $pdf = \PDF::loadView('tests.echarts-showimage', $data);
-        // $pdf->setPaper('A4', 'potrait');
-        // return $pdf->download('report.pdf');
+        $pdf = \PDF::loadView('tests.echarts-showimage', $data);
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->download('report.pdf');
 
         // $pdf->save(public_path($pdfFileName));
         // return view('tests.echarts-showimage', $data);
@@ -159,7 +159,7 @@ class TestController extends Controller
             return '<pre>'.json_encode($response->result, JSON_PRETTY_PRINT).'</pre>';
         }
     }
-    
+
     //
 	// public function plist($page,$row)
 	// {
