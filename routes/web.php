@@ -98,6 +98,8 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
     Route::post('report/create', 'ReportController@create');
     Route::get('report/delete/{id}', 'ReportController@delete');
 
+    Route::any('report/pdf/{projectId}', 'ProjectController@createPdf')->name('projectRead');
+
     Route::get('/socmed-accounts', 'FrontendController@socmedAccounts')->name('registerRead');
     Route::post('/socmed-accounts/save', 'FrontendController@socmedAccountsSave');
 
