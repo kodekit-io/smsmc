@@ -189,9 +189,9 @@ Route::get('/get-notification', 'DashboardController@getNotification');
 // Route::get('/report-add', 'FrontendController@reportAdd');
 
 // Route::get('tests/googlechart', 'TestController@googlechart');
-// Route::get('tests/echarts', 'TestController@echarts');
-// Route::post('tests/echarts/post', 'TestController@echartsPost');
-// Route::get('tests/summary', 'TestController@summary');
+ Route::get('tests/echarts', 'TestController@echarts');
+ Route::post('tests/echarts/post', 'TestController@echartsPost');
+ Route::get('tests/summary', 'TestController@summary');
 
 // Route::get('calendar', 'TestController@calendar');
 //

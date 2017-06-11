@@ -32,9 +32,17 @@ class TestController extends Controller
 
     public function echartsPost(Request $request)
     {
+        // dd($request->all());
         $data['pageTitle'] = 'Show Image';
-        $data['base64Image'] = $request->input('chart1');
-        return view('tests.echarts-showimage', $data);
+        $data['firstChart'] = $request->input('01');
+        $data['secondChart'] = $request->input('04');
+        $data['thirdChart'] = $request->input('05');
+        $data['fourthChart'] = $request->input('06');
+        $pdf = \PDF::loadView('tests.echarts-showimage', $data);
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->download('report.pdf');
+        // $pdf->save(public_path($pdfFileName));
+        // return view('tests.echarts-showimage', $data);
     }
 
     public function googlechart()

@@ -36,9 +36,8 @@
                     </div>
                 </div>
             </form>
-            <form method="post" action="{!! url('tests/echarts/post') !!}" class="uk-width-auto">
+            <form method="post" action="{!! url('tests/echarts/post') !!}" class="uk-width-auto" id="report-form">
 		        {!! csrf_field() !!}
-		        <input type="hidden" name="chart1" value="" id="chart1">
 		        <input type="submit" value="CREATE PDF" class="uk-button uk-button-primary" />
 		    </form>
         </div>

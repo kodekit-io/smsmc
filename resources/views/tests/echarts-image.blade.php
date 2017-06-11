@@ -3,12 +3,12 @@
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
 @endsection
 @section('content')
-<div id="01"></div>
-    <form method="post" action="{!! url('tests/echarts/post') !!}">
-        {!! csrf_field() !!}
-        <input type="hidden" name="chart1" value="" id="chart1">
-        <input type="submit" value="Submit" />
-    </form>
+<form method="post" action="{!! url('tests/echarts/post') !!}" id="report-form">
+    <div id="01"></div>
+    {!! csrf_field() !!}
+    {{--<input type="hidden" name="chart1" value="" id="chart1">--}}
+    <input type="submit" value="Submit" />
+</form>
 @endsection
 
 @section('page-level-scripts')

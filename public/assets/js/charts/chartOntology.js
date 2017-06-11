@@ -175,6 +175,11 @@ function chartOntology(domId,url,chartApiData,name) {
                 loadingTicket = setTimeout(function (){
                     theChart.hideLoading();
                     theChart.setOption(option);
+                    imgUrl = theChart.getDataURL();
+                    if($("#report-form").length !== 0) {
+                        console.log('add');
+                        $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
+                    }
                     theChart.resize();
                 },1200);
                 $(window).on('resize', function(){

@@ -30,7 +30,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    var baseUrl = "{!! url('/') !!}";
-            var $projectId = '1022492332017';
+            var $projectId = '1310361142017';
             var $startDate = '2017-04-01T00:00:01Z';
             var $endDate = '2017-04-10T23:59:59Z';
 

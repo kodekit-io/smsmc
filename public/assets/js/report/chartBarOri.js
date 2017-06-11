@@ -156,7 +156,12 @@ function chartBar(domId,url,name) {
                 loadingTicket = setTimeout(function (){
                     theChart.hideLoading();
                     theChart.setOption(option);
-                    $('#chart1').val(theChart.getDataURL());
+                    //$('#chart1').val(theChart.getDataURL());
+                    imgUrl = theChart.getDataURL();
+                    if($("#report-form").length !== 0) {
+                        console.log('add');
+                        $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
+                    }
                     theChart.resize();
                 },1200);
                 $(window).on('resize', function(){
