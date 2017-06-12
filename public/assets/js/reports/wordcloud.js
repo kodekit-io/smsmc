@@ -104,6 +104,7 @@ function wordcloud(domId, url, chartApiData, name) {
                             formatter: '{b}: {c}'
                         },
                         animation: false,
+                        renderAsImage: true,
                         grid: {
                             x: '0',
                             x2: '0',
