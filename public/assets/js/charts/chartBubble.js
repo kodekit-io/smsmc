@@ -225,12 +225,21 @@ function chartBubble(domId, url, chartApiData, name) {
                     series: data.series
                 };
 
+                // override setting for pdf report
+                if($("#report-form").length !== 0) {
+                    option.toolbox = {};
+                    option.legend.formatter = function(name) {
+                        return name;
+                    }
+                }
+
                 clearTimeout(loadingTicket);
                 loadingTicket = setTimeout(function (){
                     theChart.hideLoading();
                     theChart.setOption(option);
                     imgUrl = theChart.getDataURL();
                     if($("#report-form").length !== 0) {
+                        //option.toolbox = {};
                         console.log('add');
                         $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
                     }

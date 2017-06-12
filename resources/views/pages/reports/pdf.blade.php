@@ -46,7 +46,7 @@
 @section('content')
 
     <section class="uk-container uk-container-expand uk-padding-small uk-padding-remove-top">
-        <div class="uk-grid-small uk-child-width-1-4@m " uk-grid uk-sortable="handle: .uk-card-header">
+        <div class="uk-grid-small uk-child-width-1-2@m " uk-grid uk-sortable="handle: .uk-card-header">
             <div id="01"></div>
             <div id="02"></div>
             <div id="03"></div>
@@ -85,14 +85,14 @@
     <script src="{!! asset('assets/js/charts/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/charts/tableInfluencers.js') !!}"></script>
 
-    <script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoFacebook.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoNews.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoBlog.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoForum.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoVideo.js') !!}"></script>
-    <script src="{!! asset('assets/js/charts/convoInstagram.js') !!}"></script>
+    {{--<script src="{!! asset('assets/js/charts/tableConvo.js') !!}"></script>--}}
+    {{--<script src="{!! asset('assets/js/charts/convoFacebook.js') !!}"></script>--}}
+    {{--<script src="{!! asset('assets/js/charts/convoTwitter.js') !!}"></script>--}}
+    {{--<script src="{!! asset('assets/js/charts/convoNews.js') !!}"></script>--}}
+    {{--<script src="{!! asset('assets/js/charts/convoBlog.js') !!}"></script>--}}
+    {{--<script src="{!! asset('assets/js/charts/convoForum.js') !!}"></script>--}}
+    {{--<script src="{!! asset('assets/js/charts/convoVideo.js') !!}"></script>--}}
+    {{--<script src="{!! asset('assets/js/charts/convoInstagram.js') !!}"></script>--}}
 
     <script>
         $(document).ready(function() {
@@ -142,14 +142,14 @@
             chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
             wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
 
-        	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
-            tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
-            tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
-            tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 9);
-            tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3);
-            tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
-            tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
-            tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
+//        	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
+//            tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
+//            tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
+//            tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 9);
+//            tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3);
+//            tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
+//            tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
+//            tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
 
             $.ajax({
                 url: baseUrl + "/charts/download-convo-all",
