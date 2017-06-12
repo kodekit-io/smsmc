@@ -110,7 +110,10 @@ class ReportController extends Controller
 
     public function downloadPdf(Request $request)
     {
+        $projectId = $request->input('projectId');
+        $project = $this->project->getProjectById($projectId);
         $data = $request->all();
+        $data['projectName'] = $project->project->pname;
         $data['pageTitle'] = 'Show Image';
 
         return view('pages.reports.pdf-downloaded', $data);

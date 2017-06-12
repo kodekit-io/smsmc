@@ -19,7 +19,8 @@
                                 <option value="0">Choose Project :</option>
                                 @if(count($projects) > 0)
                                     @foreach($projects as $project)
-                                        <option value="{{ $project->pid }}">{{ $project->pname }}</option>
+                                        <option value="{{ $project->pid }}"
+                                        @if($project->pid == $projectId) selected @endif>{{ $project->pname }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -43,6 +44,7 @@
             </form>
             <form method="post" action="{!! url('report/download-pdf') !!}" class="uk-width-auto" id="report-form">
 		        {!! csrf_field() !!}
+                <input type="hidden" name="projectId" value="{{ $projectId }}" />
                 <input type="hidden" name="reportStart" value="{{ $shownStartDate }}">
                 <input type="hidden" name="reportEnd" value="{{ $shownEndDate }}">
 		        <input type="submit" value="CREATE PDF" class="uk-button uk-button-primary" />
@@ -123,6 +125,7 @@
             };
 
             if ($projectId != '') {
+                wordcloud('wordcloud', baseUrl + '/charts/wordcloud', $chartData);
                 chartBubble('brandEquity', baseUrl + '/charts/brand-equity', $chartData);
                 chartBarStack('sentiment', baseUrl + '/charts/bar-sentiment', $chartData);
                 chartTrendCombo('sentimentTrend', baseUrl + '/charts/trend-sentiment', $chartData);
@@ -138,7 +141,6 @@
                 chartBarStack('som', baseUrl + '/charts/bar-media-share', $chartData);
                 chartBarStack('topicDist', baseUrl + '/charts/bar-topic-distribution', $chartData);
                 chartOntology('ontology', baseUrl + '/charts/ontologi', $chartData);
-                wordcloud('wordcloud', baseUrl + '/charts/wordcloud', $chartData);
             }
 
             // $.ajax({

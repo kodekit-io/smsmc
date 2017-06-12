@@ -100,8 +100,6 @@ function wordcloud(domId, url, chartApiData, name) {
                             show: true,
                             formatter: '{b}: {c}'
                         },
-                        animation: false,
-                        renderAsImage: true,
                         grid: {
                             x: '0',
                             x2: '0',
@@ -109,7 +107,7 @@ function wordcloud(domId, url, chartApiData, name) {
                             y2: '0'
                         },
                         toolbox: {
-                            show: false,
+                            show: true,
                             x: 'right',
                             y: 'bottom',
                             padding: ['0', '0', '0', '0'],
@@ -138,14 +136,21 @@ function wordcloud(domId, url, chartApiData, name) {
                     loadingTicket = setTimeout(function (){
                         theChart.hideLoading();
                         theChart.setOption(option);
-                        imgUrl = theChart.getDataURL();
-                        console.log(imgUrl);
-                        if($("#report-form").length !== 0) {
-                            //console.log('add');
-                            $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
-                        }
                         theChart.resize();
-                    },1200);
+
+                        setTimeout(function() {
+                            var imgUrl = theChart.getConnectedDataURL({
+                                type: 'png',
+                                backgroundColor: '#fff',
+                                excludeComponents: ["toolbox"],
+                                pixelRatio: 1
+                            });
+                            //console.log(imgUrl);
+                            $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
+                        }, 2000);
+
+                    }, 2000);
+
                     $(window).on('resize', function(){
                         if(theChart != null && theChart != undefined){
                             theChart.resize();

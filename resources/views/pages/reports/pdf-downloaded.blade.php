@@ -80,7 +80,7 @@
         <div class="cover">
             <div class="page-title">
                 <h1>Sinar Mas Social Media Report</h1>
-                <h4>Project : </h4>
+                <h4>Project : {{ $projectName }}</h4>
                 <h4>Date : {{ $reportStart }} - {{ $reportEnd }}</h4>
             </div>
         </div>
