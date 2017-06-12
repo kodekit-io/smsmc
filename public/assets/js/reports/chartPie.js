@@ -25,12 +25,12 @@ function chartPie(domId, url, chartApiData, name) {
                 var chartTitle = chartName;
             }
 
-            var card = '<div class="sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
+            var card = '<div class="sm-chart-container">'
+                + '<div class="uk-card uk-card-small">'
+                    + '<div class="">'
+                        + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
                     + '</div>'
-                    + '<div class="uk-card-body">'
+                    + '<div class="">'
                         + '<div id="'+chartId+'" class="sm-chart"></div>'
                     + '</div>'
                 + '</div>'
@@ -69,6 +69,7 @@ function chartPie(domId, url, chartApiData, name) {
                 }
 
                 var option = {
+                    backgroundColor: '#ffffff',
                     tooltip: {
                         trigger: 'item',
                         formatter: "{a}<br/>{b}: {c} ({d}%)"

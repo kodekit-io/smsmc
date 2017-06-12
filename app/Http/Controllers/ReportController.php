@@ -105,7 +105,6 @@ class ReportController extends Controller
         $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
 
         $data['pageTitle'] = 'Create PDF';
-        $data['activeAll'] = 'class="uk-active"';
         return view('pages.reports.pdf', $data);
     }
 
@@ -114,11 +113,11 @@ class ReportController extends Controller
         $data = $request->all();
         $data['pageTitle'] = 'Show Image';
 
-        // return view('pages.reports.pdf-downloaded', $data);
+        return view('pages.reports.pdf-downloaded', $data);
 
-        $pdf = \PDF::loadView('pages.reports.pdf-downloaded', $data);
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->download('report.pdf');
+        // $pdf = \PDF::loadView('pages.reports.pdf-downloaded', $data);
+        // $pdf->setPaper('A4', 'potrait');
+        // return $pdf->download('report.pdf');
     }
 
 }

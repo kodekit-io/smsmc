@@ -57,6 +57,7 @@
             }
             .cover {
                 width: 210mm;
+                min-height: 210mm;
                 text-align: center;
                 position: relative;
                 page-break-after: always;
@@ -157,7 +158,7 @@
                         </td>
                         <td width="50%">
                             <h6>Wordcloud</h6>
-                            @if(isset($wordcloud))<img src="{{ $wordcloud}}" />@endif
+                            @if(isset($wordcloud))<img src="{{ $wordcloud }}" />@endif
                         </td>
                     </tr>
                 </table>
