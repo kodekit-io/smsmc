@@ -26,12 +26,12 @@ function chartTrend(domId, url, chartApiData, title) {
                 var chartTitle = chartName;
             }
 
-            var card = '<div class="sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
+            var card = '<div class="sm-chart-container ">'
+                + '<div class="uk-card uk-card-small">'
+                    + '<div class="">'
+                        + '<h5 class="uk-card-title ">'+chartTitle+'</h5>'
                     + '</div>'
-                    + '<div class="uk-card-body">'
+                    + '<div class="">'
                         + '<div id="'+chartId+'" class="sm-chart"></div>'
                     + '</div>'
                 + '</div>'
@@ -94,6 +94,7 @@ function chartTrend(domId, url, chartApiData, title) {
                     dataColor = data.colors;
                 }
                 var option = {
+                    backgroundColor: '#ffffff',
                     tooltip: {
                         trigger: 'axis',
                         axisPointer : {
@@ -235,12 +236,12 @@ function chartTrendCombo(domId, url, chartApiData, title) {
                     $item[x] = '<li id="chart'+[x]+'" class="sm-chart"></li>';
                 }
             }
-            var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
+            var card = '<div id="'+chartId+'" class="sm-chart-container ">'
+                + '<div class="uk-card uk-card-small">'
+                    + '<div class="">'
+                        + '<h5 class="uk-card-title ">'+chartTitle+'</h5>'
                     + '</div>'
-                    + '<div class="uk-card-body sm-trend-combo">'
+                    + '<div class="sm-trend-combo">'
                         + '<ul class="uk-subnav uk-subnav-divider sm-key-switch uk-margin-right uk-margin-remove-bottom" uk-switcher>'
                             + $nav.join('')
                         + '</ul>'
@@ -328,6 +329,7 @@ function itemCombo(id, url, chartApiData, result) {
             dataColor = data.colors;
         }
         var option = {
+            backgroundColor: '#ffffff',
             tooltip: {
                 trigger: 'axis',
                 axisPointer : {
@@ -410,6 +412,11 @@ function itemCombo(id, url, chartApiData, result) {
         loadingTicket = setTimeout(function (){
             theChart.hideLoading();
             theChart.setOption(option);
+            imgUrl = theChart.getDataURL();
+            if($("#report-form").length !== 0) {
+                // console.log(imgUrl);
+                $('#report-form').append('<input type="hidden" name="'+id+'" value="'+imgUrl+'" />');
+            }
             theChart.resize();
             $('.uk-switcher').on('show.uk.switcher', function(){
                 theChart.resize();

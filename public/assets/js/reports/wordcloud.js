@@ -25,12 +25,12 @@ function wordcloud(domId, url, chartApiData, name) {
                     var chartTitle = chartName;
                 }
 
-                var card = '<div class="sm-chart-container uk-animation-fade">'
-                    + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                        + '<div class="uk-card-header uk-clearfix">'
-                            + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
+                var card = '<div class="sm-chart-container">'
+                    + '<div class="uk-card uk-card-small">'
+                        + '<div class="">'
+                            + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
                         + '</div>'
-                        + '<div class="uk-card-body">'
+                        + '<div class="">'
                             + '<div id="'+chartId+'" class="sm-chart sm-wordcloud"></div>'
                         + '</div>'
                     + '</div>'
@@ -53,10 +53,6 @@ function wordcloud(domId, url, chartApiData, name) {
                         words[i] = {
                             text: chartData[i].key,
                             weight: chartData[i].value,
-                            html: {
-                                class: 'uk-button uk-button-text uk-text-lowercase',
-                                title: 'click to search this word'
-                            },
                             color: chartData[i].color
                         }
                     }
@@ -99,6 +95,7 @@ function wordcloud(domId, url, chartApiData, name) {
                     });
 
                     var option = {
+                        backgroundColor: '#ffffff',
                         tooltip: {
                             show: true,
                             formatter: '{b}: {c}'
@@ -141,12 +138,13 @@ function wordcloud(domId, url, chartApiData, name) {
                     loadingTicket = setTimeout(function (){
                         theChart.hideLoading();
                         theChart.setOption(option);
-                        theChart.resize();
                         imgUrl = theChart.getDataURL();
+                        console.log(imgUrl);
                         if($("#report-form").length !== 0) {
                             //console.log('add');
                             $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
                         }
+                        theChart.resize();
                     },1200);
                     $(window).on('resize', function(){
                         if(theChart != null && theChart != undefined){

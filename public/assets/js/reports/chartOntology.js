@@ -24,19 +24,19 @@ function chartOntology(domId,url,chartApiData,name) {
                 var chartTitle = chartName;
             }
 
-            var card = '<div class="sm-chart-container uk-animation-fade uk-position-relative" id="chartOntology">'
-                + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
+            var card = '<div class="sm-chart-container uk-position-relative" id="chartOntology">'
+                + '<div class="uk-card uk-card-small">'
+                    + '<div class="">'
+                        + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
                     + '</div>'
-                    + '<div class="uk-card-body">'
+                    + '<div class="">'
                         + '<div id="'+chartId+'" class="sm-chart"></div>'
                     + '</div>'
                 + '</div>'
             + '</div>';
             $('#'+domId).append(card);
-            var typeSelector = '<select class="uk-select uk-form-small uk-position-top-right" id="selectType" style="margin:10px 125px 0 0;width:auto;"><option value="force" selected>Force</option><option value="circular">Circular</option></select>';
-            $('#chartOntology').append(typeSelector);
+            var typeSelector = '<select class="uk-select uk-form-small uk-position-top-right uk-width-small" id="selectType"><option value="force" selected>Force</option><option value="circular">Circular</option></select>';
+            // $('#chartOntology').append(typeSelector);
 
             var data = result.nodes;
             if (data.length > 0) {
@@ -120,7 +120,7 @@ function chartOntology(domId,url,chartApiData,name) {
                 };
 
                 var option = {
-                    // tooltip: {},
+                    backgroundColor: '#ffffff',
                     color: optionColor,
                     legend: optionLegend,
                     // animationDuration: 1500,
@@ -147,7 +147,7 @@ function chartOntology(domId,url,chartApiData,name) {
                     ]
                 };
                 var optionCircular = {
-                    // tooltip: {},
+                    backgroundColor: '#ffffff',
                     color: optionColor,
                     legend: optionLegend,
                     // animationDuration: 1500,
@@ -170,10 +170,10 @@ function chartOntology(domId,url,chartApiData,name) {
                 clearTimeout(loadingTicket);
                 loadingTicket = setTimeout(function (){
                     theChart.hideLoading();
-                    theChart.setOption(option);
+                    theChart.setOption(optionCircular);
                     imgUrl = theChart.getDataURL();
                     if($("#report-form").length !== 0) {
-                        console.log('add');
+                        // console.log('add');
                         $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
                     }
                     theChart.resize();

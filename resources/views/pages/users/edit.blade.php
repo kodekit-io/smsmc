@@ -14,48 +14,51 @@
             </div>
             <div class="uk-card-body">
                 <hr>
-                <form class="open-ticket" method="post" action="{!! url('setting/user/' . $id. '/update') !!}">
+                <form id="editUser" method="post" action="{!! url('setting/user/' . $id. '/update') !!}">
                     {!! csrf_field() !!}
-                    <div class="uk-margin">
-                        <label>Email</label>
-                        <input class="uk-input" type="text" name="email" value="{!! $user->email !!}">
-                    </div>
-                    <div class="uk-margin">
-                        <label>Name</label>
-                        <input class="uk-input" type="text" name="name" value="{!! $user->name !!}">
-                    </div>
-                    <div class="uk-margin">
-                        <label>Id Business</label>
-                        <select name="id_business" class="uk-select">
-                            @foreach($pilars as $pilar)
-                                <option value="{!! $pilar->id !!}" @if($user->idBussiness == $pilar->id) selected @endif>{!! $pilar->pilarName !!}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="uk-margin">
-                        <label>Role</label>
-                        <select name="role" class="uk-select">
-                            @foreach($roles as $role)
-                                <option value="{!! $role->idRole !!}" @if($user->idRole == $role->idRole) selected @endif>{!! $role->name !!}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="uk-margin">
-                        <label>Group</label>
-                        <select name="group" class="uk-select">
-                            @foreach($groups as $group)
-                                <option value="{!! $group->id !!}" @if($user->idGroup == $group->id) selected @endif>{!! $group->groupName !!}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="uk-margin">
-                        <label>Password</label>
-                        <input class="uk-input" type="password" name="password">
-                    </div>
-                    <div class="uk-margin">
-                        <label>Re-type your password</label>
-                        <input class="uk-input" type="password" name="password2">
-                    </div>
+                    <ul class="uk-child-width-1-2 uk-grid-small uk-grid-match uk-margin" uk-grid>
+                        <li><div class="uk-position-relative">
+                            <label>Email</label>
+                            <input class="uk-input" type="text" name="email" value="{!! $user->email !!}">
+                        </div></li>
+                        <li><div class="uk-position-relative">
+                            <label>Name</label>
+                            <input class="uk-input" type="text" name="name" value="{!! $user->name !!}">
+                        </div></li>
+                        <li><div class="uk-position-relative">
+                            <label>Id Business</label>
+                            <select name="id_business" class="uk-select">
+                                @foreach($pilars as $pilar)
+                                    <option value="{!! $pilar->id !!}" @if($user->idBussiness == $pilar->id) selected @endif>{!! $pilar->pilarName !!}</option>
+                                @endforeach
+                            </select>
+                        </div></li>
+                        <li><div class="uk-position-relative">
+                            <label>Role</label>
+                            <select name="role" class="uk-select">
+                                @foreach($roles as $role)
+                                    <option value="{!! $role->idRole !!}" @if($user->idRole == $role->idRole) selected @endif>{!! $role->name !!}</option>
+                                @endforeach
+                            </select>
+                        </div></li>
+                        <li><div class="uk-position-relative">
+                            <label>Group</label>
+                            <select name="group" class="uk-select">
+                                @foreach($groups as $group)
+                                    <option value="{!! $group->id !!}" @if($user->idGroup == $group->id) selected @endif>{!! $group->groupName !!}</option>
+                                @endforeach
+                            </select>
+                        </div></li>
+                        <li></li>
+                        <li><div class="uk-position-relative">
+                            <label>Password</label>
+                            <input class="uk-input" type="password" name="password">
+                        </div></li>
+                        <li><div class="uk-position-relative">
+                            <label>Re-type your password</label>
+                            <input class="uk-input" type="password" name="password2">
+                        </div></li>
+                    </ul>
                     <div class="uk-flex uk-flex-between">
                         <a class="uk-modal-close uk-button grey white-text" href="{!! url('setting/user') !!}">CANCEL</a>
                         <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SEND" />
@@ -75,7 +78,35 @@
 
     <script>
         $(document).ready(function() {
-
+            $('#editUser').validate({
+                rules: {
+                    username: {
+                        required: true
+                    },
+                    email: {
+                        required: true
+                    },
+                    name: {
+                        required: true
+                    },
+                    password: {
+                        minlength: 6
+                    },
+                    password2: {
+                        minlength: 6,
+                        equalTo: '#password'
+                    },
+                    id_business: {
+                        required: true
+                    },
+                    role: {
+                        required: true
+                    },
+                    group: {
+                        required: true
+                    }
+                }
+            });
         });
 
     </script>

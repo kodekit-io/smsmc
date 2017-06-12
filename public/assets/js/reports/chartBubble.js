@@ -24,12 +24,12 @@ function chartBubble(domId, url, chartApiData, name) {
                 var chartTitle = chartName;
             }
 
-            var card = '<div class="sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
+            var card = '<div class="sm-chart-container">'
+                + '<div class="uk-card uk-card-small">'
+                    + '<div class="">'
+                        + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
                     + '</div>'
-                    + '<div class="uk-card-body">'
+                    + '<div class="">'
                         + '<div id="'+chartId+'" class="sm-chart"></div>'
                     + '</div>'
                 + '</div>'
@@ -114,6 +114,7 @@ function chartBubble(domId, url, chartApiData, name) {
                 }
 
                 var option = {
+                    backgroundColor: '#ffffff',
                     color: dataColor,
                     title: {
                         show: false
@@ -135,8 +136,8 @@ function chartBubble(domId, url, chartApiData, name) {
                     },
                     grid: {
                         x: '30px',
-                        x2: '10px',
-                        y: '10px',
+                        x2: '50px',
+                        y: '50px',
                         y2: '70px'
                     },
                     toolbox: {

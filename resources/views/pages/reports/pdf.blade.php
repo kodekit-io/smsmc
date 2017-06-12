@@ -1,17 +1,22 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <style>
+    .sm-chart {
+        height: 100mm;
+    }
+    </style>
 @endsection
 @section('page-level-nav')
-    <div class="uk-card uk-card-secondary uk-card-body" style="padding:5px 20px;">
-        <div class="uk-flex uk-flex-middle">
-            <form method="post" action="" class="uk-width-expand">
+    <div class="sm-nav-sub">
+        <div class="uk-flex uk-flex-middle" style="padding:5px 20px">
+            <form method="post" action="" class="uk-width-expand" id="preview">
                 {!! csrf_field() !!}
                 <div class="uk-flex uk-flex-middle">
                     <div class="uk-width-auto@m">
-                        <div class="uk-inline sm-text-bold">Choose Project :</div>
                         <div class="uk-inline">
-                            <select name="projectId" id="projectId" class="uk-select uk-form-small">
+                            <select name="projectId" id="projectId" class="uk-select uk-form-small uk-width-medium" required>
+                                <option value="0">Choose Project :</option>
                                 @if(count($projects) > 0)
                                     @foreach($projects as $project)
                                         <option value="{{ $project->pid }}">{{ $project->pname }}</option>
@@ -21,7 +26,7 @@
                         </div>
                     </div>
                     <div class="uk-width-auto@m uk-margin-left">
-                        <div class="uk-inline sm-text-bold">Date Range:</div>
+                        <div class="uk-inline sm-text-bold white-text">Date Range:</div>
                         <div class="uk-inline">
                             <span class="uk-form-icon" uk-icon="icon: calendar"></span>
                             <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="startDate" aria-describedby="option-startDate" value="{!! $shownStartDate !!}">
@@ -32,7 +37,7 @@
                         </div>
                     </div>
                     <div class="uk-width-auto@m uk-margin-left">
-                        <button class="uk-button uk-button-small white-text red darken-1" name="filter" type="submit" value="filter">UPDATE PREVIEW</button>
+                        <button class="uk-button uk-button-small white-text red darken-1 btn-preview" name="filter" type="submit" value="filter">UPDATE PREVIEW</button>
                     </div>
                 </div>
             </form>
@@ -47,27 +52,33 @@
 @endsection
 @section('content')
 
-    <section class="uk-container uk-container-expand uk-padding-small uk-padding-remove-top">
-        <div class="uk-grid-small uk-child-width-1-4@m " uk-grid uk-sortable="handle: .uk-card-header">
-            <div id="brandEquity"></div>
-            <div id="sentiment"></div>
-            <div id="sentimentTrend"></div>
-            <div id="postTrend"></div>
+    <section class="sm-main uk-container uk-container-expand">
+        <div class="uk-position-center uk-text-center" id="howto">
+            Choose project, select dates, click 'update preview' button.<br>
+            Wait until preview page loaded, then click 'CREATE PDF'.
+        </div>
+        <div class="uk-width-1-1 uk-position-relative" style="background-color: #eee;z-index:1;">
+            <div class="uk-grid-small uk-child-width-1-2 uk-grid-divider" uk-grid>
+                <div id="brandEquity"></div>
+                <div id="sentiment"></div>
+                <div id="sentimentTrend"></div>
+                <div id="postTrend"></div>
 
-            <div id="buzzTrend"></div>
-            <div id="reachTrend"></div>
-            <div id="intTrend"></div>
-            <div id="postPie"></div>
+                <div id="buzzTrend"></div>
+                <div id="reachTrend"></div>
+                <div id="intTrend"></div>
+                <div id="postPie"></div>
 
-            <div id="buzzPie"></div>
-            <div id="intPie"></div>
-            <div id="uniqueUser"></div>
-            <div id="intRate"></div>
+                <div id="buzzPie"></div>
+                <div id="intPie"></div>
+                <div id="uniqueUser"></div>
+                <div id="intRate"></div>
 
-            <div id="som"></div>
-            <div id="topicDist"></div>
-            <div id="ontology"></div>
-            <div id="wordcloud"></div>
+                <div id="som"></div>
+                <div id="topicDist"></div>
+                <div id="ontology"></div>
+                <div id="wordcloud"></div>
+            </div>
         </div>
     </section>
 
@@ -82,8 +93,6 @@
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jqcloud.js') !!}"></script>
 
-
-
     <script src="{!! asset('assets/js/reports/chartBubble.js') !!}"></script>
     <script src="{!! asset('assets/js/reports/chartBar.js') !!}"></script>
     <script src="{!! asset('assets/js/reports/chartTrend.js') !!}"></script>
@@ -91,6 +100,8 @@
     <script src="{!! asset('assets/js/reports/chartOntology.js') !!}"></script>
     <script src="{!! asset('assets/js/reports/wordcloud.js') !!}"></script>
     <script src="{!! asset('assets/js/reports/tableInfluencers.js') !!}"></script>
+
+    <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
 
     <script>
         $(document).ready(function() {
@@ -130,16 +141,35 @@
                 wordcloud('wordcloud', baseUrl + '/charts/wordcloud', $chartData);
             }
 
-            $.ajax({
-                url: baseUrl + "/charts/download-convo-all",
-                method: "POST",
-                data: $chartData
-            }).done(function (downloadLink) {
-                //console.log(downloadLink);
-                var btnExcel = '<li><a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a></li>';
-                $('div#405').find('.uk-card-body').append(btnExcel);
-            });
+            // $.ajax({
+            //     url: baseUrl + "/charts/download-convo-all",
+            //     method: "POST",
+            //     data: $chartData
+            // }).done(function (downloadLink) {
+            //     //console.log(downloadLink);
+            //     var btnExcel = '<li><a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a></li>';
+            //     $('div#405').find('.uk-card-body').append(btnExcel);
+            // });
 
+            $('#preview').validate({
+                rules: {
+                    projectId: {
+                        required: true,
+                        min:1
+                    }
+                },
+                messages: {
+                    projectId: "Choose project first!"
+                },
+                errorElement: 'span',
+    			errorPlacement: function(error, element) {
+    			    $('#howto').html(error);
+    			}
+                // ,
+                // submitHandler: function(form) {
+                //     $(form).ajaxSubmit();
+                // }
+            });
         });
     </script>
 @endsection

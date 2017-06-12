@@ -25,12 +25,12 @@ function chartBar(domId, url, chartApiData, name) {
                     var chartTitle = chartName;
                 }
 
-                var card = '<div class="sm-chart-container uk-animation-fade">'
-                    + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                        + '<div class="uk-card-header uk-clearfix">'
-                            + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
+                var card = '<div class="sm-chart-container">'
+                    + '<div class="uk-card uk-card-small">'
+                        + '<div class="">'
+                            + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
                         + '</div>'
-                        + '<div class="uk-card-body">'
+                        + '<div class="">'
                             + '<div id="'+chartId+'" class="sm-chart"></div>'
                         + '</div>'
                     + '</div>'
@@ -57,6 +57,7 @@ function chartBar(domId, url, chartApiData, name) {
                     });
 
                     var option = {
+                        backgroundColor: '#ffffff',
                         tooltip : {
                             formatter: '{b}<br>{a} : {c}',
                             trigger: 'axis',
@@ -244,12 +245,12 @@ function chartBarStack(domId, url, chartApiData, name) {
                     var chartTitle = chartName;
                 }
 
-                var card = '<div class="sm-chart-container uk-animation-fade">'
-                    + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                        + '<div class="uk-card-header uk-clearfix">'
-                            + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
+                var card = '<div class="sm-chart-container">'
+                    + '<div class="uk-card uk-card-small">'
+                        + '<div class="">'
+                            + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
                         + '</div>'
-                        + '<div class="uk-card-body">'
+                        + '<div class="">'
                             + '<div id="'+chartId+'" class="sm-chart"></div>'
                         + '</div>'
                     + '</div>'
@@ -319,6 +320,7 @@ function chartBarStack(domId, url, chartApiData, name) {
                         }
 
                         var option = {
+                            backgroundColor: '#ffffff',
                             tooltip : {
                                 trigger: 'axis',
                                 axisPointer : {
