@@ -36,7 +36,7 @@ function chartOntology(domId,url,chartApiData,name) {
             + '</div>';
             $('#'+domId).append(card);
             var typeSelector = '<select class="uk-select uk-form-small uk-position-top-right uk-width-small" id="selectType"><option value="force" selected>Force</option><option value="circular">Circular</option></select>';
-            $('#chartOntology').append(typeSelector);
+            // $('#chartOntology').append(typeSelector);
 
             var data = result.nodes;
             if (data.length > 0) {
@@ -147,7 +147,7 @@ function chartOntology(domId,url,chartApiData,name) {
                     ]
                 };
                 var optionCircular = {
-                    // tooltip: {},
+                    backgroundColor: '#ffffff',
                     color: optionColor,
                     legend: optionLegend,
                     // animationDuration: 1500,
@@ -170,7 +170,7 @@ function chartOntology(domId,url,chartApiData,name) {
                 clearTimeout(loadingTicket);
                 loadingTicket = setTimeout(function (){
                     theChart.hideLoading();
-                    theChart.setOption(option);
+                    theChart.setOption(optionCircular);
                     imgUrl = theChart.getDataURL();
                     if($("#report-form").length !== 0) {
                         // console.log('add');

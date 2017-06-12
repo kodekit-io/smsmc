@@ -13,13 +13,13 @@
                 margin: 0;
                 padding: 0;
                 background-color: #ffffff;
-                font-family: 'Arial';
+                font-family: 'Arial',sans-serif;
                 color: #585858;
             }
             * {
                 box-sizing: border-box;
                 -moz-box-sizing: border-box;
-                font-family: 'Arial';
+                font-family: 'Arial',sans-serif;
                 color: #585858;
             }
             .page {
@@ -34,6 +34,7 @@
                 margin: 0;
                 padding: 0;
                 border: 0;
+                width: 100%;
             }
             table h6 {
                 text-align: center;
@@ -67,7 +68,11 @@
                 width: 150mm;
                 top: 50%;
                 left: 50%;
-                margin-left: -75mm;
+                transform: translate3d(-50%, -50%, 0px);
+            }
+            img {
+                width: 75mm;
+                height: auto;
             }
         </style>
         </head>
@@ -75,7 +80,8 @@
         <div class="cover">
             <div class="page-title">
                 <h1>Sinar Mas Social Media Report</h1>
-                <h5>Date : {{ $reportStart }} - {{ $reportEnd }}</h5>
+                <h4>Project : </h4>
+                <h4>Date : {{ $reportStart }} - {{ $reportEnd }}</h4>
             </div>
         </div>
         <div class="page">

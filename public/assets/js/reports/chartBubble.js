@@ -136,8 +136,8 @@ function chartBubble(domId, url, chartApiData, name) {
                     },
                     grid: {
                         x: '30px',
-                        x2: '10px',
-                        y: '10px',
+                        x2: '50px',
+                        y: '50px',
                         y2: '70px'
                     },
                     toolbox: {

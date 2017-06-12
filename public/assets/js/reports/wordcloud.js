@@ -53,10 +53,6 @@ function wordcloud(domId, url, chartApiData, name) {
                         words[i] = {
                             text: chartData[i].key,
                             weight: chartData[i].value,
-                            html: {
-                                class: 'uk-button uk-button-text uk-text-lowercase',
-                                title: 'click to search this word'
-                            },
                             color: chartData[i].color
                         }
                     }
@@ -105,6 +101,7 @@ function wordcloud(domId, url, chartApiData, name) {
                             formatter: '{b}: {c}'
                         },
                         animation: false,
+                        renderAsImage: true,
                         grid: {
                             x: '0',
                             x2: '0',
@@ -141,13 +138,13 @@ function wordcloud(domId, url, chartApiData, name) {
                     loadingTicket = setTimeout(function (){
                         theChart.hideLoading();
                         theChart.setOption(option);
-                        theChart.resize();
                         imgUrl = theChart.getDataURL();
                         console.log(imgUrl);
                         if($("#report-form").length !== 0) {
                             //console.log('add');
                             $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
                         }
+                        theChart.resize();
                     },1200);
                     $(window).on('resize', function(){
                         if(theChart != null && theChart != undefined){

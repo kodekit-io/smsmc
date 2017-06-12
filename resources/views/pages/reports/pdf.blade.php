@@ -1,6 +1,11 @@
 @extends('layouts.default')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
+    <style>
+    .sm-chart {
+        height: 100mm;
+    }
+    </style>
 @endsection
 @section('page-level-nav')
     <div class="sm-nav-sub">
@@ -47,31 +52,33 @@
 @endsection
 @section('content')
 
-    <section class="sm-main uk-container uk-container-expand" style="background:#fff;">
+    <section class="sm-main uk-container uk-container-expand">
         <div class="uk-position-center uk-text-center" id="howto">
             Choose project, select dates, click 'update preview' button.<br>
             Wait until preview page loaded, then click 'CREATE PDF'.
         </div>
-        <div class="uk-grid-small uk-child-width-1-3@m uk-grid-divider" uk-grid uk-sortable="handle: .uk-card-header" style="background:#fff;">
-            <div id="brandEquity"></div>
-            <div id="sentiment"></div>
-            <div id="sentimentTrend"></div>
-            <div id="postTrend"></div>
+        <div class="uk-width-1-1 uk-position-relative" style="background-color: #eee;z-index:1;">
+            <div class="uk-grid-small uk-child-width-1-2 uk-grid-divider" uk-grid>
+                <div id="brandEquity"></div>
+                <div id="sentiment"></div>
+                <div id="sentimentTrend"></div>
+                <div id="postTrend"></div>
 
-            <div id="buzzTrend"></div>
-            <div id="reachTrend"></div>
-            <div id="intTrend"></div>
-            <div id="postPie"></div>
+                <div id="buzzTrend"></div>
+                <div id="reachTrend"></div>
+                <div id="intTrend"></div>
+                <div id="postPie"></div>
 
-            <div id="buzzPie"></div>
-            <div id="intPie"></div>
-            <div id="uniqueUser"></div>
-            <div id="intRate"></div>
+                <div id="buzzPie"></div>
+                <div id="intPie"></div>
+                <div id="uniqueUser"></div>
+                <div id="intRate"></div>
 
-            <div id="som"></div>
-            <div id="topicDist"></div>
-            <div id="ontology"></div>
-            <div id="wordcloud"></div>
+                <div id="som"></div>
+                <div id="topicDist"></div>
+                <div id="ontology"></div>
+                <div id="wordcloud"></div>
+            </div>
         </div>
     </section>
 
@@ -143,6 +150,7 @@
             //     var btnExcel = '<li><a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a></li>';
             //     $('div#405').find('.uk-card-body').append(btnExcel);
             // });
+
             $('#preview').validate({
                 rules: {
                     projectId: {
@@ -157,6 +165,10 @@
     			errorPlacement: function(error, element) {
     			    $('#howto').html(error);
     			}
+                // ,
+                // submitHandler: function(form) {
+                //     $(form).ajaxSubmit();
+                // }
             });
         });
     </script>
