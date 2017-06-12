@@ -30,23 +30,6 @@ class TestController extends Controller
         return view('tests.echarts-image', $data);
     }
 
-    public function echartsPost(Request $request)
-    {
-        $data['pageTitle'] = 'Show Image';
-        $data['firstChart'] = $request->input('01');
-        $data['secondChart'] = $request->input('04');
-        $data['thirdChart'] = $request->input('05');
-        $data['fourthChart'] = $request->input('06');
-        // return view('tests.echarts-showimage', $data);
-
-        $pdf = \PDF::loadView('tests.echarts-showimage', $data);
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->download('report.pdf');
-
-        // $pdf->save(public_path($pdfFileName));
-        // return view('tests.echarts-showimage', $data);
-    }
-
     public function googlechart()
     {
         return view('tests.googlechart');

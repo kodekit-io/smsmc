@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Service\Account;
+use App\Service\LastSevenDays;
 use App\Service\Project;
 use App\Service\Report;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class ReportController extends Controller
 {
+
+    use LastSevenDays;
+
     /**
      * @var Report
      */
@@ -76,6 +81,44 @@ class ReportController extends Controller
             return redirect('report');
         }
         return redirect('report')->withErrors(['error' => 'Error.']);
+    }
+
+    public function pdf(Request $request)
+    {
+        $projectList = $this->project->projectList(0, 1000);
+        $last7DaysRange = $this->getLastSevenDaysRange();
+        $startDate = $last7DaysRange['startDate'];
+        $endDate = $last7DaysRange['endDate'];
+        $projectId = '';
+        if ($request->has('filter')) {
+            $startDateRequest = $request->input('startDate');
+            $endDateRequest = $request->input('endDate');
+            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $startDate;
+            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $endDate;
+            $projectId = $request->input('projectId');
+        }
+        $data['projects'] = $projectList->projectList;
+        $data['projectId'] = $projectId;
+        $data['startDate'] = $startDate;
+        $data['endDate'] = $endDate;
+        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d/m/y H:i');
+        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
+
+        $data['pageTitle'] = 'Create PDF';
+        $data['activeAll'] = 'class="uk-active"';
+        return view('pages.reports.pdf', $data);
+    }
+
+    public function downloadPdf(Request $request)
+    {
+        $data = $request->all();
+        $data['pageTitle'] = 'Show Image';
+
+        // return view('pages.reports.pdf-downloaded', $data);
+
+        $pdf = \PDF::loadView('pages.reports.pdf-downloaded', $data);
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->download('report.pdf');
     }
 
 }

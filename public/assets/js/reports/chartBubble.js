@@ -28,11 +28,6 @@ function chartBubble(domId, url, chartApiData, name) {
                 + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
                     + '<div class="uk-card-header uk-clearfix">'
                         + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
-                        + '<ul class="uk-float-right uk-subnav uk-margin-remove">'
-                            + '<li><a class="grey-text fa fa-info-circle" title="'+chartInfo+'" uk-tooltip></a></li>'
-                            + '<li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>'
-                            + '<li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>'
-                        + '</ul>'
                     + '</div>'
                     + '<div class="uk-card-body">'
                         + '<div id="'+chartId+'" class="sm-chart"></div>'
@@ -129,12 +124,7 @@ function chartBubble(domId, url, chartApiData, name) {
                         y: 'bottom',
                         itemGap: 5,
                         formatter: function (name) {
-                            var shortKey = name.substring(0, 10);
-                            if(name.length>10){
-                                return shortKey+'..';
-                            } else {
-                                return name;
-                            }
+                            return name;
                         },
                         textStyle: {
                             fontSize: 11
@@ -150,7 +140,7 @@ function chartBubble(domId, url, chartApiData, name) {
                         y2: '70px'
                     },
                     toolbox: {
-                        show: true,
+                        show: false,
                         x: 'right',
                         y: 'bottom',
                         padding: ['0', '0', '0', '0'],
@@ -225,22 +215,13 @@ function chartBubble(domId, url, chartApiData, name) {
                     series: data.series
                 };
 
-                // // override setting for pdf report
-                // if($("#report-form").length !== 0) {
-                //     option.toolbox = {};
-                //     option.legend.formatter = function(name) {
-                //         return name;
-                //     }
-                // }
-
                 clearTimeout(loadingTicket);
                 loadingTicket = setTimeout(function (){
                     theChart.hideLoading();
                     theChart.setOption(option);
                     imgUrl = theChart.getDataURL();
                     if($("#report-form").length !== 0) {
-                        //option.toolbox = {};
-                        console.log('add');
+                        //console.log('add');
                         $('#report-form').append('<input type="hidden" name="'+domId+'" value="'+imgUrl+'" />');
                     }
                     theChart.resize();

@@ -169,12 +169,4 @@ class ProjectController extends Controller
         $data['pageTitle'] = 'Ontology Test';
         return view('pages.ontologi-test', $data);
     }
-
-    public function createPdf(Request $request, $projectId)
-    {
-        $data = $this->parseRequest($request, $projectId);
-        $data['pageTitle'] = 'Create PDF';
-        $data['activeAll'] = 'class="uk-active"';
-        return view('pages.reports.pdf', $data);
-    }
 }
