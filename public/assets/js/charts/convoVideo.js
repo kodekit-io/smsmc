@@ -58,17 +58,7 @@ function tableVideo(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Video",
 				"width": "25%",
-				// "data": function(data) {
-				// 	var title = data["Title"];
-				// 	var post = data["Summary"];
-				// 	var postrim = post.substring(0, 100) + "...";
-				// 	var plink = data["Url"];
-				// 	var img = data["Thumbnail"];
-				// 	return '<div class="thumb-wrap" data-uk-tooltip="{pos:\'top-left\'}" title="' + postrim + '">' +
-				// 		'<a href="' + plink + '" target="_blank" class="thumb-img"><span style="background-image:url(' + img + ');"></span></a>' +
-				// 		'<a href="' + plink + '" target="_blank" class="thumb-txt">' + post + '</a>' +
-				// 		'</div>';
-				// }
+				"orderable": false,
 				"data": function(data) {
 					var post = data["Summary"];
 					var plink = data["Url"];

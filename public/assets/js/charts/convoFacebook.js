@@ -63,6 +63,7 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Post",
 				"width": "25%",
+				"orderable": false,
 				"data": function(data) {
 					var post = data["Post"];
 					var plink = data["Link"];
@@ -77,6 +78,7 @@ function tableFacebook(chartId, url, chartApiData, idMedia) {
 			{
 				"data": "Media Type",
 				"title": "Type",
+				"orderable": false,
 				"width": "5%"
 			},
 			{

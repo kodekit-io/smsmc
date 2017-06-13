@@ -60,12 +60,7 @@ function tableInstagram(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Post",
 				"width": "25%",
-				// "data": function(data) {
-				// 	var post = data["Post"];
-				// 	var postrim = post.substring(0, 100) + "...";
-				// 	var plink = data["Url"];
-				// 	return '<a href="' + plink + '" target="_blank" title="' + postrim + '" uk-tooltip>' + post + '</a>';
-				// }
+				"orderable": false,
 				"data": function(data) {
 					var post = data["Post"];
 					var plink = data["Url"];
@@ -82,6 +77,7 @@ function tableInstagram(chartId, url, chartApiData, idMedia) {
 				"title": "Comments",
 				"class": "uk-text-right",
 				"width": "10%",
+				// "orderable": false,
 				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{
@@ -89,6 +85,7 @@ function tableInstagram(chartId, url, chartApiData, idMedia) {
 				"title": "Loves",
 				"class": "uk-text-right",
 				"width": "10%",
+				// "orderable": false,
 				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			{

@@ -64,7 +64,7 @@ trait DatatableSorter
         return [
             "2" => "created_at",
             "3" => "author",
-            "98" => "user_followers_count",
+            "5" => "user_followers_count",
             "98" => "content",
             "99" => "url",
         ];

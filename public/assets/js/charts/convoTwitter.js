@@ -60,6 +60,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Post",
 				"width": "30%",
+				"orderable": false,
 				"data": function(data) {
 					var post = data["Post"];
 					var plink = data["Link"];
@@ -82,6 +83,7 @@ function tableTwitter(chartId, url, chartApiData, idMedia) {
 				"title": "Original Reach",
 				"class": "uk-text-right",
 				"width": "10%",
+				// "orderable": false,
 				"render": $.fn.dataTable.render.number( '\.', '', 0, '' )
 			},
 			// {

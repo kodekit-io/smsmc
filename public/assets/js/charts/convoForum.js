@@ -57,13 +57,7 @@ function tableForum(chartId, url, chartApiData, idMedia) {
 			{
 				"title": "Post",
 				"width": "25%",
-				// "data": function(data) {
-				// 	var title = data["Title"];
-				// 	var post = data["Summary"];
-				// 	var postrim = post.substring(0, 100) + " ...";
-				// 	var plink = data["url"];
-				// 	return '<a href="' + plink + '" target="_blank" data-uk-tooltip title="' + postrim + '" class="uk-link">' + title + '</a>';
-				// }
+				"orderable": false,
 				"data": function(data) {
 					var post = data["Summary"];
 					var plink = data["url"];
