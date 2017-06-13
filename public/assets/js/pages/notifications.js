@@ -13,7 +13,7 @@ function notifications(div) {
     $.ajax({
         url: url,
         success: function(result){
-            console.log(result);
+            // console.log(result);
             var theTable = $('#notifications').DataTable( {
                 ajax: {
                     url: url,

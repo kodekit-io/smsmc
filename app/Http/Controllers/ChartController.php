@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service\ChartParameter;
 use App\Service\DatatableResult;
+use App\Service\DatatableSorter;
 use App\Service\Smsmc;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Log;
 
 class ChartController extends Controller
 {
+    use DatatableSorter;
+
     /**
      * @var Smsmc
      */
@@ -230,7 +233,7 @@ class ChartController extends Controller
             'positive' => '1'
         ];
 
-        // Log::warning(\GuzzleHttp\json_encode($request->all()));
+        // Log::warning(\GuzzleHttp\json_encode($request->input('order')));
 
         $idMedia = $request->has('idMediaInAll') ? $request->input('idMediaInAll') : $request->input('idMedia');
         $reportType = $request->input('reportType');
@@ -315,12 +318,15 @@ class ChartController extends Controller
             $params['uid'] = \Auth::id();
         }
 
+        // sorter
+        $params = $this->datatableSorter($idMedia, $request->input('order'), $params);
+
         $params['StartDate'] = $request->startDate;
         $params['EndDate'] = $request->endDate;
         $params['brandID'] = $request->keywords;
         $params['row'] = $length;
         $params['page'] = $page;
-        $params['sort'] = 'author desc';
+        //$params['sort'] = 'author desc';
 
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
 
