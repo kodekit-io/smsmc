@@ -194,7 +194,7 @@ Route::get('/get-notification', 'DashboardController@getNotification');
  Route::post('tests/echarts/post', 'TestController@echartsPost');
  Route::get('tests/summary', 'TestController@summary');
 
-// Route::get('calendar', 'TestController@calendar');
+Route::get('convosort', 'TestController@convosort');
 //
 // Route::get('api1/{x}/{a}', 'TestController@api1');
 // Route::get('api2/{x}/{a}/{b}', 'TestController@api2');

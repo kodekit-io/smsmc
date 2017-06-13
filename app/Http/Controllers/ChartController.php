@@ -320,6 +320,7 @@ class ChartController extends Controller
         $params['brandID'] = $request->keywords;
         $params['row'] = $length;
         $params['page'] = $page;
+        $params['sort'] = 'author desc';
 
         $convoUrl = 'project/' . $reportType . '/' . $idMedia . '/convo';
 

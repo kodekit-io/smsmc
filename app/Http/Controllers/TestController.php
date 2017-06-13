@@ -143,7 +143,26 @@ class TestController extends Controller
         }
     }
 
-    //
+    public function convosort()
+    {
+        $params = [
+            // 'uid' => \Auth::user()->id
+            'pid' => 94222322017,
+            'StartDate' => Carbon::now('Asia/Jakarta')->subWeek()->format('Y-m-d\TH:i:s\Z'),
+            'EndDate' => Carbon::now('Asia/Jakarta')->format('Y-m-d\TH:i:s\Z'),
+        ];
+
+        $response = $this->smsmc->post('project/convo/sort', $params);
+        if ($response->status == '200') {
+            // return $response->result;
+            // return \GuzzleHttp\json_encode($response->result);
+            return '<pre>'.json_encode($response->result, JSON_PRETTY_PRINT).'</pre>';
+        } else {
+            return $response->status;
+        }
+    }
+    // project/convo/sort/sinarmas
+
 	// public function plist($page,$row)
 	// {
 	// 	$params = [
