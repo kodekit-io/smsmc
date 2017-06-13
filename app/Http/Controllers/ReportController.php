@@ -40,7 +40,7 @@ class ReportController extends Controller
     }
 
     public function index() {
-        $data['pageTitle'] = 'View Report';
+        $data['pageTitle'] = 'Download Excel';
         return view('pages.reports.list', $data);
     }
 
@@ -64,7 +64,7 @@ class ReportController extends Controller
         //dd($socmedAccounts);
         $data['projectList'] = $projectList;
         $data['socmedAccounts'] = $socmedAccounts;
-        $data['pageTitle'] = 'Create Report';
+        $data['pageTitle'] = 'Create Excel';
         return view('pages.reports.add', $data);
     }
 
@@ -121,7 +121,8 @@ class ReportController extends Controller
 
         $pdf = \PDF::loadView('pages.reports.pdf-downloaded', $data);
         $pdf->setPaper('A4', 'potrait');
-        return $pdf->download('report.pdf');
+        $filename = 'SM-Report-'.str_slug($project->project->pname).'-'.date('Ymdhis');
+        return $pdf->download($filename.'.pdf');
     }
 
 }

@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
     <style>
     .sm-chart {
-        /*height: 100mm;*/
+        height: 450px;
     }
     </style>
 @endsection
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="uk-width-auto@m uk-margin-left">
-                        <button class="uk-button uk-button-small white-text red darken-1 btn-preview" name="filter" type="submit" value="filter">UPDATE PREVIEW</button>
+                        <button class="uk-button uk-button-small white-text grey darken-1 btn-preview" name="filter" type="submit" value="filter">PREVIEW</button>
                     </div>
                 </div>
             </form>
@@ -47,7 +47,7 @@
                 <input type="hidden" name="projectId" value="{{ $projectId }}" />
                 <input type="hidden" name="reportStart" value="{{ $shownStartDate }}">
                 <input type="hidden" name="reportEnd" value="{{ $shownEndDate }}">
-		        <input type="submit" value="CREATE PDF" class="uk-button uk-button-primary" />
+		        <input type="submit" value="DOWNLOAD PDF" class="uk-button uk-button-primary white-text red darken-1" />
 		    </form>
         </div>
     </div>
@@ -56,8 +56,8 @@
 
     <section class="sm-main uk-container uk-container-expand">
         <div class="uk-position-center uk-text-center" id="howto">
-            Choose project, select dates, click 'update preview' button.<br>
-            Wait until preview page loaded, then click 'CREATE PDF'.
+            Choose your project, select dates then click 'PREVIEW' button.<br>
+            When preview page successfully loaded, click 'DOWNLOAD PDF' button.
         </div>
         <div class="uk-width-1-1 uk-position-relative" style="background-color: #eee;z-index:1;">
             <div class="uk-grid-small uk-child-width-1-2" uk-grid>
