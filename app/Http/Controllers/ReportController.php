@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+// ini_set('max_execution_time', 500);
 
 use App\Service\Account;
 use App\Service\LastSevenDays;
@@ -116,11 +117,11 @@ class ReportController extends Controller
         $data['projectName'] = $project->project->pname;
         $data['pageTitle'] = 'Show Image';
 
-        return view('pages.reports.pdf-downloaded', $data);
+        // return view('pages.reports.pdf-downloaded', $data);
 
-        // $pdf = \PDF::loadView('pages.reports.pdf-downloaded', $data);
-        // $pdf->setPaper('A4', 'potrait');
-        // return $pdf->download('report.pdf');
+        $pdf = \PDF::loadView('pages.reports.pdf-downloaded', $data);
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->download('report.pdf');
     }
 
 }

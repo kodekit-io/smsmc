@@ -28,9 +28,6 @@ function wordcloud(domId, url, chartApiData, name) {
                 var card = '<div class="sm-chart-container">'
                     + '<div class="uk-card uk-card-small">'
                         + '<div class="">'
-                            + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
-                        + '</div>'
-                        + '<div class="">'
                             + '<div id="'+chartId+'" class="sm-chart sm-wordcloud"></div>'
                         + '</div>'
                     + '</div>'
@@ -87,7 +84,7 @@ function wordcloud(domId, url, chartApiData, name) {
                     //CHART
                     var domchart = document.getElementById(chartId);
                     var theme = 'default';
-                    var theChart = echarts.init(domchart);
+                    var theChart = echarts.init(domchart,theme);
                     var loadingTicket;
 
                     theChart.showLoading({
@@ -95,29 +92,20 @@ function wordcloud(domId, url, chartApiData, name) {
                     });
 
                     var option = {
-                        backgroundColor: '#ffffff',
-                        tooltip: {
-                            show: true,
-                            formatter: '{b}: {c}'
+                        title: {
+                            text: chartName.toUpperCase(),
+                            left: '10px',
+                            top: '10px',
                         },
+                        backgroundColor: '#ffffff',
                         grid: {
-                            x: '0',
-                            x2: '0',
-                            y: '0',
-                            y2: '0'
+                            x: '15px',
+                            x2: '15px',
+                            y: '50px',
+                            y2: '75px'
                         },
                         toolbox: {
-                            show: true,
-                            x: 'right',
-                            y: 'bottom',
-                            padding: ['0', '0', '0', '0'],
-                            feature: {
-                                mark: {
-                                    show: true
-                                },
-                                restore: {show: true, title: 'Reload'},
-                                saveAsImage: {show: true, title: 'Save'}
-                            }
+                            show: false
                         },
                         series: [{
                             name: chartName,

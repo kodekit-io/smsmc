@@ -1,9 +1,9 @@
-@extends('layouts.default')
+@extends('layouts.export')
 @section('page-level-styles')
     <link rel="stylesheet" href="{!! asset('assets/css/lib/dataTables.smsmc.css') !!}" />
     <style>
     .sm-chart {
-        height: 100mm;
+        /*height: 100mm;*/
     }
     </style>
 @endsection
@@ -60,10 +60,10 @@
             Wait until preview page loaded, then click 'CREATE PDF'.
         </div>
         <div class="uk-width-1-1 uk-position-relative" style="background-color: #eee;z-index:1;">
-            <div class="uk-grid-small uk-child-width-1-2 uk-grid-divider" uk-grid>
+            <div class="uk-grid-small uk-child-width-1-2" uk-grid>
                 <div id="brandEquity"></div>
                 <div id="sentiment"></div>
-                <div id="sentimentTrend"></div>
+                {{-- <div id="sentimentTrend"></div> --}}
                 <div id="postTrend"></div>
 
                 <div id="buzzTrend"></div>
@@ -77,7 +77,7 @@
                 <div id="intRate"></div>
 
                 <div id="som"></div>
-                <div id="topicDist"></div>
+                {{-- <div id="topicDist"></div> --}}
                 <div id="ontology"></div>
                 <div id="wordcloud"></div>
             </div>
@@ -128,7 +128,7 @@
                 wordcloud('wordcloud', baseUrl + '/charts/wordcloud', $chartData);
                 chartBubble('brandEquity', baseUrl + '/charts/brand-equity', $chartData);
                 chartBarStack('sentiment', baseUrl + '/charts/bar-sentiment', $chartData);
-                chartTrendCombo('sentimentTrend', baseUrl + '/charts/trend-sentiment', $chartData);
+                // chartTrendCombo('sentimentTrend', baseUrl + '/charts/trend-sentiment', $chartData);
                 chartTrend('postTrend', baseUrl + '/charts/trend-post', $chartData);
                 chartTrend('buzzTrend', baseUrl + '/charts/trend-buzz', $chartData);
                 chartTrend('reachTrend', baseUrl + '/charts/trend-reach', $chartData);
@@ -139,7 +139,7 @@
                 chartPie('uniqueUser', baseUrl + '/charts/pie-unique-user', $chartData);
                 chartBar('intRate', baseUrl + '/charts/bar-interaction-rate', $chartData, 'Interaction Rate');
                 chartBarStack('som', baseUrl + '/charts/bar-media-share', $chartData);
-                chartBarStack('topicDist', baseUrl + '/charts/bar-topic-distribution', $chartData);
+                // chartBarStack('topicDist', baseUrl + '/charts/bar-topic-distribution', $chartData);
                 chartOntology('ontology', baseUrl + '/charts/ontologi', $chartData);
             }
 

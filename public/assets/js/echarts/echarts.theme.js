@@ -176,36 +176,36 @@
             }
         },
         "graph": {
-            "itemStyle": {
-                "normal": {
-                    "borderWidth": 0,
-                    "borderColor": "#ccc"
-                }
-            },
-            "lineStyle": {
-                "normal": {
-                    "width": 1,
-                    "color": "#aaaaaa"
-                }
-            },
-            "symbolSize": "6",
-            "symbol": "emptyCircle",
-            "smooth": true,
-            "color": [
-                "#516b91",
-                "#59c4e6",
-                "#edafda",
-                "#93b7e3",
-                "#a5e7f0",
-                "#cbb0e3"
-            ],
-            "label": {
-                "normal": {
-                    "textStyle": {
-                        "color": "#eeeeee"
-                    }
-                }
-            }
+            // "itemStyle": {
+            //     "normal": {
+            //         "borderWidth": 0,
+            //         "borderColor": "#ccc"
+            //     }
+            // },
+            // "lineStyle": {
+            //     "normal": {
+            //         "width": 1,
+            //         "color": "#aaaaaa"
+            //     }
+            // },
+            // "symbolSize": "6",
+            // "symbol": "emptyCircle",
+            // "smooth": true,
+            // "color": [
+            //     "#516b91",
+            //     "#59c4e6",
+            //     "#edafda",
+            //     "#93b7e3",
+            //     "#a5e7f0",
+            //     "#cbb0e3"
+            // ],
+            // "label": {
+            //     "normal": {
+            //         "textStyle": {
+            //             "color": "#eeeeee"
+            //         }
+            //     }
+            // }
         },
         "map": {
             "itemStyle": {

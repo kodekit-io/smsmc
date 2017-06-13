@@ -27,9 +27,6 @@ function chartOntology(domId,url,chartApiData,name) {
             var card = '<div class="sm-chart-container uk-position-relative" id="chartOntology">'
                 + '<div class="uk-card uk-card-small">'
                     + '<div class="">'
-                        + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
-                    + '</div>'
-                    + '<div class="">'
                         + '<div id="'+chartId+'" class="sm-chart"></div>'
                     + '</div>'
                 + '</div>'
@@ -40,10 +37,18 @@ function chartOntology(domId,url,chartApiData,name) {
 
             var data = result.nodes;
             if (data.length > 0) {
+                var legend=[];
+                for (var i = 0; i < data.length; i++) {
+                    legend[i] = {
+                        name: data[i].name,
+                        icon: 'circle'
+                    }
+                }
+
                 //CHART
                 var domchart = document.getElementById(chartId);
                 var theme = 'default';
-                var theChart = echarts.init(domchart);
+                var theChart = echarts.init(domchart,theme);
                 var loadingTicket;
                 var effectIndex = -1;
                 var effect = ['spin'];
@@ -65,12 +70,14 @@ function chartOntology(domId,url,chartApiData,name) {
                     }
                 });
                 var optionLegend = {
-                    data: categories.map(function (a) {
-                        return a.name;
-                    }),
+                    // data: categories.map(function (a) {
+                    //     return a.name;
+                    // }),
+                    data: legend,
+                    orient: 'vertical',
                     itemWidth: 15,
-                    x: 'left',
-                    y: 'bottom',
+                    left: '10px',
+                    bottom: '10px',
                     itemGap: 5,
                     formatter: function (name) {
                         var shortKey = name.substring(0, 10);
@@ -81,10 +88,8 @@ function chartOntology(domId,url,chartApiData,name) {
                         }
                     },
                     textStyle: {
-                        fontSize: 11
-                    },
-                    tooltip:{
-                        show:true
+                        fontSize: 11,
+                        color: '#333'
                     }
                 };
 
@@ -120,11 +125,15 @@ function chartOntology(domId,url,chartApiData,name) {
                 };
 
                 var option = {
+                    title: {
+                        text: chartName.toUpperCase(),
+                        left: '10px',
+                        top: '10px',
+                    },
                     backgroundColor: '#ffffff',
+                    animation: false,
                     color: optionColor,
                     legend: optionLegend,
-                    // animationDuration: 1500,
-                    // animationEasingUpdate: 'quinticInOut',
                     series : [
                         {
                             name: graph.chartName,
@@ -147,11 +156,17 @@ function chartOntology(domId,url,chartApiData,name) {
                     ]
                 };
                 var optionCircular = {
+                    title: {
+                        text: chartName.toUpperCase(),
+                        left: '10px',
+                        top: '10px',
+                    },
+                    width: '75%',
+                    height: '75%',
                     backgroundColor: '#ffffff',
+                    animation: false,
                     color: optionColor,
                     legend: optionLegend,
-                    // animationDuration: 1500,
-                    // animationEasingUpdate: 'quinticInOut',
                     series : [
                         {
                             name: graph.chartName,

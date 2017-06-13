@@ -28,9 +28,6 @@ function chartBar(domId, url, chartApiData, name) {
                 var card = '<div class="sm-chart-container">'
                     + '<div class="uk-card uk-card-small">'
                         + '<div class="">'
-                            + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
-                        + '</div>'
-                        + '<div class="">'
                             + '<div id="'+chartId+'" class="sm-chart"></div>'
                         + '</div>'
                     + '</div>'
@@ -57,58 +54,35 @@ function chartBar(domId, url, chartApiData, name) {
                     });
 
                     var option = {
-                        backgroundColor: '#ffffff',
-                        tooltip : {
-                            formatter: '{b}<br>{a} : {c}',
-                            trigger: 'axis',
-                            axisPointer : {
-                                type : 'shadow'
-                            }
+                        title: {
+                            text: chartName.toUpperCase(),
+                            left: '10px',
+                            top: '10px',
                         },
+                        backgroundColor: '#ffffff',
                         animation: false,
                         legend: {
                             show: true,
-                            // data: [chartName],
                             data: [{
                                 name: chartName,
-                                // icon: 'none'
+                                icon: 'circle'
                             }],
-                            x: 'left',
-                            y: 'bottom',
+                            left: '10px',
+                            bottom: '10px',
                             itemGap: 5,
-                            formatter: function (value) {
-                                return value;
-                            },
                             textStyle: {
-                                fontSize: 11
-                            },
-                            tooltip:{
-                                show:true
+                                fontSize: 11,
+                                color: '#333'
                             }
                         },
                         grid: {
-                            x: '30px',
-                            x2: '10px',
-                            y: '10px',
-                            y2: '60px'
+                            x: '15px',
+                            x2: '15px',
+                            y: '50px',
+                            y2: '75px'
                         },
                         toolbox: {
                             show: false,
-                            x: 'right',
-                            y: 'bottom',
-                            padding: ['0', '0', '0', '0'],
-                            feature: {
-                                mark: {
-                                    show: true
-                                },
-                                magicType: {
-                                    show: true,
-                                    type: ['bar', 'line'],
-                                    title: {stack: 'Bar', tiled: 'Line'},
-                                },
-                                restore: {show: true, title: 'Reload'},
-                                saveAsImage: {show: true, title: 'Save'}
-                            }
                         },
                         xAxis : [
                             {
@@ -116,7 +90,7 @@ function chartBar(domId, url, chartApiData, name) {
                                 data: key,
                                 axisLabel: {
                                     textStyle: {
-                                        fontSize: 10
+                                        fontSize: 11
                                     },
                                     formatter: function (value, index) {
                                         var k = String(key);
@@ -138,14 +112,14 @@ function chartBar(domId, url, chartApiData, name) {
                         yAxis : [
                             {
                                 type : 'value',
+                                splitLine: {
+                                    show: true
+                                },
+                                axisLine: {
+                                    show: false
+                                },
                                 axisLabel: {
-                                    textStyle: {
-                                        fontSize: 10
-                                    },
-                                    formatter: function (v) {
-                                        val = numeral(v).format('0.0a');
-                                        return val;
-                                    }
+                                    show: false
                                 },
                             }
                         ],
@@ -153,17 +127,16 @@ function chartBar(domId, url, chartApiData, name) {
                             name: chartName,
                             type: 'bar',
                             barMaxWidth: '50%',
-                            itemStyle : {
-                                normal: {
-                                    label : {
-                                        show: true
-                                    }
-                                }
-                            },
                             markLine : {
                                 lineStyle: {
                                     normal: {
                                         color: '#666'
+                                    }
+                                },
+                                label: {
+                                    normal: {
+                                        position: 'middle',
+                                        formatter: '{b} : {c}'
                                     }
                                 },
                                 data: [
@@ -173,16 +146,12 @@ function chartBar(domId, url, chartApiData, name) {
                                     }
                                 ]
                             },
-                            itemStyle: {
+                            label: {
                                 normal: {
-                                    /*color: function(params) {
-                                        var colorList = colors;
-                                        return colorList[params.dataIndex]
-                                    },*/
-                                    label: {
-                                        show: true,
-                                        position: 'top',
-                                        formatter: '{b}\n{c}'
+                                    show: true,
+                                    position: 'top',
+                                    textStyle: {
+                                        fontSize: 11
                                     }
                                 }
                             },
@@ -248,9 +217,6 @@ function chartBarStack(domId, url, chartApiData, name) {
                 var card = '<div class="sm-chart-container">'
                     + '<div class="uk-card uk-card-small">'
                         + '<div class="">'
-                            + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
-                        + '</div>'
-                        + '<div class="">'
                             + '<div id="'+chartId+'" class="sm-chart"></div>'
                         + '</div>'
                     + '</div>'
@@ -258,9 +224,9 @@ function chartBarStack(domId, url, chartApiData, name) {
                 $('#'+domId).append(card);
 
                 if (chartData.length > 0) {
-                    var series=[], legend=[], colors=[], key=[];
+                    var series=[], legend=[], colors=[], key=[], name=[];
                     for (var i = 0; i < chartData.length; i++) {
-                        legend[i] = chartData[i].name;
+                        name[i] = chartData[i].name;
                         colors[i] = chartData[i].color;
                         data = chartData[i].data;
                         for (var n = 0; n < data.length; n++) {
@@ -272,19 +238,20 @@ function chartBarStack(domId, url, chartApiData, name) {
                             type: 'bar',
                             stack: true,
                             barMaxWidth: '50%',
-
-                            itemStyle : {
+                            label: {
                                 normal: {
-                                    label : {
-                                        show: true,
-                                        position: 'inside',
-                                        textStyle: {
-                                            fontSize: 10
-                                        }
+                                    show: true,
+                                    position: 'right',
+                                    textStyle: {
+                                        fontSize: 11
                                     }
                                 }
                             },
                             data: data
+                        }
+                        legend[i] = {
+                            name: chartData[i].name,
+                            icon: 'circle'
                         }
                     }
 
@@ -320,56 +287,41 @@ function chartBarStack(domId, url, chartApiData, name) {
                         }
 
                         var option = {
-                            backgroundColor: '#ffffff',
-                            tooltip : {
-                                trigger: 'axis',
-                                axisPointer : {
-                                    type : 'shadow'
-                                }
+                            title: {
+                                text: chartName.toUpperCase(),
+                                left: '10px',
+                                top: '10px',
                             },
+                            backgroundColor: '#ffffff',
                             animation: false,
                             color: dataColor,
                             legend: {
+                                show: true,
                                 data: data.name,
-                                x: 'left',
-                                y: 'bottom',
+                                left: '10px',
+                                bottom: '10px',
                                 itemGap: 5,
                                 textStyle: {
-                                    fontSize: 11
-                                },
+                                    fontSize: 11,
+                                    color: '#333'
+                                }
                             },
                             grid: {
-                                x: '30px',
-                                x2: '10px',
-                                y: '10px',
-                                y2: '60px'
+                                x: '15px',
+                                x2: '15px',
+                                y: '50px',
+                                y2: '75px'
                             },
                             toolbox: {
                                 show: false,
-                                x: 'right',
-                                y: 'bottom',
-                                padding: ['0', '0', '0', '0'],
-                                feature: {
-                                    mark: {
-                                        show: true
-                                    },
-                                    magicType: {
-                                        show: true,
-                                        type: ['stack', 'tiled'],
-                                        title: {stack: 'Stack', tiled: 'Bar'},
-                                    },
-                                    restore: {show: true, title: 'Reload'},
-                                    saveAsImage: {show: true, title: 'Save'}
-                                }
                             },
-                            calculable : true,
                             xAxis : [
                                 {
                                     type : 'category',
                                     data: key,
                                     axisLabel: {
                                         textStyle: {
-                                            fontSize: 10
+                                            fontSize: 11
                                         },
                                         formatter: function (value, index) {
                                             var k = String(key);
@@ -391,14 +343,14 @@ function chartBarStack(domId, url, chartApiData, name) {
                             yAxis : [
                                 {
                                     type : 'value',
+                                    splitLine: {
+                                        show: true
+                                    },
+                                    axisLine: {
+                                        show: false
+                                    },
                                     axisLabel: {
-                                        textStyle: {
-                                            fontSize: 10
-                                        },
-                                        formatter: function (v) {
-                                            val = numeral(v).format('0a');
-                                            return val;
-                                        }
+                                        show: false
                                     },
                                 }
                             ],

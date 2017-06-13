@@ -27,9 +27,6 @@ function chartBubble(domId, url, chartApiData, name) {
             var card = '<div class="sm-chart-container">'
                 + '<div class="uk-card uk-card-small">'
                     + '<div class="">'
-                        + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
-                    + '</div>'
-                    + '<div class="">'
                         + '<div id="'+chartId+'" class="sm-chart"></div>'
                     + '</div>'
                 + '</div>'
@@ -60,10 +57,19 @@ function chartBubble(domId, url, chartApiData, name) {
                     $legend[i] = $keywordName;
                     $series[i] = {
                         name: $keywordName,
-                        data: [[$netsen, $earnedMediaShare, $unquser]], //[x,y,z,....]
+                        data: [[$netsen, $earnedMediaShare, $unquser]],
                         type: 'scatter',
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'bottom',
+                                textStyle: {
+                                    fontSize: 11
+                                }
+                            }
+                        },
                         symbolSize: function (data) {
-                            return Math.sqrt(data[2]);
+                            return Math.sqrt(data[2] * 10);
                         }
                     };
 
@@ -73,22 +79,6 @@ function chartBubble(domId, url, chartApiData, name) {
                     colors: $colors,
                     legend: $legend
                 };
-                //console.log(data.colors);
-
-                // var arr_xval = $xval;
-                // var arr_xmax = Math.max.apply(Math,arr_xval);
-                // var arr_xmin = Math.min.apply(Math,arr_xval);
-                // var xmax = arr_xmax + (arr_xmax * 0.1);
-                // var xmin = arr_xmin - (arr_xmax * 0.1);
-                // //console.log(xmin+'-'+xmax);
-                //
-                // var arr_yval = $yval;
-                // var arr_ymax = Math.max.apply(Math,arr_yval);
-                // var arr_ymin = Math.min.apply(Math,arr_yval);
-                // var ymax = arr_ymax + (arr_ymax * 0.5);
-                // var ymin = arr_ymin - (arr_ymax * 0.5);
-                // //console.log(ymin+'-'+ymax);
-
 
                 //CHART
                 var domchart = document.getElementById(chartId);
@@ -114,57 +104,40 @@ function chartBubble(domId, url, chartApiData, name) {
                 }
 
                 var option = {
-                    backgroundColor: '#ffffff',
-                    color: dataColor,
                     title: {
-                        show: false
+                        text: chartName.toUpperCase(),
+                        left: '10px',
+                        top: '10px',
                     },
+                    backgroundColor: '#ffffff',
+                    animation: false,
+                    color: dataColor,
                     legend: {
                         data: data.legend,
-                        x: 'left',
-                        y: 'bottom',
+                        left: '10px',
+                        bottom: '10px',
                         itemGap: 5,
                         formatter: function (name) {
-                            return name;
+                            var shortKey = name.substring(0, 10);
+                            if(name.length>10){
+                                return shortKey+'..';
+                            } else {
+                                return name;
+                            }
                         },
                         textStyle: {
-                            fontSize: 11
-                        },
-                        tooltip:{
-                            show:true
+                            fontSize: 11,
+                            color: '#333'
                         }
                     },
                     grid: {
-                        x: '30px',
-                        x2: '50px',
+                        x: '15px',
+                        x2: '15px',
                         y: '50px',
-                        y2: '70px'
+                        y2: '75px'
                     },
                     toolbox: {
                         show: false,
-                        x: 'right',
-                        y: 'bottom',
-                        padding: ['0', '0', '0', '0'],
-                        feature: {
-                            mark: {show: true},
-                            //dataView : {show: false, readOnly: false},
-                            magicType: {
-                                show: false
-                            },
-                            restore: {show: true, title: 'Reload'},
-                            saveAsImage: {show: true, title: 'Save'}
-                        }
-                    },
-                    tooltip: {
-                        formatter: function (obj) {
-                            var value = obj.value;
-                            return '<span class="sm-text-bold">' + obj.seriesName + '</span><br>'
-                            + '<table cellpadding="0" cellspacing="0">'
-                                + '<tr><td>Net Sentiment: </td><td class="uk-text-right"> ' + value[0] + '</td></tr>'
-                                + '<tr><td>Earned Media Share: </td><td class="uk-text-right"> ' + value[1] + '</td></tr>'
-                                + '<tr><td>Unique User: </td><td class="uk-text-right"> ' + value[2] + '</td></tr>'
-                            + '</table>';
-                        }
                     },
                     xAxis: {
                         type: 'value',
@@ -172,46 +145,42 @@ function chartBubble(domId, url, chartApiData, name) {
                         nameLocation: 'middle',
                         nameGap: -15,
                         nameTextStyle: {
-                            color: '#999'
+                            color: '#999',
+                            textStyle: {
+                                fontSize: 11
+                            },
                         },
                         axisLabel: {
-                            //show: false,
                             textStyle: {
-                                fontSize: 10
+                                fontSize: 11
                             },
                             formatter: function (v) {
                                 $v = numeral(v).format('0a');
                                 return $v;
                             }
                         },
-                        // min: xmin,
-                        // max: xmax
                     },
                     yAxis: {
                         type: 'value',
                         name: 'EMS',
-                        nameLocation: 'middle',
-                        nameGap: -15,
+                        nameLocation: 'end',
+                        nameRotate: 90,
+                        nameGap: -30,
                         nameTextStyle: {
-                            color: '#999'
+                            color: '#999',
+                            textStyle: {
+                                fontSize: 11
+                            },
                         },
                         splitLine: {
-                            lineStyle: {
-                                type: 'dotted'
-                            }
+                            show: true
+                        },
+                        axisLine: {
+                            show: false
                         },
                         axisLabel: {
-                            //show: false,
-                            textStyle: {
-                                fontSize: 10
-                            },
-                            formatter: function (v) {
-                                $v = numeral(v).format('0a');
-                                return $v;
-                            }
+                            show: false
                         },
-                        // min: ymin,
-                        // max: ymax
                     },
                     series: data.series
                 };

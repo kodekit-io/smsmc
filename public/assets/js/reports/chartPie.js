@@ -28,9 +28,6 @@ function chartPie(domId, url, chartApiData, name) {
             var card = '<div class="sm-chart-container">'
                 + '<div class="uk-card uk-card-small">'
                     + '<div class="">'
-                        + '<h5 class="uk-card-title">'+chartTitle+'</h5>'
-                    + '</div>'
-                    + '<div class="">'
                         + '<div id="'+chartId+'" class="sm-chart"></div>'
                     + '</div>'
                 + '</div>'
@@ -38,12 +35,17 @@ function chartPie(domId, url, chartApiData, name) {
             $('#'+domId).append(card);
 
             if (chartData.length > 0) {
-                var serie=[], key=[], color=[], value=[];
+                var serie=[], key=[], color=[], value=[], legend=[];
                 for (var i = 0; i < chartData.length; i++) {
                     key[i] = chartData[i].key;
                     color[i] = chartData[i].color;
                     value[i] = chartData[i].value;
                     serie[i] = {value: value[i], name: key[i]};
+
+                    legend[i] = {
+                        name: chartData[i].key,
+                        icon: 'circle'
+                    }
                 }
 
                 //CHART
@@ -69,55 +71,50 @@ function chartPie(domId, url, chartApiData, name) {
                 }
 
                 var option = {
+                    title: {
+                        text: chartName.toUpperCase(),
+                        left: '10px',
+                        top: '10px',
+                    },
                     backgroundColor: '#ffffff',
-                    tooltip: {
-                        trigger: 'item',
-                        formatter: "{a}<br/>{b}: {c} ({d}%)"
-                    },
-                    color: dataColor,
                     animation: false,
-                    grid: {
-                        x: '0',
-                        x2: '0',
-                        y: '0',
-                        y2: '0'
-                    },
-                    toolbox: {
-                        show: false,
-                        x: 'right',
-                        y: 'bottom',
-                        padding: ['0', '0', '0', '0'],
-                        feature: {
-                            mark: {
-                                show: true
-                            },
-                            restore: {show: true, title: 'Reload'},
-                            saveAsImage: {show: true, title: 'Save'}
-                        }
-                    },
+                    color: dataColor,
                     legend: {
                         orient: 'vertical',
-                        data: key,
-                        x: 'left',
-                        y: 'top',
+                        data: legend,
+                        left: '10px',
+                        bottom: '10px',
+                        itemGap: 5,
                         itemWidth: 15,
                         itemHeight: 12,
                         formatter: function (name) {
-                            return name;
+                            var shortKey = name.substring(0, 10);
+                            if(name.length>10){
+                                return shortKey+'..';
+                            } else {
+                                return name;
+                            }
                         },
                         textStyle: {
-                            fontSize: 11
-                        },
-                        tooltip:{
-                            show:true
+                            fontSize: 11,
+                            color: '#333'
                         }
+                    },
+                    grid: {
+                        x: '15px',
+                        x2: '15px',
+                        y: '50px',
+                        y2: '75px'
+                    },
+                    toolbox: {
+                        show: false,
                     },
                     series: [
                         {
                             name: chartName,
                             type:'pie',
-                            radius: ['25%', '75%'],
-                            center: ['55%', '55%'],
+                            radius: ['25%', '50%'],
+                            center: ['50%', '50%'],
                             avoidLabelOverlap: true,
                             label: {
                                 normal: {
