@@ -87,10 +87,14 @@ trait ProjectRequestParser
         $ticketTypes = $this->ticketService->getTicketType();
         $data['ticketTypes'] = \GuzzleHttp\json_encode($ticketTypes);
 
-        // get TO
+        // get user TO
         // $users = $this->userService->getUsers();
         $users = $this->ticketService->getSendToUsers();
         $data['users'] = \GuzzleHttp\json_encode($users);
+
+        // get group TO
+        $groups = $this->ticketService->group()->getGroups()->group;
+        $data['groups'] = \GuzzleHttp\json_encode($groups);
 
         $data['keywords'] = $keywords;
         $data['topics'] = $topics;

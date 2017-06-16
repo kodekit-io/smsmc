@@ -73,9 +73,12 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         }
         $toSelect += '</select>';
 
-        var $toGroup = '<select class="uk-input uk-width-medium" id="" name="">' +
-            '<option value="">Group Name</option>' +
-        '</select>';
+        $groups = jQuery.parseJSON(chartApiData.groups);
+        var $toGroup = '<select class="uk-input uk-width-medium" id="to_group_select" name="groupsTo[]" multiple >';
+        $.each($groups, function($index, $group) {
+            $toGroup += '<option value="'+$group.id+'">'+$group.groupName+'</option>';
+        });
+        $toGroup += '</select>';
 
         var modal = '<form class="open-ticket uk-form-horizontal" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
@@ -123,6 +126,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
 
         $("#to_select").select2();
         $("#to_cc_select").select2();
+        $("#to_group_select").select2();
 
         $( "#createticket" ).on( "submit", function( event ) {
             event.preventDefault();

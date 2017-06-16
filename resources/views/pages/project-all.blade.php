@@ -158,8 +158,10 @@
                 "createTicketUrl": '{!! url('convo/create-ticket') !!}',
                 "changeSentimentUrl": '{!! url('change-sentiment') !!}',
                 "ticketTypes": '{!! $ticketTypes !!}',
-                'users': '{!! $users !!}'
+                'users': '{!! $users !!}',
+                'groups': '{!! $groups !!}'
             };
+
             getTotalMedia(baseUrl + '/charts/bar-media-share', $chartData);
 
             chartBubble('01', baseUrl + '/charts/brand-equity', $chartData);

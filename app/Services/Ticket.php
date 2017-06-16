@@ -12,13 +12,18 @@ class Ticket
      * @var Smsmc
      */
     private $smsmc;
+    /**
+     * @var Group
+     */
+    private $group;
 
     /**
      * Ticket constructor.
      */
-    public function __construct(Smsmc $smsmc)
+    public function __construct(Smsmc $smsmc, Group $group)
     {
         $this->smsmc = $smsmc;
+        $this->group = $group;
     }
 
     public function getTickets()
@@ -45,6 +50,7 @@ class Ticket
         $idMedia = $request->has('idMedia') ? $request->input('idMedia') : '';
         $postId = $request->has('postId') ? $request->input('postId') : '';
         $to = $request->has('to') ? count($request->input('to')) > 0 ? implode(',', $request->input('to')) : '' : '';
+        $toGroups = $request->has('groupsTo') ? count($request->input('groupsTo')) > 0 ? implode(',', $request->input('groupsTo')) : '' : '';
         // $to = 561;
         // $toCc = $request->has('to_cc') ? count($request->input('to_cc')) > 0 ? implode(',', $request->input('to_cc')) : '' : '';
         $postDate = $request->has('postDate') ? $request->input('postDate') : Carbon::create()->format('Y-m-d\TH:i:s\Z');
@@ -59,7 +65,8 @@ class Ticket
             'send' => $to,
             'idmedia' => $idMedia,
             'postDate' => $postDate,
-            'sentiment' => $sentiment
+            'sentiment' => $sentiment,
+            'sendGroupId' => $toGroups,
         ];
 
         if ($request->has('projectId')) {
@@ -69,6 +76,7 @@ class Ticket
         // Log::warning("Ticket from datatable params => " . \GuzzleHttp\json_encode($params));
 
         $response = $this->smsmc->post('ticket/send', $params);
+        Log::warning('ticket response ' . \GuzzleHttp\json_encode($response));
         if ($response->status == '200') {
             return true;
         }
@@ -169,5 +177,10 @@ class Ticket
         }
 
         return [];
+    }
+
+    public function group()
+    {
+        return $this->group;
     }
 }
