@@ -74,7 +74,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         $toSelect += '</select>';
 
         $groups = jQuery.parseJSON(chartApiData.groups);
-        var $toGroup = '<select class="uk-input uk-width-medium" id="to_group_select" name="groupsTo[]" multiple >';
+        var $toGroup = '<select class="uk-input uk-width-medium" id="to_group_select" name="groupsTo[]" multiple>';
         $.each($groups, function($index, $group) {
             $toGroup += '<option value="'+$group.id+'">'+$group.groupName+'</option>';
         });
@@ -92,11 +92,11 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 '<div class="uk-margin">' +
                     '<label class="uk-form-label" for="to_select">Send to</label>' +
                     '<div class="uk-form-controls">' +
-                        '<ul uk-tab>' +
+                        '<ul class="uk-margin-small-bottom" uk-tab>' +
                             '<li><a href="#">Person</a></li>' +
                             '<li><a href="#">Group</a></li>' +
                         '</ul>' +
-                        '<ul class="uk-switcher uk-margin">' +
+                        '<ul class="uk-switcher uk-margin-bottom">' +
                             '<li>'+ $toSelect +'</li>' +
                             '<li>'+ $toGroup +'</li>' +
                         '</ul>' +
@@ -124,9 +124,19 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         '</form>';
         var uikitModal = UIkit.modal.dialog(modal);
 
-        $("#to_select").select2();
-        $("#to_cc_select").select2();
-        $("#to_group_select").select2();
+        $("#to_select").select2({
+            tags: "true",
+            placeholder: 'Select user',
+            allowClear: true,
+            dropdownParent: $('#createticket')
+        });
+        // $("#to_cc_select").select2();
+        $('#to_group_select').select2({
+            tags: "true",
+            placeholder: 'Select group',
+            allowClear: true,
+            dropdownParent: $('#createticket')
+        });
 
         $( "#createticket" ).on( "submit", function( event ) {
             event.preventDefault();

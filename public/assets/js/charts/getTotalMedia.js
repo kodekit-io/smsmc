@@ -9,7 +9,7 @@ function getTotalMedia(url, chartApiData) {
         },
         success: function(result){
             var result = jQuery.parseJSON(result);
-            console.log(result);
+            // console.log(result);
             if (result.length === 0) {
             } else {
                 var chartData = result.chartData;

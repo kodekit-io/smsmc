@@ -59,10 +59,10 @@ function chartOntology(domId,url,chartApiData,name) {
 
                 var graph = result;
                 var categories = graph.categories;
-                console.log(graph);
+                // console.log(graph);
 
                 var optionColor = categories.map(function (c) {
-                    console.log(c.color);
+                    // console.log(c.color);
                     if(c.color == '' || c.color == 'undefined' || c.color == undefined || c.color == null){
                         return '#c05050';
                     } else {

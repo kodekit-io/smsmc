@@ -93,3 +93,17 @@ table.dataTable thead>tr>th.sorting_asc:after, table.dataTable thead>tr>td.sorti
 table.dataTable thead>tr>th.sorting_desc:after, table.dataTable thead>tr>td.sorting_desc:after {
     content: "\f0dd"
 }
+.dt-merge-grid {
+    position: relative;
+}
+.dataTables_processing {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -60px;
+    width: 120px;
+    text-align: center;
+    color: #fff;
+    background: #EC1C23;
+    padding: 5px;
+}
