@@ -57,7 +57,7 @@ class Ticket
         $sentiment = $request->has('sentiment') ? $request->input('sentiment') : 'general';
 
         $params = [
-            'uid' => $to,
+            'uid' => $from,
             'text' => $message,
             'postId' => $postId,
             'tipeId' => $types,
