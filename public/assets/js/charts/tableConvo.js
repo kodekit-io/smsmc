@@ -67,14 +67,15 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
             ticketType += '<li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="'+ theType.id +'"> '+ theType.name +'</label></li>';
         }
         var $toSelect = '<select id="to_select" name="to[]" class="uk-input uk-width-medium" multiple >';
-        // var $toCcSelect = '<select id="to_cc_select" name="to_cc[]" class="uk-input" multiple >';
         for (i=0; i < $users.length; i++) {
             var theUser = $users[i];
             $toSelect += '<option value="'+ theUser.id +'"> '+ theUser.name +'</option>';
-            // $toCcSelect += '<option value="'+ theUser.idLogin +'"> '+ theUser.name +'</option>';
         }
         $toSelect += '</select>';
-        // $toCcSelect += '</select>';
+
+        var $toGroup = '<select class="uk-input uk-width-medium" id="" name="">' +
+            '<option value="">Group Name</option>' +
+        '</select>';
 
         var modal = '<form class="open-ticket uk-form-horizontal" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
             '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
@@ -87,8 +88,15 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
                 '<h5>Open New Ticket</h5>' +
                 '<div class="uk-margin">' +
                     '<label class="uk-form-label" for="to_select">Send to</label>' +
-                    '<div class="uk-form-controls uk-width-1-1">' +
-                        $toSelect +
+                    '<div class="uk-form-controls">' +
+                        '<ul uk-tab>' +
+                            '<li><a href="#">Person</a></li>' +
+                            '<li><a href="#">Group</a></li>' +
+                        '</ul>' +
+                        '<ul class="uk-switcher uk-margin">' +
+                            '<li>'+ $toSelect +'</li>' +
+                            '<li>'+ $toGroup +'</li>' +
+                        '</ul>' +
                     '</div>' +
                 '</div>' +
                 '<div class="uk-margin">' +
