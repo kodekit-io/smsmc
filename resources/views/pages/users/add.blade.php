@@ -30,10 +30,18 @@
                             <input class="uk-input" type="text" name="name">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Id Business</label>
+                            <label>Pilar</label>
                             <select name="id_business" class="uk-select">
                                 @foreach($pilars as $pilar)
                                     <option value="{!! $pilar->id !!}">{!! $pilar->pilarName !!}</option>
+                                @endforeach
+                            </select>
+                        </div></li>
+                        <li><div class="uk-position-relative">
+                            <label>User Group</label>
+                            <select name="group" class="uk-select">
+                                @foreach($groups as $group)
+                                    <option value="{!! $group->id !!}">{!! $group->groupName !!}</option>
                                 @endforeach
                             </select>
                         </div></li>
@@ -42,14 +50,6 @@
                             <select name="role" class="uk-select">
                                 @foreach($roles as $role)
                                 <option value="{!! $role->idRole !!}">{!! $role->name !!}</option>
-                                @endforeach
-                            </select>
-                        </div></li>
-                        <li><div class="uk-position-relative">
-                            <label>Group</label>
-                            <select name="group" class="uk-select">
-                                @foreach($groups as $group)
-                                    <option value="{!! $group->id !!}">{!! $group->groupName !!}</option>
                                 @endforeach
                             </select>
                         </div></li>

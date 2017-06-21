@@ -54,11 +54,11 @@
 			                "data": "email"
 			            },
 			            {
-			                "title": "BP",
+			                "title": "Pilar",
 			                "data": "BP"
 			            },
 			            {
-			                "title": "Group",
+			                "title": "User Group",
 			                "data": "group"
 			            },
 			            {

@@ -1,252 +1,213 @@
-function tableConvo(domId, url, chartApiData, name) {
-    var xxx=0;
-    $.ajax({
-        method: "POST",
-        url: url,
-        data: chartApiData,
-        beforeSend : function(xhr) {
-            var cardloader = '<div class="cardloader sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left"></h5>'
-                    + '</div>'
-                    + '<div class="uk-card-body">'
-                        + '<div class="sm-chart"><div class="uk-position-center" uk-spinner></div></div>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
-            $('#'+domId).append(cardloader);
-            xxx++;
-        },
-        complete : function(xhr, status) {
-            xxx--;
-            if (xxx <= 0) {
-                $('.cardloader').remove();
-            }
-        },
-        success: function(result){
-            var result = jQuery.parseJSON(result);
-            var chartId = result.chartId;
-            var chartName = result.chartName;
-            var chartInfo = result.chartInfo;
-            var chartData = result.chartData;
-            if (name != null) {
-                var chartTitle = name;
-            } else {
-                var chartTitle = chartName;
-            }
-            var modal = '<div id="openTicket" uk-modal>'
-                + '<div class="uk-modal-dialog">'
-                    + '<div class="uk-modal-body">'
-                        + '<h5>Open New Ticket</h5>'
-                        + '<form class="open-ticket">'
-                            + '<div class="uk-flex uk-flex-middle">'
-                                + '<div>'
-                                    + '<a class="uk-button uk-button-default uk-button-small" type="button">Send to <span uk-icon="icon: chevron-down"></span></a>'
-                                    + '<div uk-dropdown="offset: 0">'
-                                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line sendto">'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Pulp & Paper</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Agribusiness & Food</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> President Office</label></li>'
-                                            + '<li><label><input class="uk-checkbox sendtoall" type="checkbox"> Send To All</label></li>'
-                                        + '</ul>'
-                                    + '</div>'
-                                + '</div>'
-                                + '<div class="uk-margin-left">'
-                                    + '<a class="uk-button uk-button-default uk-button-small" type="button">Ticket Type <span uk-icon="icon: chevron-down"></span></a>'
-                                    + '<div uk-dropdown="offset: 0">'
-                                        + '<ul class="uk-nav uk-navbar-dropdown-nav uk-list-line">'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Respon</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Monitor</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Pulp & Paper</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Agribusiness & Food</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Property</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - President Office</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Financial Services</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Communication & Technology</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Energy & Infrastructure</label></li>'
-                                            + '<li><label><input class="uk-checkbox" type="checkbox"> Content - Initiatives Project</label></li>'
-                                        + '</ul>'
-                                    + '</div>'
-                                + '</div>'
-                            + '</div>'
-                            + '<div class="uk-margin">'
-                                + '<textarea class="uk-textarea" rows="3" placeholder="Additional message"></textarea>'
-                            + '</div>'
-                        + '</form>'
-                    + '</div>'
-                    + '<div class="uk-modal-footer uk-clearfix">'
-                        + '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>'
-                        + '<a class="uk-modal-close uk-button uk-float-right red white-text">SEND</a>'
-                    + '</div>'
-                + '</div>'
-            + '</div>';
+function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
+    // var searchText = $('input[name=searchText]').val();
+    // $('.dataTables_filter').find('input[type=search]').val(searchText);
+    var idMedia = chartApiData.idMedia;
+    if (idMediaParam != '') {
+        idMedia = idMediaParam;
+        var apiData = {
+            'idMediaInAll': idMediaParam
+        };
+        $.extend( apiData, chartApiData );
+    } else {
+        apiData = chartApiData;
+    }
 
-            var card = '<div id="'+chartId+'" class="sm-chart-container uk-animation-fade">'
-                + '<div class="uk-card uk-card-hover uk-card-default uk-card-small">'
-                    + '<div class="uk-card-header uk-clearfix">'
-                        + '<h5 class="uk-card-title uk-float-left">'+chartTitle+'</h5>'
-                        + '<ul class="uk-float-right uk-subnav uk-margin-remove">'
-                            + '<li><a class="grey-text fa fa-info-circle" title="'+chartInfo+'" uk-tooltip></a></li>'
-                            + '<li><a onclick="hideThis(this)" class="grey-text fa fa-eye-slash" title="Hide This" uk-tooltip></a></li>'
-                            + '<li><a onclick="fullscreen(this)" class="grey-text fa fa-expand" title="Full Screen" uk-tooltip></a></li>'
-                        + '</ul>'
-                    + '</div>'
-                    + '<div class="uk-card-body">'
-                        + '<table id="'+chartId+'Table" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>'
-                        + modal
-                    + '</div>'
-                + '</div>'
-            + '</div>';
-            $('#'+domId).append(card);
+    switch (idMedia) {
+        case 1:
+            var theTable = tableFacebook(chartId, url, apiData, idMedia);
+            break;
+        case 2:
+            var theTable = tableTwitter(chartId, url, apiData, idMedia);
+            break;
+        case 3:
+            var theTable = tableBlog(chartId, url, apiData, idMedia);
+            break;
+        case 4:
+            var theTable = tableNews(chartId, url, apiData, idMedia);
+            break;
+        case 5:
+            var theTable = tableVideo(chartId, url, apiData, idMedia);
+            break;
+        case 6:
+            var theTable = tableForum(chartId, url, apiData, idMedia);
+            break;
+        case 7:
+            var theTable = tableInstagram(chartId, url, apiData, idMedia);
+            break;
+        case 9:
+            var theTable = tableNews(chartId, url, apiData, idMedia);
+            break;
+    }
 
-            var theTable = $('#'+chartId+'Table').DataTable( {
-                data: chartData,
-                buttons: {
-                    buttons: [
-                        //{ extend: 'pdfHtml5', className: 'uk-button uk-button-small red white-text' },
-                        { extend: 'excelHtml5', className: 'uk-button uk-button-small green darken-2 white-text uk-margin-small-left' },
-                        { extend: 'csvHtml5', className: 'uk-button uk-button-small teal white-text uk-margin-small-left' }
-                    ]
-                },
-                columns: [
-                    { "data": null,"orderable": false,"width": "2.5%" },
-                    {
-                        "data": "date","title": "Date", "width": "12.5%",
-                        "render": function ( cellData ) {
-                            var localtime = moment.parseZone(cellData).local().format('llll');
-                            return localtime;
-                        }
-                    },
-                    // {
-                    //     "data": "channel", "title": "Channel", "width": "5%", "class": "uk-text-center",
-                    //     "render": function ( cellData ) {
-                    //         var channel = cellData;
-                    //         var icon = "";
-                    //         switch (channel) {
-                    // 			case 'facebook':
-                    // 				icon = 'facebook';
-                    // 				break;
-                    // 			case 'twitter':
-                    // 				icon = 'twitter';
-                    // 				break;
-                    // 			case 'youtube':
-                    // 				icon = 'youtube';
-                    // 				break;
-                    // 			case 'instagram':
-                    // 				icon = 'instagram';
-                    // 				break;
-                    // 			case 'news':
-                    // 				icon = 'globe';
-                    // 				break;
-                    // 			case 'blog':
-                    // 				icon = 'rss';
-                    // 				break;
-                    // 			case 'forum':
-                    // 				icon = 'comments';
-                    // 				break;
-                    // 		}
-                    //         return '<span class="uk-icon-button white-text color-'+icon+'"><i class="fa fa-'+icon+'"></i> <span class="uk-hidden">'+channel+'</span></span>';
-                    //     }
-                    // },
-                    { "data": "author", "title": "Author", "width": "15%" },
-                    {
-                        "data": null, "title": "Post", "width": "45%",
-                        "render": function ( data ) {
-                            var post = data["post"];
-                            var postrim = post.substring(0,100) + "...";
-                            var plink = data["postLink"];
-                            return '<a href="'+plink+'" target="_blank" data-uk-tooltip title="'+post+'" class="uk-link">'+postrim+'</a>';
-                        }
-                    },
-                    {
-                        "data": "sentiment","title": "","width": "12.5%","orderable": false,"class": "uk-text-center",
-                        "createdCell": function (td, cellData, rowData, row, col) {
-                            switch (cellData) {
-                                case 'positive':
-                                case 'Positif':
-                                case 'positif':
-                                    $(td).css('color', 'green');
-                                    break;
-                                case 'neutral':
-                                case 'Netral':
-                                case 'netral':
-                                    $(td).css('color', 'grey');
-                                    break;
-                                case 'negative':
-                                case 'Negatif':
-                                case 'negatif':
-                                    $(td).css('color', 'red');
-                                    break;
-                            }
-                        }
-                    },
-                    {
-                        "data": "status", "title": "Status", "orderable": false, "width": "12.5%", "class": "uk-text-center",
-                        "render": function ( cellData, rowData ) {
-                            //var status = cellData;
-                            var btn = '';
-                            switch (cellData) {
-                                case 'New':
-                                    btn = '<a href="#openTicket" uk-tooltip uk-toggle title="Open New Ticket" class="sm-btn-openticket orange-text white uk-badge sm-badge"><span class="nothover">'+cellData+'</span></a>';
-                                break;
-                                case 'Closed':
-                                    btn = '<span class="uk-badge sm-badge green white-text" title="Responded and closed" uk-tooltip>'+cellData+'</span>';
-                                break;
-                                case 'Open':
-                                    btn = '<span class="uk-badge sm-badge red white-text" title="Waiting for a response" uk-tooltip>'+cellData+'</span>';
-                                break;
-                            }
+    if (idMediaParam == '') {
+        $.ajax({
+            url: baseUrl + "/charts/download-convo",
+            method: "POST",
+            data: chartApiData
+        }).done(function (downloadLink) {
+            var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text uk-margin-top" href="'+downloadLink+'" id="download_excel_'+idMedia+'" target="_blank" title="Export Conversation to Excel" uk-tooltip>EXPORT CONVERSATION</a>';
+            // $('#'+chartId+'_wrapper').find('div.uk-inline.B').append(btnExcel);
+            $('div#405').find('.uk-card-body').append(btnExcel);
+        });
+    }
 
-                            return btn;
-                        }
-                    }
-                ],
-                order: [[ 1, "desc" ]],
-                initComplete: function () {
-                    this.api().columns().every( function () {
-                        var column = this;
-                        if(column[0][0] == 4) {
-                            var select = $('<select class="uk-select select-sentiment"><option value="">All Sentiment</option></select>')
-                                .appendTo( $(column.header()).empty() )
-                                .on( 'change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex(
-                                        $(this).val()
-                                    );
-                                    column
-                                        .search( val ? '^'+val+'$' : '', true, false )
-                                        .draw();
-                                } );
-
-                            column.data().unique().sort().each( function ( d, j ) {
-                                select.append( '<option value="'+d+'">'+d+'</option>' )
-                            });
-                        }
-                        if(column[0][0] == 5) {
-                            var select = $('<select class="uk-select select-sentiment"><option value="">All Status</option></select>')
-                                .appendTo( $(column.header()).empty() )
-                                .on( 'change', function () {
-                                    var val = $.fn.dataTable.util.escapeRegex(
-                                        $(this).val()
-                                    );
-                                    column
-                                        .search( val ? '^'+val+'$' : '', true, false )
-                                        .draw();
-                                } );
-
-                            column.data().unique().sort().each( function ( d, j ) {
-                                select.append( '<option value="'+d+'">'+d+'</option>' )
-                            });
-                        }
-                    });
-                }
-            });
-            theTable.on( 'order.dt search.dt', function () {
-                theTable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-                    cell.innerHTML = i+1;
-                } );
-            } ).draw();
-            theTable.columns.adjust().draw();
+    // Send Ticket
+    $('#' + chartId).on('click', '.sm-btn-openticket', function(e) {
+        e.preventDefault();
+        $(this).blur();
+        var postId = $(this).attr('data-id');
+        var postDate = $(this).attr('data-post-date');
+        var sentiment = $(this).attr('data-sentiment');
+        var idMedia = $(this).attr('data-id-media');
+        var $ticketTypes = jQuery.parseJSON(chartApiData.ticketTypes);
+        var $users = jQuery.parseJSON(chartApiData.users);
+        var ticketType = '';
+        for (i=0; i < $ticketTypes.length; i++) {
+            var theType = $ticketTypes[i];
+            ticketType += '<li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="'+ theType.id +'"> '+ theType.name +'</label></li>';
         }
+        var $toSelect = '<select id="to_select" name="to[]" class="uk-input uk-width-medium" multiple >';
+        for (i=0; i < $users.length; i++) {
+            var theUser = $users[i];
+            $toSelect += '<option value="'+ theUser.id +'"> '+ theUser.name +'</option>';
+        }
+        $toSelect += '</select>';
+
+        $groups = jQuery.parseJSON(chartApiData.groups);
+        var $toGroup = '<select class="uk-input uk-width-medium" id="to_group_select" name="groupsTo[]" multiple>';
+        $.each($groups, function($index, $group) {
+            $toGroup += '<option value="'+$group.id+'">'+$group.groupName+'</option>';
+        });
+        $toGroup += '</select>';
+
+        var modal = '<form class="open-ticket uk-form-horizontal" method="post" id="createticket" action="'+ chartApiData.createTicketUrl +'">' +
+            '<input type="hidden" name="_token" value="'+ chartApiData._token +'"> ' +
+            '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'"> ' +
+            '<input type="hidden" name="idMedia" value="'+ idMedia +'" >' +
+            '<input type="hidden" name="postDate" value="'+ postDate +'"> ' +
+            '<input type="hidden" name="sentiment" value="'+ sentiment +'" >' +
+            '<input type="hidden" name="postId" value="'+ postId +'">' +
+            '<div  class="uk-modal-body">' +
+                '<h5>Open New Ticket</h5>' +
+                '<div class="uk-margin">' +
+                    '<label class="uk-form-label" for="to_select">Send to</label>' +
+                    '<div class="uk-form-controls">' +
+                        '<ul class="uk-margin-small-bottom" uk-tab>' +
+                            '<li><a href="#">Person</a></li>' +
+                            '<li><a href="#">Group</a></li>' +
+                        '</ul>' +
+                        '<ul class="uk-switcher uk-margin-bottom">' +
+                            '<li>'+ $toSelect +'</li>' +
+                            '<li>'+ $toGroup +'</li>' +
+                        '</ul>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="uk-margin">' +
+                    '<label class="uk-form-label">Ticket Type</label>' +
+                    '<div class="uk-form-controls" style="padding-top:7px;">' +
+                        '<ul class="uk-subnav">' +
+                            ticketType +
+                        '</ul>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="uk-margin">' +
+                    '<label class="uk-form-label" for="message">Message</label>' +
+                    '<div class="uk-form-controls">' +
+                        '<textarea class="uk-textarea" rows="3" placeholder="Additional message" name="message"></textarea>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="uk-margin uk-flex uk-flex-right">' +
+                    '<a class="uk-modal-close uk-button grey white-text uk-margin-small-right">CANCEL</a>' +
+                    '<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
+                '</div>' +
+            '</div>' +
+        '</form>';
+        var uikitModal = UIkit.modal.dialog(modal);
+
+        $("#to_select").select2({
+            tags: "true",
+            placeholder: 'Select user',
+            allowClear: true,
+            dropdownParent: $('#createticket')
+        });
+        // $("#to_cc_select").select2();
+        $('#to_group_select').select2({
+            tags: "true",
+            placeholder: 'Select group',
+            allowClear: true,
+            dropdownParent: $('#createticket')
+        });
+
+        $( "#createticket" ).on( "submit", function( event ) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function ($res) {
+                    if ($res == '1') {
+                        UIkit.modal.dialog('<div class="uk-modal-body uk-text-center">Your ticket has been sent successfully!</div>');
+                        theTable.ajax.reload('',false);
+                        uikitModal.hide();
+                    } else {
+                        alert('A problem has been occured while submitting your ticket.');
+                    }
+                }
+            })
+        });
+    });
+
+    // Edit Sentiment
+    var sentimentClass = ".sm-sentiment";
+    $('#' + chartId).on('click', sentimentClass, function(e) {
+        // console.log(chartApiData);
+        e.preventDefault();
+        $(this).blur();
+        var id = $(this).attr('data-id');
+        var idMedia = $(this).attr('data-id-media');
+        var date = $(this).attr('data-date');
+        var modal = '<form id="changeSentiment" class="change-sentiment" action="' + chartApiData.changeSentimentUrl + '">' +
+            '<div class="uk-modal-body">' +
+                '<h5>Edit Sentiment</h5>' +
+                '<input type="hidden" name="_token" value="'+ chartApiData._token +'">' +
+                '<input type="hidden" name="reportType" value="'+ chartApiData.reportType +'">' +
+                '<input type="hidden" name="idMedia" value="'+ idMedia +'">' +
+                '<input type="hidden" name="projectId" value="'+ chartApiData.projectId +'">' +
+                '<input type="hidden" name="id" value="' + id + '" >' +
+                '<input type="hidden" name="date" value="' + date + '" >' +
+                '<div class="uk-margin">' +
+                    '<select name="sentiment" class="uk-select">' +
+                        '<option value="1">Positive</option>' +
+                        '<option value="0">Neutral</option>' +
+                        '<option value="-1">Negative</option>' +
+                    '</select>' +
+                '</div>' +
+            '</div>' +
+            '<div class="uk-modal-footer uk-clearfix">' +
+                '<a class="uk-modal-close uk-button grey white-text">CANCEL</a>' +
+                '<button class="uk-button uk-float-right red white-text" type="submit">SUBMIT</button>' +
+            '</div>' +
+        '</form>';
+        var uikitModal = UIkit.modal.dialog(modal);
+
+        $( "#changeSentiment" ).on( "submit", function( event ) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function ($res) {
+                    if ($res == '1') {
+                        //uikitModal.hide();
+                        UIkit.modal.dialog('<div class="uk-modal-body uk-text-center">Sentiment Updated!</div>');
+                        theTable.ajax.reload('',false);
+                    } else {
+                        alert('A problem has been occured while updating the sentiment.');
+                    }
+                }
+            })
+            //console.log( $( this ).serialize() );
+        });
+
     });
 }

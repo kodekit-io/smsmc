@@ -26,10 +26,18 @@
                             <input class="uk-input" type="text" name="name" value="{!! $user->name !!}">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Id Business</label>
+                            <label>Pilar</label>
                             <select name="id_business" class="uk-select">
                                 @foreach($pilars as $pilar)
                                     <option value="{!! $pilar->id !!}" @if($user->idBussiness == $pilar->id) selected @endif>{!! $pilar->pilarName !!}</option>
+                                @endforeach
+                            </select>
+                        </div></li>
+                        <li><div class="uk-position-relative">
+                            <label>User Group</label>
+                            <select name="group" class="uk-select">
+                                @foreach($groups as $group)
+                                    <option value="{!! $group->id !!}" @if($user->idGroup == $group->id) selected @endif>{!! $group->groupName !!}</option>
                                 @endforeach
                             </select>
                         </div></li>
@@ -38,14 +46,6 @@
                             <select name="role" class="uk-select">
                                 @foreach($roles as $role)
                                     <option value="{!! $role->idRole !!}" @if($user->idRole == $role->idRole) selected @endif>{!! $role->name !!}</option>
-                                @endforeach
-                            </select>
-                        </div></li>
-                        <li><div class="uk-position-relative">
-                            <label>Group</label>
-                            <select name="group" class="uk-select">
-                                @foreach($groups as $group)
-                                    <option value="{!! $group->id !!}" @if($user->idGroup == $group->id) selected @endif>{!! $group->groupName !!}</option>
                                 @endforeach
                             </select>
                         </div></li>

@@ -61,12 +61,15 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         var idMedia = $(this).attr('data-id-media');
         var $ticketTypes = jQuery.parseJSON(chartApiData.ticketTypes);
         var $users = jQuery.parseJSON(chartApiData.users);
-        var ticketType = '';
+        
+        var ticketType = '<select id="types" name="types[]" class="uk-select" multiple style="width:100%">';
         for (i=0; i < $ticketTypes.length; i++) {
             var theType = $ticketTypes[i];
-            ticketType += '<li><label><input class="uk-checkbox" type="checkbox" name="types[]" value="'+ theType.id +'"> '+ theType.name +'</label></li>';
+            ticketType += '<option value="'+ theType.id +'"> '+ theType.name +'</option>';
         }
-        var $toSelect = '<select id="to_select" name="to[]" class="uk-input uk-width-medium" multiple >';
+        ticketType += '</select>';
+
+        var $toSelect = '<select id="to_select" name="to[]" class="uk-select" multiple style="width:100%">';
         for (i=0; i < $users.length; i++) {
             var theUser = $users[i];
             $toSelect += '<option value="'+ theUser.id +'"> '+ theUser.name +'</option>';
@@ -74,7 +77,7 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
         $toSelect += '</select>';
 
         $groups = jQuery.parseJSON(chartApiData.groups);
-        var $toGroup = '<select class="uk-input uk-width-medium" id="to_group_select" name="groupsTo[]" multiple>';
+        var $toGroup = '<select class="uk-select" id="to_group_select" name="groupsTo[]" multiple style="width:100%">';
         $.each($groups, function($index, $group) {
             $toGroup += '<option value="'+$group.id+'">'+$group.groupName+'</option>';
         });
@@ -90,31 +93,20 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
             '<div  class="uk-modal-body">' +
                 '<h5>Open New Ticket</h5>' +
                 '<div class="uk-margin">' +
-                    '<label class="uk-form-label" for="to_select">Send to</label>' +
-                    '<div class="uk-form-controls">' +
-                        '<ul class="uk-margin-small-bottom" uk-tab>' +
-                            '<li><a href="#">Person</a></li>' +
-                            '<li><a href="#">Group</a></li>' +
-                        '</ul>' +
-                        '<ul class="uk-switcher uk-margin-bottom">' +
-                            '<li>'+ $toSelect +'</li>' +
-                            '<li>'+ $toGroup +'</li>' +
-                        '</ul>' +
-                    '</div>' +
+                    '<ul uk-tab>' +
+                        '<li><a href="#">Send to User</a></li>' +
+                        '<li><a href="#">Send to Group</a></li>' +
+                    '</ul>' +
+                    '<ul class="uk-switcher">' +
+                        '<li>'+ $toSelect +'</li>' +
+                        '<li>'+ $toGroup +'</li>' +
+                    '</ul>' +
                 '</div>' +
                 '<div class="uk-margin">' +
-                    '<label class="uk-form-label">Ticket Type</label>' +
-                    '<div class="uk-form-controls" style="padding-top:7px;">' +
-                        '<ul class="uk-subnav">' +
-                            ticketType +
-                        '</ul>' +
-                    '</div>' +
+                    ticketType +
                 '</div>' +
                 '<div class="uk-margin">' +
-                    '<label class="uk-form-label" for="message">Message</label>' +
-                    '<div class="uk-form-controls">' +
-                        '<textarea class="uk-textarea" rows="3" placeholder="Additional message" name="message"></textarea>' +
-                    '</div>' +
+                    '<textarea class="uk-textarea" rows="3" placeholder="Additional message" name="message"></textarea>' +
                 '</div>' +
                 '<div class="uk-margin uk-flex uk-flex-right">' +
                     '<a class="uk-modal-close uk-button grey white-text uk-margin-small-right">CANCEL</a>' +
@@ -126,14 +118,20 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
 
         $("#to_select").select2({
             tags: "true",
-            placeholder: 'Select user',
+            placeholder: 'Select User',
             allowClear: true,
             dropdownParent: $('#createticket')
         });
         // $("#to_cc_select").select2();
         $('#to_group_select').select2({
             tags: "true",
-            placeholder: 'Select group',
+            placeholder: 'Select Group',
+            allowClear: true,
+            dropdownParent: $('#createticket')
+        });
+        $('#types').select2({
+            tags: "true",
+            placeholder: 'Select Ticket Type',
             allowClear: true,
             dropdownParent: $('#createticket')
         });

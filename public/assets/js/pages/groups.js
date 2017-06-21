@@ -22,6 +22,12 @@
 			                "title": "Group Name",
 			                "data": "groupName"
 			            },
+                        {
+			                "title": "Description",
+							"data": function ( data ) {
+			                    return '';
+			                }
+			            },
 			            {
 			                "title": "",
 			                "class": "uk-text-right",
