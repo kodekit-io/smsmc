@@ -89,13 +89,6 @@
                     name: {
                         required: true
                     },
-                    password: {
-                        minlength: 6
-                    },
-                    password2: {
-                        minlength: 6,
-                        equalTo: '#password'
-                    },
                     id_business: {
                         required: true
                     },
