@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" for="field_group">Project Group</label>
+                                    <label class="uk-form-label" for="field_group">Pillar</label>
                                     <div class="uk-form-controls">
                                         <select class="uk-select" id="field_group" name="field_group" required>
                                             @foreach($pilars as $pilar)
@@ -39,7 +39,7 @@
                             </div>
                             <div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" for="user_select">Project User</label>
+                                    <label class="uk-form-label" for="user_select">User</label>
                                     <div class="uk-form-controls">
                                         <select name="user_id" id="user_select" class="uk-input uk-width-1-1">
                                             @foreach($users as $user)

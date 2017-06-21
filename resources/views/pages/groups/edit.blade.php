@@ -22,7 +22,7 @@
                             <input class="uk-input" type="text" name="name" value="{!! $group->groupName !!}">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Pilar</label>
+                            <label>Pillar</label>
                             <select name="id_business" class="uk-select">
                                 {{-- @foreach($pilars as $pilar) --}}
                                     <option value="">pilarName</option>

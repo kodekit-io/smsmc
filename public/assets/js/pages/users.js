@@ -54,7 +54,7 @@
 			                "data": "email"
 			            },
 			            {
-			                "title": "Pilar",
+			                "title": "Pillar",
 			                "data": "BP"
 			            },
 			            {

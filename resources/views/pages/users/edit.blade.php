@@ -26,7 +26,7 @@
                             <input class="uk-input" type="text" name="name" value="{!! $user->name !!}">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Pilar</label>
+                            <label>Pillar</label>
                             <select name="id_business" class="uk-select">
                                 @foreach($pilars as $pilar)
                                     <option value="{!! $pilar->id !!}" @if($user->idBussiness == $pilar->id) selected @endif>{!! $pilar->pilarName !!}</option>

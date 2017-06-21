@@ -30,7 +30,7 @@
                             <input class="uk-input" type="text" name="name">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Pilar</label>
+                            <label>Pillar</label>
                             <select name="id_business" class="uk-select">
                                 @foreach($pilars as $pilar)
                                     <option value="{!! $pilar->id !!}">{!! $pilar->pilarName !!}</option>
