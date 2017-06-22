@@ -48,7 +48,11 @@
                                 <div class="uk-margin">
                                     <label class="uk-form-label" for="project_image">Cover Image <span class="uk-text-small">(allowed: JPG or PNG, < 1MB)</span></label>
                                     <div class="uk-form-controls">
-                                        <input type="file" id="project_image" name="project_image" />
+                                        {{-- <input type="file" id="project_image" name="project_image" /> --}}
+                                        <div uk-form-custom="target: true">
+                                            <input type="file" id="project_image" name="project_image">
+                                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Select image" disabled>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

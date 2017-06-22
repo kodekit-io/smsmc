@@ -59,7 +59,11 @@
                                                 <img src="{!! $project->pmage !!}" uk-cover>
                                             </div>
                                         @endif
-                                        <input type="file" id="project_image" name="project_image" />
+                                        <div uk-form-custom="target: true">
+                                            <input type="file" id="project_image" name="project_image">
+                                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Select image" disabled>
+                                        </div>
+                                        {{-- <input type="file" id="project_image" name="project_image" /> --}}
                                     </div>
                                 </div>
                             </div>
