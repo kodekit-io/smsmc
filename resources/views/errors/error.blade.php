@@ -88,7 +88,7 @@
 
         .sign.error-page-wrapper .sign-container .pane .headline {
             transition: color .5s linear;
-            margin-top: 65px;
+            margin-top: 50px;
             margin-bottom: 10px;
             font-size: 54px;
             line-height: 68px;
@@ -317,10 +317,11 @@
             <div class="headline sign-text-color">
                 Oops!
             </div>
-            <div class="context sign-text-color">
+            <div class="context sign-text-color uk-margin">
                 Looks like something went wrong.<br>
                 Please call your administrator.
             </div>
+            <a href="{!! url('/logout') !!}" class="uk-button uk-button-small uk-button-danger">LOGOUT</a>
         </div>
     </div>
     {{-- <div class="uk-margin-large-top uk-text-center">
