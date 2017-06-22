@@ -24,9 +24,7 @@
 			            },
                         {
 			                "title": "Description",
-							"data": function ( data ) {
-			                    return '';
-			                }
+							"data": "description"
 			            },
 			            {
 			                "title": "",

@@ -24,9 +24,9 @@
                         <li><div class="uk-position-relative">
                             <label>Pillar</label>
                             <select name="id_business" class="uk-select">
-                                 @foreach($pilars as $pilar)
-                                    <option value="{{ $pilar->id }}">{{ $pilar->pilarName }}</option>
-                                 @endforeach
+                                @foreach($pilars as $pilar)
+                                   <option value="{{ $pilar->id }}">{{ $pilar->pilarName }}</option>
+                                @endforeach
                             </select>
                         </div></li>
                         <li class="uk-width-1-1"><div class="uk-position-relative">
