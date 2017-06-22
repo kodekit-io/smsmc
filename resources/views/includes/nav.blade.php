@@ -85,7 +85,7 @@
                     {{-- <a href="{!! url('setting/account') !!}"><i class="material-icons md-18">account_circle</i> Profile</a> --}}
                     <div uk-dropdown="pos:bottom-center">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li><span>Hi, Name {{-- {!! $user->name !!} --}}!</span></li>
+                            <li><span>Hi, {{ auth()->user()->name }}!</span></li>
                             <li class="uk-nav-divider"></li>
                             <li><a href="{!! url('setting/account') !!}"><i class="fa fa-user fa-fw"></i> My Account</a></li>
                             <li class="uk-nav-divider"></li>

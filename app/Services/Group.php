@@ -37,7 +37,8 @@ class Group
         $params = [
             'uid' => \Auth::user()->id,
             'groupName' => $data['name'],
-            'bussinessId' => 2
+            'bussinessId' => $data['id_business'],
+            'description' => $data['group_desc'],
         ];
 
         $response = $this->smsmc->post('group/add', $params);

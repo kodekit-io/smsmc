@@ -141,8 +141,9 @@ class SettingController extends Controller
 
     public function groupAdd()
     {
+        $pilarsData = $this->user->getPilars();
+        $data['pilars'] = $pilarsData->group;
         $data['pageTitle'] = 'Add Group';
-
         return view('pages.groups.add', $data);
     }
 

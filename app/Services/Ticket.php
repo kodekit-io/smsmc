@@ -76,7 +76,7 @@ class Ticket
         // Log::warning("Ticket from datatable params => " . \GuzzleHttp\json_encode($params));
 
         $response = $this->smsmc->post('ticket/send', $params);
-        Log::warning('ticket response ' . \GuzzleHttp\json_encode($response));
+        //Log::warning('ticket response ' . \GuzzleHttp\json_encode($response));
         if ($response->status == '200') {
             return true;
         }
