@@ -25,13 +25,14 @@
                             <label>Pillar</label>
                             <select name="id_business" class="uk-select">
                                 @foreach($pilars as $pilar)
-                                   <option value="{{ $pilar->id }}">{{ $pilar->pilarName }}</option>
+                                   <option value="{{ $pilar->id }}"
+                                    @if($pilar->id == $group->parentId) selected @endif>{{ $pilar->pilarName }}</option>
                                 @endforeach
                             </select>
                         </div></li>
                         <li class="uk-width-1-1"><div class="uk-position-relative">
                             <label>Description</label>
-                            <input class="uk-input" type="text" name="group_desc">
+                            <input class="uk-input" type="text" name="group_desc" value="{{ $group->description }}">
                         </div></li>
                     </ul>
                     <div class="uk-flex uk-flex-between">

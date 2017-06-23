@@ -159,10 +159,13 @@ class SettingController extends Controller
 
     public function groupEdit(Request $request, $id)
     {
+        $response = $this->group->getGroupById($id);
+        $pilarsData = $this->user->getPilars();
+
         $data['pageTitle'] = 'Edit Group';
         $data['id'] = $id;
-        $response = $this->group->getGroupById($id);
         $data['group'] = $response->group;
+        $data['pilars'] = $pilarsData->group;
 
         return view('pages.groups.edit', $data);
     }

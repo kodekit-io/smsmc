@@ -51,7 +51,9 @@ class Group
         $params = [
             'uid' => \Auth::user()->id,
             'groupId' => $id,
-            'groupName' => $data['name']
+            'groupName' => $data['name'],
+            'bussinessId' => $data['id_business'],
+            'description' => $data['group_desc'],
         ];
 
         $response = $this->smsmc->post('group/edit', $params);
