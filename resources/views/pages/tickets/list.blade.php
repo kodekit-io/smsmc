@@ -11,9 +11,9 @@
         <div class="uk-animation-fade uk-card-default uk-card-small uk-card-body uk-margin">
             <div class="uk-flex uk-flex-middle uk-flex-between">
                 <h3 class="uk-margin-remove uk-width-auto">My Ticket</h3>
-                <a href="{!! url('ticket/add') !!}" class="uk-button uk-button-primary uk-button-small uk-width-auto black">
+                {{-- <a href="{!! url('ticket/add') !!}" class="uk-button uk-button-primary uk-button-small uk-width-auto black">
                     <i class="fa fa-ticket"></i> Create New Ticket
-                </a>
+                </a> --}}
             </div>
             <hr>
             <table id="ticketList" class="uk-table uk-table-small uk-table-striped uk-width-1-1 sm-table"></table>
