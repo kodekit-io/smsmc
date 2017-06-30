@@ -217,6 +217,19 @@ function sendTicket(chartId,chartApiData,theTable) {
             allowClear: true,
             dropdownParent: $('#createticket')
         });
+        $("#to_group_select").on('change', function(){
+            var selected = $(this).val();
+            if(selected != null) {
+                if(selected.indexOf('0')>=0){
+                    $(this).val('0').select2({
+                        tags: "true",
+                        placeholder: 'Select Group',
+                        allowClear: true,
+                        dropdownParent: $('#createticket')
+                    });
+                }
+            }
+        })
         $('#types').select2({
             tags: "true",
             placeholder: 'Select Ticket Type',
