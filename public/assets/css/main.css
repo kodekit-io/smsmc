@@ -727,3 +727,37 @@ div.sm-dropdown li {
     margin-top: 0 !important;
     margin-right: -2px !important;
 }
+
+@media (max-width: 959px) {
+    .sm-logo {
+        height: 20px;
+        padding: 15px;
+    }
+    .sm-logo img {
+        height: 20px;
+    }
+    .sm-title-page {
+        font-size: .75rem;
+    }
+    .sm-cover {
+        height: 150px;
+    }
+    .sm-main.sm-dashboard {
+        padding: 20px 20px 60px;
+    }
+    .sm-footer {
+        font-size: .6em;
+    }
+    .uk-overflow-auto .uk-tab > * {
+        padding-left: 0;
+    }
+    .uk-overflow-auto .uk-tab > li:first-child {
+        margin-left: 20px;
+    }
+    .sm-chart {
+        min-height: 200px;
+    }
+    .uk-card-title.uk-float-left {
+        font-size: 1em;
+    }
+}

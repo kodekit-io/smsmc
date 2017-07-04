@@ -39,59 +39,60 @@
                             </ul>
                         </div>
                         <div class="uk-card-body">
-                            <ul class="uk-child-width-expand" uk-tab>
-                                <li class="uk-active"><a>Facebook</a></li>
-                                <li><a>Twitter</a></li>
-                                <li><a>News</a></li>
-                                <li><a>Int. News</a></li>
-                                <li><a>Blog</a></li>
-                                <li><a>Forum</a></li>
-                                <li><a>Video</a></li>
-                                <li><a>Instagram</a></li>
-                            </ul>
-                            <ul class="uk-switcher uk-margin">
-                                <li>
-                                    <div class="uk-overflow-auto">
-                                        <table id="convoFacebook" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-overflow-auto">
-                                        <table id="convoTwitter" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-overflow-auto">
-                                        <table id="convoNews" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-overflow-auto">
-                                        <table id="convoNewsInt" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-overflow-auto">
-                                        <table id="convoBlog" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-overflow-auto">
-                                        <table id="convoForum" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-overflow-auto">
-                                        <table id="convoVideo" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="uk-overflow-auto">
-                                        <table id="convoInstagram" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
-                                    </div>
-                                </li>
-                            </ul>
-
+                            <div class="uk-overflow-auto">
+                                <ul class="uk-child-width-expand" uk-tab>
+                                    <li class="uk-active"><a><i class="fa fa-facebook"></i><span class="uk-visible@m">Facebook</span></a></li>
+                                    <li><a><i class="fa fa-twitter"></i><span class="uk-visible@m"> Twitter</span></a></li>
+                                    <li><a><i class="fa fa-globe"></i><span class="uk-visible@m"> News</span></a></li>
+                                    <li><a><i class="fa fa-globe"></i><span class="uk-visible@m"> Int. News</span></a></li>
+                                    <li><a><i class="fa fa-rss"></i><span class="uk-visible@m"> Blog</span></a></li>
+                                    <li><a><i class="fa fa-comments"></i><span class="uk-visible@m"> Forum</span></a></li>
+                                    <li><a><i class="fa fa-youtube-play"></i><span class="uk-visible@m"> Video</span></a></li>
+                                    <li><a><i class="fa fa-instagram"></i><span class="uk-visible@m"> Instagram</span></a></li>
+                                </ul>
+                                <ul class="uk-switcher uk-margin">
+                                    <li>
+                                        <div class="uk-overflow-auto">
+                                            <table id="convoFacebook" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-overflow-auto">
+                                            <table id="convoTwitter" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-overflow-auto">
+                                            <table id="convoNews" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-overflow-auto">
+                                            <table id="convoNewsInt" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-overflow-auto">
+                                            <table id="convoBlog" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-overflow-auto">
+                                            <table id="convoForum" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-overflow-auto">
+                                            <table id="convoVideo" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-overflow-auto">
+                                            <table id="convoInstagram" class="uk-table uk-table-condensed uk-table-striped uk-width-1-1 sm-table uk-margin-remove"></table>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

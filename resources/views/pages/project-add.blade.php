@@ -36,7 +36,7 @@
                             </div>
                             <div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" for="user_select">User</label>
+                                    <label class="uk-form-label" for="user_select">Asign to</label>
                                     <div class="uk-form-controls">
                                         <select name="user_id" id="user_select" class="uk-input uk-width-1-1">
                                             @foreach($users as $user)

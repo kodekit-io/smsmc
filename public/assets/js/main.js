@@ -41,6 +41,7 @@
         );
 
         projectList('projectList', baseUrl + '/get-project-list');
+        projectList('projectListMob', baseUrl + '/get-project-list');
     });
 
     function projectList(dom, url) {
