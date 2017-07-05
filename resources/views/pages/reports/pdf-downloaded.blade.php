@@ -28,7 +28,7 @@
             margin: 0;
         }
         .page {
-            padding: 20mm 10mm 10mm 10mm;
+            padding: 20mm 10mm 10mm 20mm;
         }
         .cover {
             page-break-after: always;
@@ -49,8 +49,8 @@
         header {
             position: absolute;
             top: 5mm;
-            left: 5mm;
-            width: 200mm;
+            left: 15mm;
+            width: 190mm;
             height: 10mm;
             border-bottom: 1px solid #ddd;
         }
