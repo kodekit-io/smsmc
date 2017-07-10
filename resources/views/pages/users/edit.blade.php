@@ -27,7 +27,7 @@
                         </div></li>
                         <li><div class="uk-position-relative">
                             <label>Pillar</label>
-                            <select name="id_business" class="uk-select">
+                            <select name="id_business" class="uk-select" id="pilar_selector">
                                 @foreach($pilars as $pilar)
                                     <option value="{!! $pilar->id !!}" @if($user->idBussiness == $pilar->id) selected @endif>{!! $pilar->pilarName !!}</option>
                                 @endforeach
@@ -35,9 +35,10 @@
                         </div></li>
                         <li><div class="uk-position-relative">
                             <label>User Group</label>
-                            <select name="group" class="uk-select">
+                            <select name="group" class="uk-select" id="group_selector">
+                                <option value="" class="">---</option>
                                 @foreach($groups as $group)
-                                    <option value="{!! $group->id !!}" @if($user->idGroup == $group->id) selected @endif>{!! $group->groupName !!}</option>
+                                    <option value="{!! $group->id !!}" class="{{ $group->parentId }}" @if($user->idGroup == $group->id) selected @endif>{!! $group->groupName !!}</option>
                                 @endforeach
                             </select>
                         </div></li>
@@ -73,6 +74,7 @@
 
 @section('page-level-scripts')
     <script src="{!! asset('assets/js/lib/moment.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/lib/jquery.chained.js') !!}"></script>
     <script src="{!! asset('assets/js/lib/jquery.validate.min.js') !!}"></script>
     {{--<script src="{!! asset('assets/js/pages/ticket-create.js') !!}"></script>--}}
 
@@ -94,12 +96,11 @@
                     },
                     role: {
                         required: true
-                    },
-                    group: {
-                        required: true
                     }
                 }
             });
+
+            $("#group_selector").chained("#pilar_selector");
         });
 
     </script>
