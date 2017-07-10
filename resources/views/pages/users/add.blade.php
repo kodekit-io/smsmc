@@ -18,19 +18,19 @@
                     {!! csrf_field() !!}
                     <ul class="uk-child-width-1-2 uk-grid-small uk-grid-match uk-margin" uk-grid>
                         <li><div class="uk-position-relative">
-                            <label>Username</label>
+                            <label>Username <em>*</em></label>
                             <input class="uk-input" type="text" name="username">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Email</label>
+                            <label>Email <em>*</em></label>
                             <input class="uk-input" type="text" name="email">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Name</label>
+                            <label>Name <em>*</em></label>
                             <input class="uk-input" type="text" name="name">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Pillar</label>
+                            <label>Pillar <em>*</em></label>
                             <select name="id_business" class="uk-select" id="pilar_selector">
                                 @foreach($pilars as $pilar)
                                     <option value="{!! $pilar->id !!}">{!! $pilar->pilarName !!}</option>
@@ -47,7 +47,7 @@
                             </select>
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Role</label>
+                            <label>Role <em>*</em></label>
                             <select name="role" class="uk-select">
                                 @foreach($roles as $role)
                                 <option value="{!! $role->idRole !!}">{!! $role->name !!}</option>
@@ -55,11 +55,11 @@
                             </select>
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Password</label>
+                            <label>Password <em>*</em></label>
                             <input class="uk-input" type="password" name="password" id="password">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Re-type your password</label>
+                            <label>Re-type your password <em>*</em></label>
                             <input class="uk-input" type="password" name="password2" id="password2">
                         </div></li>
                     </ul>

@@ -18,15 +18,15 @@
                     {!! csrf_field() !!}
                     <ul class="uk-child-width-1-2 uk-grid-small uk-grid-match uk-margin" uk-grid>
                         <li><div class="uk-position-relative">
-                            <label>Email</label>
+                            <label>Email <em>*</em></label>
                             <input class="uk-input" type="text" name="email" value="{!! $user->email !!}">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Name</label>
+                            <label>Name <em>*</em></label>
                             <input class="uk-input" type="text" name="name" value="{!! $user->name !!}">
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Pillar</label>
+                            <label>Pillar <em>*</em></label>
                             <select name="id_business" class="uk-select" id="pilar_selector">
                                 @foreach($pilars as $pilar)
                                     <option value="{!! $pilar->id !!}" @if($user->idBussiness == $pilar->id) selected @endif>{!! $pilar->pilarName !!}</option>
@@ -43,7 +43,7 @@
                             </select>
                         </div></li>
                         <li><div class="uk-position-relative">
-                            <label>Role</label>
+                            <label>Role <em>*</em></label>
                             <select name="role" class="uk-select">
                                 @foreach($roles as $role)
                                     <option value="{!! $role->idRole !!}" @if($user->idRole == $role->idRole) selected @endif>{!! $role->name !!}</option>
