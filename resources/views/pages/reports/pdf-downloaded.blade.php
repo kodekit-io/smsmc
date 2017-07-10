@@ -46,6 +46,27 @@
         .page-title {
             padding-top: 100mm;
         }
+        header {
+            position: absolute;
+            top: 5mm;
+            left: 15mm;
+            width: 190mm;
+            height: 10mm;
+            border-bottom: 1px solid #ddd;
+        }
+        header .headlogo {
+            float: left;
+        }
+        header .headlogo img {
+            float: left;
+            height: 5mm;
+            width: auto;
+        }
+        header .headinfo {
+            float: right;
+            line-height: 5mm;
+            font-size: 8pt;
+        }
     </style>
 </head>
 
@@ -59,6 +80,10 @@
         </div>
     </div>
     <div class="page">
+        <header>
+            <div class="headlogo"><img src="{!! asset('assets/img/logo.png') !!}" alt="Sinar Mas" height="50px"></div>
+            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }} (UTC)</div>
+        </header>
         <table cellspacing="10">
             <tr>
                 <td width="50%">
@@ -72,7 +97,6 @@
                 <td width="50%">
                     @if(isset($postTrend))<img src="{{ $postTrend }}" />@endif
                 </td>
-
                 <td width="50%">
                     @if(isset($buzzTrend))<img src="{{ $buzzTrend }}" />@endif
                 </td>
@@ -89,7 +113,6 @@
                 <td width="50%">
                     @if(isset($postPie))<img src="{{ $postPie }}" />@endif
                 </td>
-
                 <td width="50%">
                     @if(isset($buzzPie))<img src="{{ $buzzPie }}" />@endif
                 </td>
@@ -97,6 +120,10 @@
         </table>
     </div>
     <div class="page">
+        <header>
+            <div class="headlogo"><img src="{!! asset('assets/img/logo.png') !!}" alt="Sinar Mas" height="50px"></div>
+            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }} (UTC)</div>
+        </header>
         <table cellspacing="10">
             <tr>
                 <td width="50%">

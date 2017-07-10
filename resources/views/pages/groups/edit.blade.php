@@ -37,7 +37,7 @@
                     </ul>
                     <div class="uk-flex uk-flex-between">
                         <a class="uk-modal-close uk-button grey white-text" href="{!! url('setting/group') !!}">CANCEL</a>
-                        <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SEND" />
+                        <input type="submit" class="uk-modal-close uk-button uk-float-right red white-text" value="SAVE" />
                     </div>
                 </form>
             </div>

@@ -98,7 +98,7 @@ table.dataTable thead>tr>th.sorting_desc:after, table.dataTable thead>tr>td.sort
 }
 .dataTables_processing {
     position: absolute;
-    top: 50px;
+    top: 10px;
     left: 50%;
     margin-left: -60px;
     width: 120px;

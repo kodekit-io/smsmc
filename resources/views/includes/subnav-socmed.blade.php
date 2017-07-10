@@ -1,17 +1,34 @@
 <nav class="uk-navbar-container sm-nav-sub" uk-navbar>
     <div class="uk-navbar-left">
         <h2 class="uk-navbar-item uk-margin-remove uk-text-uppercase sm-text-bold sm-title-sub" title="Social Media" uk-tooltip="pos: bottom">Social Media</h2>
-        <ul class="uk-navbar-nav">
-            <li {!! isset($activeFb) ? $activeFb : '' !!}><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
-            <li {!! isset($activeTw) ? $activeTw : '' !!}><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
-            <li {!! isset($activeVid) ? $activeVid : '' !!}><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
-            <li {!! isset($activeIg) ? $activeIg : '' !!}><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
-        </ul>
+        <div class="uk-visible@m">
+            <ul class="uk-navbar-nav">
+                <li {!! isset($activeFb) ? $activeFb : '' !!}><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
+                <li {!! isset($activeTw) ? $activeTw : '' !!}><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+                <li {!! isset($activeVid) ? $activeVid : '' !!}><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
+                <li {!! isset($activeIg) ? $activeIg : '' !!}><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
+            </ul>
+        </div>
     </div>
     <div class="uk-navbar-right">
+        {{-- mobile menu --}}
+        <a class="sm-menu white-text uk-margin-small-right uk-hidden@m"><span uk-icon="icon: list"></span></a>
+        <div uk-dropdown="mode: click; pos: bottom-justify;" class="uk-width-1-1 dropdown-stack">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li {!! isset($activeFb) ? $activeFb : '' !!}><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
+                <li {!! isset($activeTw) ? $activeTw : '' !!}><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+                <li {!! isset($activeVid) ? $activeVid : '' !!}><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
+                <li {!! isset($activeIg) ? $activeIg : '' !!}><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
+            </ul>
+        </div>
+        {{-- mobmenu end --}}
         <form method="post" action="">
         {!! csrf_field() !!}
-        <a class="uk-navbar-item uk-button grey darken-3 white-text">FILTER <span uk-icon="icon: chevron-down" class="uk-margin-small-left"></span></a>
+        <a class="uk-navbar-item uk-button grey darken-3 white-text">
+            <span uk-icon="icon: settings" class="uk-hidden@m"></span>
+            <span class="uk-visible@m">FILTER</span>
+            <span uk-icon="icon: chevron-down" class="uk-margin-small-left uk-visible@m"></span>
+        </a>
         <div uk-dropdown="mode: click; offset: 0;" class="uk-width-1-1 dropdown-stack">
             <div class="uk-grid-divider uk-grid-small" uk-grid>
                 <div class="uk-width-1-1">
@@ -40,14 +57,20 @@
                             </ul>
                         </li>
                         <li class="uk-width-auto@m">
-                            <div class="uk-inline sm-text-bold">Date Range:</div>
-                            <div class="uk-inline">
-                                <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="startDate" aria-describedby="option-startDate" value="{!! $shownStartDate !!}">
-                            </div>
-                            <div class="uk-inline">
-                                <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                                <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="endDate" aria-describedby="option-endDate" value="{!! $shownEndDate !!}">
+                            <div class="uk-flex uk-flex-middle uk-grid-small" uk-grid>
+                                <div class="uk-width-auto@m sm-text-bold">Date Range:</div>
+                                <div class="uk-width-1-2 uk-width-auto@m">
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: calendar"></span>
+                                        <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="startDate" aria-describedby="option-startDate" value="{!! $shownStartDate !!}">
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-2 uk-width-auto@m">
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: calendar"></span>
+                                        <input type="text" class="datetimepicker uk-input uk-form-small uk-width-small" name="endDate" aria-describedby="option-endDate" value="{!! $shownEndDate !!}">
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li class="uk-width-expand@m">

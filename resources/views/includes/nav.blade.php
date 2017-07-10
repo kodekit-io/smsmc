@@ -132,6 +132,120 @@
                     </div>
                 </li>
             </ul>
+            {{-- mobile menu --}}
+            <a class="sm-menu white-text uk-margin-small-right uk-hidden@m" uk-toggle="target: #mobmenu"><span uk-icon="icon: menu"></span></a>
+            <div id="mobmenu" uk-offcanvas="flip: true; overlay: true; mode: slide;" class="uk-hidden@m">
+                <div class="uk-offcanvas-bar">
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+                    <ul class="uk-nav uk-nav-default uk-margin-large-top">
+                        <li>
+                            <a><i class="material-icons md-18">work</i> Project</a>
+                            <div uk-dropdown="offset: 0; mode: click;" class="uk-overflow-auto uk-height-medium uk-max-height-medium uk-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav" id="projectListMob">
+                                    @if (is_authorized_to('projectCreate'))
+                                    <li><a href="{!! url('project/add') !!}"><i class="fa fa-plus fa-fw"></i> Add New Project</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a><i class="material-icons md-18">donut_large</i> Social Media</a>
+                            <div uk-dropdown="offset: 0; mode: click;">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    @if (is_authorized_to('projectCreate'))
+                                    <li><a href="{!! url('/socmed-accounts') !!}"><i class="fa fa-user-plus fa-fw"></i> Manage Accounts</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    @endif
+                                    @if(isset($g_accounts->facebook) && count($g_accounts->facebook) > 0)
+                                    <li><a href="{!! url('socmed/facebook') !!}"><i class="fa fa-facebook fa-fw"></i> Facebook</a></li>
+                                    @endif
+                                    @if(isset($g_accounts->twitter) && count($g_accounts->twitter) > 0)
+                                    <li><a href="{!! url('socmed/twitter') !!}"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+                                    @endif
+                                    @if(isset($g_accounts->youtube) && count($g_accounts->youtube) > 0)
+                                    <li><a href="{!! url('socmed/youtube') !!}"><i class="fa fa-youtube-play fa-fw"></i> Youtube</a></li>
+                                    @endif
+                                    @if(isset($g_accounts->instagram) && count($g_accounts->instagram) > 0)
+                                    <li><a href="{!! url('socmed/instagram') !!}"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
+                                    @endif
+                                    @if(
+                                    (isset($g_accounts->instagram) && count($g_accounts->instagram) == 0) &&
+                                    (isset($g_accounts->facebook) && count($g_accounts->facebook) == 0) &&
+                                    (isset($g_accounts->twitter) && count($g_accounts->twitter) == 0) &&
+                                    (isset($g_accounts->youtube) && count($g_accounts->youtube) == 0))
+                                    <li class="uk-text-center">No account found.<br>Please contact<br>your administrator.</li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </li>
+                        @if (is_authorized_to('engagementRead'))
+                        <li>
+                            <a><i class="material-icons md-18">mode_comment</i> Engagement</a>
+                            <div uk-dropdown="offset: 0; mode: click;">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    @if (is_authorized_to('engagementCreate'))
+                                    <li><a href="{!! url('/engagement-accounts') !!}"><i class="fa fa-cog fa-fw"></i> Manage Accounts</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    @endif
+                                    <li><a href="{!! url('/engagement/list') !!}"><i class="fa fa-file fa-fw"></i> All Engagement</a></li>
+                                    <li><a href="{!! url('/engagement/calendar') !!}"><i class="fa fa-calendar fa-fw"></i> Calendar</a></li>
+                                    <li><a href="{!! url('/engagement/timeline') !!}"><i class="fa fa-hashtag fa-fw"></i> Timeline</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        @endif
+                        @if (is_authorized_to('projectCreate'))
+                        <li>
+                            <a><i class="material-icons md-18">assignment</i> Report</a>
+                            <div uk-dropdown="offset: 0; mode: click;">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li><a href="{!! url('report') !!}"><i class="fa fa-download fa-fw"></i> Download Excel Report</a></li>
+                                    <li><a href="{!! url('report/add') !!}"><i class="fa fa-file-excel-o fa-fw"></i> Create Excel Report</a></li>
+                                    <li><a href="{!! url('report/pdf') !!}"><i class="fa fa-file-pdf-o fa-fw"></i> Create PDF Report</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        @endif
+                        <li class="uk-nav-divider"></li>
+                        <li>
+                            <a>
+                                <i class="fa fa-fw fa-user"></i> Account
+                            </a>
+                            <div uk-dropdown="pos:bottom-center;mode: click;">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li><span class="uk-text-capitalize">Hi, {{ auth()->user()->name }}!</span></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="{!! url('setting/account') !!}"><i class="fa fa-user fa-fw"></i> My Account</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="{!! url('ticket') !!}"><i class="fa fa-ticket fa-fw"></i> My Ticket</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    @if (is_authorized_to('userRead') || is_authorized_to('groupRead') || is_authorized_to('roleRead'))
+                                    <li><a href="{!! url('setting/user') !!}" title="Setting" uk-tooltip><i class="fa fa-cogs fa-fw"></i> Setting</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    @endif
+                                    <li><a href="{!! url('/logout') !!}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="{!! url('/page-media') !!}" class="" title="List of Media" uk-tooltip>
+                                <i class="fa fa-fw fa-newspaper-o"></i> List of Media
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{!! url('/page-help') !!}" class="" title="Glossary" uk-tooltip>
+                                <i class="fa fa-fw fa-life-ring"></i> Glossary
+                            </a>
+                        </li>
+                        <li>
+                            <a class="{!! url('/notifications') !!}" title="Notifications" uk-tooltip>
+                                <i class="fa fa-fw fa-bell"></i> Notifications
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
     @section('page-level-nav')
