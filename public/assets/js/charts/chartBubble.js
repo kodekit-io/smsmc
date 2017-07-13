@@ -67,9 +67,10 @@ function chartBubble(domId, url, chartApiData, name) {
                         name: $keywordName,
                         data: [[$netsen, $earnedMediaShare, $unquser]], //[x,y,z,....]
                         type: 'scatter',
-                        symbolSize: function (data) {
-                            return Math.sqrt(data[2]);
-                        }
+                        symbolSize: 25
+                        // symbolSize: function (data) {
+                        //     return Math.sqrt(data[2]);
+                        // }
                     };
 
                 }
@@ -78,22 +79,35 @@ function chartBubble(domId, url, chartApiData, name) {
                     colors: $colors,
                     legend: $legend
                 };
-                //console.log(data.colors);
 
-                // var arr_xval = $xval;
-                // var arr_xmax = Math.max.apply(Math,arr_xval);
-                // var arr_xmin = Math.min.apply(Math,arr_xval);
-                // var xmax = arr_xmax + (arr_xmax * 0.1);
-                // var xmin = arr_xmin - (arr_xmax * 0.1);
-                // //console.log(xmin+'-'+xmax);
-                //
-                // var arr_yval = $yval;
-                // var arr_ymax = Math.max.apply(Math,arr_yval);
-                // var arr_ymin = Math.min.apply(Math,arr_yval);
-                // var ymax = arr_ymax + (arr_ymax * 0.5);
-                // var ymin = arr_ymin - (arr_ymax * 0.5);
-                // //console.log(ymin+'-'+ymax);
+                var arr_xval = $xval;
+                var arr_xmax = Math.max.apply(Math,arr_xval);
+                var arr_xmin = Math.min.apply(Math,arr_xval);
 
+                if (arr_xmin < 10) {
+                    var xmin = arr_xmin - 10;
+                } else {
+                    var xmin = arr_xmin - (arr_xmax * 0.1);
+                }
+                if (arr_xmax < 10) {
+                    var xmax = arr_xmax + 10;
+                } else {
+                    var xmax = arr_xmax + (arr_xmax * 0.1);
+                }
+
+                var arr_yval = $yval;
+                var arr_ymax = Math.max.apply(Math,arr_yval);
+                var arr_ymin = Math.min.apply(Math,arr_yval);
+                if (arr_ymin < 10) {
+                    var ymin = arr_ymin - 10;
+                } else {
+                    var ymin = arr_ymin - (arr_ymax * 0.1);
+                }
+                if (arr_ymax < 10) {
+                    var ymax = arr_ymax + 10;
+                } else {
+                    var ymax = arr_ymax + (arr_ymax * 0.1);
+                }
 
                 //CHART
                 var domchart = document.getElementById(chartId);
@@ -193,8 +207,8 @@ function chartBubble(domId, url, chartApiData, name) {
                                 return $v;
                             }
                         },
-                        // min: xmin,
-                        // max: xmax
+                        min: xmin,
+                        max: xmax
                     },
                     yAxis: {
                         type: 'value',
@@ -219,8 +233,8 @@ function chartBubble(domId, url, chartApiData, name) {
                                 return $v;
                             }
                         },
-                        // min: ymin,
-                        // max: ymax
+                        min: ymin,
+                        max: ymax
                     },
                     series: data.series
                 };

@@ -64,13 +64,17 @@ function chartBubble(domId, url, chartApiData, name) {
                                 show: true,
                                 position: 'bottom',
                                 textStyle: {
-                                    fontSize: 11
+                                    fontSize: 10
+                                },
+                                formatter: function (params) {
+                                    var net = 'Net Sentiment: '+ params.value[0];
+                                    var ems = 'EMS: '+ params.value[1];
+                                    var unq = 'Unique: '+ params.value[2];
+                                    return unq+'\n'+ems+'\n'+net;
                                 }
                             }
                         },
-                        symbolSize: function (data) {
-                            return Math.sqrt(data[2] * 10);
-                        }
+                        symbolSize: 25
                     };
 
                 }
@@ -79,6 +83,35 @@ function chartBubble(domId, url, chartApiData, name) {
                     colors: $colors,
                     legend: $legend
                 };
+
+                var arr_xval = $xval;
+                var arr_xmax = Math.max.apply(Math,arr_xval);
+                var arr_xmin = Math.min.apply(Math,arr_xval);
+
+                if (arr_xmin < 10) {
+                    var xmin = arr_xmin - 10;
+                } else {
+                    var xmin = arr_xmin - (arr_xmax * 0.1);
+                }
+                if (arr_xmax < 10) {
+                    var xmax = arr_xmax + 10;
+                } else {
+                    var xmax = arr_xmax + (arr_xmax * 0.1);
+                }
+
+                var arr_yval = $yval;
+                var arr_ymax = Math.max.apply(Math,arr_yval);
+                var arr_ymin = Math.min.apply(Math,arr_yval);
+                if (arr_ymin < 10) {
+                    var ymin = arr_ymin - 10;
+                } else {
+                    var ymin = arr_ymin - (arr_ymax * 0.1);
+                }
+                if (arr_ymax < 10) {
+                    var ymax = arr_ymax + 10;
+                } else {
+                    var ymax = arr_ymax + (arr_ymax * 0.1);
+                }
 
                 //CHART
                 var domchart = document.getElementById(chartId);
@@ -141,9 +174,9 @@ function chartBubble(domId, url, chartApiData, name) {
                     },
                     xAxis: {
                         type: 'value',
-                        name: 'Net Sentiment',
-                        nameLocation: 'middle',
-                        nameGap: -15,
+                        // name: 'Net Sentiment',
+                        // nameLocation: 'middle',
+                        // nameGap: -15,
                         nameTextStyle: {
                             color: '#999',
                             textStyle: {
@@ -159,13 +192,15 @@ function chartBubble(domId, url, chartApiData, name) {
                                 return $v;
                             }
                         },
+                        min: xmin,
+                        max: xmax
                     },
                     yAxis: {
                         type: 'value',
-                        name: 'EMS',
-                        nameLocation: 'end',
-                        nameRotate: 90,
-                        nameGap: -30,
+                        // name: 'EMS',
+                        // nameLocation: 'end',
+                        // nameRotate: 90,
+                        // nameGap: -30,
                         nameTextStyle: {
                             color: '#999',
                             textStyle: {
@@ -181,6 +216,8 @@ function chartBubble(domId, url, chartApiData, name) {
                         axisLabel: {
                             show: false
                         },
+                        min: ymin,
+                        max: ymax
                     },
                     series: data.series
                 };
