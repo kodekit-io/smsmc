@@ -116,6 +116,7 @@ class ChartController extends Controller
     {
 //        $data = $this->withoutMedia('lovetrend', $request);
 //        return $this->parseChartResult($data);
+
         return [];
     }
 
