@@ -165,41 +165,41 @@
 
             getTotalMedia(baseUrl + '/charts/bar-media-share', $chartData);
 
-            chartBubble('01', baseUrl + '/charts/brand-equity', $chartData);
-            chartBarStack('02', baseUrl + '/charts/bar-sentiment', $chartData);
-            chartTrendCombo('03', baseUrl + '/charts/trend-sentiment', $chartData);
-            chartTrend('04', baseUrl + '/charts/trend-post', $chartData);
-            chartTrend('05', baseUrl + '/charts/trend-buzz', $chartData);
-            chartTrend('06', baseUrl + '/charts/trend-reach', $chartData);
-            chartTrend('07', baseUrl + '/charts/trend-interaction', $chartData);
-            chartPie('08', baseUrl + '/charts/pie-post', $chartData);
-            chartPie('09', baseUrl + '/charts/pie-buzz', $chartData);
-            chartPie('10', baseUrl + '/charts/pie-interaction', $chartData);
-            chartPie('11', baseUrl + '/charts/pie-unique-user', $chartData);
-            chartBar('12', baseUrl + '/charts/bar-interaction-rate', $chartData);
-            chartBarStack('13', baseUrl + '/charts/bar-media-share', $chartData);
-            chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
-            chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
-            wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
-
-        	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
-            tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
-            tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
-            tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 9);
-            tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3);
-            tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
-            tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
-            tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
-
-            $.ajax({
-                url: baseUrl + "/charts/download-convo-all",
-                method: "POST",
-                data: $chartData
-            }).done(function (downloadLink) {
-                //console.log(downloadLink);
-                var btnExcel = '<li><a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a></li>';
-                $('div#405').find('.uk-card-body').append(btnExcel);
-            });
+            chartBubble('01', baseUrl + '/charts/brand-equity/1', $chartData);
+            chartBarStack('02', baseUrl + '/charts/bar-sentiment/1', $chartData);
+            chartTrendCombo('03', baseUrl + '/charts/trend-sentiment/1', $chartData);
+            chartTrend('04', baseUrl + '/charts/trend-post/1', $chartData);
+//            chartTrend('05', baseUrl + '/charts/trend-buzz', $chartData);
+//            chartTrend('06', baseUrl + '/charts/trend-reach', $chartData);
+//            chartTrend('07', baseUrl + '/charts/trend-interaction', $chartData);
+//            chartPie('08', baseUrl + '/charts/pie-post', $chartData);
+//            chartPie('09', baseUrl + '/charts/pie-buzz', $chartData);
+//            chartPie('10', baseUrl + '/charts/pie-interaction', $chartData);
+//            chartPie('11', baseUrl + '/charts/pie-unique-user', $chartData);
+//            chartBar('12', baseUrl + '/charts/bar-interaction-rate', $chartData);
+//            chartBarStack('13', baseUrl + '/charts/bar-media-share', $chartData);
+//            chartBarStack('14', baseUrl + '/charts/bar-topic-distribution', $chartData);
+//            chartOntology('15', baseUrl + '/charts/ontologi', $chartData);
+//            wordcloud('16', baseUrl + '/charts/wordcloud', $chartData);
+//
+//        	tableConvo('convoFacebook', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 1);
+//            tableConvo('convoTwitter', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 2);
+//            tableConvo('convoNews', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 4);
+//            tableConvo('convoNewsInt', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 9);
+//            tableConvo('convoBlog', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 3);
+//            tableConvo('convoForum', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 6);
+//            tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
+//            tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
+//
+//            $.ajax({
+//                url: baseUrl + "/charts/download-convo-all",
+//                method: "POST",
+//                data: $chartData
+//            }).done(function (downloadLink) {
+//                //console.log(downloadLink);
+//                var btnExcel = '<li><a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a></li>';
+//                $('div#405').find('.uk-card-body').append(btnExcel);
+//            });
         });
     </script>
 @endsection

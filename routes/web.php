@@ -130,11 +130,11 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
 
 Route::group(['middleware' => ['auth','role']], function() {
     // Charts
-    Route::post('charts/brand-equity', 'ChartController@brandEquity');
-    Route::post('charts/bar-sentiment', 'ChartController@barSentiment');
+    Route::post('charts/brand-equity/{cached}', 'ChartController@brandEquity');
+    Route::post('charts/bar-sentiment/{cached}', 'ChartController@barSentiment');
 
-    Route::post('charts/trend-sentiment', 'ChartController@trendSentiment');
-    Route::post('charts/trend-post', 'ChartController@trendPost');
+    Route::post('charts/trend-sentiment/{cached}', 'ChartController@trendSentiment');
+    Route::post('charts/trend-post/{cached}', 'ChartController@trendPost');
     Route::post('charts/trend-buzz', 'ChartController@trendBuzz');
     Route::post('charts/trend-reach', 'ChartController@trendReach');
     Route::post('charts/trend-interaction', 'ChartController@trendInteraction');

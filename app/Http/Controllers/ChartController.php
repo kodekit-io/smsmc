@@ -8,6 +8,7 @@ use App\Service\DatatableSorter;
 use App\Service\Smsmc;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 class ChartController extends Controller
@@ -32,27 +33,31 @@ class ChartController extends Controller
         $this->datatableResult = $datatableResult;
     }
 
-    public function brandEquity(Request $request)
+    public function brandEquity(Request $request, $cached = 0)
     {
-        $data = $this->plain('brandequity', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->plain('brandequity', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function barSentiment(Request $request)
+    public function barSentiment(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('sentiment', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('sentiment', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function trendSentiment(Request $request)
+    public function trendSentiment(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('sentimenttrend', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('sentimenttrend', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function trendPost(Request $request)
+    public function trendPost(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('posttrend', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('posttrend', $request, $cached);
         return $this->parseChartResult($data);
     }
 
@@ -440,7 +445,7 @@ class ChartController extends Controller
     }
 
 
-    private function withMedia($url, $request)
+    private function withMedia($url, $request, $cached = false)
     {
         $chartParameter = new ChartParameter($request);
 
@@ -453,6 +458,13 @@ class ChartController extends Controller
         }
 
         $apiUrl .= '/' . $url;
+
+        $minutes = config('misc.cache_lifetime');
+        if ($cached) {
+            return Cache::remember($apiUrl . '_' . $chartParameter->projectId, $minutes, function() use ($apiUrl, $chartParameter) {
+                return $this->chartApi($apiUrl, $chartParameter);
+            });
+        }
 
         return $this->chartApi($apiUrl, $chartParameter);
     }
@@ -469,10 +481,16 @@ class ChartController extends Controller
         return $this->chartApi($apiUrl, $chartParameter);
     }
 
-    private function plain($url, $request)
+    private function plain($url, $request, $cached = false)
     {
         $apiUrl = 'project/' . $url;
         $chartParameter = new ChartParameter($request);
+        $minutes = config('misc.cache_lifetime');
+        if ($cached) {
+            return Cache::remember($url . '_' . $chartParameter->projectId, $minutes, function() use ($apiUrl, $chartParameter) {
+                return $this->chartApi($apiUrl, $chartParameter);
+            });
+        }
         return $this->chartApi($apiUrl, $chartParameter);
     }
 
