@@ -130,14 +130,14 @@ Route::group(['middleware' => ['auth', 'role', 'socmedAccount']], function () {
 
 Route::group(['middleware' => ['auth','role']], function() {
     // Charts
-    Route::post('charts/brand-equity/{cached}', 'ChartController@brandEquity');
-    Route::post('charts/bar-sentiment/{cached}', 'ChartController@barSentiment');
+    Route::post('charts/brand-equity/{cached?}', 'ChartController@brandEquity');
+    Route::post('charts/bar-sentiment/{cached?}', 'ChartController@barSentiment');
 
-    Route::post('charts/trend-sentiment/{cached}', 'ChartController@trendSentiment');
-    Route::post('charts/trend-post/{cached}', 'ChartController@trendPost');
-    Route::post('charts/trend-buzz', 'ChartController@trendBuzz');
-    Route::post('charts/trend-reach', 'ChartController@trendReach');
-    Route::post('charts/trend-interaction', 'ChartController@trendInteraction');
+    Route::post('charts/trend-sentiment/{cached?}', 'ChartController@trendSentiment');
+    Route::post('charts/trend-post/{cached?}', 'ChartController@trendPost');
+    Route::post('charts/trend-buzz/{cached?}', 'ChartController@trendBuzz');
+    Route::post('charts/trend-reach/{cached?}', 'ChartController@trendReach');
+    Route::post('charts/trend-interaction/{cached?}', 'ChartController@trendInteraction');
     Route::post('charts/trend-user', 'ChartController@trendUser');
     Route::post('charts/trend-comment', 'ChartController@trendComment');
     Route::post('charts/trend-view', 'ChartController@trendView');
@@ -145,10 +145,10 @@ Route::group(['middleware' => ['auth','role']], function() {
     Route::post('charts/trend-love', 'ChartController@trendLove');
     Route::post('charts/trend-fans', 'ChartController@trendFans');
 
-    Route::post('charts/pie-post', 'ChartController@piePost');
-    Route::post('charts/pie-buzz', 'ChartController@pieBuzz');
-    Route::post('charts/pie-interaction', 'ChartController@pieInteraction');
-    Route::post('charts/pie-unique-user', 'ChartController@pieUniqueUser');
+    Route::post('charts/pie-post/{cached?}', 'ChartController@piePost');
+    Route::post('charts/pie-buzz/{cached?}', 'ChartController@pieBuzz');
+    Route::post('charts/pie-interaction/{cached?}', 'ChartController@pieInteraction');
+    Route::post('charts/pie-unique-user/{cached?}', 'ChartController@pieUniqueUser');
     Route::post('charts/pie-comment', 'ChartController@pieComment');
     Route::post('charts/pie-like', 'ChartController@pieLike');
     Route::post('charts/pie-share', 'ChartController@pieShare');
@@ -159,12 +159,12 @@ Route::group(['middleware' => ['auth','role']], function() {
     Route::post('charts/pie-rating', 'ChartController@pieRating');
     Route::post('charts/pie-love', 'ChartController@pieLove');
 
-    Route::post('charts/bar-interaction-rate', 'ChartController@barInteractionRate');
-    Route::post('charts/bar-media-share', 'ChartController@barMediaShare');
-    Route::post('charts/bar-topic-distribution', 'ChartController@barTopicDistribution');
+    Route::post('charts/bar-interaction-rate/{cached?}', 'ChartController@barInteractionRate');
+    Route::post('charts/bar-media-share/{cached?}', 'ChartController@barMediaShare');
+    Route::post('charts/bar-topic-distribution/{cached?}', 'ChartController@barTopicDistribution');
 
-    Route::post('charts/ontologi', 'ChartController@ontologi');
-    Route::post('charts/wordcloud', 'ChartController@wordcloud');
+    Route::post('charts/ontologi/{cached?}', 'ChartController@ontologi');
+    Route::post('charts/wordcloud/{cached?}', 'ChartController@wordcloud');
     Route::post('charts/influencer', 'ChartController@influencer');
     Route::post('charts/convo', 'ChartController@convo');
     Route::any('charts/paging-convo', 'ChartController@pagingConvo');

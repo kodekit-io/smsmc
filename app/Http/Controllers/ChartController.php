@@ -61,21 +61,24 @@ class ChartController extends Controller
         return $this->parseChartResult($data);
     }
 
-    public function trendBuzz(Request $request)
+    public function trendBuzz(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('buzztrend', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('buzztrend', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function trendReach(Request $request)
+    public function trendReach(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('reachtrend', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('reachtrend', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function trendInteraction(Request $request)
+    public function trendInteraction(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('interactiontrend', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('interactiontrend', $request, $cached);
         return $this->parseChartResult($data);
     }
 
@@ -116,27 +119,31 @@ class ChartController extends Controller
         return [];
     }
 
-    public function piePost(Request $request)
+    public function piePost(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('post', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('post', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function pieBuzz(Request $request)
+    public function pieBuzz(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('buzz', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('buzz', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function pieInteraction(Request $request)
+    public function pieInteraction(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('interaction', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('interaction', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function pieUniqueUser(Request $request)
+    public function pieUniqueUser(Request $request, $cached = 0)
     {
-        $data = $this->withoutMedia('uniqueuser', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withoutMedia('uniqueuser', $request, $cached);
         return $this->parseChartResult($data);
     }
 
@@ -194,33 +201,38 @@ class ChartController extends Controller
         return $this->parseChartResult($data);
     }
 
-    public function barInteractionRate(Request $request)
+    public function barInteractionRate(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('interactionrate', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('interactionrate', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function barMediaShare(Request $request)
+    public function barMediaShare(Request $request, $cached = 0)
     {
-        $data = $this->plain('shareofmedia', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->plain('shareofmedia', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function barTopicDistribution(Request $request)
+    public function barTopicDistribution(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('topic', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('topic', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function ontologi(Request $request)
+    public function ontologi(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('ontologi', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('ontologi', $request, $cached);
         return $this->parseChartResult($data);
     }
 
-    public function wordcloud(Request $request)
+    public function wordcloud(Request $request, $cached = 0)
     {
-        $data = $this->withMedia('wordcloud', $request);
+        $cached = ($cached == 0) ? false : true;
+        $data = $this->withMedia('wordcloud', $request, $cached);
         return $this->parseChartResult($data);
     }
 
@@ -469,7 +481,7 @@ class ChartController extends Controller
         return $this->chartApi($apiUrl, $chartParameter);
     }
 
-    private function withoutMedia($url, $request)
+    private function withoutMedia($url, $request, $cached = false)
     {
         $chartParameter = new ChartParameter($request);
 
@@ -477,6 +489,13 @@ class ChartController extends Controller
         $apiUrl = 'project/' . $reportType;
 
         $apiUrl .= '/' . $url;
+
+        $minutes = config('misc.cache_lifetime');
+        if ($cached) {
+            return Cache::remember($apiUrl . '_' . $chartParameter->projectId, $minutes, function() use ($apiUrl, $chartParameter) {
+                return $this->chartApi($apiUrl, $chartParameter);
+            });
+        }
 
         return $this->chartApi($apiUrl, $chartParameter);
     }
