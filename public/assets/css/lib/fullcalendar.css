@@ -463,7 +463,7 @@ a[data-goto]:hover {
 }
 
 .fc-row .fc-bg {
-    z-index: 1;
+    /*z-index: 1;*/
 }
 
 
@@ -484,11 +484,11 @@ a[data-goto]:hover {
 }
 
 .fc-row .fc-bgevent-skeleton {
-    z-index: 2;
+    /*z-index: 2;*/
 }
 
 .fc-row .fc-highlight-skeleton {
-    z-index: 3;
+    /*z-index: 3;*/
 }
 
 
@@ -499,12 +499,12 @@ temporary rendered events).
 
 .fc-row .fc-content-skeleton {
     position: relative;
-    z-index: 4;
+    /*z-index: 4;*/
     /*padding-bottom: 2px;*/
     /* matches the space above the events */
 }
 .fc-row .fc-helper-skeleton {
-    z-index: 5;
+    /*z-index: 5;*/
 }
 
 .fc-row .fc-content-skeleton td, .fc-row .fc-helper-skeleton td {
@@ -590,14 +590,14 @@ temporary rendered events).
 
 .fc-event .fc-bg {
     /* the generic .fc-bg already does position */
-    z-index: 1;
+    /*z-index: 1;*/
     background: #fff;
     opacity: .25;
 }
 
 .fc-event .fc-content {
     position: relative;
-    z-index: 2;
+    /*z-index: 2;*/
 }
 
 
@@ -605,7 +605,7 @@ temporary rendered events).
 
 .fc-event .fc-resizer {
     position: absolute;
-    z-index: 4;
+    /*z-index: 4;*/
 }
 
 
@@ -627,7 +627,7 @@ temporary rendered events).
     /* 40x40 touch area */
     content: "";
     position: absolute;
-    z-index: 9999;
+    /*z-index: 9999;*/
     /* user of this util can scope within a lower z-index */
     top: 50%;
     left: 50%;
@@ -642,7 +642,7 @@ temporary rendered events).
 --------------------------------------------------------------------------------------------------*/
 
 .fc-event.fc-selected {
-    z-index: 9999 !important;
+    /*z-index: 9999 !important;*/
     /* overcomes inline z-index */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -661,7 +661,7 @@ temporary rendered events).
 .fc-h-event.fc-selected:before {
     content: "";
     position: absolute;
-    z-index: 3;
+    /*z-index: 3;*/
     /* below resizers */
     top: -10px;
     bottom: -10px;
@@ -776,7 +776,7 @@ tr:first-child>td>.fc-day-grid-event {
 .fc-day-grid-event.fc-selected:after {
     content: "";
     position: absolute;
-    z-index: 1;
+    /*z-index: 1;*/
     /* same z-index as fc-bg,behind text */
     /* overcome the borders */
     top: -1px;
@@ -852,7 +852,7 @@ a.fc-more:hover {
 }
 
 .fc-more-popover {
-    z-index: 2;
+    /*z-index: 2;*/
     width: 220px;
 }
 
@@ -946,19 +946,19 @@ a.fc-more:hover {
 }
 
 .fc-toolbar .fc-state-hover, .fc-toolbar .ui-state-hover {
-    z-index: 2;
+    /*z-index: 2;*/
 }
 
 .fc-toolbar .fc-state-down {
-    z-index: 3;
+    /*z-index: 3;*/
 }
 
 .fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active {
-    z-index: 4;
+    /*z-index: 4;*/
 }
 
 .fc-toolbar button:focus {
-    z-index: 5;
+    /*z-index: 5;*/
 }
 
 
@@ -1568,6 +1568,18 @@ be a descendant of the grid when it is being dragged.
 .fc-future {
     position: relative;
 }
+.fc-row .fc-content-skeleton table {
+    position: relative;
+    /*z-index: 0;*/
+}
+.fc-row .fc-content-skeleton thead {
+    position: relative;
+    /*z-index: 0;*/
+}
+.fc-row .fc-content-skeleton tbody {
+    position: relative;
+    /*z-index: 1;*/
+}
 .fc-addnew {
     position: absolute;
     right: 5px;
@@ -1575,7 +1587,7 @@ be a descendant of the grid when it is being dragged.
 }
 .fc-tooltip {
     position: relative;
-    z-index: 998;
+    /*z-index: 0;*/
 }
 
 .fc-tooltip .fc-tooltiptext {

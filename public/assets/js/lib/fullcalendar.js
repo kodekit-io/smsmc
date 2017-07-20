@@ -6288,6 +6288,8 @@
             var timeText;
             var titleHtml;
 
+            // console.log(this);
+
             classes.unshift('fc-day-grid-event', 'fc-h-event');
 
             // Only display a timed events time if it is the starting segment
