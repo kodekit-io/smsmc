@@ -500,10 +500,9 @@ temporary rendered events).
 .fc-row .fc-content-skeleton {
     position: relative;
     z-index: 4;
-    padding-bottom: 2px;
+    /*padding-bottom: 2px;*/
     /* matches the space above the events */
 }
-
 .fc-row .fc-helper-skeleton {
     z-index: 5;
 }
@@ -792,7 +791,7 @@ tr:first-child>td>.fc-day-grid-event {
 .fc-day-grid-event .fc-content {
     /* force events to be one-line tall */
     white-space: nowrap;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .fc-day-grid-event .fc-time {
@@ -848,7 +847,7 @@ a.fc-more:hover {
 /* popover that appears when "more" link is clicked */
 
 .fc-day-grid .fc-row {
-    z-index: 1;
+    /*z-index: 1;*/
     /* make the "more" popover one higher than this */
 }
 
@@ -1009,7 +1008,7 @@ a.fc-more:hover {
 /* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */
 
 .fc-row.fc-rigid {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .fc-row.fc-rigid .fc-content-skeleton {
@@ -1291,7 +1290,7 @@ be a descendant of the grid when it is being dragged.
 */
 
 .fc-time-grid-event {
-    overflow: hidden;
+    /*overflow: hidden;*/
     /* don't let the bg flow over rounded corners */
 }
 
@@ -1307,7 +1306,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .fc-time-grid-event .fc-content {
-    overflow: hidden;
+    /*overflow: hidden;*/
     /* for when .fc-selected */
 }
 
@@ -1364,7 +1363,7 @@ be a descendant of the grid when it is being dragged.
     right: 0;
     bottom: 0;
     height: 8px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     line-height: 8px;
     font-size: 11px;
     font-family: monospace;
@@ -1565,4 +1564,40 @@ be a descendant of the grid when it is being dragged.
 .fc-unthemed .fc-list-empty {
     /* theme will provide own background */
     background-color: #eee;
+}
+.fc-future {
+    position: relative;
+}
+.fc-addnew {
+    position: absolute;
+    right: 5px;
+    top: 140px;
+}
+.fc-tooltip {
+    position: relative;
+    z-index: 998;
+}
+
+.fc-tooltip .fc-tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    height: auto;
+    background: #fff;
+    padding: 10px;
+    color: #666;
+
+    /* Position the tooltip */
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 999;
+}
+
+.fc-tooltip:hover .fc-tooltiptext {
+    visibility: visible;
+}
+.fc-tooltip:hover .fc-tooltiptext img {
+    width: 100px;
+    height: auto;
+    margin-bottom: .5em
 }

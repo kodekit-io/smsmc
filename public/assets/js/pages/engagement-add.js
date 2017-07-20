@@ -107,5 +107,24 @@
             $('#postsave').addClass('uk-hidden');
             $('#set').removeClass('uk-hidden');
         });
+
+        function getUrlParam() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+            function(m,key,value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        if (getUrlParam()["date"]){
+            var date = moment(getUrlParam()["date"]).format('DD/MM/YY HH:mm');
+            // console.log(date);
+            $('input#schedule').val(date);
+            $('#postsave').removeClass('uk-hidden');
+            $('#postnowsocmed').addClass('uk-hidden');
+            $('#clear').removeClass('uk-hidden');
+            $('#set').addClass('uk-hidden');
+        }
+
     });
 }(window.jQuery, window, document));

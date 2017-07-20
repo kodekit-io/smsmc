@@ -9,16 +9,17 @@ function calendar(div) {
             // console.log(result);
             var data = result.data;
 
-            var id=[],title=[],date=[],channel=[],dataset=[];
+            var id=[],title=[],date=[],channel=[],attachment=[],dataset=[];
             for (var i = 0; i < data.length; i++) {
                 id[i] = data[i].id;
                 title[i] = data[i].title;
                 channel[i] = data[i].chanel;
+                attachment[i] = data[i].attachment;
                 date[i] = moment(data[i].date).local().format('YYYY-MM-DD HH:mm:ss');
-                dataset[i] = {"id":id[i],"title":title[i],"date":date[i],"channel":channel[i]};
+                dataset[i] = {"id":id[i],"title":title[i],"date":date[i],"channel":channel[i],"attachment":attachment[i]};
             }
             // console.log(data);
-            console.log(dataset);
+            // console.log(dataset);
             // if (data.length === 0) {
                 // $('#'+div).html("<div class='center'>No Data</div>");
             // } else {
@@ -30,7 +31,7 @@ function calendar(div) {
                 },
                 defaultDate: now,
                 navLinks: true, // can click day/week names to navigate views
-                editable: true,
+                editable: false,
                 eventLimit: true, // allow "more" link when too many
                 events: dataset
             });
