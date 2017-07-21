@@ -24,12 +24,10 @@ class EngagementController extends Controller
 
     public function accounts()
     {
-        $socmedAttribute = session('socmedAttribute');
         $data['fbAccounts'] = $this->engagement->getLoggedInAccounts(1);
         $data['twAccounts'] = $this->engagement->getLoggedInAccounts(2);
         $data['ytAccounts'] = $this->engagement->getLoggedInAccounts(5);
         $data['igAccounts'] = $this->engagement->getLoggedInAccounts(7);
-        $data['socmedAttribute'] = $socmedAttribute;
         $data['pageTitle'] = 'Engagement Accounts';
         return view('pages.engagement-accounts', $data);
     }
@@ -43,12 +41,9 @@ class EngagementController extends Controller
         return redirect('engagement-accounts');
     }
 
-    public function logout(Request $request, $idMedia)
+    public function logout($idSocmed)
     {
-        $response = $this->engagement->logout($request, $idMedia);
-        if ($response->status == 200) {
-            $this->removeSocmedToken($idMedia);
-        }
+        $this->engagement->logout($idSocmed);
         return redirect('engagement-accounts');
     }
 

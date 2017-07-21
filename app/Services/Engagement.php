@@ -35,18 +35,14 @@ class Engagement
         return $this->smsmc->post('engagement/login', $params);
     }
 
-    public function logout($request, $idMedia)
+    public function logout($engagementId)
     {
-        $socmedAttribute = session('socmedAttribute')[$idMedia];
         $params = [
             'uid' => \Auth::id(),
-            'idMedia' => $idMedia,
-            'appkey' => config('services.smsmc.key'),
-            'authTokenSocmed' => $socmedAttribute['token'],
-            'idSocmed' => $socmedAttribute['id'],
+            'enggagementId' => $engagementId
         ];
 
-        return $this->smsmc->post('engagement/logout', $params);
+        return $this->smsmc->post('engagement/user/delete', $params);
     }
 
     public function getLoggedInAccounts($idMedia)

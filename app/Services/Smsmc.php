@@ -81,7 +81,7 @@ class Smsmc
             }
         }
 
-        // Log::warning($apiUrl . '===> ' . \GuzzleHttp\json_encode($params) . '===> ' . \GuzzleHttp\json_encode($parsedResponse));
+         //Log::warning($apiUrl . '===> ' . \GuzzleHttp\json_encode($params) . '===> ' . \GuzzleHttp\json_encode($parsedResponse));
 
         return $parsedResponse;
 
@@ -128,7 +128,6 @@ class Smsmc
 
         if ($code == 200 && $reason == 'OK') {
             $result = \GuzzleHttp\json_decode($body);
-
             if (isset($result->status) && $result->status != 'OK') {
                 return new SimpleAPIResponse($result->code, $result->msg);
             }
