@@ -16,9 +16,9 @@
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
                             @foreach($fbAccounts as $fbAccount)
                                 <li>
-                                    <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/1') !!}">
+                                    <form class="uk-panel uk-padding-small uk-background-muted uk-text-center">
                                         {!! csrf_field() !!}
-                                        <button class="uk-position-top-right uk-margin-small-top uk-margin-small-right" type="submit" uk-icon="icon: close" title="Remove User" uk-tooltip></button>
+                                        <a class="uk-position-top-right uk-margin-small-top uk-margin-small-right" uk-icon="icon: close" title="Remove User" uk-tooltip data-id="{{ $fbAccount->engagementId }}" data-name="{{ $fbAccount->engagementAuthor }}"></a>
                                         <img class="uk-border-circle uk-margin-top" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
                                         <p class="sm-text-bold">{{ $fbAccount->engagementAuthor }}</p>
                                     </form>
@@ -42,9 +42,9 @@
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
                             @foreach($twAccounts as $twAccount)
                             <li>
-                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/2') !!}">
+                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center">
                                     {!! csrf_field() !!}
-                                    <button class="uk-position-top-right uk-margin-small-top uk-margin-small-right" type="submit" uk-icon="icon: close" title="Remove User" uk-tooltip></button>
+                                    <a class="uk-position-top-right uk-margin-small-top uk-margin-small-right" uk-icon="icon: close" title="Remove User" uk-tooltip data-id="{{ $twAccount->engagementId }}" data-name="{{ $twAccount->engagementAuthor }}"></a>
                                     <img class="uk-border-circle uk-margin-top" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
                                     <p class="sm-text-bold">{{ $twAccount->engagementAuthor }}</p>
                                 </form>
@@ -67,9 +67,9 @@
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
                             @foreach($ytAccounts as $ytAccount)
                             <li>
-                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/3') !!}">
+                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center">
                                     {!! csrf_field() !!}
-                                    <button class="uk-position-top-right uk-margin-small-top uk-margin-small-right" type="submit" uk-icon="icon: close" title="Remove User" uk-tooltip></button>
+                                    <a class="uk-position-top-right uk-margin-small-top uk-margin-small-right" uk-icon="icon: close" title="Remove User" uk-tooltip data-id="{{ $ytAccount->engagementId }}" data-name="{{ $ytAccount->engagementAuthor }}"></a>
                                     <img class="uk-border-circle uk-margin-top" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
                                     <p class="sm-text-bold">{{ $ytAccount->engagementAuthor }}</p>
                                 </form>
@@ -92,9 +92,9 @@
                         <ul class="uk-grid-small uk-grid-match uk-child-width-1-3" uk-grid>
                             @foreach($igAccounts as $igAccount)
                             <li>
-                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center" method="post" action="{!! url('engagement/account-logout/4') !!}">
+                                <form class="uk-panel uk-padding-small uk-background-muted uk-text-center">
                                     {!! csrf_field() !!}
-                                    <button class="uk-position-top-right uk-margin-small-top uk-margin-small-right" type="submit" uk-icon="icon: close" title="Remove User" uk-tooltip></button>
+                                    <a class="uk-position-top-right uk-margin-small-top uk-margin-small-right" uk-icon="icon: close" title="Remove User" uk-tooltip data-id="{{ $igAccount->engagementId }}" data-name="{{ $igAccount->engagementAuthor }}"></a>
                                     <img class="uk-border-circle uk-margin-top" src="{!! asset('images/default-avatar.png') !!}" width="100" height="100" alt="Username">
                                     <p class="sm-text-bold">{{ $igAccount->engagementAuthor }}</p>
                                 </form>
@@ -114,4 +114,5 @@
 @endsection
 
 @section('page-level-scripts')
+    <script src="{!! asset('assets/js/pages/engagement-account.js') !!}"></script>
 @endsection

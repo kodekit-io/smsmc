@@ -27,7 +27,7 @@
             var pId = $(this).attr('data-id');
             var pName = $(this).attr('data-name');
             var link = baseUrl+'/project/'+pId+'/delete';
-            var modal = '<h5>Are you sure?</h5>Project <span class="uk-text-uppercase">'+pName+'</span> will no longer available.</h5>';
+            var modal = '<h5>Are you sure?</h5>Project <span class="uk-text-uppercase">'+pName+'</span> will no longer available.';
             UIkit.modal.confirm(modal).then(function(){
                 window.location.href = link;
             },function(){});
