@@ -73,10 +73,10 @@
             var $topics = '{!! $submittedTopics !!}';
             var $sentiments = '{!! $submittedSentiments !!}';
             var $text = '{!! $searchText !!}';
-            var sdateval = moment.parseZone($startDate).local().format('DD/MM/YY HH:mm');
-            var edateval = moment.parseZone($endDate).local().format('DD/MM/YY HH:mm');
-            $('input[name="startDate"]').val(sdateval);
-            $('input[name="endDate"]').val(edateval);
+            // var sdateval = moment.parseZone($startDate).local().format('DD/MM/YY HH:mm');
+            // var edateval = moment.parseZone($endDate).local().format('DD/MM/YY HH:mm');
+            // $('input[name="startDate"]').val(sdateval);
+            // $('input[name="endDate"]').val(edateval);
 
             var $chartData = {
                 "_token": token,
@@ -95,7 +95,7 @@
                 'users': '{!! $users !!}'
             };
             getTotalMedia(baseUrl + '/charts/bar-media-share', $chartData);
-            
+
             chartTrendCombo('01', baseUrl + '/charts/trend-sentiment', $chartData);
             chartTrend('02', baseUrl + '/charts/trend-post', $chartData);
             chartTrend('03', baseUrl + '/charts/trend-comment', $chartData);
