@@ -90,10 +90,10 @@ function chartBar(domId, url, chartApiData, name) {
                             }
                         },
                         grid: {
-                            x: '30px',
-                            x2: '10px',
-                            y: '10px',
-                            y2: '60px'
+                            x: '5',
+                            x2: '5',
+                            y: '10',
+                            y2: '60'
                         },
                         toolbox: {
                             show: true,
@@ -142,14 +142,28 @@ function chartBar(domId, url, chartApiData, name) {
                             {
                                 type : 'value',
                                 axisLabel: {
+                                    margin: 0,
+                                    inside: true,
+                                    showMinLabel: true,
                                     textStyle: {
                                         fontSize: 10
                                     },
                                     formatter: function (v) {
-                                        val = numeral(v).format('0.0a');
+                                        val = numeral(v).format('0a');
                                         return val;
                                     }
                                 },
+                                axisLine: {
+                                    show: false
+                                },
+                                splitLine: {
+                                    show: true,
+                                    lineStyle: {
+                                        color: ['#000'],
+                                        type: 'dotted',
+                                        opacity: 0.1
+                                    }
+                                }
                             }
                         ],
                         series : {
@@ -340,10 +354,10 @@ function chartBarStack(domId, url, chartApiData, name) {
                                 },
                             },
                             grid: {
-                                x: '30px',
-                                x2: '10px',
-                                y: '10px',
-                                y2: '60px'
+                                x: '5',
+                                x2: '5',
+                                y: '10',
+                                y2: '60'
                             },
                             toolbox: {
                                 show: true,
@@ -393,6 +407,9 @@ function chartBarStack(domId, url, chartApiData, name) {
                                 {
                                     type : 'value',
                                     axisLabel: {
+                                        margin: 0,
+                                        inside: true,
+                                        showMinLabel: true,
                                         textStyle: {
                                             fontSize: 10
                                         },
@@ -401,6 +418,17 @@ function chartBarStack(domId, url, chartApiData, name) {
                                             return val;
                                         }
                                     },
+                                    axisLine: {
+                                        show: false
+                                    },
+                                    splitLine: {
+                                        show: true,
+                                        lineStyle: {
+                                            color: ['#000'],
+                                            type: 'dotted',
+                                            opacity: 0.1
+                                        }
+                                    }
                                 }
                             ],
                             series : data.series

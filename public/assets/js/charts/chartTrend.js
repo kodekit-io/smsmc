@@ -127,10 +127,10 @@ function chartTrend(domId, url, chartApiData, title) {
                         }
                     },
                     grid: {
-                        x: '30px',
-                        x2: '10px',
-                        y: '10px',
-                        y2: '70px'
+                        x: '5',
+                        x2: '5',
+                        y: '10',
+                        y2: '70'
                     },
                     toolbox: {
                         show: true,
@@ -164,6 +164,9 @@ function chartTrend(domId, url, chartApiData, title) {
                         {
                             type : 'value',
                             axisLabel: {
+                                margin: 0,
+                                inside: true,
+                                showMinLabel: true,
                                 textStyle: {
                                     fontSize: 10
                                 },
@@ -172,6 +175,17 @@ function chartTrend(domId, url, chartApiData, title) {
                                     return val;
                                 }
                             },
+                            axisLine: {
+                                show: false
+                            },
+                            splitLine: {
+                                show: true,
+                                lineStyle: {
+                                    color: ['#000'],
+                                    type: 'dotted',
+                                    opacity: 0.1
+                                }
+                            }
                         }
                     ],
                     series : data.series
@@ -365,10 +379,10 @@ function itemCombo(id, url, chartApiData, result) {
                 }
             },
             grid: {
-                x: '30px',
-                x2: '10px',
-                y: '40px',
-                y2: '60px'
+                x: '5',
+                x2: '5',
+                y: '40',
+                y2: '60'
             },
             toolbox: {
                 show: true,
@@ -402,6 +416,9 @@ function itemCombo(id, url, chartApiData, result) {
                 {
                     type : 'value',
                     axisLabel: {
+                        margin: 0,
+                        inside: true,
+                        showMinLabel: true,
                         textStyle: {
                             fontSize: 10
                         },
@@ -410,6 +427,17 @@ function itemCombo(id, url, chartApiData, result) {
                             return val;
                         }
                     },
+                    axisLine: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: ['#000'],
+                            type: 'dotted',
+                            opacity: 0.1
+                        }
+                    }
                 }
             ],
             series : data.series

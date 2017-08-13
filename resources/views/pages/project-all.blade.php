@@ -140,10 +140,16 @@
             var $topics = '{!! $submittedTopics !!}';
             var $sentiments = '{!! $submittedSentiments !!}';
             var $text = '{!! $searchText !!}';
+            var $shownStartDate = '{!! $shownStartDate !!}';
+            var $shownEndDate = '{!! $shownEndDate !!}';
             // var sdateval = moment.parseZone($startDate).local().format('DD/MM/YY HH:mm');
             // var edateval = moment.parseZone($endDate).local().format('DD/MM/YY HH:mm');
             // $('input[name="startDate"]').val(sdateval);
             // $('input[name="endDate"]').val(edateval);
+            console.log('startDate requested: '+$shownStartDate);
+            console.log('startDate sent to api: '+$startDate);
+            console.log('shownEndDate requested: '+$shownEndDate);
+            console.log('endDate sent to api: '+$endDate);
 
             var $chartData = {
                 "_token": token,
