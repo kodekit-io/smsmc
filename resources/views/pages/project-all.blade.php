@@ -197,14 +197,32 @@
             tableConvo('convoVideo', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 5);
             tableConvo('convoInstagram', baseUrl + '/charts/paging-convo', $chartData, idMediaParam = 7);
 
-            $.ajax({
-                url: baseUrl + "/charts/download-convo-all",
-                method: "POST",
-                data: $chartData
-            }).done(function (downloadLink) {
-                //console.log(downloadLink);
-                var btnExcel = '<li><a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a></li>';
-                $('div#405').find('.uk-card-body').append(btnExcel);
+            // $.ajax({
+            //     url: baseUrl + "/charts/download-convo-all",
+            //     method: "POST",
+            //     data: $chartData
+            // }).done(function (downloadLink) {
+            //     var btnExcel = '<li><a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a></li>';
+            //     $('div#405').find('.uk-card-body').append(btnExcel);
+            // });
+            var btnExcel = '<a class="uk-button uk-button-small uk-margin-top green darken-2 white-text" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a>';
+            $('div#405').find('.uk-card-body').append(btnExcel);
+            $('#download_excel').on('click', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: baseUrl + "/charts/download-convo-all",
+                    method: "POST",
+                    data: $chartData,
+                    beforeSend: function (xhr) {
+                        $('#download_excel').text('PLEASE WAIT...');
+                    }
+                }).done(function (downloadLink) {
+                    $('#download_excel').text('DOWNLOADED!');
+                    setTimeout(function() {
+                        $('#download_excel').text('EXPORT ALL CONVERSATIONS');
+                    }, 3000);
+                    window.location = downloadLink;
+                });
             });
         });
     </script>
