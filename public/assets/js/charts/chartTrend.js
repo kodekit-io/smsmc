@@ -46,7 +46,7 @@ function chartTrend(domId, url, chartApiData, title) {
             if (chartData.length !== undefined || chartData.length  > 0) {
                 var serie=[], key=[], color=[], dmy=[], dates=[];
                 for (var i = 0; i < chartData.length; i++) {
-                    key[i] = chartData[i].key;
+                    key[i] = {name:chartData[i].key,icon:'circle'};
                     color[i] = chartData[i].color;
                     data = chartData[i].value;
                     date = chartData[i].date;
@@ -110,7 +110,9 @@ function chartTrend(domId, url, chartApiData, title) {
                         data: data.legend,
                         x: 'left',
                         y: 'bottom',
-                        itemGap: 5,
+                        itemGap: 10,
+                        itemWidth: 10,
+                        itemHeight: 10,
                         formatter: function (name) {
                             var shortKey = name.substring(0, 10);
                             if(name.length>10){
@@ -127,10 +129,10 @@ function chartTrend(domId, url, chartApiData, title) {
                         }
                     },
                     grid: {
-                        x: '5',
-                        x2: '5',
+                        x: '40',
+                        x2: '25',
                         y: '10',
-                        y2: '70'
+                        y2: '60'
                     },
                     toolbox: {
                         show: true,
@@ -164,9 +166,9 @@ function chartTrend(domId, url, chartApiData, title) {
                         {
                             type : 'value',
                             axisLabel: {
-                                margin: 0,
-                                inside: true,
-                                showMinLabel: true,
+                                margin: 5,
+                                inside: false,
+                                showMinLabel: false,
                                 textStyle: {
                                     fontSize: 10
                                 },
@@ -298,7 +300,7 @@ function itemCombo(id, url, chartApiData, result) {
     if (chartData.length > 0) {
         var serie=[], key=[], color=[], dmy=[], dates=[];
         for (var i = 0; i < chartData.length; i++) {
-            key[i] = chartData[i].key;
+            key[i] = {name:chartData[i].key,icon:'circle'};
             color[i] = chartData[i].color;
             data = chartData[i].value;
             date = chartData[i].date;
@@ -362,7 +364,9 @@ function itemCombo(id, url, chartApiData, result) {
                 data: data.legend,
                 x: 'left',
                 y: 'bottom',
-                itemGap: 5,
+                itemGap: 10,
+                itemWidth: 10,
+                itemHeight: 10,
                 formatter: function (name) {
                     var shortKey = name.substring(0, 10);
                     if(name.length>10){
@@ -379,8 +383,8 @@ function itemCombo(id, url, chartApiData, result) {
                 }
             },
             grid: {
-                x: '5',
-                x2: '5',
+                x: '40',
+                x2: '25',
                 y: '40',
                 y2: '60'
             },
@@ -416,9 +420,9 @@ function itemCombo(id, url, chartApiData, result) {
                 {
                     type : 'value',
                     axisLabel: {
-                        margin: 0,
-                        inside: true,
-                        showMinLabel: true,
+                        margin: 5,
+                        inside: false,
+                        showMinLabel: false,
                         textStyle: {
                             fontSize: 10
                         },

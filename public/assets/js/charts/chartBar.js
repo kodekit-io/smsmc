@@ -90,8 +90,8 @@ function chartBar(domId, url, chartApiData, name) {
                             }
                         },
                         grid: {
-                            x: '5',
-                            x2: '5',
+                            x: '40',
+                            x2: '25',
                             y: '10',
                             y2: '60'
                         },
@@ -124,9 +124,9 @@ function chartBar(domId, url, chartApiData, name) {
                                     formatter: function (value, index) {
                                         var k = String(key);
                                         var arr = k.split(',');
-                                        if (arr.length > 3) {
-                                            if(value.length>3){
-                                                var shortKey = value.substring(0, 3)+'..';
+                                        if (arr.length > 5) {
+                                            if(value.length>15){
+                                                var shortKey = value.substring(0, 15)+'..';
                                             } else {
                                                 var shortKey = value;
                                             }
@@ -142,9 +142,9 @@ function chartBar(domId, url, chartApiData, name) {
                             {
                                 type : 'value',
                                 axisLabel: {
-                                    margin: 0,
-                                    inside: true,
-                                    showMinLabel: true,
+                                    margin: 5,
+                                    inside: false,
+                                    showMinLabel: false,
                                     textStyle: {
                                         fontSize: 10
                                     },
@@ -180,12 +180,18 @@ function chartBar(domId, url, chartApiData, name) {
                             markLine : {
                                 lineStyle: {
                                     normal: {
-                                        color: '#666'
+                                        color: '#999'
+                                    }
+                                },
+                                label: {
+                                    normal: {
+                                        position: 'middle',
+                                        formatter: '{b} : {c}'
                                     }
                                 },
                                 data: [
                                     {
-                                        name: 'Average',
+                                        name: 'Avg.',
                                         type: 'average'
                                     }
                                 ]
@@ -348,14 +354,16 @@ function chartBarStack(domId, url, chartApiData, name) {
                                 data: data.name,
                                 x: 'left',
                                 y: 'bottom',
-                                itemGap: 5,
+                                itemGap: 10,
+                                itemWidth: 10,
+                                itemHeight: 10,
                                 textStyle: {
                                     fontSize: 11
                                 },
                             },
                             grid: {
-                                x: '5',
-                                x2: '5',
+                                x: '40',
+                                x2: '25',
                                 y: '10',
                                 y2: '60'
                             },
@@ -389,9 +397,9 @@ function chartBarStack(domId, url, chartApiData, name) {
                                         formatter: function (value, index) {
                                             var k = String(key);
                                             var arr = k.split(',');
-                                            if (arr.length > 3) {
-                                                if(value.length>3){
-                                                    var shortKey = value.substring(0, 3)+'..';
+                                            if (arr.length > 5) {
+                                                if(value.length>15){
+                                                    var shortKey = value.substring(0, 15)+'..';
                                                 } else {
                                                     var shortKey = value;
                                                 }
@@ -407,9 +415,9 @@ function chartBarStack(domId, url, chartApiData, name) {
                                 {
                                     type : 'value',
                                     axisLabel: {
-                                        margin: 0,
-                                        inside: true,
-                                        showMinLabel: true,
+                                        margin: 5,
+                                        inside: false,
+                                        showMinLabel: false,
                                         textStyle: {
                                             fontSize: 10
                                         },
