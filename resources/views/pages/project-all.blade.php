@@ -148,7 +148,7 @@
             // $('input[name="endDate"]').val(edateval);
             console.log('startDate requested: '+$shownStartDate);
             console.log('startDate sent to api: '+$startDate);
-            console.log('shownEndDate requested: '+$shownEndDate);
+            console.log('endDate requested: '+$shownEndDate);
             console.log('endDate sent to api: '+$endDate);
 
             var $chartData = {
