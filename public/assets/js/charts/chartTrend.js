@@ -44,7 +44,7 @@ function chartTrend(domId, url, chartApiData, title) {
             $('#'+domId).append(card);
 
             if (chartData.length !== undefined || chartData.length  > 0) {
-                var serie=[], key=[], color=[], dmy=[], dates=[];
+                var serie=[], key=[], color=[], dmy=[], dates=[], dateTZ=[];
                 for (var i = 0; i < chartData.length; i++) {
                     key[i] = {name:chartData[i].key,icon:'circle'};
                     color[i] = chartData[i].color;
@@ -60,7 +60,8 @@ function chartTrend(domId, url, chartApiData, title) {
                         if(dif<24){
                             dates[n] = moment.parseZone(date[n]).local().format('HH');
                         } else {
-                            dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
+                            dateTZ[n] = date[n]+'T23:59:59Z';
+                            dates[n] = moment.parseZone(dateTZ[n]).local().format('DD/MM');
                         }
                     }
 
@@ -298,7 +299,7 @@ function chartTrendCombo(domId, url, chartApiData, title) {
 function itemCombo(id, url, chartApiData, result) {
     var chartData = result.chartData[id].data;
     if (chartData.length > 0) {
-        var serie=[], key=[], color=[], dmy=[], dates=[];
+        var serie=[], key=[], color=[], dmy=[], dates=[], dateTZ=[];
         for (var i = 0; i < chartData.length; i++) {
             key[i] = {name:chartData[i].key,icon:'circle'};
             color[i] = chartData[i].color;
@@ -314,7 +315,8 @@ function itemCombo(id, url, chartApiData, result) {
                 if(dif<24){
                     dates[n] = moment.parseZone(date[n]).local().format('HH');
                 } else {
-                    dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
+                    dateTZ[n] = date[n]+'T23:59:59Z';
+                    dates[n] = moment.parseZone(dateTZ[n]).local().format('DD/MM');
                 }
             }
 

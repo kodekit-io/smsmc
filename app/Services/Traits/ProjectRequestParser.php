@@ -17,11 +17,11 @@ trait ProjectRequestParser
         // $last7DaysRange = $this->getLastSevenDaysRange();
         // $startDate = $last7DaysRange['startDate'];
         // $endDate = $last7DaysRange['endDate'];
-        // $tz = config('app.timezone');
-        $startDate = Carbon::today()->subDay(7)->setTime(00, 00, 01)->format('Y-m-d\TH:i:s\Z');
-        $endDate = Carbon::today()->setTime(23, 59, 59)->format('Y-m-d\TH:i:s\Z');
-        $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d/m/y H:i');
-        $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
+        $tz = config('app.timezone');
+        $startDate = Carbon::today($tz)->subDay(7)->setTime(00, 00, 00)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
+        $endDate = Carbon::today($tz)->setTime(23, 59, 59)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
+        $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
+        $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
 
         $searchText = '';
         $submittedKeywords = '';
@@ -38,11 +38,11 @@ trait ProjectRequestParser
             //
             // $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
             // $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
-            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->format('Y-m-d\TH:i:s\Z') : $startDate;
-            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->format('Y-m-d\TH:i:s\Z') : $endDate;
+            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest, $tz)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $startDate;
+            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest, $tz)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $endDate;
 
-            $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d/m/y H:i');
-            $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
+            $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
+            $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
 
             $submittedKeywords = ( $request->has('keywords') ? implode(',', $request->input('keywords')) : '' );
             $submittedTopics = ( $request->has('topics') ? implode(',', $request->input('topics')) : '' );
