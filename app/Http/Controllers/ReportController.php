@@ -117,10 +117,23 @@ class ReportController extends Controller
         $data['projectName'] = $project->project->pname;
         $data['pageTitle'] = 'Show Image';
 
+        $path = url('/assets/img/logo.png');
+        if(config('misc.logo_url')){
+            $path = config('misc.logo_url');
+        }
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        if($type=='svg') {
+            $data['logo'] = $path;
+        } else {
+            $file = file_get_contents($path);
+            $data['logo'] = 'data:image/' . $type . ';base64,' . base64_encode($file);
+        }
+
         // return view('pages.reports.pdf-downloaded', $data);
 
         $pdf = \PDF::loadView('pages.reports.pdf-downloaded', $data);
         $pdf->setPaper('A4', 'potrait');
+        $pdf->setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif', 'isRemoteEnabled' => true, 'isHtml5ParserEnabled' => true]);
         $filename = 'SM-Report-'.str_slug($project->project->pname).'-'.date('Ymdhis');
         return $pdf->download($filename.'.pdf');
     }
