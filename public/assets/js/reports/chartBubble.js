@@ -188,8 +188,12 @@ function chartBubble(domId, url, chartApiData, name) {
                                 fontSize: 11
                             },
                             formatter: function (v) {
-                                $v = numeral(v).format('0a');
-                                return $v;
+                                if(v>10) {
+                                    val = numeral(v).format('0a');
+                                    return val;
+                                } else {
+                                    return v;
+                                }
                             }
                         },
                         min: xmin,

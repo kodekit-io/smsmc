@@ -76,13 +76,13 @@
         <div class="page-title">
             <h1>Sinar Mas Social Media Report</h1>
             <p>Project : {{ $projectName }}<br>
-            Date : {{ $reportStart }} - {{ $reportEnd }} (UTC)</p>
+            Date : {{ $reportStart }} - {{ $reportEnd }}</p>
         </div>
     </div>
     <div class="page">
         <header>
             <div class="headlogo"><img src="{{ $logo }}" /></div>
-            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }} (UTC)</div>
+            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }}</div>
         </header>
         <table cellspacing="10">
             <tr>
@@ -122,7 +122,7 @@
     <div class="page">
         <header>
             <div class="headlogo"><img src="{{ $logo }}" /></div>
-            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }} (UTC)</div>
+            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }}</div>
         </header>
         <table cellspacing="10">
             <tr>

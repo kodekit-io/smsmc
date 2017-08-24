@@ -149,8 +149,12 @@ function chartBar(domId, url, chartApiData, name) {
                                         fontSize: 10
                                     },
                                     formatter: function (v) {
-                                        val = numeral(v).format('0a');
-                                        return val;
+                                        if(v>10) {
+                                            val = numeral(v).format('0a');
+                                            return val;
+                                        } else {
+                                            return v;
+                                        }
                                     }
                                 },
                                 axisLine: {
@@ -422,8 +426,12 @@ function chartBarStack(domId, url, chartApiData, name) {
                                             fontSize: 10
                                         },
                                         formatter: function (v) {
-                                            val = numeral(v).format('0a');
-                                            return val;
+                                            if(v>10) {
+                                                val = numeral(v).format('0a');
+                                                return val;
+                                            } else {
+                                                return v;
+                                            }
                                         }
                                     },
                                     axisLine: {

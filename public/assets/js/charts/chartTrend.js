@@ -174,8 +174,12 @@ function chartTrend(domId, url, chartApiData, title) {
                                     fontSize: 10
                                 },
                                 formatter: function (v) {
-                                    val = numeral(v).format('0a');
-                                    return val;
+                                    if(v>10) {
+                                        val = numeral(v).format('0a');
+                                        return val;
+                                    } else {
+                                        return v;
+                                    }
                                 }
                             },
                             axisLine: {
@@ -429,8 +433,12 @@ function itemCombo(id, url, chartApiData, result) {
                             fontSize: 10
                         },
                         formatter: function (v) {
-                            val = numeral(v).format('0a');
-                            return val;
+                            if(v>10) {
+                                val = numeral(v).format('0a');
+                                return val;
+                            } else {
+                                return v;
+                            }
                         }
                     },
                     axisLine: {

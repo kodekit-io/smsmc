@@ -87,23 +87,34 @@ class ReportController extends Controller
     public function pdf(Request $request)
     {
         $projectList = $this->project->projectList(0, 1000);
-        $last7DaysRange = $this->getLastSevenDaysRange();
-        $startDate = $last7DaysRange['startDate'];
-        $endDate = $last7DaysRange['endDate'];
+        // $last7DaysRange = $this->getLastSevenDaysRange();
+        // $startDate = $last7DaysRange['startDate'];
+        // $endDate = $last7DaysRange['endDate'];
+        $tz = config('app.timezone');
+        $startDate = Carbon::today($tz)->subDay(7)->setTime(00, 00, 00)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
+        $endDate = Carbon::today($tz)->setTime(23, 59, 59)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
+        $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
+        $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
         $projectId = '';
         if ($request->has('filter')) {
             $startDateRequest = $request->input('startDate');
             $endDateRequest = $request->input('endDate');
-            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $startDate;
-            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $endDate;
+            // $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $startDate;
+            // $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $endDate;
+            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest, $tz)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $startDate;
+            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest, $tz)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $endDate;
+
+            $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
+            $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
+
             $projectId = $request->input('projectId');
         }
         $data['projects'] = $projectList->projectList;
         $data['projectId'] = $projectId;
         $data['startDate'] = $startDate;
         $data['endDate'] = $endDate;
-        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d/m/y H:i');
-        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
+        $data['shownStartDate'] = $shownStartDate;
+        $data['shownEndDate'] = $shownEndDate;
 
         $data['pageTitle'] = 'Create PDF';
         return view('pages.reports.pdf', $data);
