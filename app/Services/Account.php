@@ -45,17 +45,17 @@ class Account
         $params = $this->parseSocmedAccountData($twitters, 'tw', $params);
         $params = $this->parseSocmedAccountData($youtubes, 'yt', $params);
         $params = $this->parseSocmedAccountData($instagrams, 'ig', $params);
-
+        //dd($params);
         $this->smsmc->post('project/editprofile', $params);
     }
 
     public function parseSocmedAccountData($data, $type, $params)
     {
         if (count($data) > 0) {
-            $x = 1;
-            foreach ($data as $account) {
-                $params[$type . $x] = (is_null($account) ? '' : $account);
-                $x++;
+            //$x = 1;
+            foreach ($data as $key => $account) {
+                $params[$type . $key] = (is_null($account) ? '' : $account);
+                //$x++;
             }
         }
 

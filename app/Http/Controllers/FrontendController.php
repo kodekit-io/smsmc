@@ -24,6 +24,7 @@ class FrontEndController extends Controller
     {
         $data['socmed'] = $this->account->getSocialAccounts()[0];
         $data['pageTitle'] = 'Social Media Accounts';
+        //dd($data);
         return view('pages.socmed-accounts', $data);
     }
 

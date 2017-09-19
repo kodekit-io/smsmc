@@ -35,9 +35,13 @@ var r = 1;
 // );
 
 function addRowItem(wrapper) {
-    r = $('#'+wrapper).find('li').length + 1;
+    latestLi = $('#'+wrapper).find('li').last();
+    // console.log(latestLi.attr('data-id'));
+    // r = $('#'+wrapper).find('li').length + 1;
+    r = parseInt(latestLi.attr('data-id')) + 1;
+
     $('#'+wrapper).append(
-        '<li>'
+        '<li data-id="'+ r +'">'
             + '<input class="uk-input field-'+wrapper+'" name="field_'+wrapper+'['+r+']" type="text" placeholder="'+wrapper+'" data-prefix="">'
             + '<a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove this account" uk-tooltip></a>'
         +'</li>'
@@ -46,6 +50,7 @@ function addRowItem(wrapper) {
 function delRowItem(e) {
     $(e).closest('li').find('input').val('');
     $.when($(e).closest('li').find('input').val() == '').done(function( x ) {
-        $(e).closest('li').css('visibility','hidden');
+        $(e).closest('li').css('display','none');
+        //$(e).closest('li').remove();
     });
 }
