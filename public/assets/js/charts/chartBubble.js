@@ -141,7 +141,9 @@ function chartBubble(domId, url, chartApiData, name) {
                         data: data.legend,
                         x: 'left',
                         y: 'bottom',
-                        itemGap: 5,
+                        itemGap: 10,
+                        itemWidth: 10,
+                        itemHeight: 10,
                         formatter: function (name) {
                             var shortKey = name.substring(0, 10);
                             if(name.length>10){
@@ -203,8 +205,12 @@ function chartBubble(domId, url, chartApiData, name) {
                                 fontSize: 10
                             },
                             formatter: function (v) {
-                                $v = numeral(v).format('0a');
-                                return $v;
+                                if(v>10) {
+                                    val = numeral(v).format('0a');
+                                    return val;
+                                } else {
+                                    return v;
+                                }
                             }
                         },
                         min: xmin,
@@ -229,8 +235,12 @@ function chartBubble(domId, url, chartApiData, name) {
                                 fontSize: 10
                             },
                             formatter: function (v) {
-                                $v = numeral(v).format('0a');
-                                return $v;
+                                if(v>10) {
+                                    val = numeral(v).format('0a');
+                                    return val;
+                                } else {
+                                    return v;
+                                }
                             }
                         },
                         min: ymin,

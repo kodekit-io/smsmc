@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="uk-width-auto@m uk-margin-left">
-                        <button class="uk-button uk-button-small white-text grey darken-1 btn-preview" name="filter" type="submit" value="filter">PREVIEW</button>
+                        <button class="uk-button uk-button-small white-text black btn-preview" name="filter" type="submit" value="filter">PREVIEW</button>
                     </div>
                 </div>
             </form>
@@ -110,10 +110,10 @@
             var $projectId = '{!! $projectId !!}';
             var $startDate = '{!! $startDate !!}';
             var $endDate = '{!! $endDate !!}';
-            var sdateval = moment.parseZone($startDate).local().format('DD/MM/YY HH:mm');
-            var edateval = moment.parseZone($endDate).local().format('DD/MM/YY HH:mm');
-            $('input[name="startDate"]').val(sdateval);
-            $('input[name="endDate"]').val(edateval);
+            // var sdateval = moment.parseZone($startDate).local().format('DD/MM/YY HH:mm');
+            // var edateval = moment.parseZone($endDate).local().format('DD/MM/YY HH:mm');
+            // $('input[name="startDate"]').val(sdateval);
+            // $('input[name="endDate"]').val(edateval);
 
             var $chartData = {
                 "_token": token,
@@ -143,16 +143,6 @@
                 chartOntology('ontology', baseUrl + '/charts/ontologi', $chartData);
             }
 
-            // $.ajax({
-            //     url: baseUrl + "/charts/download-convo-all",
-            //     method: "POST",
-            //     data: $chartData
-            // }).done(function (downloadLink) {
-            //     //console.log(downloadLink);
-            //     var btnExcel = '<li><a class="uk-button uk-button-small green darken-2 white-text" href="'+downloadLink+'" id="download_excel" target="_blank" title="Export All Media Conversations to Excel" uk-tooltip>EXPORT ALL CONVERSATIONS</a></li>';
-            //     $('div#405').find('.uk-card-body').append(btnExcel);
-            // });
-
             $('#preview').validate({
                 rules: {
                     projectId: {
@@ -167,10 +157,6 @@
     			errorPlacement: function(error, element) {
     			    $('#howto').html(error);
     			}
-                // ,
-                // submitHandler: function(form) {
-                //     $(form).ajaxSubmit();
-                // }
             });
         });
     </script>

@@ -44,9 +44,9 @@ function chartTrend(domId, url, chartApiData, title) {
             $('#'+domId).append(card);
 
             if (chartData.length !== undefined || chartData.length  > 0) {
-                var serie=[], key=[], color=[], dmy=[], dates=[];
+                var serie=[], key=[], color=[], dmy=[], dates=[], dateTZ=[];
                 for (var i = 0; i < chartData.length; i++) {
-                    key[i] = chartData[i].key;
+                    key[i] = {name:chartData[i].key,icon:'circle'};
                     color[i] = chartData[i].color;
                     data = chartData[i].value;
                     date = chartData[i].date;
@@ -60,7 +60,8 @@ function chartTrend(domId, url, chartApiData, title) {
                         if(dif<24){
                             dates[n] = moment.parseZone(date[n]).local().format('HH');
                         } else {
-                            dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
+                            dateTZ[n] = date[n]+'T23:59:59Z';
+                            dates[n] = moment.parseZone(dateTZ[n]).local().format('DD/MM');
                         }
                     }
 
@@ -110,7 +111,9 @@ function chartTrend(domId, url, chartApiData, title) {
                         data: data.legend,
                         x: 'left',
                         y: 'bottom',
-                        itemGap: 5,
+                        itemGap: 10,
+                        itemWidth: 10,
+                        itemHeight: 10,
                         formatter: function (name) {
                             var shortKey = name.substring(0, 10);
                             if(name.length>10){
@@ -127,10 +130,10 @@ function chartTrend(domId, url, chartApiData, title) {
                         }
                     },
                     grid: {
-                        x: '30px',
-                        x2: '10px',
-                        y: '10px',
-                        y2: '70px'
+                        x: '40',
+                        x2: '25',
+                        y: '10',
+                        y2: '60'
                     },
                     toolbox: {
                         show: true,
@@ -164,14 +167,32 @@ function chartTrend(domId, url, chartApiData, title) {
                         {
                             type : 'value',
                             axisLabel: {
+                                margin: 5,
+                                inside: false,
+                                showMinLabel: false,
                                 textStyle: {
                                     fontSize: 10
                                 },
                                 formatter: function (v) {
-                                    val = numeral(v).format('0a');
-                                    return val;
+                                    if(v>10) {
+                                        val = numeral(v).format('0a');
+                                        return val;
+                                    } else {
+                                        return v;
+                                    }
                                 }
                             },
+                            axisLine: {
+                                show: false
+                            },
+                            splitLine: {
+                                show: true,
+                                lineStyle: {
+                                    color: ['#000'],
+                                    type: 'dotted',
+                                    opacity: 0.1
+                                }
+                            }
                         }
                     ],
                     series : data.series
@@ -282,9 +303,9 @@ function chartTrendCombo(domId, url, chartApiData, title) {
 function itemCombo(id, url, chartApiData, result) {
     var chartData = result.chartData[id].data;
     if (chartData.length > 0) {
-        var serie=[], key=[], color=[], dmy=[], dates=[];
+        var serie=[], key=[], color=[], dmy=[], dates=[], dateTZ=[];
         for (var i = 0; i < chartData.length; i++) {
-            key[i] = chartData[i].key;
+            key[i] = {name:chartData[i].key,icon:'circle'};
             color[i] = chartData[i].color;
             data = chartData[i].value;
             date = chartData[i].date;
@@ -298,7 +319,8 @@ function itemCombo(id, url, chartApiData, result) {
                 if(dif<24){
                     dates[n] = moment.parseZone(date[n]).local().format('HH');
                 } else {
-                    dates[n] = moment.parseZone(date[n]).local().format('DD/MM');
+                    dateTZ[n] = date[n]+'T23:59:59Z';
+                    dates[n] = moment.parseZone(dateTZ[n]).local().format('DD/MM');
                 }
             }
 
@@ -348,7 +370,9 @@ function itemCombo(id, url, chartApiData, result) {
                 data: data.legend,
                 x: 'left',
                 y: 'bottom',
-                itemGap: 5,
+                itemGap: 10,
+                itemWidth: 10,
+                itemHeight: 10,
                 formatter: function (name) {
                     var shortKey = name.substring(0, 10);
                     if(name.length>10){
@@ -365,10 +389,10 @@ function itemCombo(id, url, chartApiData, result) {
                 }
             },
             grid: {
-                x: '30px',
-                x2: '10px',
-                y: '40px',
-                y2: '60px'
+                x: '40',
+                x2: '25',
+                y: '40',
+                y2: '60'
             },
             toolbox: {
                 show: true,
@@ -402,14 +426,32 @@ function itemCombo(id, url, chartApiData, result) {
                 {
                     type : 'value',
                     axisLabel: {
+                        margin: 5,
+                        inside: false,
+                        showMinLabel: false,
                         textStyle: {
                             fontSize: 10
                         },
                         formatter: function (v) {
-                            val = numeral(v).format('0a');
-                            return val;
+                            if(v>10) {
+                                val = numeral(v).format('0a');
+                                return val;
+                            } else {
+                                return v;
+                            }
                         }
                     },
+                    axisLine: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: ['#000'],
+                            type: 'dotted',
+                            opacity: 0.1
+                        }
+                    }
                 }
             ],
             series : data.series

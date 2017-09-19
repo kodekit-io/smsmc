@@ -40,14 +40,33 @@ function tableConvo(chartId, url, chartApiData, idMediaParam = '') {
     }
 
     if (idMediaParam == '') {
-        $.ajax({
-            url: baseUrl + "/charts/download-convo",
-            method: "POST",
-            data: chartApiData
-        }).done(function (downloadLink) {
-            var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text uk-margin-top" href="'+downloadLink+'" id="download_excel_'+idMedia+'" target="_blank" title="Export Conversation to Excel" uk-tooltip>EXPORT CONVERSATION</a>';
-            // $('#'+chartId+'_wrapper').find('div.uk-inline.B').append(btnExcel);
-            $('div#405').find('.uk-card-body').append(btnExcel);
+        // $.ajax({
+        //     url: baseUrl + "/charts/download-convo",
+        //     method: "POST",
+        //     data: chartApiData
+        // }).done(function (downloadLink) {
+        //     var btnExcel = '<a class="uk-button uk-button-small green darken-2 white-text uk-margin-top" href="'+downloadLink+'" id="download_excel_'+idMedia+'" target="_blank" title="Export Conversation to Excel" uk-tooltip>EXPORT CONVERSATION</a>';
+        //     // $('#'+chartId+'_wrapper').find('div.uk-inline.B').append(btnExcel);
+        //     $('div#405').find('.uk-card-body').append(btnExcel);
+        // });
+        var btnExcel = '<a class="uk-button uk-button-small uk-margin-top green darken-2 white-text" id="download_excel_'+idMedia+'" target="_blank" title="Export Conversation to Excel" uk-tooltip>EXPORT CONVERSATION</a>';
+        $('div#405').find('.uk-card-body').append(btnExcel);
+        $('#download_excel_'+idMedia).on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: baseUrl + "/charts/download-convo",
+                method: "POST",
+                data: chartApiData,
+                beforeSend: function (xhr) {
+                    $('#download_excel_'+idMedia).text('PLEASE WAIT...');
+                }
+            }).done(function (downloadLink) {
+                $('#download_excel_'+idMedia).text('DOWNLOADED!');
+                setTimeout(function() {
+                    $('#download_excel_'+idMedia).text('EXPORT CONVERSATION');
+                }, 3000);
+                window.location = downloadLink;
+            });
         });
     }
 

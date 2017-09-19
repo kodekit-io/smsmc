@@ -102,8 +102,9 @@ function chartPie(domId, url, chartApiData, name) {
                         data: key,
                         x: 'left',
                         y: 'top',
-                        itemWidth: 15,
-                        itemHeight: 12,
+                        itemGap: 10,
+                        itemWidth: 10,
+                        itemHeight: 10,
                         formatter: function (name) {
                             var shortKey = name.substring(0, 10);
                             if(name.length>10){

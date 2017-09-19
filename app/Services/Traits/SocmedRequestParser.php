@@ -8,13 +8,19 @@ use Illuminate\Http\Request;
 
 trait SocmedRequestParser
 {
-    use LastSevenDays;
+    // use LastSevenDays;
 
     function parseRequest(Request $request, $accountType)
     {
-        $last7DaysRange = $this->getLastSevenDaysRange();
-        $startDate = $last7DaysRange['startDate'];
-        $endDate = $last7DaysRange['endDate'];
+        // $last7DaysRange = $this->getLastSevenDaysRange();
+        // $startDate = $last7DaysRange['startDate'];
+        // $endDate = $last7DaysRange['endDate'];
+        $tz = config('app.timezone');
+        $startDate = Carbon::today($tz)->subDay(7)->setTime(00, 00, 01)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
+        $endDate = Carbon::today($tz)->setTime(23, 59, 59)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z');
+        $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
+        $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
+
         $searchText = '';
         $submittedAccounts = '';
         $submittedSentiments = '';
@@ -23,11 +29,11 @@ trait SocmedRequestParser
             $startDateRequest = $request->input('startDate');
             $endDateRequest = $request->input('endDate');
 
-            // $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTime(00, 00, 01)->format('Y-m-d\TH:i:s\Z') : $startDate;
-            // $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTime(23, 59, 59)->format('Y-m-d\TH:i:s\Z') : $endDate;
+            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest, $tz)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $startDate;
+            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest, $tz)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $endDate;
 
-            $startDate = ( $startDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $startDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $startDate;
-            $endDate = ( $endDateRequest != '' ) ? Carbon::createFromFormat('d/m/y H:i', $endDateRequest)->setTimezone('UTC')->format('Y-m-d\TH:i:s\Z') : $endDate;
+            $shownStartDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
+            $shownEndDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate, 'UTC')->setTimezone($tz)->format('d/m/y H:i');
 
             $submittedAccounts = ( $request->has('accounts') ? implode(',', $request->input('accounts')) : '' );
             $submittedSentiments = ( $request->has('sentiments') ? implode(',', $request->input('sentiments')) : '' );
@@ -79,8 +85,8 @@ trait SocmedRequestParser
         $data['searchText'] = $searchText;
         $data['startDate'] = $startDate;
         $data['endDate'] = $endDate;
-        $data['shownStartDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $startDate)->format('d/m/y H:i');
-        $data['shownEndDate'] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $endDate)->format('d/m/y H:i');
+        $data['shownStartDate'] = $shownStartDate;
+        $data['shownEndDate'] = $shownEndDate;
 
         return $data;
     }

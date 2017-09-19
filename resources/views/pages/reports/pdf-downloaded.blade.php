@@ -72,17 +72,17 @@
 
 <body>
     <div class="page cover">
-        <div class="logo"><img src="{!! asset('assets/img/logo.png') !!}" alt="Sinar Mas" height="50px"></div>
+        <div class="logo"><img src="{{ $logo }}" height="50px" /></div>
         <div class="page-title">
             <h1>Sinar Mas Social Media Report</h1>
             <p>Project : {{ $projectName }}<br>
-            Date : {{ $reportStart }} - {{ $reportEnd }} (UTC)</p>
+            Date : {{ $reportStart }} - {{ $reportEnd }}</p>
         </div>
     </div>
     <div class="page">
         <header>
-            <div class="headlogo"><img src="{!! asset('assets/img/logo.png') !!}" alt="Sinar Mas" height="50px"></div>
-            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }} (UTC)</div>
+            <div class="headlogo"><img src="{{ $logo }}" /></div>
+            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }}</div>
         </header>
         <table cellspacing="10">
             <tr>
@@ -121,8 +121,8 @@
     </div>
     <div class="page">
         <header>
-            <div class="headlogo"><img src="{!! asset('assets/img/logo.png') !!}" alt="Sinar Mas" height="50px"></div>
-            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }} (UTC)</div>
+            <div class="headlogo"><img src="{{ $logo }}" /></div>
+            <div class="headinfo">Project: {{ $projectName }} | Date from {{ $reportStart }} to {{ $reportEnd }}</div>
         </header>
         <table cellspacing="10">
             <tr>

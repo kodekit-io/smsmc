@@ -73,7 +73,9 @@ function chartOntology(domId,url,chartApiData,name) {
                     data: categories.map(function (a) {
                         return a.name;
                     }),
-                    itemWidth: 15,
+                    itemGap: 10,
+                    itemWidth: 10,
+                    itemHeight: 10,
                     x: 'left',
                     y: 'bottom',
                     itemGap: 5,
