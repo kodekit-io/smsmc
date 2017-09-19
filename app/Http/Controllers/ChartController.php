@@ -260,6 +260,8 @@ class ChartController extends Controller
         $start = $request->input('start');
         $page = $start/$length;
 
+        $params['sentiment'] = $request->input('sentiments');
+
         // sentiment filter
         if (isset($request->input('columns')[5]['search']['value'])) {
             $sentimentValue = $request->input('columns')[5]['search']['value'];
