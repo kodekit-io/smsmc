@@ -17,23 +17,34 @@
                         <div class="uk-card-body">
                             @php $latestFbId = 0; @endphp
                             @if(count($socmed->facebook) > 0)
-                                <ol id="facebook" class="uk-list-divider sm-list-item uk-margin-remove-top">
+                                <ul id="facebook" class="uk-list uk-list-divider uk-margin-remove-top">
                                 @foreach($socmed->facebook as $fbAccount)
-                                    <li data-id="{{ $fbAccount->id }}">
-                                        <input class="uk-input field-facebook" name="field_facebook[{!! $loop->iteration !!}]" type="text" placeholder="facebook" value="{!! $fbAccount->name !!}">
-                                        <a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove this account" uk-tooltip></a>
+                                    <li class="uk-position-relative" data-id="{{ $fbAccount->id }}">
+                                        <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+                                            <div class="uk-width-auto"><div class="sm-number">{{ $fbAccount->id }}</div></div>
+                                            <div class="uk-width-expand"><input class="uk-input field-facebook" name="field_facebook[{{ $fbAccount->id }}]" type="text" placeholder="facebook" value="{!! $fbAccount->name !!}"></div>
+                                            <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove" uk-tooltip></a></div>
+                                        </div>
                                     </li>
                                     @php $latestFbId = $fbAccount->id; @endphp
                                 @endforeach
-                                </ol>
+                                </ul>
                             @else
-                                <ol id="facebook" class="uk-list-divider sm-list-item uk-margin-remove-top">
-                                    <li data-id="1"><input class="uk-input field-facebook" name="field_facebook[1]" type="text" placeholder="facebook"></li>
-                                </ol>
+                                <ul id="facebook" class="uk-list uk-list-divider uk-margin-remove-top">
+                                    <li class="uk-position-relative" data-id="1">
+                                        <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+                                            <div class="uk-width-auto"><div class="sm-number">1</div></div>
+                                            <div class="uk-width-expand"><input class="uk-input field-facebook" name="field_facebook[1]" type="text" placeholder="facebook"></div>
+                                            <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove" uk-tooltip uk-hidden></a></div>
+                                        </div>
+                                    </li>
+                                </ul>
                             @endif
-                            <a onclick="addRowItem('facebook')" class="uk-button uk-button-text" title="Add New Account" uk-tooltip>
-                                <i class="fa fa-plus fa-fw"></i><span class="uk-text-small">Add Facebook</span>
-                            </a>
+                            @if(count($socmed->facebook) < 10)
+                                <a onclick="addRowItem('facebook')" class="uk-button uk-button-text" title="Add New Account" uk-tooltip>
+                                    <i class="fa fa-plus fa-fw"></i><span class="uk-text-small">Add Facebook</span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -45,23 +56,34 @@
                         <div class="uk-card-body">
                             @php $latestTwId = 0; @endphp
                             @if(count($socmed->twitter) > 0)
-                                <ol id="twitter" class="uk-list-divider sm-list-item uk-margin-remove-top">
+                                <ul id="twitter" class="uk-list uk-list-divider uk-margin-remove-top">
                                     @foreach($socmed->twitter as $twAccount)
-                                        <li data-id="{{ $twAccount->id }}">
-                                            <input class="uk-input field-twitter" name="field_twitter[{!! $twAccount->id !!}]" type="text" placeholder="twitter" value="{!! $twAccount->name !!}">
-                                            <a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove this account" uk-tooltip></a>
+                                        <li class="uk-position-relative" data-id="{{ $twAccount->id }}">
+                                            <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+                                                <div class="uk-width-auto"><div class="sm-number">{{ $twAccount->id }}</div></div>
+                                                <div class="uk-width-expand"><input class="uk-input field-twitter" name="field_twitter[{{ $twAccount->id }}]" type="text" placeholder="twitter" value="{!! $twAccount->name !!}"></div>
+                                                <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove" uk-tooltip></a></div>
+                                            </div>
                                         </li>
                                         @php $latestTwId = $twAccount->id; @endphp
                                     @endforeach
-                                </ol>
+                                </ul>
                             @else
-                                <ol id="twitter" class="uk-list-divider sm-list-item uk-margin-remove-top">
-                                    <li data-id="1"><input class="uk-input field-twitter" name="field_twitter[1]" type="text" placeholder="twitter"></li>
-                                </ol>
+                                <ul id="twitter" class="uk-list uk-list-divider uk-margin-remove-top">
+                                    <li class="uk-position-relative" data-id="1">
+                                        <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+                                            <div class="uk-width-auto"><div class="sm-number">1</div></div>
+                                            <div class="uk-width-expand"><input class="uk-input field-twitter" name="field_twitter[1]" type="text" placeholder="twitter"></div>
+                                            <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove" uk-tooltip uk-hidden></a></div>
+                                        </div>
+                                    </li>
+                                </ul>
                             @endif
-                            <a onclick="addRowItem('twitter')" class="uk-button uk-button-text" title="Add New Account" uk-tooltip>
-                                <i class="fa fa-plus fa-fw"></i><span class="uk-text-small">Add Twitter</span>
-                            </a>
+                            @if(count($socmed->twitter) < 10)
+                                <a onclick="addRowItem('twitter')" class="uk-button uk-button-text" title="Add New Account" uk-tooltip>
+                                    <i class="fa fa-plus fa-fw"></i><span class="uk-text-small">Add Twitter</span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -73,23 +95,34 @@
                         <div class="uk-card-body">
                             @php $latestYtId = 0; @endphp
                             @if(count($socmed->youtube) > 0)
-                                <ol id="youtube" class="uk-list-divider sm-list-item uk-margin-remove-top">
+                                <ul id="youtube" class="uk-list uk-list-divider uk-margin-remove-top">
                                     @foreach($socmed->youtube as $ytAccount)
-                                        <li data-id="{{ $ytAccount->id }}">
-                                            <input class="uk-input field-youtube" name="field_youtube[{!! $loop->iteration !!}]" type="text" placeholder="youtube" value="{!! $ytAccount->name !!}">
-                                            <a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove this account" uk-tooltip></a>
+                                        <li class="uk-position-relative" data-id="{{ $ytAccount->id }}">
+                                            <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+                                                <div class="uk-width-auto"><div class="sm-number">{{ $ytAccount->id }}</div></div>
+                                                <div class="uk-width-expand"><input class="uk-input field-youtube" name="field_youtube[{{ $ytAccount->id }}]" type="text" placeholder="youtube" value="{!! $ytAccount->name !!}"></div>
+                                                <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove" uk-tooltip></a></div>
+                                            </div>
                                         </li>
                                         @php $latestYtId = $ytAccount->id; @endphp
                                     @endforeach
-                                </ol>
+                                </ul>
                             @else
-                                <ol id="youtube" class="uk-list-divider sm-list-item uk-margin-remove-top">
-                                    <li data-id="1"><input class="uk-input field-youtube" name="field_youtube[1]" type="text" placeholder="youtube"></li>
-                                </ol>
+                                <ul id="youtube" class="uk-list uk-list-divider uk-margin-remove-top">
+                                    <li class="uk-position-relative" data-id="1">
+                                        <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+                                            <div class="uk-width-auto"><div class="sm-number">1</div></div>
+                                            <div class="uk-width-expand"><input class="uk-input field-youtube" name="field_youtube[1]" type="text" placeholder="youtube"></div>
+                                            <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove" uk-tooltip uk-hidden></a></div>
+                                        </div>
+                                    </li>
+                                </ul>
                             @endif
-                            <a onclick="addRowItem('youtube')" class="uk-button uk-button-text" title="Add New Account" uk-tooltip>
-                                <i class="fa fa-plus fa-fw"></i><span class="uk-text-small">Add Youtube</span>
-                            </a>
+                            @if(count($socmed->youtube) < 10)
+                                <a onclick="addRowItem('youtube')" class="uk-button uk-button-text" title="Add New Account" uk-tooltip>
+                                    <i class="fa fa-plus fa-fw"></i><span class="uk-text-small">Add Youtube</span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -101,23 +134,34 @@
                         <div class="uk-card-body">
                             @php $latestIgId = 0; @endphp
                             @if(count($socmed->instagram) > 0)
-                                <ol id="instagram" class="uk-list-divider sm-list-item uk-margin-remove-top">
+                                <ul id="instagram" class="uk-list uk-list-divider uk-margin-remove-top">
                                     @foreach($socmed->instagram as $igAccount)
-                                        <li data-id="{{ $igAccount->id }}">
-                                            <input class="uk-input field-instagram" name="field_instagram[{!! $loop->iteration !!}]" type="text" placeholder="instagram" value="{!! $igAccount->name !!}">
-                                            <a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove this account" uk-tooltip></a>
+                                        <li class="uk-position-relative" data-id="{{ $igAccount->id }}">
+                                            <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+                                                <div class="uk-width-auto"><div class="sm-number">{{ $igAccount->id }}</div></div>
+                                                <div class="uk-width-expand"><input class="uk-input field-instagram" name="field_instagram[{{ $igAccount->id }}]" type="text" placeholder="instagram" value="{!! $igAccount->name !!}"></div>
+                                                <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove" uk-tooltip></a></div>
+                                            </div>
                                         </li>
                                         @php $latestIgId = $igAccount->id; @endphp
                                     @endforeach
-                                </ol>
+                                </ul>
                             @else
-                                <ol id="instagram" class="uk-list-divider sm-list-item uk-margin-remove-top">
-                                    <li data-id="1"><input class="uk-input field-instagram" name="field_instagram[1]" type="text" placeholder="instagram"></li>
-                                </ol>
+                                <ul id="instagram" class="uk-list uk-list-divider uk-margin-remove-top">
+                                    <li class="uk-position-relative" data-id="1">
+                                        <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+                                            <div class="uk-width-auto"><div class="sm-number">1</div></div>
+                                            <div class="uk-width-expand"><input class="uk-input field-instagram" name="field_instagram[1]" type="text" placeholder="instagram"></div>
+                                            <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove" uk-tooltip uk-hidden></a></div>
+                                        </div>
+                                    </li>
+                                </ul>
                             @endif
-                            <a onclick="addRowItem('instagram')" class="uk-button uk-button-text" title="Add New Account" uk-tooltip>
-                                <i class="fa fa-plus fa-fw"></i><span class="uk-text-small">Add Instagram</span>
-                            </a>
+                            @if(count($socmed->instagram) < 10)
+                                <a onclick="addRowItem('instagram')" class="uk-button uk-button-text" title="Add New Account" uk-tooltip>
+                                    <i class="fa fa-plus fa-fw"></i><span class="uk-text-small">Add Instagram</span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>

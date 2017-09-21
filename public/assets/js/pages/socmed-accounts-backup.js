@@ -41,19 +41,15 @@ function addRowItem(wrapper) {
     r = parseInt(latestLi.attr('data-id')) + 1;
 
     $('#'+wrapper).append(
-        '<li class="uk-position-relative" data-id="'+r+'"> \
-            <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid> \
-                <div class="uk-width-auto"><div class="sm-number">'+r+'</div></div> \
-                <div class="uk-width-expand"><input class="uk-input field-'+wrapper+'" name="field_'+wrapper+'['+r+']" type="text" placeholder="'+wrapper+'"></div> \
-                <div class="uk-width-auto"><a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove '+wrapper+' '+r+'" uk-tooltip uk-hidden></a></div> \
-            </div> \
-        </li>'
+        '<li data-id="'+ r +'">'
+            + '<input class="uk-input field-'+wrapper+'" name="field_'+wrapper+'['+r+']" type="text" placeholder="'+wrapper+'" data-prefix="">'
+            + '<a onclick="delRowItem(this)" class="fa fa-close sm-del-row white-text red" title="Remove this account" uk-tooltip></a>'
+        +'</li>'
     );
 }
 function delRowItem(e) {
     $(e).closest('li').find('input').val('');
     $.when($(e).closest('li').find('input').val() == '').done(function( x ) {
-        // $(e).closest('li').css('visibility','hidden');
         $(e).closest('li').css('display','none');
         //$(e).closest('li').remove();
     });

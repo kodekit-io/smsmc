@@ -470,7 +470,6 @@ a.btn-screenshot {
 .sm-list-item>li:last-child {
     padding-bottom: 10px;
 }
-
 .sm-list-item>li:before {
     content: counter(cntr);
     counter-increment: cntr;
@@ -486,20 +485,29 @@ a.btn-screenshot {
     text-align: center;
     font-size: .75rem;
 }
-.sm-list-item>li:first-child>a.sm-del-row {
+li:first-child a.sm-del-row {
     visibility: hidden;
 }
 .sm-del-row {
-    position: absolute;
+    /*position: absolute;
     right: 0;
-    top: 20px;
+    top: 20px;*/
     text-align: center;
     width: 20px;
     height: 20px;
     line-height: 20px;
     border-radius: 10px;
 }
-
+.sm-number {
+    width: 20px;
+    height: 20px;
+    line-height: 22px;
+    border-radius: 50%;
+    color: #fff;
+    background: #999;
+    text-align: center;
+    font-size: .75rem;
+}
 .sm-icon-nav .uk-icon-button {
     text-align: center;
     line-height: 40px;
