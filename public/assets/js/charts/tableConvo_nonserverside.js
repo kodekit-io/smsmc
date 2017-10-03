@@ -21,7 +21,7 @@ function tableConvo(domId, url, chartApiData, name) {
 		complete: function(xhr, status) {
 			xxx--;
 			if (xxx <= 0) {
-				$('.cardloader').remove();
+				$('#'+domId+' .cardloader').remove();
 			}
 		},
 		success: function(result) {

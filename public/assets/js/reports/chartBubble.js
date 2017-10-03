@@ -7,7 +7,7 @@ function chartBubble(domId, url, chartApiData, name) {
             $('#'+domId).append(cardloader);
         },
         complete : function(xhr, status) {
-            $('.cardloader').remove();
+            $('#'+domId+' .cardloader').remove();
         },
         success: function(result) {
             if (result[0]===undefined) {

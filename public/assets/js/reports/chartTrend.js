@@ -7,7 +7,7 @@ function chartTrend(domId, url, chartApiData, title) {
             $('#'+domId).append(cardloader);
         },
         complete : function(xhr, status) {
-            $('.cardloader').remove();
+            $('#'+domId+' .cardloader').remove();
         },
         success: function(result){
             var result = jQuery.parseJSON(result);

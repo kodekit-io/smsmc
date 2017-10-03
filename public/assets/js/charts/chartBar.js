@@ -7,7 +7,7 @@ function chartBar(domId, url, chartApiData, name) {
             $('#'+domId).append(cardloader);
         },
         complete : function(xhr, status) {
-            $('.cardloader').remove();
+            $('#'+domId+' .cardloader').remove();
         },
         success: function(result){
             // console.log(result);
@@ -248,7 +248,7 @@ function chartBarStack(domId, url, chartApiData, name) {
             $('#'+domId).append(cardloader);
         },
         complete : function(xhr, status) {
-            $('.cardloader').remove();
+            $('#'+domId+' .cardloader').remove();
         },
         success: function(result){
             // console.log(result);

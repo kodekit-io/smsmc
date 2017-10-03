@@ -142,7 +142,7 @@
                 <span class="uk-visible@m">FILTER</span>
                 <span uk-icon="icon: chevron-down" class="uk-margin-small-left uk-visible@m"></span>
             </a>
-            <div uk-dropdown="mode: click; offset: 0;" class="uk-width-1-1 dropdown-stack">
+            <div uk-dropdown="mode: click; offset: 0; pos: bottom-right;" class="uk-width-1-1 dropdown-stack">
                 <div class="uk-grid-divider uk-grid-small" uk-grid>
                     <div class="uk-width-1-1">
                         <div class="uk-grid-divider uk-grid-small uk-flex uk-flex-middle">

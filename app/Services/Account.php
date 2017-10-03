@@ -46,7 +46,7 @@ class Account
         $params = $this->parseSocmedAccountData($youtubes, 'yt', $params);
         $params = $this->parseSocmedAccountData($instagrams, 'ig', $params);
         // dd($params);
-        \Log::info($params);
+        // \Log::info($params);
         $this->smsmc->post('project/editprofile', $params);
     }
 
