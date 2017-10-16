@@ -115,7 +115,7 @@ trait ProjectRequestParser
         $data['submittedKeywords'] = $submittedKeywords;
         $data['submittedTopics'] = $submittedTopics;
         $data['submittedSentiments'] = $submittedSentiments;
-        $data['searchText'] = $searchText;
+        $data['searchText'] = htmlentities($searchText, ENT_QUOTES | ENT_IGNORE, 'UTF-8');
         $data['startDate'] = $startDate;
         $data['endDate'] = $endDate;
         $data['shownStartDate'] = $shownStartDate;

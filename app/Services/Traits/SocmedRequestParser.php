@@ -82,7 +82,7 @@ trait SocmedRequestParser
 
         $data['submittedAccounts'] = $submittedAccounts;
         $data['submittedSentiments'] = $submittedSentiments;
-        $data['searchText'] = $searchText;
+        $data['searchText'] = htmlentities($searchText, ENT_QUOTES | ENT_IGNORE, 'UTF-8');
         $data['startDate'] = $startDate;
         $data['endDate'] = $endDate;
         $data['shownStartDate'] = $shownStartDate;
